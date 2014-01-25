@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Code Musings</title>
+ <link href="/atom.xml" rel="self"/>
+ <link href=""/>
+ <updated>2014-01-25T17:08:47+00:00</updated>
+ <id></id>
+ <author>
+   <name>NagaChaitanya Vellanki</name>
+   <email>me@chaitanyavellanki.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Printing PID, Name, Parent PID and Command of all processes</title>
+   <link href="/2013/08/24/printing-pid-process-name-parent-pid-and-command-of-all-processes"/>
+   <updated>2013-08-24T00:00:00+00:00</updated>
+   <id>/2013/08/24/printing-pid-process-name-parent-pid-and-command-of-all-processes</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/6328763.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Listing files open by running processes</title>
+   <link href="/2013/08/24/listing-files-open-by-running-processes"/>
+   <updated>2013-08-24T00:00:00+00:00</updated>
+   <id>/2013/08/24/listing-files-open-by-running-processes</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/6328813.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Hash tables</title>
+   <link href="/2013/08/24/hash-tables"/>
+   <updated>2013-08-24T00:00:00+00:00</updated>
+   <id>/2013/08/24/hash-tables</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/6328707.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Getting system information using uname</title>
+   <link href="/2013/08/24/getting-system-information-using-uname"/>
+   <updated>2013-08-24T00:00:00+00:00</updated>
+   <id>/2013/08/24/getting-system-information-using-uname</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/6328647.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Transformations using OpenGL</title>
+   <link href="/2013/07/14/transformations-using-opengl"/>
+   <updated>2013-07-14T00:00:00+00:00</updated>
+   <id>/2013/07/14/transformations-using-opengl</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;https://vimeo.com/70286524&quot;&gt;click here to watch this video on HD fullscreen&lt;/a&gt;&lt;/p&gt;
+&lt;iframe allowFullScreen=&#39;allowFullScreen&#39; frameborder=&#39;0&#39; height=&#39;281&#39; mozallowfullscreen=&#39;mozallowfullscreen&#39; src=&#39;http://player.vimeo.com/video/70286524&#39; webkitAllowFullScreen=&#39;webkitAllowFullScreen&#39; width=&#39;500&#39;&gt;
+ &lt;/iframe&gt;&lt;p&gt;
+ &lt;a href=&#39;http://vimeo.com/70286524&#39;&gt;Transformations using OpenGL&lt;/a&gt; from &lt;a href=&#39;http://vimeo.com/user19528801&#39;&gt;NagaChaitanya Vellanki&lt;/a&gt; on &lt;a href=&#39;https://vimeo.com&#39;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Spirograph using OpenGL</title>
+   <link href="/2013/07/14/spirograph-using-opengl"/>
+   <updated>2013-07-14T00:00:00+00:00</updated>
+   <id>/2013/07/14/spirograph-using-opengl</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;https://vimeo.com/70285723&quot;&gt;click here to watch this video on HD fullscreen&lt;/a&gt;&lt;/p&gt;
+&lt;iframe allowFullScreen=&#39;allowFullScreen&#39; frameborder=&#39;0&#39; height=&#39;281&#39; mozallowfullscreen=&#39;mozallowfullscreen&#39; src=&#39;http://player.vimeo.com/video/70285723&#39; webkitAllowFullScreen=&#39;webkitAllowFullScreen&#39; width=&#39;500&#39;&gt;
+&lt;/iframe&gt;&lt;p&gt;
+&lt;a href=&#39;http://vimeo.com/70285723&#39;&gt;Spirograph using OpenGL&lt;/a&gt; from &lt;a href=&#39;http://vimeo.com/user19528801&#39;&gt;NagaChaitanya
+Vellanki&lt;/a&gt; on &lt;a href=&#39;https://vimeo.com&#39;&gt;Vimeo&lt;/a&gt;.
+&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Generating random passwords</title>
+   <link href="/2013/07/08/generating-random-passwords"/>
+   <updated>2013-07-08T00:00:00+00:00</updated>
+   <id>/2013/07/08/generating-random-passwords</id>
+   <content type="html">&lt;h4 id=&quot;using_apg_see_man_apg&quot;&gt;Using apg (see man apg)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;~ » apg -M SNCL
+5OvDolges]
+or{Kneek7
+Poos&amp;quot;dres2
+ecWopp4of&amp;quot;
+Posh[glyd5
+5dranKad)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;using_devurandom_see_man_urandom&quot;&gt;Using /dev/urandom (see man urandom)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;~ » cat /dev/urandom | tr -C -d &amp;#39;A-Za-z0-9!@^*&amp;#39; | fold -w 10 | head -n 1
+7!g^eRV7qV&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;using_pwgen_see_man_pwgen&quot;&gt;Using pwgen (see man pwgen)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;~ » pwgen -s -y -N 1
+nR4UH1?@&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more info read this &lt;a href=&quot;http://unix.stackexchange.com/questions/462/how-to-create-strong-passwords-in-linux&quot;&gt;thread&lt;/a&gt; on unix.stackexchange&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>working with time</title>
+   <link href="/2013/06/20/working-with-time"/>
+   <updated>2013-06-20T00:00:00+00:00</updated>
+   <id>/2013/06/20/working-with-time</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;strftime_example&quot;&gt;strftime() example&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5828188.js&#39;&gt;//1&lt;/script&gt;
+&lt;h3 id=&quot;strptime_example&quot;&gt;strptime() example&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5828222.js&#39;&gt;//2&lt;/script&gt;
+&lt;h3 id=&quot;changing_timezones&quot;&gt;changing timezones&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5828287.js&#39;&gt;//3&lt;/script&gt;
+&lt;h3 id=&quot;computing_process_cpu_time&quot;&gt;computing process cpu time&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5828321.js&#39;&gt;//4&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>system and file limits</title>
+   <link href="/2013/06/20/system-and-file-limits"/>
+   <updated>2013-06-20T00:00:00+00:00</updated>
+   <id>/2013/06/20/system-and-file-limits</id>
+   <content type="html">&lt;h3 id=&quot;system_limits_using_sysconf&quot;&gt;system limits using sysconf()&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5828394.js&#39;&gt;i//1&lt;/script&gt;
+&lt;h3 id=&quot;file_related_limits_using_fpathconf&quot;&gt;file related limits using fpathconf()&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5828408.js&#39;&gt;//2&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Reading process info from /proc</title>
+   <link href="/2013/06/20/reading-process-info-from-proc"/>
+   <updated>2013-06-20T00:00:00+00:00</updated>
+   <id>/2013/06/20/reading-process-info-from-proc</id>
+   <content type="html">&lt;script src=&#39;https://gist.github.com/chaitanyav/5828625.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>creating temporary files</title>
+   <link href="/2013/06/20/creating-temporary-files"/>
+   <updated>2013-06-20T00:00:00+00:00</updated>
+   <id>/2013/06/20/creating-temporary-files</id>
+   <content type="html">&lt;script src=&#39;https://gist.github.com/chaitanyav/5828548.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>uptime command implementation</title>
+   <link href="/2013/06/10/uptime-command-implementation"/>
+   <updated>2013-06-10T00:00:00+00:00</updated>
+   <id>/2013/06/10/uptime-command-implementation</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5754292.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>/etc/passwd, /etc/group and /etc/shadow files</title>
+   <link href="/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files"/>
+   <updated>2013-06-09T00:00:00+00:00</updated>
+   <id>/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;reading_etcpasswd_file_using_getpwnam_getpwuid&quot;&gt;Reading /etc/passwd file using getpwnam(), getpwuid()&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5746318.js&#39;&gt;//1 &lt;/script&gt;
+&lt;h3 id=&quot;reading_etcpasswd_using_getpwent&quot;&gt;Reading /etc/passwd using getpwent()&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5746332.js&#39;&gt;//2&lt;/script&gt;
+&lt;h3 id=&quot;reading_etcgroup_using_getgrnam_getgrgid&quot;&gt;Reading /etc/group using getgrnam(), getgrgid()&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5746357.js&#39;&gt;//3&lt;/script&gt;
+&lt;h3 id=&quot;reading_etcgroup_using_getgrent&quot;&gt;Reading /etc/group using getgrent()&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5746366.js&#39;&gt;//4&lt;/script&gt;
+&lt;h3 id=&quot;authenticating_userpassword_using_etcshadow&quot;&gt;Authenticating user-password using /etc/shadow&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5746382.js&#39;&gt;//5&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>mtrace and muntrace</title>
+   <link href="/2013/05/24/mtrace-and-muntrace"/>
+   <updated>2013-05-24T00:00:00+00:00</updated>
+   <id>/2013/05/24/mtrace-and-muntrace</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5647714.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>lfind implementation</title>
+   <link href="/2013/05/24/lfind-implementation"/>
+   <updated>2013-05-24T00:00:00+00:00</updated>
+   <id>/2013/05/24/lfind-implementation</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5647756.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>free and sbrk</title>
+   <link href="/2013/05/24/free-and-sbrk"/>
+   <updated>2013-05-24T00:00:00+00:00</updated>
+   <id>/2013/05/24/free-and-sbrk</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5647685.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>calloc and realloc</title>
+   <link href="/2013/05/24/calloc-and-realloc"/>
+   <updated>2013-05-24T00:00:00+00:00</updated>
+   <id>/2013/05/24/calloc-and-realloc</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5647746.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Exception handling with Try/Catch/Throw/Finally in C using setjmp, longjmp</title>
+   <link href="/2013/04/06/exception-handling-with-trycatchthrowfinally-in-c-using-setjmp-longjmp"/>
+   <updated>2013-04-06T00:00:00+00:00</updated>
+   <id>/2013/04/06/exception-handling-with-trycatchthrowfinally-in-c-using-setjmp-longjmp</id>
+   <content type="html">&lt;p&gt;Link to a very good article on how to use setjmp, longjmp for exception handling in C &lt;a href=&quot;http://www.di.unipi.it/~nids/docs/longjump_try_trow_catch.html&quot;&gt;http://www.di.unipi.it/~nids/docs/longjump_try_trow_catch.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Few examples based on the article below:&lt;/p&gt;
+
+&lt;h3 id=&quot;example_1_trythrowcatch&quot;&gt;Example 1: TRY/THROW/CATCH&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5326340.js&#39;&gt; //1&lt;/script&gt;
+&lt;h3 id=&quot;example_2_multiple_catch_blocks&quot;&gt;Example 2: Multiple CATCH blocks&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5326349.js&#39;&gt; //2&lt;/script&gt;
+&lt;h3 id=&quot;example_3_finally_block&quot;&gt;Example 3: FINALLY block&lt;/h3&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5326356.js&#39;&gt; //3&lt;/script&gt;
+&lt;h3 id=&quot;note&quot;&gt;Note:&lt;/h3&gt;
+
+&lt;p&gt;Had to use the trick from &lt;a href=&quot;http://kjetilvalle.com/posts/gists-with-jekyll.html&quot;&gt;http://kjetilvalle.com/posts/gists-with-jekyll.html&lt;/a&gt; to embed multiple gists in jekyll&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>printenv command implementation</title>
+   <link href="/2013/03/06/printenv-command-implementation"/>
+   <updated>2013-03-06T00:00:00+00:00</updated>
+   <id>/2013/03/06/printenv-command-implementation</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/5106171.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>/proc filesystem linux</title>
+   <link href="/2013/02/16/proc-filesystem-linux"/>
+   <updated>2013-02-16T00:00:00+00:00</updated>
+   <id>/2013/02/16/proc-filesystem-linux</id>
+   <content type="html">&lt;h4 id=&quot;max_process_identifier&quot;&gt;Max process identifier&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;cat /proc/sys/kernel/pid_max
+32768&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;command_line_arguments_of_any_process&quot;&gt;Command line arguments of any process&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;irb(main):001:0&amp;gt; $$
+=&amp;gt; 28168
+
+irb(main):002:0&amp;gt; puts File.read(&amp;quot;/proc/self/cmdline&amp;quot;)
+irb
+=&amp;gt; nil
+
+irb(main):003:0&amp;gt; puts File.read(&amp;quot;/proc/28168/cmdline&amp;quot;)
+irb
+=&amp;gt; nil&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;process_status&quot;&gt;Process status&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;irb(main):001:0&amp;gt; $$
+=&amp;gt; 8255
+
+cat /proc/8255/status
+
+Name:   irb
+State:  S (sleeping)
+Tgid:   8255
+Pid:    8255
+PPid:   7848
+TracerPid:      0
+Uid:    1000    1000    1000    1000
+Gid:    1000    1000    1000    1000
+FDSize: 64
+Groups: 4 24 27 30 46 108 124 1000
+VmPeak:    48404 kB
+VmSize:    48404 kB
+VmLck:         0 kB
+VmPin:         0 kB
+VmHWM:     10980 kB
+VmRSS:     10980 kB
+VmData:     9452 kB
+VmStk:       136 kB
+VmExe:      2524 kB
+VmLib:      3552 kB
+VmPTE:       100 kB
+VmSwap:        0 kB
+Threads:        2
+SigQ:   0/7756
+SigPnd: 0000000000000000
+ShdPnd: 0000000000000000
+SigBlk: 0000000000000000
+SigIgn: 0000000000001000
+SigCgt: 0000000182006e47
+CapInh: 0000000000000000
+CapPrm: 0000000000000000
+CapEff: 0000000000000000
+CapBnd: 0000001fffffffff
+Seccomp:        0
+Cpus_allowed:   ffffffff,ffffffff
+Cpus_allowed_list:      0-63
+Mems_allowed:   00000000,00000001
+Mems_allowed_list:      0
+voluntary_ctxt_switches:        39
+nonvoluntary_ctxt_switches:     119&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;cpu_info&quot;&gt;CPU info&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;cat /proc/cpuinfo
+
+processor       : 0
+vendor_id       : AuthenticAMD
+cpu family      : 16
+model           : 5
+model name      : AMD Phenom(tm) II P960 Quad-Core Processor
+stepping        : 3
+microcode       : 0x10000c8
+cpu MHz         : 1795.549
+cache size      : 512 KB
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 5
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca
+cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx mmxext fxsr_opt
+pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl tsc_reliable
+nonstop_tsc pni cx16 x2apic popcnt hypervisor lahf_lm extapic cr8_legacy
+abm sse4a misalignsse 3dnowprefetch osvw
+bogomips        : 3591.09
+TLB size        : 1024 4K pages
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 40 bits physical, 48 bits virtual
+power management:&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;symlink_to_the_original_exe&quot;&gt;Symlink to the original exe&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;irb(main):001:0&amp;gt; $$
+=&amp;gt; 8438
+
+» ls -l /proc/8438/exe
+lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:06 /proc/8438/exe -&amp;gt; /usr/local/bin/ruby&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;current_working_directory_of_the_process&quot;&gt;Current working directory of the process&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;» echo $$
+8023
+
+» ls -l /proc/8023/cwd
+lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:14 /proc/8023/cwd -&amp;gt; /home/naruto/chaitanyav.github.com&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;kernel_uptime_idle_time&quot;&gt;Kernel uptime, idle time&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;cat /proc/uptime
+11806673.25 24499.77&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;load_on_the_system_averaged_over_1_5_and_15_minutes&quot;&gt;Load on the system averaged over 1, 5 and 15 minutes&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;cat /proc/loadavg
+0.02 0.07 0.03 1/226 32569&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>yes command implementation</title>
+   <link href="/2013/02/14/yes-command-implementation"/>
+   <updated>2013-02-14T00:00:00+00:00</updated>
+   <id>/2013/02/14/yes-command-implementation</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/4958572.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>whoami command implementation</title>
+   <link href="/2013/02/14/whoami-command-implementation"/>
+   <updated>2013-02-14T00:00:00+00:00</updated>
+   <id>/2013/02/14/whoami-command-implementation</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/4958578.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>tee command implementation</title>
+   <link href="/2013/02/14/tee-command-implementation"/>
+   <updated>2013-02-14T00:00:00+00:00</updated>
+   <id>/2013/02/14/tee-command-implementation</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+&lt;script src=&#39;https://gist.github.com/chaitanyav/4958563.js&#39;&gt;//1&lt;/script&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Magic constants in linux/reboot.h</title>
+   <link href="/2013/02/05/magic-constants-in-linuxrebooth"/>
+   <updated>2013-02-05T00:00:00+00:00</updated>
+   <id>/2013/02/05/magic-constants-in-linuxrebooth</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;unistd.h&amp;gt;
+#include &amp;lt;linux/reboot.h&amp;gt;
+
+int main() {
+  printf(&amp;quot;MAGIC2 0x%X\n&amp;quot;, LINUX_REBOOT_MAGIC2);
+  printf(&amp;quot;MAGIC2A 0x%X\n&amp;quot;, LINUX_REBOOT_MAGIC2A);
+  printf(&amp;quot;MAGIC2B 0x%X\n&amp;quot;, LINUX_REBOOT_MAGIC2B);
+  printf(&amp;quot;MAGIC2C 0x%X\n&amp;quot;, LINUX_REBOOT_MAGIC2C);
+  return 0;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;output&quot;&gt;Output:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;MAGIC2 0x28121969
+MAGIC2A 0x5121996
+MAGIC2B 0x16041998
+MAGIC2C 0x20112000&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Finding glibc version</title>
+   <link href="/2013/02/05/finding-glibc-version"/>
+   <updated>2013-02-05T00:00:00+00:00</updated>
+   <id>/2013/02/05/finding-glibc-version</id>
+   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;gnu/libc-version.h&amp;gt;
+
+int main() {
+
+printf(&amp;quot;%s&amp;quot;, gnu_get_libc_version());
+return 0;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;output&quot;&gt;Output&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;2.15&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ 
+</feed>
