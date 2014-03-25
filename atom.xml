@@ -1,21 +1,570 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>Code Musings</title>
+ <title></title>
  <link href="/atom.xml" rel="self"/>
  <link href=""/>
- <updated>2014-01-25T17:08:47+00:00</updated>
+ <updated>2014-03-24T20:29:57-07:00</updated>
  <id></id>
  <author>
-   <name>NagaChaitanya Vellanki</name>
-   <email>me@chaitanyavellanki.com</email>
+   <name></name>
+   <email></email>
  </author>
 
  
  <entry>
+   <title>Ubuntu package management desmystified</title>
+   <link href="/2014/03/24/ubuntu-package-management-demystified.html"/>
+   <updated>2014-03-24T00:00:00-07:00</updated>
+   <id>/2014/03/24/ubuntu-package-management-demystified</id>
+   <content type="html">&lt;hr /&gt;
+&lt;h4 id=&quot;stats_of_packages_available_in_aptcache&quot;&gt;Stats of packages available in apt-cache&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » apt-cache stats
+Total package names: 56184 (1,124 k)
+Total package structures: 95540 (5,350 k)
+  Normal packages: 65375
+  Pure virtual packages: 1143
+  Single virtual packages: 8105
+  Mixed virtual packages: 1910
+  Missing: 19007
+Total distinct versions: 71341 (5,137 k)
+Total distinct descriptions: 86243 (2,070 k)
+Total dependencies: 550600 (15.4 M)
+Total ver/file relations: 74796 (1,795 k)
+Total Desc/File relations: 86243 (2,070 k)
+Total Provides mappings: 15671 (313 k)
+Total globbed strings: 378 (4,029 )
+Total dependency version space: 2,652 k
+Total slack space: 40.2 k
+Total space accounted for: 28.1 M&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;update_the_package_database_as_specified_in_the_etcaptsourceslist_file&quot;&gt;Update the package database (as specified in the /etc/apt/sources.list file)&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » sudo apt-get update
+Ign http://dl.google.com stable InRelease
+Hit http://dl.google.com stable Release.gpg
+Hit http://dl.google.com stable Release
+Ign http://security.ubuntu.com saucy-security InRelease
+Ign http://us.archive.ubuntu.com saucy InRelease
+Hit http://dl.google.com stable/main amd64 Packages
+Get:1 http://security.ubuntu.com saucy-security Release.gpg [933 B]
+Ign http://us.archive.ubuntu.com saucy-updates InRelease
+Hit http://dl.google.com stable/main i386 Packages
+Ign http://extras.ubuntu.com saucy InRelease
+Hit http://mirror.jmu.edu saucy InRelease
+Ign http://ppa.launchpad.net saucy InRelease
+Get:2 http://security.ubuntu.com saucy-security Release [49.6 kB]
+Ign http://us.archive.ubuntu.com saucy-backports InRelease
+Hit http://mirror.jmu.edu saucy/main amd64 Packages
+Get:3 http://extras.ubuntu.com saucy Release.gpg [72 B]
+Ign http://ppa.launchpad.net saucy InRelease
+Hit http://us.archive.ubuntu.com saucy Release.gpg
+Hit http://mirror.jmu.edu saucy/main i386 Packages
+Get:4 http://us.archive.ubuntu.com saucy-updates Release.gpg [933 B]
+Hit http://extras.ubuntu.com saucy Release
+Ign http://ppa.launchpad.net saucy InRelease
+Hit http://us.archive.ubuntu.com saucy-backports Release.gpg
+Get:5 http://security.ubuntu.com saucy-security/main Sources [38.8 kB]
+Hit http://extras.ubuntu.com saucy/main Sources
+Hit http://us.archive.ubuntu.com saucy Release
+Hit http://ppa.launchpad.net saucy Release.gpg
+Ign http://dl.google.com stable/main Translation-en_US
+Ign http://dl.google.com stable/main Translation-en
+Get:6 http://us.archive.ubuntu.com saucy-updates Release [49.6 kB]
+Hit http://extras.ubuntu.com saucy/main amd64 Packages
+Hit http://ppa.launchpad.net saucy Release.gpg
+Get:7 http://security.ubuntu.com saucy-security/restricted Sources [14 B]
+Get:8 http://security.ubuntu.com saucy-security/universe Sources [8,397 B]
+Hit http://extras.ubuntu.com saucy/main i386 Packages
+Hit http://ppa.launchpad.net saucy Release.gpg
+Get:9 http://security.ubuntu.com saucy-security/multiverse Sources [692 B]
+Get:10 http://security.ubuntu.com saucy-security/main amd64 Packages [106 kB]
+Hit http://ppa.launchpad.net saucy Release
+Hit http://us.archive.ubuntu.com saucy-backports Release
+Hit http://us.archive.ubuntu.com saucy/main Sources
+Hit http://ppa.launchpad.net saucy Release
+Hit http://us.archive.ubuntu.com saucy/restricted Sources
+Ign http://mirror.jmu.edu saucy/main Translation-en_US
+Hit http://ppa.launchpad.net saucy Release
+Hit http://us.archive.ubuntu.com saucy/universe Sources
+Get:11 http://security.ubuntu.com saucy-security/restricted amd64 Packages [14
+B]
+Hit http://us.archive.ubuntu.com saucy/multiverse Sources
+Ign http://mirror.jmu.edu saucy/main Translation-en
+Hit http://ppa.launchpad.net saucy/main amd64 Packages
+Get:12 http://security.ubuntu.com saucy-security/universe amd64 Packages [36.3
+kB]
+Hit http://us.archive.ubuntu.com saucy/main amd64 Packages
+Hit http://us.archive.ubuntu.com saucy/restricted amd64 Packages
+Hit http://ppa.launchpad.net saucy/main i386 Packages
+Get:13 http://security.ubuntu.com saucy-security/multiverse amd64 Packages
+[1,160 B]
+Hit http://us.archive.ubuntu.com saucy/universe amd64 Packages
+Get:14 http://security.ubuntu.com saucy-security/main i386 Packages [105 kB]
+Hit http://us.archive.ubuntu.com saucy/multiverse amd64 Packages
+Hit http://us.archive.ubuntu.com saucy/main i386 Packages
+Hit http://ppa.launchpad.net saucy/main amd64 Packages
+Hit http://us.archive.ubuntu.com saucy/restricted i386 Packages
+Get:15 http://security.ubuntu.com saucy-security/restricted i386 Packages [14
+B]
+Get:16 http://security.ubuntu.com saucy-security/universe i386 Packages [36.6
+kB]
+Hit http://us.archive.ubuntu.com saucy/universe i386 Packages
+Ign http://extras.ubuntu.com saucy/main Translation-en_US
+Hit http://ppa.launchpad.net saucy/main i386 Packages
+Hit http://us.archive.ubuntu.com saucy/multiverse i386 Packages
+Ign http://extras.ubuntu.com saucy/main Translation-en
+Get:17 http://security.ubuntu.com saucy-security/multiverse i386 Packages
+[1,395 B]
+Hit http://us.archive.ubuntu.com saucy/main Translation-en
+Hit http://us.archive.ubuntu.com saucy/multiverse Translation-en
+Get:18 http://security.ubuntu.com saucy-security/main Translation-en [57.9 kB]
+Hit http://us.archive.ubuntu.com saucy/restricted Translation-en
+Hit http://ppa.launchpad.net saucy/main amd64 Packages
+Hit http://security.ubuntu.com saucy-security/multiverse Translation-en
+Hit http://ppa.launchpad.net saucy/main i386 Packages
+Hit http://us.archive.ubuntu.com saucy/universe Translation-en
+Hit http://security.ubuntu.com saucy-security/restricted Translation-en
+Get:19 http://us.archive.ubuntu.com saucy-updates/main Sources [80.6 kB]
+Get:20 http://security.ubuntu.com saucy-security/universe Translation-en [21.2
+kB]
+Get:21 http://us.archive.ubuntu.com saucy-updates/restricted Sources [14 B]
+Get:22 http://us.archive.ubuntu.com saucy-updates/universe Sources [67.9 kB]
+Get:23 http://us.archive.ubuntu.com saucy-updates/multiverse Sources [1,348 B]
+Ign http://security.ubuntu.com saucy-security/main Translation-en_US
+Get:24 http://us.archive.ubuntu.com saucy-updates/main amd64 Packages [223 kB]
+Ign http://security.ubuntu.com saucy-security/multiverse Translation-en_US
+Ign http://security.ubuntu.com saucy-security/restricted Translation-en_US
+Ign http://security.ubuntu.com saucy-security/universe Translation-en_US
+Ign http://ppa.launchpad.net saucy/main Translation-en_US
+Ign http://ppa.launchpad.net saucy/main Translation-en
+Ign http://ppa.launchpad.net saucy/main Translation-en_US
+Ign http://ppa.launchpad.net saucy/main Translation-en
+Ign http://ppa.launchpad.net saucy/main Translation-en_US
+Ign http://ppa.launchpad.net saucy/main Translation-en
+Get:25 http://us.archive.ubuntu.com saucy-updates/restricted amd64 Packages
+[14 B]
+Get:26 http://us.archive.ubuntu.com saucy-updates/universe amd64 Packages [158
+kB]
+Get:27 http://us.archive.ubuntu.com saucy-updates/multiverse amd64 Packages
+[1,552 B]
+Get:28 http://us.archive.ubuntu.com saucy-updates/main i386 Packages [222 kB]
+Get:29 http://us.archive.ubuntu.com saucy-updates/restricted i386 Packages [14
+B]
+Get:30 http://us.archive.ubuntu.com saucy-updates/universe i386 Packages [159
+kB]
+Get:31 http://us.archive.ubuntu.com saucy-updates/multiverse i386 Packages
+[1,773 B]
+Get:32 http://us.archive.ubuntu.com saucy-updates/main Translation-en [105 kB]
+Hit http://us.archive.ubuntu.com saucy-updates/multiverse Translation-en
+Hit http://us.archive.ubuntu.com saucy-updates/restricted Translation-en
+Hit http://us.archive.ubuntu.com saucy-updates/universe Translation-en
+Hit http://us.archive.ubuntu.com saucy-backports/main Sources
+Hit http://us.archive.ubuntu.com saucy-backports/restricted Sources
+Hit http://us.archive.ubuntu.com saucy-backports/universe Sources
+Hit http://us.archive.ubuntu.com saucy-backports/multiverse Sources
+Hit http://us.archive.ubuntu.com saucy-backports/main amd64 Packages
+Hit http://us.archive.ubuntu.com saucy-backports/restricted amd64 Packages
+Hit http://us.archive.ubuntu.com saucy-backports/universe amd64 Packages
+Hit http://us.archive.ubuntu.com saucy-backports/multiverse amd64 Packages
+Hit http://us.archive.ubuntu.com saucy-backports/main i386 Packages
+Hit http://us.archive.ubuntu.com saucy-backports/restricted i386 Packages
+Hit http://us.archive.ubuntu.com saucy-backports/universe i386 Packages
+Hit http://us.archive.ubuntu.com saucy-backports/multiverse i386 Packages
+Hit http://us.archive.ubuntu.com saucy-backports/main Translation-en
+Hit http://us.archive.ubuntu.com saucy-backports/multiverse Translation-en
+Hit http://us.archive.ubuntu.com saucy-backports/restricted Translation-en
+Hit http://us.archive.ubuntu.com saucy-backports/universe Translation-en
+Ign http://us.archive.ubuntu.com saucy/main Translation-en_US
+Ign http://us.archive.ubuntu.com saucy/multiverse Translation-en_US
+Ign http://us.archive.ubuntu.com saucy/restricted Translation-en_US
+Ign http://us.archive.ubuntu.com saucy/universe Translation-en_US
+Ign http://us.archive.ubuntu.com saucy-updates/main Translation-en_US
+Ign http://us.archive.ubuntu.com saucy-updates/multiverse Translation-en_US
+Ign http://us.archive.ubuntu.com saucy-updates/restricted Translation-en_US
+Ign http://us.archive.ubuntu.com saucy-updates/universe Translation-en_US
+Ign http://us.archive.ubuntu.com saucy-backports/main Translation-en_US
+Ign http://us.archive.ubuntu.com saucy-backports/multiverse Translation-en_US
+Ign http://us.archive.ubuntu.com saucy-backports/restricted Translation-en_US
+Ign http://us.archive.ubuntu.com saucy-backports/universe Translation-en_US
+Fetched 1,535 kB in 19s (79.2 kB/s)
+Reading package lists... Done&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;search_the_package_database_for_a_given_keyword&quot;&gt;Search the package database for a given keyword&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » apt-cache search mongodb
+python-bson - Python implementation of BSON for MongoDB
+python-bson-ext - C-coded extension to the python-bson package
+python-celery - async task/job queue based on message passing
+python-celery-doc - async task/job queue based on message passing
+(Documentation)
+python-gridfs - Python implementation of GridFS for MongoDB
+python-pymongo - Python interface to the MongoDB document-oriented database
+python-pymongo-doc - Python interface to the MongoDB document-oriented
+database (documentation)
+python-pymongo-ext - C-coded extension to the python-pymongo package
+python3-bson - Python3 implementation of BSON for MongoDB
+python3-bson-ext - C-coded extension to the python3-bson package
+python3-gridfs - Python3 implementation of GridFS for MongoDB
+python3-pymongo - Python3 interface to the MongoDB document-oriented database
+python3-pymongo-ext - C-coded extension to the python3-pymongo package
+falconpl-mongodb - MongoDB bindings for Falcon P.L
+libmongo-client-dev - Development files for the alternate C driver for MongoDB
+libmongo-client-doc - Documentation for the alternate C driver for MongoDB
+libmongo-client0 - Alternate C driver for the MongoDB document-oriented
+datastore
+libmongo-client0-dbg - Alternate C driver for MongoDB (debugging symbols)
+libmongodb-perl - Mongo Driver for Perl
+libmongodbx-class-perl - flexible ORM module for MongoDB databases
+mongodb - object/document-oriented database (metapackage)
+mongodb-clients - object/document-oriented database (client apps)
+mongodb-dev - object/document-oriented database (development)
+mongodb-server - object/document-oriented database (server package)
+php5-mongo - MongoDB database driver
+postgresql-9.1-plv8 - Procedural language interface between PostgreSQL and
+JavaScript
+python-mongoengine - Python Document-Object Mapper for working with MongoDB
+python-mongoengine-doc - Python Document-Object Mapper for working with
+MongoDB (documentation)
+ruby-connection-pool - generic connection pool for ruby
+ruby-mongo - Ruby driver for MongoDB
+syslog-ng - Next generation system logging daemon (metapackage)
+syslog-ng-core - Next generation system logging daemon (core)
+syslog-ng-dbg - Next generation system logging daemon (debug symbols)
+syslog-ng-mod-json - Next generation system logging daemon (JSON plugin)
+syslog-ng-mod-mongodb - Next generation system logging daemon (MongoDB plugin)
+syslog-ng-mod-sql - Next generation system logging daemon (SQL plugin)&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;installing_a_package&quot;&gt;Installing a package&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install postgresql                                                                                                             nagachaitanya@playgro
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following extra packages will be installed:
+  libpq5 postgresql-9.1 postgresql-client-9.1 postgresql-client-common postgresql-common
+Suggested packages:
+  oidentd ident-server locales-all postgresql-doc-9.1
+The following NEW packages will be installed:
+  libpq5 postgresql postgresql-9.1 postgresql-client-9.1 postgresql-client-common postgresql-common
+0 upgraded, 6 newly installed, 0 to remove and 2 not upgraded.
+Need to get 3,428 kB of archives.
+After this operation, 14.8 MB of additional disk space will be used.
+Do you want to continue [Y/n]? y
+Get:1 http://us.archive.ubuntu.com/ubuntu/ saucy-updates/main libpq5 amd64 9.1.12-0ubuntu0.13.10 [76.3 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu/ saucy/main postgresql-client-common all 148 [28.8 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu/ saucy-updates/main postgresql-client-9.1 amd64 9.1.12-0ubuntu0.13.10 [709 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu/ saucy/main postgresql-common all 148 [110 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu/ saucy-updates/main postgresql-9.1 amd64 9.1.12-0ubuntu0.13.10 [2,497 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu/ saucy/main postgresql all 9.3+146really9.1+148 [6,402 B]
+Fetched 3,428 kB in 11s (296 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package libpq5.
+(Reading database ... 220304 files and directories currently installed.)
+Unpacking libpq5 (from .../libpq5_9.1.12-0ubuntu0.13.10_amd64.deb) ...
+Selecting previously unselected package postgresql-client-common.
+Unpacking postgresql-client-common (from .../postgresql-client-common_148_all.deb) ...
+Selecting previously unselected package postgresql-client-9.1.
+Unpacking postgresql-client-9.1 (from .../postgresql-client-9.1_9.1.12-0ubuntu0.13.10_amd64.deb) ...
+Selecting previously unselected package postgresql-common.
+Unpacking postgresql-common (from .../postgresql-common_148_all.deb) ...
+Adding &amp;#39;diversion of /usr/bin/pg_config to /usr/bin/pg_config.libpq-dev by postgresql-common&amp;#39;
+Selecting previously unselected package postgresql-9.1.
+Unpacking postgresql-9.1 (from .../postgresql-9.1_9.1.12-0ubuntu0.13.10_amd64.deb) ...
+Selecting previously unselected package postgresql.
+Unpacking postgresql (from .../postgresql_9.3+146really9.1+148_all.deb) ...
+Processing triggers for man-db ...
+Processing triggers for ureadahead ...
+ureadahead will be reprofiled on next reboot
+Setting up libpq5 (9.1.12-0ubuntu0.13.10) ...
+Setting up postgresql-client-common (148) ...
+Setting up postgresql-client-9.1 (9.1.12-0ubuntu0.13.10) ...
+update-alternatives: using /usr/share/postgresql/9.1/man/man1/psql.1.gz to provide /usr/share/man/man1/psql.1.gz (psql.1.gz) in auto mode
+Setting up postgresql-common (148) ...
+Adding user postgres to group ssl-cert
+Building PostgreSQL dictionaries from installed myspell/hunspell packages...
+  en_au
+  en_gb
+  en_us
+  en_za
+Removing obsolete dictionary files:
+* No PostgreSQL clusters exist; see &amp;quot;man pg_createcluster&amp;quot;
+Processing triggers for ureadahead ...
+Setting up postgresql-9.1 (9.1.12-0ubuntu0.13.10) ...
+Creating new cluster 9.1/main ...
+  config /etc/postgresql/9.1/main
+  data   /var/lib/postgresql/9.1/main
+  locale en_US.UTF-8
+  port   5432
+update-alternatives: using /usr/share/postgresql/9.1/man/man1/postmaster.1.gz to provide /usr/share/man/man1/postmaster.1.gz (postmaster.1.gz) in auto mode
+* Starting PostgreSQL 9.1 database server                                                                                                                        [ OK ]
+Setting up postgresql (9.3+146really9.1+148) ...
+Processing triggers for libc-bin ...&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;download_a_package_without_installing&quot;&gt;Download a package without installing&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » sudo apt-get download mysql-server
+Get:1 Downloading mysql-server 5.5.35-0ubuntu0.13.10.2 [11.1 kB]
+Fetched 11.1 kB in 0s (50.4 kB/s)&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;show_info_about_a_package&quot;&gt;Show info about a package&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » apt-cache show mongodb
+Package: mongodb
+Priority: optional
+Section: universe/database
+Installed-Size: 44
+Maintainer: Ubuntu Developers &amp;lt;ubuntu-devel-discuss@lists.ubuntu.com&amp;gt;
+Original-Maintainer: Antonin Kral &amp;lt;A.Kral@sh.cvut.cz&amp;gt;
+Architecture: amd64
+Version: 1:2.4.6-0ubuntu5
+Depends: mongodb-dev, mongodb-server (&amp;gt;= 1:2.4.1-2)
+Filename: pool/universe/m/mongodb/mongodb_2.4.6-0ubuntu5_amd64.deb
+Size: 5290
+MD5sum: de1d54bc9a7ea901d79ab86a579aef62
+SHA1: 340bddf7c143c8358c2acb9a52e1b46cf2d2e4c2
+SHA256: 13697dcab4532eef6bc3a9fccd45a3eb6ccee8e5d39c0bc9a998be8d562215f7
+Description-en: object/document-oriented database (metapackage)
+MongoDB is a high-performance, open source, schema-free
+document-oriented data store that&amp;#39;s easy to deploy, manage
+and use. It&amp;#39;s network accessible, written in C++ and offers
+the following features:
+.
+    * Collection oriented storage - easy storage of object-style data
+    * Full index support, including on inner objects
+    * Query profiling
+    * Replication and fail-over support
+    * Efficient storage of binary data including large objects (e.g. videos)
+    * Auto-sharding for cloud-level scalability
+.
+High performance, scalability, and reasonable depth of
+functionality are the goals for the project.
+.
+This is a convenience metapackage that depends on all the mongodb parts:
+the server, the clients and the development files (headers and library).
+Description-md5: 8fa8c030cb4f008d0ac716b496446f9d
+Homepage: http://www.mongodb.org
+Description-md5: 8fa8c030cb4f008d0ac716b496446f9d
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Origin: Ubuntu&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;upgrade_installed_packages&quot;&gt;Upgrade installed packages&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » sudo apt-get upgrade
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages will be upgraded:
+  bitcoin-qt ca-certificates
+2 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 3,251 kB of archives.
+After this operation, 1,802 kB of additional disk space will be used.
+Do you want to continue [Y/n]? y
+Get:1 http://us.archive.ubuntu.com/ubuntu/ saucy-updates/main ca-certificates all 20130906ubuntu0.13.10.1 [191 kB]
+Get:2 http://ppa.launchpad.net/bitcoin/bitcoin/ubuntu/ saucy/main bitcoin-qt amd64 0.9.0-saucy1 [3,060 kB]
+Fetched 3,251 kB in 6s (517 kB/s)
+Preconfiguring packages ...
+(Reading database ... 220706 files and directories currently installed.)
+Preparing to replace ca-certificates 20130610 (using .../ca-certificates_20130906ubuntu0.13.10.1_all.deb) ...
+Unpacking replacement ca-certificates ...
+Preparing to replace bitcoin-qt 0.8.6-saucy1 (using .../bitcoin-qt_0.9.0-saucy1_amd64.deb) ...
+Unpacking replacement bitcoin-qt ...
+Processing triggers for man-db ...
+Processing triggers for desktop-file-utils ...
+Processing triggers for gnome-menus ...
+Processing triggers for bamfdaemon ...
+Rebuilding /usr/share/applications/bamf-2.index...
+Processing triggers for mime-support ...
+Setting up ca-certificates (20130906ubuntu0.13.10.1) ...
+Setting up bitcoin-qt (0.9.0-saucy1) ...
+Processing triggers for ca-certificates ...
+Updating certificates in /etc/ssl/certs... WARNING: Skipping duplicate certificate UbuntuOne-Go_Daddy_Class_2_CA.pem
+WARNING: Skipping duplicate certificate UbuntuOne-Go_Daddy_Class_2_CA.pem
+WARNING: Skipping duplicate certificate UbuntuOne-ValiCert_Class_2_VA.pem
+WARNING: Skipping duplicate certificate UbuntuOne-ValiCert_Class_2_VA.pem
+11 added, 4 removed; done.
+Running hooks in /etc/ca-certificates/update.d....
+Adding debian:CA_Disig_Root_R1.pem
+Adding debian:CA_Disig_Root_R2.pem
+Adding debian:China_Internet_Network_Information_Center_EV_Certificates_Root.pem
+Adding debian:D-TRUST_Root_Class_3_CA_2_2009.pem
+Adding debian:D-TRUST_Root_Class_3_CA_2_EV_2009.pem
+Adding debian:PSCProcert.pem
+Adding debian:StartCom_Certification_Authority_2.pem
+Adding debian:Swisscom_Root_CA_2.pem
+Adding debian:Swisscom_Root_EV_CA_2.pem
+Adding debian:TURKTRUST_Certificate_Services_Provider_Root_2007.pem
+Adding debian:Verisign_Class_3_Public_Primary_Certification_Authority_2.pem
+Removing debian:cacert.org_class3.pem
+Removing debian:cacert.org_root.pem
+Removing debian:Equifax_Secure_eBusiness_CA_2.pem
+Removing debian:TC_TrustCenter_Universal_CA_III.pem
+done.
+done.&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;upgrade_to_a_new_release_of_ubuntu&quot;&gt;Upgrade to a new release of ubuntu&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;p&gt;~ » sudo apt-get dist-upgrade&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;remove_archived_packages_in_varcacheaptarchives&quot;&gt;Remove archived packages in /var/cache/apt/archives&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;p&gt;~ » sudo apt-get clean&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;remove_obsolete_packages&quot;&gt;Remove obsolete packages&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;p&gt;~ » sudo apt-get autoclean&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;remove_a_package&quot;&gt;Remove a package&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » sudo apt-get remove postgresql
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages were automatically installed and are no longer
+required:
+  libpq5 postgresql-9.1 postgresql-client-9.1 postgresql-client-common
+  postgresql-common
+  Use &amp;#39;apt-get autoremove&amp;#39; to remove them.
+  The following packages will be REMOVED:
+    postgresql
+    0 upgraded, 0 newly installed, 1 to remove and 0 not upgraded.
+    After this operation, 70.7 kB disk space will be freed.
+    Do you want to continue [Y/n]? y
+    (Reading database ... 220711 files and directories currently installed.)
+    Removing postgresql ...&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;remove_a_package_with_config_files&quot;&gt;Remove a package with config files&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » sudo apt-get remove --purge postgresql
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Package &amp;#39;postgresql&amp;#39; is not installed, so not removed
+The following packages were automatically installed and are no longer
+required:
+  libpq5 postgresql-9.1 postgresql-client-9.1 postgresql-client-common
+  postgresql-common
+  Use &amp;#39;apt-get autoremove&amp;#39; to remove them.
+  0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;remove_dependencies_for_a_removed_package&quot;&gt;Remove dependencies for a removed package&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » sudo apt-get autoremove
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages will be REMOVED:
+  libpq5 postgresql-9.1 postgresql-client-9.1 postgresql-client-common
+  postgresql-common
+  0 upgraded, 0 newly installed, 5 to remove and 0 not upgraded.
+  After this operation, 14.8 MB disk space will be freed.
+  Do you want to continue [Y/n]? y
+  (Reading database ... 220708 files and directories currently installed.)
+  Removing postgresql-9.1 ...
+  * Stopping PostgreSQL 9.1 database server
+    [ OK  ]
+    Removing postgresql-client-9.1 ...
+    Removing libpq5 ...
+    Removing postgresql-common ...
+      * No PostgreSQL clusters exist; see &amp;quot;man pg_createcluster&amp;quot;
+      Removing &amp;#39;diversion of /usr/bin/pg_config to
+      /usr/bin/pg_config.libpq-dev by postgresql-common&amp;#39;
+      Removing postgresql-client-common ...
+      Processing triggers for libc-bin ...
+      Processing triggers for ureadahead ...
+      Processing triggers for man-db ...&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;install_a_package_even_if_the_dependencies_are_unmet&quot;&gt;Install a package even if the dependencies are unmet&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » sudo apt-get install -f postgresql&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;list_dependencies_of_a_package&quot;&gt;List dependencies of a package&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » sudo apt-cache depends vim
+vim
+  Depends: vim-common
+  Depends: vim-runtime
+  Depends: libacl1
+  Depends: libc6
+  Depends: libgpm2
+  Depends: libpython2.7
+  Depends: libselinux1
+  Depends: libtinfo5
+  Suggests: &amp;lt;ctags&amp;gt;
+    exuberant-ctags:i386
+    exuberant-ctags
+  Suggests: vim-doc
+  Suggests: vim-scripts
+  Conflicts: vim:i386&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;list_trusted_gpg_keys_for_package_sources&quot;&gt;List trusted GPG keys for package sources&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » sudo apt-key list
+/etc/apt/trusted.gpg
+\--------------------
+pub   1024D/437D05B5 2004-09-12
+uid                  Ubuntu Archive Automatic Signing Key
+&amp;lt;ftpmaster@ubuntu.com&amp;gt;
+sub   2048g/79164387 2004-09-12
+
+pub   1024D/FBB75451 2004-12-30
+uid                  Ubuntu CD Image Automatic Signing Key
+&amp;lt;cdimage@ubuntu.com&amp;gt;
+
+pub   4096R/C0B21F32 2012-05-11
+uid                  Ubuntu Archive Automatic Signing Key (2012)
+&amp;lt;ftpmaster@ubuntu.com&amp;gt;
+
+pub   4096R/EFE21092 2012-05-11
+uid                  Ubuntu CD Image Automatic Signing Key (2012)
+&amp;lt;cdimage@ubuntu.com&amp;gt;
+
+pub   1024D/3E5C1192 2010-09-20
+uid                  Ubuntu Extras Archive Automatic Signing Key
+&amp;lt;ftpmaster@ubuntu.com&amp;gt;
+
+pub   1024D/7FAC5991 2007-03-08
+uid                  Google, Inc. Linux Package Signing Key
+&amp;lt;linux-packages-keymaster@google.com&amp;gt;
+sub   2048g/C07CB649 2007-03-08
+
+pub   1024D/1BB943DB 2010-02-02
+uid                  MariaDB Package Signing Key
+&amp;lt;package-signing-key@mariadb.org&amp;gt;
+uid                  Daniel Bartholomew (Monty Program signing key)
+&amp;lt;dbart@askmonty.org&amp;gt;
+sub   4096g/672557E6 2010-02-02
+
+/etc/apt/trusted.gpg.d//aaron-haviland-cuda-5_5.gpg
+\---------------------------------------------------
+pub   1024R/B5D3130B 2009-10-01
+uid                  Launchpad havilana
+
+/etc/apt/trusted.gpg.d//alexmurray-indicator-sensors.gpg
+\--------------------------------------------------------
+pub   1024R/2B944FEE 2009-09-28
+uid                  Launchpad PPA for Alex Murray
+
+/etc/apt/trusted.gpg.d//bitcoin-bitcoin.gpg
+\-------------------------------------------
+pub   1024R/8842CE5E 2011-10-26
+uid                  Launchpad PPA for Bitcoin&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;list_aptitude_config_see_aptconfig_h_for_more_options&quot;&gt;List aptitude config (see apt-config -h for more options)&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » apt-config -v
+apt 0.9.9.1~ubuntu1 for amd64 compiled on Sep 11 2013 17:45:29&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h4 id=&quot;list_all_package_names&quot;&gt;List all package names&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;pre&gt;&lt;code&gt;~ » apt-cache pkgnames&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Printing PID, Name, Parent PID and Command of all processes</title>
-   <link href="/2013/08/24/printing-pid-process-name-parent-pid-and-command-of-all-processes"/>
-   <updated>2013-08-24T00:00:00+00:00</updated>
+   <link href="/2013/08/24/printing-pid-process-name-parent-pid-and-command-of-all-processes.html"/>
+   <updated>2013-08-24T00:00:00-07:00</updated>
    <id>/2013/08/24/printing-pid-process-name-parent-pid-and-command-of-all-processes</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/6328763.js&#39;&gt;//1&lt;/script&gt;</content>
@@ -23,8 +572,8 @@
  
  <entry>
    <title>Listing files open by running processes</title>
-   <link href="/2013/08/24/listing-files-open-by-running-processes"/>
-   <updated>2013-08-24T00:00:00+00:00</updated>
+   <link href="/2013/08/24/listing-files-open-by-running-processes.html"/>
+   <updated>2013-08-24T00:00:00-07:00</updated>
    <id>/2013/08/24/listing-files-open-by-running-processes</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/6328813.js&#39;&gt;//1&lt;/script&gt;</content>
@@ -32,8 +581,8 @@
  
  <entry>
    <title>Hash tables</title>
-   <link href="/2013/08/24/hash-tables"/>
-   <updated>2013-08-24T00:00:00+00:00</updated>
+   <link href="/2013/08/24/hash-tables.html"/>
+   <updated>2013-08-24T00:00:00-07:00</updated>
    <id>/2013/08/24/hash-tables</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/6328707.js&#39;&gt;//1&lt;/script&gt;</content>
@@ -41,8 +590,8 @@
  
  <entry>
    <title>Getting system information using uname</title>
-   <link href="/2013/08/24/getting-system-information-using-uname"/>
-   <updated>2013-08-24T00:00:00+00:00</updated>
+   <link href="/2013/08/24/getting-system-information-using-uname.html"/>
+   <updated>2013-08-24T00:00:00-07:00</updated>
    <id>/2013/08/24/getting-system-information-using-uname</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/6328647.js&#39;&gt;//1&lt;/script&gt;</content>
@@ -50,8 +599,8 @@
  
  <entry>
    <title>Transformations using OpenGL</title>
-   <link href="/2013/07/14/transformations-using-opengl"/>
-   <updated>2013-07-14T00:00:00+00:00</updated>
+   <link href="/2013/07/14/transformations-using-opengl.html"/>
+   <updated>2013-07-14T00:00:00-07:00</updated>
    <id>/2013/07/14/transformations-using-opengl</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://vimeo.com/70286524&quot;&gt;click here to watch this video on HD fullscreen&lt;/a&gt;&lt;/p&gt;
 &lt;iframe allowFullScreen=&#39;allowFullScreen&#39; frameborder=&#39;0&#39; height=&#39;281&#39; mozallowfullscreen=&#39;mozallowfullscreen&#39; src=&#39;http://player.vimeo.com/video/70286524&#39; webkitAllowFullScreen=&#39;webkitAllowFullScreen&#39; width=&#39;500&#39;&gt;
@@ -61,8 +610,8 @@
  
  <entry>
    <title>Spirograph using OpenGL</title>
-   <link href="/2013/07/14/spirograph-using-opengl"/>
-   <updated>2013-07-14T00:00:00+00:00</updated>
+   <link href="/2013/07/14/spirograph-using-opengl.html"/>
+   <updated>2013-07-14T00:00:00-07:00</updated>
    <id>/2013/07/14/spirograph-using-opengl</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://vimeo.com/70285723&quot;&gt;click here to watch this video on HD fullscreen&lt;/a&gt;&lt;/p&gt;
 &lt;iframe allowFullScreen=&#39;allowFullScreen&#39; frameborder=&#39;0&#39; height=&#39;281&#39; mozallowfullscreen=&#39;mozallowfullscreen&#39; src=&#39;http://player.vimeo.com/video/70285723&#39; webkitAllowFullScreen=&#39;webkitAllowFullScreen&#39; width=&#39;500&#39;&gt;
@@ -74,8 +623,8 @@ Vellanki&lt;/a&gt; on &lt;a href=&#39;https://vimeo.com&#39;&gt;Vimeo&lt;/a&gt;.
  
  <entry>
    <title>Generating random passwords</title>
-   <link href="/2013/07/08/generating-random-passwords"/>
-   <updated>2013-07-08T00:00:00+00:00</updated>
+   <link href="/2013/07/08/generating-random-passwords.html"/>
+   <updated>2013-07-08T00:00:00-07:00</updated>
    <id>/2013/07/08/generating-random-passwords</id>
    <content type="html">&lt;h4 id=&quot;using_apg_see_man_apg&quot;&gt;Using apg (see man apg)&lt;/h4&gt;
 
@@ -102,8 +651,8 @@ nR4UH1?@&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>working with time</title>
-   <link href="/2013/06/20/working-with-time"/>
-   <updated>2013-06-20T00:00:00+00:00</updated>
+   <link href="/2013/06/20/working-with-time.html"/>
+   <updated>2013-06-20T00:00:00-07:00</updated>
    <id>/2013/06/20/working-with-time</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 
@@ -119,8 +668,8 @@ nR4UH1?@&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>system and file limits</title>
-   <link href="/2013/06/20/system-and-file-limits"/>
-   <updated>2013-06-20T00:00:00+00:00</updated>
+   <link href="/2013/06/20/system-and-file-limits.html"/>
+   <updated>2013-06-20T00:00:00-07:00</updated>
    <id>/2013/06/20/system-and-file-limits</id>
    <content type="html">&lt;h3 id=&quot;system_limits_using_sysconf&quot;&gt;system limits using sysconf()&lt;/h3&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/5828394.js&#39;&gt;i//1&lt;/script&gt;
@@ -130,24 +679,24 @@ nR4UH1?@&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Reading process info from /proc</title>
-   <link href="/2013/06/20/reading-process-info-from-proc"/>
-   <updated>2013-06-20T00:00:00+00:00</updated>
+   <link href="/2013/06/20/reading-process-info-from-proc.html"/>
+   <updated>2013-06-20T00:00:00-07:00</updated>
    <id>/2013/06/20/reading-process-info-from-proc</id>
    <content type="html">&lt;script src=&#39;https://gist.github.com/chaitanyav/5828625.js&#39;&gt;//1&lt;/script&gt;</content>
  </entry>
  
  <entry>
    <title>creating temporary files</title>
-   <link href="/2013/06/20/creating-temporary-files"/>
-   <updated>2013-06-20T00:00:00+00:00</updated>
+   <link href="/2013/06/20/creating-temporary-files.html"/>
+   <updated>2013-06-20T00:00:00-07:00</updated>
    <id>/2013/06/20/creating-temporary-files</id>
    <content type="html">&lt;script src=&#39;https://gist.github.com/chaitanyav/5828548.js&#39;&gt;//1&lt;/script&gt;</content>
  </entry>
  
  <entry>
    <title>uptime command implementation</title>
-   <link href="/2013/06/10/uptime-command-implementation"/>
-   <updated>2013-06-10T00:00:00+00:00</updated>
+   <link href="/2013/06/10/uptime-command-implementation.html"/>
+   <updated>2013-06-10T00:00:00-07:00</updated>
    <id>/2013/06/10/uptime-command-implementation</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/5754292.js&#39;&gt;//1&lt;/script&gt;</content>
@@ -155,8 +704,8 @@ nR4UH1?@&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>/etc/passwd, /etc/group and /etc/shadow files</title>
-   <link href="/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files"/>
-   <updated>2013-06-09T00:00:00+00:00</updated>
+   <link href="/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files.html"/>
+   <updated>2013-06-09T00:00:00-07:00</updated>
    <id>/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 
@@ -174,8 +723,8 @@ nR4UH1?@&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>mtrace and muntrace</title>
-   <link href="/2013/05/24/mtrace-and-muntrace"/>
-   <updated>2013-05-24T00:00:00+00:00</updated>
+   <link href="/2013/05/24/mtrace-and-muntrace.html"/>
+   <updated>2013-05-24T00:00:00-07:00</updated>
    <id>/2013/05/24/mtrace-and-muntrace</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/5647714.js&#39;&gt;//1&lt;/script&gt;</content>
@@ -183,8 +732,8 @@ nR4UH1?@&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>lfind implementation</title>
-   <link href="/2013/05/24/lfind-implementation"/>
-   <updated>2013-05-24T00:00:00+00:00</updated>
+   <link href="/2013/05/24/lfind-implementation.html"/>
+   <updated>2013-05-24T00:00:00-07:00</updated>
    <id>/2013/05/24/lfind-implementation</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/5647756.js&#39;&gt;//1&lt;/script&gt;</content>
@@ -192,8 +741,8 @@ nR4UH1?@&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>free and sbrk</title>
-   <link href="/2013/05/24/free-and-sbrk"/>
-   <updated>2013-05-24T00:00:00+00:00</updated>
+   <link href="/2013/05/24/free-and-sbrk.html"/>
+   <updated>2013-05-24T00:00:00-07:00</updated>
    <id>/2013/05/24/free-and-sbrk</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/5647685.js&#39;&gt;//1&lt;/script&gt;</content>
@@ -201,8 +750,8 @@ nR4UH1?@&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>calloc and realloc</title>
-   <link href="/2013/05/24/calloc-and-realloc"/>
-   <updated>2013-05-24T00:00:00+00:00</updated>
+   <link href="/2013/05/24/calloc-and-realloc.html"/>
+   <updated>2013-05-24T00:00:00-07:00</updated>
    <id>/2013/05/24/calloc-and-realloc</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/5647746.js&#39;&gt;//1&lt;/script&gt;</content>
@@ -210,8 +759,8 @@ nR4UH1?@&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>Exception handling with Try/Catch/Throw/Finally in C using setjmp, longjmp</title>
-   <link href="/2013/04/06/exception-handling-with-trycatchthrowfinally-in-c-using-setjmp-longjmp"/>
-   <updated>2013-04-06T00:00:00+00:00</updated>
+   <link href="/2013/04/06/exception-handling-with-trycatchthrowfinally-in-c-using-setjmp-longjmp.html"/>
+   <updated>2013-04-06T00:00:00-07:00</updated>
    <id>/2013/04/06/exception-handling-with-trycatchthrowfinally-in-c-using-setjmp-longjmp</id>
    <content type="html">&lt;p&gt;Link to a very good article on how to use setjmp, longjmp for exception handling in C &lt;a href=&quot;http://www.di.unipi.it/~nids/docs/longjump_try_trow_catch.html&quot;&gt;http://www.di.unipi.it/~nids/docs/longjump_try_trow_catch.html&lt;/a&gt;&lt;/p&gt;
 
@@ -230,8 +779,8 @@ nR4UH1?@&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>printenv command implementation</title>
-   <link href="/2013/03/06/printenv-command-implementation"/>
-   <updated>2013-03-06T00:00:00+00:00</updated>
+   <link href="/2013/03/06/printenv-command-implementation.html"/>
+   <updated>2013-03-06T00:00:00-08:00</updated>
    <id>/2013/03/06/printenv-command-implementation</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/5106171.js&#39;&gt;//1&lt;/script&gt;</content>
@@ -239,8 +788,8 @@ nR4UH1?@&lt;/code&gt;&lt;/pre&gt;
  
  <entry>
    <title>/proc filesystem linux</title>
-   <link href="/2013/02/16/proc-filesystem-linux"/>
-   <updated>2013-02-16T00:00:00+00:00</updated>
+   <link href="/2013/02/16/proc-filesystem-linux.html"/>
+   <updated>2013-02-16T00:00:00-08:00</updated>
    <id>/2013/02/16/proc-filesystem-linux</id>
    <content type="html">&lt;h4 id=&quot;max_process_identifier&quot;&gt;Max process identifier&lt;/h4&gt;
 
@@ -366,8 +915,8 @@ lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:14 /proc/8023/cwd -&amp;gt; /home/naruto/
  
  <entry>
    <title>yes command implementation</title>
-   <link href="/2013/02/14/yes-command-implementation"/>
-   <updated>2013-02-14T00:00:00+00:00</updated>
+   <link href="/2013/02/14/yes-command-implementation.html"/>
+   <updated>2013-02-14T00:00:00-08:00</updated>
    <id>/2013/02/14/yes-command-implementation</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/4958572.js&#39;&gt;//1&lt;/script&gt;</content>
@@ -375,8 +924,8 @@ lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:14 /proc/8023/cwd -&amp;gt; /home/naruto/
  
  <entry>
    <title>whoami command implementation</title>
-   <link href="/2013/02/14/whoami-command-implementation"/>
-   <updated>2013-02-14T00:00:00+00:00</updated>
+   <link href="/2013/02/14/whoami-command-implementation.html"/>
+   <updated>2013-02-14T00:00:00-08:00</updated>
    <id>/2013/02/14/whoami-command-implementation</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/4958578.js&#39;&gt;//1&lt;/script&gt;</content>
@@ -384,8 +933,8 @@ lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:14 /proc/8023/cwd -&amp;gt; /home/naruto/
  
  <entry>
    <title>tee command implementation</title>
-   <link href="/2013/02/14/tee-command-implementation"/>
-   <updated>2013-02-14T00:00:00+00:00</updated>
+   <link href="/2013/02/14/tee-command-implementation.html"/>
+   <updated>2013-02-14T00:00:00-08:00</updated>
    <id>/2013/02/14/tee-command-implementation</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&#39;https://gist.github.com/chaitanyav/4958563.js&#39;&gt;//1&lt;/script&gt;</content>
@@ -393,8 +942,8 @@ lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:14 /proc/8023/cwd -&amp;gt; /home/naruto/
  
  <entry>
    <title>Magic constants in linux/reboot.h</title>
-   <link href="/2013/02/05/magic-constants-in-linuxrebooth"/>
-   <updated>2013-02-05T00:00:00+00:00</updated>
+   <link href="/2013/02/05/magic-constants-in-linuxrebooth.html"/>
+   <updated>2013-02-05T00:00:00-08:00</updated>
    <id>/2013/02/05/magic-constants-in-linuxrebooth</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 
@@ -420,8 +969,8 @@ MAGIC2C 0x20112000&lt;/code&gt;&lt;/pre&gt;</content>
  
  <entry>
    <title>Finding glibc version</title>
-   <link href="/2013/02/05/finding-glibc-version"/>
-   <updated>2013-02-05T00:00:00+00:00</updated>
+   <link href="/2013/02/05/finding-glibc-version.html"/>
+   <updated>2013-02-05T00:00:00-08:00</updated>
    <id>/2013/02/05/finding-glibc-version</id>
    <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
 
