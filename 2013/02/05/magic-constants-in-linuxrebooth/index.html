@@ -41,22 +41,6 @@
     
       
       	
-      	<li><a href="/archive.html">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/tags.html">Tags</a></li>
-      	
-      
-    
-  
-    
-      
-      	
       	<li><a href="/about.html">About</a></li>
       	
       
@@ -65,11 +49,9 @@
     
       
       	
-      	<li><a href="/pages.html">Pages</a></li>
+      	<li><a href="/archive.html">Archive</a></li>
       	
       
-    
-  
     
   
     
@@ -85,6 +67,24 @@
     
   
     
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
       
     
   
@@ -113,19 +113,21 @@
 #include &lt;linux/reboot.h&gt;
 
 int main() {
-  printf(&quot;MAGIC2 0x%X\n&quot;, LINUX_REBOOT_MAGIC2);
-  printf(&quot;MAGIC2A 0x%X\n&quot;, LINUX_REBOOT_MAGIC2A);
-  printf(&quot;MAGIC2B 0x%X\n&quot;, LINUX_REBOOT_MAGIC2B);
-  printf(&quot;MAGIC2C 0x%X\n&quot;, LINUX_REBOOT_MAGIC2C);
+  printf("MAGIC2 0x%X\n", LINUX_REBOOT_MAGIC2);
+  printf("MAGIC2A 0x%X\n", LINUX_REBOOT_MAGIC2A);
+  printf("MAGIC2B 0x%X\n", LINUX_REBOOT_MAGIC2B);
+  printf("MAGIC2C 0x%X\n", LINUX_REBOOT_MAGIC2C);
   return 0;
-}</code></pre>
+}
+</code></pre>
 
 <h3 id="output">Output:</h3>
-
 <pre><code>MAGIC2 0x28121969
 MAGIC2A 0x5121996
 MAGIC2B 0x16041998
-MAGIC2C 0x20112000</code></pre>
+MAGIC2C 0x20112000
+</code></pre>
+
     <hr>
     <div class="pagination">
       <ul>
