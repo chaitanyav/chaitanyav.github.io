@@ -35,6 +35,7 @@
 <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.min.css">
+<link rel="stylesheet" href="/assets/css/pygments.css">
 
 <meta http-equiv="cleartype" content="on">
 
@@ -120,84 +121,76 @@
 numbers, strings). It uses OpenSSL internally (see <a href="https://github.com/ruby/ruby/blob/trunk/lib/securerandom.rb">source code</a>
 for more details).</p>
 
-<pre><code>irb(main):001:0&gt; require 'securerandom'
-=&gt; true
-irb(main):002:0&gt; SecureRandom.class
-=&gt; Module
-</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">require</span> <span class="s1">&#39;securerandom&#39;</span>
+<span class="o">=&gt;</span> <span class="kp">true</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">class</span>
+<span class="o">=&gt;</span> <span class="no">Module</span></code></pre></div>
 
 <p><strong>Random numbers:</strong></p>
 
 <p>To generate random integers less than n (n &gt; 0)</p>
 
-<pre><code>irb(main):004:0&gt; 10.times{p SecureRandom.random_number(100)}
-43
-85
-60
-38
-39
-11
-25
-50
-33
-17
-=&gt; 10
-</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">004</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="mi">10</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="nb">p</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_number</span><span class="p">(</span><span class="mi">100</span><span class="p">)}</span>
+  <span class="mi">43</span>
+  <span class="mi">85</span>
+  <span class="mi">60</span>
+  <span class="mi">38</span>
+  <span class="mi">39</span>
+  <span class="mi">11</span>
+  <span class="mi">25</span>
+  <span class="mi">50</span>
+  <span class="mi">33</span>
+  <span class="mi">17</span>
+  <span class="o">=&gt;</span> <span class="mi">10</span></code></pre></div>
 
 <p>To generate random floating point numbers (specify n &lt;= 0)</p>
 
-<pre><code>irb(main):007:0&gt; 10.times{p SecureRandom.random_number(0)}
-0.4078857773248713
-0.4438855743681517
-0.22977523972328207
-0.3413509270611511
-0.4174679667072889
-0.08786033731795606
-0.8478556241028843
-0.7389558407058121
-0.8063676912935767
-0.6985829466830608
-=&gt; 10
-</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">007</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="mi">10</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="nb">p</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_number</span><span class="p">(</span><span class="mi">0</span><span class="p">)}</span>
+  <span class="mi">0</span><span class="o">.</span><span class="mi">4078857773248713</span>
+  <span class="mi">0</span><span class="o">.</span><span class="mi">4438855743681517</span>
+  <span class="mi">0</span><span class="o">.</span><span class="mi">22977523972328207</span>
+  <span class="mi">0</span><span class="o">.</span><span class="mi">3413509270611511</span>
+  <span class="mi">0</span><span class="o">.</span><span class="mi">4174679667072889</span>
+  <span class="mi">0</span><span class="o">.</span><span class="mi">08786033731795606</span>
+  <span class="mi">0</span><span class="o">.</span><span class="mi">8478556241028843</span>
+  <span class="mi">0</span><span class="o">.</span><span class="mi">7389558407058121</span>
+  <span class="mi">0</span><span class="o">.</span><span class="mi">8063676912935767</span>
+  <span class="mi">0</span><span class="o">.</span><span class="mi">6985829466830608</span>
+  <span class="o">=&gt;</span> <span class="mi">10</span></code></pre></div>
 
 <p><strong>Random bytes:</strong></p>
 
 <p>To generate random n bytes</p>
 
-<pre><code>irb(main):008:0&gt; SecureRandom.random_bytes(15)
-=&gt; "\eT\xCC\x97\xA5\x18\xFF\xEA\x9BT\xB3\xA7\xB0\x0F\x85"
-</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">00</span><span class="mi">8</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_bytes</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+  <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="se">\e</span><span class="s2">T</span><span class="se">\xCC\x97\xA5\x18\xFF\xEA\x9B</span><span class="s2">T</span><span class="se">\xB3\xA7\xB0\x0F\x85</span><span class="s2">&quot;</span></code></pre></div>
 
 <p>for hex bytes</p>
 
-<pre><code>irb(main):011:0&gt; SecureRandom.hex(20)
-=&gt; "88adbb214a8364c3ebf81e2203c7218ee3aaf59e"
-</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">011</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">hex</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+  <span class="o">=&gt;</span> <span class="s2">&quot;88adbb214a8364c3ebf81e2203c7218ee3aaf59e&quot;</span></code></pre></div>
 
 <p>for base64 encoded bytes</p>
 
-<pre><code>irb(main):014:0&gt; SecureRandom.base64(20)
-=&gt; "gPHf3U0npHmSXJTT+Xz/rn0C8Xg="
-</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">014</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">base64</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+  <span class="o">=&gt;</span> <span class="s2">&quot;gPHf3U0npHmSXJTT+Xz/rn0C8Xg=&quot;</span></code></pre></div>
 
 <p>for url safe base64 encoded bytes</p>
 
-<pre><code>irb(main):018:0&gt; SecureRandom.urlsafe_base64(20)
-=&gt; "a9xtB405QiSlIDNiX9AhSz4jYq8"
-</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">01</span><span class="mi">8</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">urlsafe_base64</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+  <span class="o">=&gt;</span> <span class="s2">&quot;a9xtB405QiSlIDNiX9AhSz4jYq8&quot;</span></code></pre></div>
 
 <p>This module can also be used for generating uuids similar to uuidgen</p>
 
-<pre><code>~ » uuidgen
-0589FE3D-E65D-40F2-A3E3-301A5EF624E4
-</code></pre>
+<div class="highlight"><pre><code class="bash">~ » uuidgen
+  0589FE3D-E65D-40F2-A3E3-301A5EF624E4</code></pre></div>
 
 <p>Note: the uuid generated by this module is completely random and is not made
 up of MAC address as per the docs</p>
 
-<pre><code>irb(main):002:0&gt; SecureRandom.uuid
-=&gt; "bf172c47-003e-4bad-b86d-0baffad78d6c"
-</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">uuid</span>
+  <span class="o">=&gt;</span> <span class="s2">&quot;bf172c47-003e-4bad-b86d-0baffad78d6c&quot;</span></code></pre></div>
+
 
       <hr />
       <footer role="contentinfo">
