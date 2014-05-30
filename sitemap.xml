@@ -1,150 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://localhost:4000</loc>
+        <loc></loc>
     </url>
     
     
     <url>
-        <loc>http://localhost:4000/404.html</loc>
+        <loc>/404.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/about/</loc>
+        <loc>/about/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/feed.xml</loc>
+        <loc>/feed.xml</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/index.html</loc>
+        <loc>/index.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/posts/</loc>
+        <loc>/posts/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/sitemap.xml</loc>
+        <loc>/sitemap.xml</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/tags/</loc>
+        <loc>/tags/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/theme-setup/</loc>
+        <loc>/theme-setup/</loc>
     </url>
     
 
     
     <url>
-        <loc>http://localhost:4000/2014/05/29/securerandom-ruby</loc>
+        <loc>/2014/05/29/securerandom-ruby</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2014/03/24/ubuntu-package-management-demystified</loc>
+        <loc>/2014/03/24/ubuntu-package-management-demystified</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/08/24/printing-pid-process-name-parent-pid-and-command-of-all-processes</loc>
+        <loc>/2013/08/24/printing-pid-process-name-parent-pid-and-command-of-all-processes</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/08/24/listing-files-open-by-running-processes</loc>
+        <loc>/2013/08/24/listing-files-open-by-running-processes</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/08/24/hash-tables</loc>
+        <loc>/2013/08/24/hash-tables</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/08/24/getting-system-information-using-uname</loc>
+        <loc>/2013/08/24/getting-system-information-using-uname</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/07/14/transformations-using-opengl</loc>
+        <loc>/2013/07/14/transformations-using-opengl</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/07/14/spirograph-using-opengl</loc>
+        <loc>/2013/07/14/spirograph-using-opengl</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/07/08/generating-random-passwords</loc>
+        <loc>/2013/07/08/generating-random-passwords</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/06/20/working-with-time</loc>
+        <loc>/2013/06/20/working-with-time</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/06/20/system-and-file-limits</loc>
+        <loc>/2013/06/20/system-and-file-limits</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/06/20/reading-process-info-from-proc</loc>
+        <loc>/2013/06/20/reading-process-info-from-proc</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/06/20/creating-temporary-files</loc>
+        <loc>/2013/06/20/creating-temporary-files</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/06/10/uptime-command-implementation</loc>
+        <loc>/2013/06/10/uptime-command-implementation</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files</loc>
+        <loc>/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/05/24/mtrace-and-muntrace</loc>
+        <loc>/2013/05/24/mtrace-and-muntrace</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/05/24/lfind-implementation</loc>
+        <loc>/2013/05/24/lfind-implementation</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/05/24/free-and-sbrk</loc>
+        <loc>/2013/05/24/free-and-sbrk</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/05/24/calloc-and-realloc</loc>
+        <loc>/2013/05/24/calloc-and-realloc</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/04/06/exception-handling-with-trycatchthrowfinally-in-c-using-setjmp-longjmp</loc>
+        <loc>/2013/04/06/exception-handling-with-trycatchthrowfinally-in-c-using-setjmp-longjmp</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/03/06/printenv-command-implementation</loc>
+        <loc>/2013/03/06/printenv-command-implementation</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/02/16/proc-filesystem-linux</loc>
+        <loc>/2013/02/16/proc-filesystem-linux</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/02/14/yes-command-implementation</loc>
+        <loc>/2013/02/14/yes-command-implementation</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/02/14/whoami-command-implementation</loc>
+        <loc>/2013/02/14/whoami-command-implementation</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/02/14/tee-command-implementation</loc>
+        <loc>/2013/02/14/tee-command-implementation</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/02/05/magic-constants-in-linuxrebooth</loc>
+        <loc>/2013/02/05/magic-constants-in-linuxrebooth</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/2013/02/05/finding-glibc-version</loc>
+        <loc>/2013/02/05/finding-glibc-version</loc>
     </url>
     
 </urlset>
