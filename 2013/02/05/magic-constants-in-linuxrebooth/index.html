@@ -119,25 +119,25 @@
     <div class="article-wrap">
       <p>Program part of this <a href="https://github.com/chaitanyav/cprograms">repo</a></p>
 
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;unistd.h&gt;
-#include &lt;linux/reboot.h&gt;
+<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;unistd.h&gt;</span>
+<span class="cp">#include &lt;linux/reboot.h&gt;</span>
 
-int main() {
-  printf("MAGIC2 0x%X\n", LINUX_REBOOT_MAGIC2);
-  printf("MAGIC2A 0x%X\n", LINUX_REBOOT_MAGIC2A);
-  printf("MAGIC2B 0x%X\n", LINUX_REBOOT_MAGIC2B);
-  printf("MAGIC2C 0x%X\n", LINUX_REBOOT_MAGIC2C);
-  return 0;
-}
-</code></pre>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;MAGIC2 0x%X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">LINUX_REBOOT_MAGIC2</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;MAGIC2A 0x%X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">LINUX_REBOOT_MAGIC2A</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;MAGIC2B 0x%X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">LINUX_REBOOT_MAGIC2B</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;MAGIC2C 0x%X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">LINUX_REBOOT_MAGIC2C</span><span class="p">);</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
 
 <h3 id="output">Output:</h3>
-<pre><code>MAGIC2 0x28121969
+
+<div class="highlight"><pre><code class="text">MAGIC2 0x28121969
 MAGIC2A 0x5121996
 MAGIC2B 0x16041998
-MAGIC2C 0x20112000
-</code></pre>
+MAGIC2C 0x20112000</code></pre></div>
+
 
       <hr />
       <footer role="contentinfo">
