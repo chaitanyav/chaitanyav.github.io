@@ -155,12 +155,12 @@ Download the GLFW zip files from <a href="http://www.glfw.org/"><b>here</b></a><
 <span class="go">-- Check for working C compiler: /usr/bin/cc -- works</span>
 <span class="go">-- Detecting C compiler ABI info</span>
 <span class="go">-- Detecting C compiler ABI info - done</span>
-<span class="go">-- Found OpenGL: /System/Library/Frameworks/OpenGL.framework  </span>
+<span class="go">-- Found OpenGL: /System/Library/Frameworks/OpenGL.framework</span>
 <span class="go">-- Looking for include file pthread.h</span>
 <span class="go">-- Looking for include file pthread.h - found</span>
 <span class="go">-- Looking for pthread_create</span>
 <span class="go">-- Looking for pthread_create - found</span>
-<span class="go">-- Found Threads: TRUE  </span>
+<span class="go">-- Found Threads: TRUE</span>
 <span class="go">-- Could NOT find Doxygen (missing:  DOXYGEN_EXECUTABLE)</span>
 <span class="go">-- Using Cocoa for window creation</span>
 <span class="go">-- Using NSGL for context creation</span>
@@ -310,6 +310,10 @@ Download the GLFW zip files from <a href="http://www.glfw.org/"><b>here</b></a><
 <p>Hey, in case you want to use OpenGL, GLUT with your CUDA program. Here is how you compile your cuda program</p>
 
 <div class="highlight"><pre><code class="console"><span class="go">nvcc julia_gpu.cu -Xlinker -framework,OpenGL,-framework,GLUT</span></code></pre></div>
+
+<p>Tip: To turn on dynlib use this option before running cmake</p>
+
+<div class="highlight"><pre><code class="console"><span class="go">cmake -D BUILD_SHARED_LIBS=ON ./</span></code></pre></div>
 
 <p>Happy Hacking!!!!</p>
 
