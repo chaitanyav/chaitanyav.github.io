@@ -138,146 +138,146 @@ To compile the program below :
 </p>
 </div>
 
-<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;GLFW/glfw3.h&gt;</span>
-<span class="cp">#include &lt;stdio.h&gt;</span>
-<span class="cp">#include &lt;stdlib.h&gt;</span>
-
-<span class="cp">#define DIM 2000</span>
-
-<span class="k">struct</span> <span class="n">cuComplex</span> <span class="p">{</span>
-  <span class="kt">float</span> <span class="n">r</span><span class="p">;</span>
-    <span class="kt">float</span> <span class="n">i</span><span class="p">;</span>
-
-  <span class="n">__device__</span> <span class="nf">cuComplex</span><span class="p">(</span><span class="kt">float</span> <span class="n">a</span><span class="p">,</span> <span class="kt">float</span> <span class="n">b</span><span class="p">)</span> <span class="o">:</span> <span class="n">r</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">i</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-  <span class="p">}</span>
-
-  <span class="n">__device__</span> <span class="kt">float</span> <span class="nf">magnitude2</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="n">__device__</span> <span class="n">cuComplex</span> <span class="n">operator</span><span class="o">*</span><span class="p">(</span><span class="k">const</span> <span class="n">cuComplex</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">cuComplex</span><span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">a</span><span class="p">.</span><span class="n">r</span> <span class="o">-</span> <span class="n">i</span> <span class="o">*</span> <span class="n">a</span><span class="p">.</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="n">a</span><span class="p">.</span><span class="n">r</span>  <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">a</span><span class="p">.</span><span class="n">i</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="n">__device__</span> <span class="n">cuComplex</span> <span class="n">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">cuComplex</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">cuComplex</span><span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="n">a</span><span class="p">.</span><span class="n">r</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">a</span><span class="p">.</span><span class="n">i</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">};</span>
-
-<span class="n">__device__</span> <span class="kt">int</span> <span class="nf">julia</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">const</span> <span class="kt">float</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">dim_2</span> <span class="o">=</span> <span class="n">DIM</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">jx</span> <span class="o">=</span> <span class="n">scale</span> <span class="o">*</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="p">(</span><span class="n">dim_2</span>  <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">dim_2</span><span class="p">;</span>
-  <span class="kt">float</span> <span class="n">jy</span> <span class="o">=</span> <span class="n">scale</span> <span class="o">*</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="p">(</span><span class="n">dim_2</span>  <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="n">dim_2</span><span class="p">;</span>
-
-  <span class="n">cuComplex</span> <span class="n">c</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.156</span><span class="p">);</span>
-  <span class="n">cuComplex</span> <span class="n">a</span><span class="p">(</span><span class="n">jx</span><span class="p">,</span> <span class="n">jy</span><span class="p">);</span>
-
-  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">c</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">magnitude2</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-      <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="n">__global__</span> <span class="kt">void</span> <span class="nf">kernel</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">blockIdx</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">blockIdx</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">gridDim</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
-  <span class="kt">int</span> <span class="n">juliavalue</span> <span class="o">=</span> <span class="n">julia</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-  <span class="n">ptr</span><span class="p">[</span><span class="n">offset</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">127</span> <span class="o">*</span> <span class="n">juliavalue</span><span class="p">;</span>
-  <span class="n">ptr</span><span class="p">[</span><span class="n">offset</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">*</span> <span class="n">juliavalue</span><span class="p">;</span>
-  <span class="n">ptr</span><span class="p">[</span><span class="n">offset</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">ptr</span><span class="p">[</span><span class="n">offset</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="k">struct</span> <span class="n">CPUBitmap</span> <span class="p">{</span>
-  <span class="kt">unsigned</span> <span class="kt">char</span>    <span class="o">*</span><span class="n">pixels</span><span class="p">;</span>
-  <span class="kt">int</span>     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
-  <span class="kt">void</span>    <span class="o">*</span><span class="n">dataBlock</span><span class="p">;</span>
-
-  <span class="n">CPUBitmap</span><span class="p">(</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="nb">NULL</span>  <span class="p">)</span> <span class="p">{</span>
-    <span class="n">pixels</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="p">[</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span> <span class="o">*</span> <span class="mi">4</span><span class="p">];</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
-    <span class="n">dataBlock</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="o">~</span><span class="n">CPUBitmap</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">delete</span> <span class="p">[]</span> <span class="n">pixels</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">get_ptr</span><span class="p">(</span> <span class="kt">void</span>  <span class="p">)</span> <span class="k">const</span>   <span class="p">{</span> <span class="k">return</span> <span class="n">pixels</span><span class="p">;</span>  <span class="p">}</span>
-  <span class="kt">long</span> <span class="n">image_size</span><span class="p">(</span> <span class="kt">void</span>  <span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="o">*</span> <span class="mi">4</span><span class="p">;</span>  <span class="p">}</span>
-
-  <span class="kt">void</span> <span class="n">display_and_exit</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">CPUBitmap</span><span class="o">**</span>   <span class="n">bitmap</span> <span class="o">=</span> <span class="n">get_bitmap_ptr</span><span class="p">();</span>
-    <span class="o">*</span><span class="n">bitmap</span> <span class="o">=</span> <span class="n">this</span><span class="p">;</span>
-    <span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">;</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">glfwInit</span><span class="p">())</span> <span class="p">{</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed on GLFW init</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-      <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">window</span> <span class="o">=</span> <span class="n">glfwCreateWindow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&quot;Julia Set&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">window</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">glfwTerminate</span><span class="p">();</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to create window</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-      <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">glfwMakeContextCurrent</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
-    <span class="n">glfwSetKeyCallback</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">key_callback</span><span class="p">);</span>
-
-    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span> <span class="p">{</span>
-      <span class="n">CPUBitmap</span><span class="o">*</span>   <span class="n">bitmap</span> <span class="o">=</span>  <span class="o">*</span><span class="p">(</span><span class="n">get_bitmap_ptr</span><span class="p">());</span>
-      <span class="n">glClearColor</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span>  <span class="p">);</span>
-      <span class="n">glClear</span><span class="p">(</span> <span class="n">GL_COLOR_BUFFER_BIT</span> <span class="p">);</span>
-      <span class="n">glDrawPixels</span><span class="p">(</span><span class="n">bitmap</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">,</span> <span class="n">GL_RGBA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">-&gt;</span><span class="n">pixels</span><span class="p">);</span>
-      <span class="n">glfwSwapBuffers</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
-      <span class="n">glfwPollEvents</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="n">glfwTerminate</span><span class="p">();</span>
-  <span class="p">}</span>
-
-    <span class="c1">// static method used for glut callbacks</span>
-  <span class="k">static</span> <span class="n">CPUBitmap</span><span class="o">**</span> <span class="n">get_bitmap_ptr</span><span class="p">(</span> <span class="kt">void</span>  <span class="p">)</span> <span class="p">{</span>
-    <span class="k">static</span> <span class="n">CPUBitmap</span>   <span class="o">*</span><span class="n">gBitmap</span><span class="p">;</span>
-    <span class="k">return</span> <span class="o">&amp;</span><span class="n">gBitmap</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="k">static</span> <span class="kt">void</span> <span class="n">key_callback</span><span class="p">(</span><span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span> <span class="kt">int</span> <span class="n">key</span><span class="p">,</span> <span class="kt">int</span> <span class="n">scancode</span><span class="p">,</span> <span class="kt">int</span> <span class="n">action</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mods</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">GLFW_KEY_ESCAPE</span> <span class="o">&amp;&amp;</span> <span class="n">action</span> <span class="o">==</span> <span class="n">GLFW_PRESS</span><span class="p">){</span>
-      <span class="n">glfwSetWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">GL_TRUE</span><span class="p">);</span>
-      <span class="n">glfwTerminate</span><span class="p">();</span>
-      <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">};</span>
-
-<span class="kt">void</span> <span class="nf">handleError</span><span class="p">(</span><span class="n">cudaError_t</span> <span class="n">error</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lineNo</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="n">cudaSuccess</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error: %s</span><span class="se">\n</span><span class="s"> in file %s at line no %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
-    <span class="n">cudaGetErrorString</span><span class="p">(</span><span class="n">error</span><span class="p">),</span> <span class="n">__FILE__</span><span class="p">,</span> <span class="n">__LINE__</span><span class="p">);</span>
-    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-  <span class="n">CPUBitmap</span> <span class="n">bitmap</span><span class="p">(</span><span class="n">DIM</span><span class="p">,</span> <span class="n">DIM</span><span class="p">);</span>
-  <span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="n">dev_bitmap</span><span class="p">;</span>
-  <span class="n">handleError</span><span class="p">(</span><span class="n">cudaMalloc</span><span class="p">((</span><span class="kt">void</span> <span class="o">**</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">dev_bitmap</span><span class="p">,</span> <span class="n">bitmap</span><span class="p">.</span><span class="n">image_size</span><span class="p">()),</span> <span class="n">__LINE__</span><span class="p">);</span>
-  <span class="n">dim3</span> <span class="n">grid</span><span class="p">(</span><span class="n">DIM</span><span class="p">,</span> <span class="n">DIM</span><span class="p">);</span>
-  <span class="n">kernel</span><span class="o">&lt;&lt;&lt;</span><span class="n">grid</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="n">dev_bitmap</span><span class="p">);</span>
-  <span class="n">handleError</span><span class="p">(</span><span class="n">cudaMemcpy</span><span class="p">(</span><span class="n">bitmap</span><span class="p">.</span><span class="n">get_ptr</span><span class="p">(),</span> <span class="n">dev_bitmap</span><span class="p">,</span><span class="n">bitmap</span><span class="p">.</span><span class="n">image_size</span><span class="p">(),</span> <span class="n">cudaMemcpyDeviceToHost</span><span class="p">),</span> <span class="n">__LINE__</span><span class="p">);</span>
-  <span class="n">bitmap</span><span class="p">.</span><span class="n">display_and_exit</span><span class="p">();</span>
-  <span class="n">handleError</span><span class="p">(</span><span class="n">cudaFree</span><span class="p">(</span><span class="n">dev_bitmap</span><span class="p">),</span> <span class="n">__LINE__</span><span class="p">);</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="c"><span class="lineno">  1</span> <span class="cp">#include &lt;GLFW/glfw3.h&gt;</span>
+<span class="lineno">  2</span> <span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="lineno">  3</span> <span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="lineno">  4</span> 
+<span class="lineno">  5</span> <span class="cp">#define DIM 2000</span>
+<span class="lineno">  6</span> 
+<span class="lineno">  7</span> <span class="k">struct</span> <span class="n">cuComplex</span> <span class="p">{</span>
+<span class="lineno">  8</span>   <span class="kt">float</span> <span class="n">r</span><span class="p">;</span>
+<span class="lineno">  9</span>     <span class="kt">float</span> <span class="n">i</span><span class="p">;</span>
+<span class="lineno"> 10</span> 
+<span class="lineno"> 11</span>   <span class="n">__device__</span> <span class="nf">cuComplex</span><span class="p">(</span><span class="kt">float</span> <span class="n">a</span><span class="p">,</span> <span class="kt">float</span> <span class="n">b</span><span class="p">)</span> <span class="o">:</span> <span class="n">r</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">i</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 12</span>   <span class="p">}</span>
+<span class="lineno"> 13</span> 
+<span class="lineno"> 14</span>   <span class="n">__device__</span> <span class="kt">float</span> <span class="nf">magnitude2</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 15</span>     <span class="k">return</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">;</span>
+<span class="lineno"> 16</span>   <span class="p">}</span>
+<span class="lineno"> 17</span> 
+<span class="lineno"> 18</span>   <span class="n">__device__</span> <span class="n">cuComplex</span> <span class="n">operator</span><span class="o">*</span><span class="p">(</span><span class="k">const</span> <span class="n">cuComplex</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 19</span>     <span class="k">return</span> <span class="n">cuComplex</span><span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">a</span><span class="p">.</span><span class="n">r</span> <span class="o">-</span> <span class="n">i</span> <span class="o">*</span> <span class="n">a</span><span class="p">.</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="n">a</span><span class="p">.</span><span class="n">r</span>  <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">a</span><span class="p">.</span><span class="n">i</span><span class="p">);</span>
+<span class="lineno"> 20</span>   <span class="p">}</span>
+<span class="lineno"> 21</span> 
+<span class="lineno"> 22</span>   <span class="n">__device__</span> <span class="n">cuComplex</span> <span class="n">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">cuComplex</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 23</span>     <span class="k">return</span> <span class="n">cuComplex</span><span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="n">a</span><span class="p">.</span><span class="n">r</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">a</span><span class="p">.</span><span class="n">i</span><span class="p">);</span>
+<span class="lineno"> 24</span>   <span class="p">}</span>
+<span class="lineno"> 25</span> <span class="p">};</span>
+<span class="lineno"> 26</span> 
+<span class="lineno"> 27</span> <span class="n">__device__</span> <span class="kt">int</span> <span class="nf">julia</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 28</span>   <span class="k">const</span> <span class="kt">float</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">;</span>
+<span class="lineno"> 29</span>   <span class="kt">int</span> <span class="n">dim_2</span> <span class="o">=</span> <span class="n">DIM</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="lineno"> 30</span>   <span class="kt">float</span> <span class="n">jx</span> <span class="o">=</span> <span class="n">scale</span> <span class="o">*</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="p">(</span><span class="n">dim_2</span>  <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">dim_2</span><span class="p">;</span>
+<span class="lineno"> 31</span>   <span class="kt">float</span> <span class="n">jy</span> <span class="o">=</span> <span class="n">scale</span> <span class="o">*</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="p">(</span><span class="n">dim_2</span>  <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="n">dim_2</span><span class="p">;</span>
+<span class="lineno"> 32</span> 
+<span class="lineno"> 33</span>   <span class="n">cuComplex</span> <span class="n">c</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.156</span><span class="p">);</span>
+<span class="lineno"> 34</span>   <span class="n">cuComplex</span> <span class="n">a</span><span class="p">(</span><span class="n">jx</span><span class="p">,</span> <span class="n">jy</span><span class="p">);</span>
+<span class="lineno"> 35</span> 
+<span class="lineno"> 36</span>   <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 37</span>     <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">c</span><span class="p">;</span>
+<span class="lineno"> 38</span>     <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">magnitude2</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 39</span>       <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno"> 40</span>       <span class="p">}</span>
+<span class="lineno"> 41</span>   <span class="p">}</span>
+<span class="lineno"> 42</span>   <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="lineno"> 43</span> <span class="p">}</span>
+<span class="lineno"> 44</span> 
+<span class="lineno"> 45</span> <span class="n">__global__</span> <span class="kt">void</span> <span class="nf">kernel</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 46</span>   <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">blockIdx</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="lineno"> 47</span>   <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">blockIdx</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="lineno"> 48</span>   <span class="kt">int</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">gridDim</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="lineno"> 49</span>   <span class="kt">int</span> <span class="n">juliavalue</span> <span class="o">=</span> <span class="n">julia</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="lineno"> 50</span>   <span class="n">ptr</span><span class="p">[</span><span class="n">offset</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">127</span> <span class="o">*</span> <span class="n">juliavalue</span><span class="p">;</span>
+<span class="lineno"> 51</span>   <span class="n">ptr</span><span class="p">[</span><span class="n">offset</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">*</span> <span class="n">juliavalue</span><span class="p">;</span>
+<span class="lineno"> 52</span>   <span class="n">ptr</span><span class="p">[</span><span class="n">offset</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno"> 53</span>   <span class="n">ptr</span><span class="p">[</span><span class="n">offset</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
+<span class="lineno"> 54</span> <span class="p">}</span>
+<span class="lineno"> 55</span> 
+<span class="lineno"> 56</span> <span class="k">struct</span> <span class="n">CPUBitmap</span> <span class="p">{</span>
+<span class="lineno"> 57</span>   <span class="kt">unsigned</span> <span class="kt">char</span>    <span class="o">*</span><span class="n">pixels</span><span class="p">;</span>
+<span class="lineno"> 58</span>   <span class="kt">int</span>     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+<span class="lineno"> 59</span>   <span class="kt">void</span>    <span class="o">*</span><span class="n">dataBlock</span><span class="p">;</span>
+<span class="lineno"> 60</span> 
+<span class="lineno"> 61</span>   <span class="n">CPUBitmap</span><span class="p">(</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="nb">NULL</span>  <span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 62</span>     <span class="n">pixels</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="p">[</span><span class="n">width</span> <span class="o">*</span> <span class="n">height</span> <span class="o">*</span> <span class="mi">4</span><span class="p">];</span>
+<span class="lineno"> 63</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
+<span class="lineno"> 64</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+<span class="lineno"> 65</span>     <span class="n">dataBlock</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>
+<span class="lineno"> 66</span>   <span class="p">}</span>
+<span class="lineno"> 67</span> 
+<span class="lineno"> 68</span>   <span class="o">~</span><span class="n">CPUBitmap</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno"> 69</span>     <span class="n">delete</span> <span class="p">[]</span> <span class="n">pixels</span><span class="p">;</span>
+<span class="lineno"> 70</span>   <span class="p">}</span>
+<span class="lineno"> 71</span> 
+<span class="lineno"> 72</span>   <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span> <span class="n">get_ptr</span><span class="p">(</span> <span class="kt">void</span>  <span class="p">)</span> <span class="k">const</span>   <span class="p">{</span> <span class="k">return</span> <span class="n">pixels</span><span class="p">;</span>  <span class="p">}</span>
+<span class="lineno"> 73</span>   <span class="kt">long</span> <span class="n">image_size</span><span class="p">(</span> <span class="kt">void</span>  <span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="o">*</span> <span class="mi">4</span><span class="p">;</span>  <span class="p">}</span>
+<span class="lineno"> 74</span> 
+<span class="lineno"> 75</span>   <span class="kt">void</span> <span class="n">display_and_exit</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno"> 76</span>     <span class="n">CPUBitmap</span><span class="o">**</span>   <span class="n">bitmap</span> <span class="o">=</span> <span class="n">get_bitmap_ptr</span><span class="p">();</span>
+<span class="lineno"> 77</span>     <span class="o">*</span><span class="n">bitmap</span> <span class="o">=</span> <span class="n">this</span><span class="p">;</span>
+<span class="lineno"> 78</span>     <span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">;</span>
+<span class="lineno"> 79</span> 
+<span class="lineno"> 80</span>     <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">glfwInit</span><span class="p">())</span> <span class="p">{</span>
+<span class="lineno"> 81</span>       <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed on GLFW init</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="lineno"> 82</span>       <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+<span class="lineno"> 83</span>     <span class="p">}</span>
+<span class="lineno"> 84</span> 
+<span class="lineno"> 85</span>     <span class="n">window</span> <span class="o">=</span> <span class="n">glfwCreateWindow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&quot;Julia Set&quot;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="lineno"> 86</span>     <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">window</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 87</span>       <span class="n">glfwTerminate</span><span class="p">();</span>
+<span class="lineno"> 88</span>       <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to create window</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="lineno"> 89</span>       <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+<span class="lineno"> 90</span>     <span class="p">}</span>
+<span class="lineno"> 91</span> 
+<span class="lineno"> 92</span>     <span class="n">glfwMakeContextCurrent</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+<span class="lineno"> 93</span>     <span class="n">glfwSetKeyCallback</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">key_callback</span><span class="p">);</span>
+<span class="lineno"> 94</span> 
+<span class="lineno"> 95</span>     <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno"> 96</span>       <span class="n">CPUBitmap</span><span class="o">*</span>   <span class="n">bitmap</span> <span class="o">=</span>  <span class="o">*</span><span class="p">(</span><span class="n">get_bitmap_ptr</span><span class="p">());</span>
+<span class="lineno"> 97</span>       <span class="n">glClearColor</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span>  <span class="p">);</span>
+<span class="lineno"> 98</span>       <span class="n">glClear</span><span class="p">(</span> <span class="n">GL_COLOR_BUFFER_BIT</span> <span class="p">);</span>
+<span class="lineno"> 99</span>       <span class="n">glDrawPixels</span><span class="p">(</span><span class="n">bitmap</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">,</span> <span class="n">GL_RGBA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">bitmap</span><span class="o">-&gt;</span><span class="n">pixels</span><span class="p">);</span>
+<span class="lineno">100</span>       <span class="n">glfwSwapBuffers</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+<span class="lineno">101</span>       <span class="n">glfwPollEvents</span><span class="p">();</span>
+<span class="lineno">102</span>     <span class="p">}</span>
+<span class="lineno">103</span>     <span class="n">glfwTerminate</span><span class="p">();</span>
+<span class="lineno">104</span>   <span class="p">}</span>
+<span class="lineno">105</span> 
+<span class="lineno">106</span>     <span class="c1">// static method used for glut callbacks</span>
+<span class="lineno">107</span>   <span class="k">static</span> <span class="n">CPUBitmap</span><span class="o">**</span> <span class="n">get_bitmap_ptr</span><span class="p">(</span> <span class="kt">void</span>  <span class="p">)</span> <span class="p">{</span>
+<span class="lineno">108</span>     <span class="k">static</span> <span class="n">CPUBitmap</span>   <span class="o">*</span><span class="n">gBitmap</span><span class="p">;</span>
+<span class="lineno">109</span>     <span class="k">return</span> <span class="o">&amp;</span><span class="n">gBitmap</span><span class="p">;</span>
+<span class="lineno">110</span>   <span class="p">}</span>
+<span class="lineno">111</span> 
+<span class="lineno">112</span>   <span class="k">static</span> <span class="kt">void</span> <span class="n">key_callback</span><span class="p">(</span><span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span> <span class="kt">int</span> <span class="n">key</span><span class="p">,</span> <span class="kt">int</span> <span class="n">scancode</span><span class="p">,</span> <span class="kt">int</span> <span class="n">action</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mods</span><span class="p">)</span>
+<span class="lineno">113</span>   <span class="p">{</span>
+<span class="lineno">114</span>     <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">GLFW_KEY_ESCAPE</span> <span class="o">&amp;&amp;</span> <span class="n">action</span> <span class="o">==</span> <span class="n">GLFW_PRESS</span><span class="p">){</span>
+<span class="lineno">115</span>       <span class="n">glfwSetWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">GL_TRUE</span><span class="p">);</span>
+<span class="lineno">116</span>       <span class="n">glfwTerminate</span><span class="p">();</span>
+<span class="lineno">117</span>       <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+<span class="lineno">118</span>     <span class="p">}</span>
+<span class="lineno">119</span>   <span class="p">}</span>
+<span class="lineno">120</span> <span class="p">};</span>
+<span class="lineno">121</span> 
+<span class="lineno">122</span> <span class="kt">void</span> <span class="nf">handleError</span><span class="p">(</span><span class="n">cudaError_t</span> <span class="n">error</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lineNo</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">123</span>   <span class="k">if</span><span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="n">cudaSuccess</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">124</span>     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error: %s</span><span class="se">\n</span><span class="s"> in file %s at line no %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+<span class="lineno">125</span>     <span class="n">cudaGetErrorString</span><span class="p">(</span><span class="n">error</span><span class="p">),</span> <span class="n">__FILE__</span><span class="p">,</span> <span class="n">__LINE__</span><span class="p">);</span>
+<span class="lineno">126</span>     <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+<span class="lineno">127</span>   <span class="p">}</span>
+<span class="lineno">128</span> <span class="p">}</span>
+<span class="lineno">129</span> 
+<span class="lineno">130</span> <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+<span class="lineno">131</span>   <span class="n">CPUBitmap</span> <span class="n">bitmap</span><span class="p">(</span><span class="n">DIM</span><span class="p">,</span> <span class="n">DIM</span><span class="p">);</span>
+<span class="lineno">132</span>   <span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="n">dev_bitmap</span><span class="p">;</span>
+<span class="lineno">133</span>   <span class="n">handleError</span><span class="p">(</span><span class="n">cudaMalloc</span><span class="p">((</span><span class="kt">void</span> <span class="o">**</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">dev_bitmap</span><span class="p">,</span> <span class="n">bitmap</span><span class="p">.</span><span class="n">image_size</span><span class="p">()),</span> <span class="n">__LINE__</span><span class="p">);</span>
+<span class="lineno">134</span>   <span class="n">dim3</span> <span class="n">grid</span><span class="p">(</span><span class="n">DIM</span><span class="p">,</span> <span class="n">DIM</span><span class="p">);</span>
+<span class="lineno">135</span>   <span class="n">kernel</span><span class="o">&lt;&lt;&lt;</span><span class="n">grid</span><span class="p">,</span><span class="mi">1</span><span class="o">&gt;&gt;&gt;</span><span class="p">(</span><span class="n">dev_bitmap</span><span class="p">);</span>
+<span class="lineno">136</span>   <span class="n">handleError</span><span class="p">(</span><span class="n">cudaMemcpy</span><span class="p">(</span><span class="n">bitmap</span><span class="p">.</span><span class="n">get_ptr</span><span class="p">(),</span> <span class="n">dev_bitmap</span><span class="p">,</span><span class="n">bitmap</span><span class="p">.</span><span class="n">image_size</span><span class="p">(),</span> <span class="n">cudaMemcpyDeviceToHost</span><span class="p">),</span> <span class="n">__LINE__</span><span class="p">);</span>
+<span class="lineno">137</span>   <span class="n">bitmap</span><span class="p">.</span><span class="n">display_and_exit</span><span class="p">();</span>
+<span class="lineno">138</span>   <span class="n">handleError</span><span class="p">(</span><span class="n">cudaFree</span><span class="p">(</span><span class="n">dev_bitmap</span><span class="p">),</span> <span class="n">__LINE__</span><span class="p">);</span>
+<span class="lineno">139</span>   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">140</span> <span class="p">}</span></code></pre></div>
 
 <h2 id="screenshot">screenshot</h2>
 <div>
