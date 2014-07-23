@@ -18,6 +18,10 @@
     </url>
     
     <url>
+        <loc>/fractals/</loc>
+    </url>
+    
+    <url>
         <loc>/index.html</loc>
     </url>
     
@@ -44,39 +48,11 @@
 
     
     <url>
-        <loc>/2014/07/23/fractal-plant</loc>
-    </url>
-    
-    <url>
-        <loc>/2014/07/22/hilbert-curve</loc>
-    </url>
-    
-    <url>
         <loc>/2014/07/21/dragon-curve</loc>
     </url>
     
     <url>
-        <loc>/2014/07/20/sierpinski-triangle</loc>
-    </url>
-    
-    <url>
-        <loc>/2014/07/19/pattern-with-circles</loc>
-    </url>
-    
-    <url>
-        <loc>/2014/07/19/cantor-set</loc>
-    </url>
-    
-    <url>
         <loc>/2014/07/16/bouncing-ball-using-opengl</loc>
-    </url>
-    
-    <url>
-        <loc>/2014/07/15/mandelbrot-set-cuda</loc>
-    </url>
-    
-    <url>
-        <loc>/2014/07/14/julia-set-cuda</loc>
     </url>
     
     <url>
