@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-07-23T20:52:58+00:00</updated>
+<updated>2014-07-24T03:59:34+00:00</updated>
 <id>/</id>
 <author>
   <name>NagaChaitanya Vellanki</name>
@@ -277,19 +277,19 @@ To compile the program below :
 
 &lt;h2 id=&quot;hieghway-dragon&quot;&gt;Hieghway Dragon&lt;/h2&gt;
 &lt;div&gt;
-&lt;img src=&quot;/images/hieghway_dragon.png&quot; title=&quot;Hieghway Dragon&quot; alt=&quot;Hieghway Dragon&quot; /&gt;
+&lt;img src=&quot;https://farm3.staticflickr.com/2938/14543504049_389bdbef25_k.jpg&quot; title=&quot;Hieghway Dragon&quot; alt=&quot;Hieghway Dragon&quot; /&gt;
 &lt;br /&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&quot;twin-dragon&quot;&gt;Twin Dragon&lt;/h2&gt;
 &lt;div&gt;
-&lt;img src=&quot;/images/twin_dragon.png&quot; title=&quot;Twin Dragon&quot; alt=&quot;Twin Dragon&quot; /&gt;
+&lt;img src=&quot;https://farm4.staticflickr.com/3897/14543498728_295d60c947_k.jpg&quot; title=&quot;Twin Dragon&quot; alt=&quot;Twin Dragon&quot; /&gt;
 &lt;br /&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&quot;ter-dragon&quot;&gt;Ter Dragon&lt;/h2&gt;
 &lt;div&gt;
-&lt;img src=&quot;/images/ter_dragon.png&quot; title=&quot;Ter Dragon&quot; alt=&quot;Ter Dragon&quot; /&gt;
+&lt;img src=&quot;https://farm3.staticflickr.com/2903/14707141896_0a0a1cb2fa_k.jpg&quot; title=&quot;Ter Dragon&quot; alt=&quot;Ter Dragon&quot; /&gt;
 &lt;br /&gt;
 &lt;/div&gt;
 
