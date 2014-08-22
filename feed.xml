@@ -4,13 +4,320 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-07-28T01:31:05+00:00</updated>
+<updated>2014-08-23T00:20:18+00:00</updated>
 <id>/</id>
 <author>
   <name>NagaChaitanya Vellanki</name>
   <uri>/</uri>
   <email>me@chaitanyavellanki.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Concurrency in Go]]></title>
+  <link rel="alternate" type="text/html" href="/2014/08/22/concurrency-with-go" />
+  <id>/2014/08/22/concurrency-with-go</id>
+  <published>2014-08-22T00:00:00+00:00</published>
+  <updated>2014-08-22T00:00:00+00:00</updated>
+  <author>
+    <name>NagaChaitanya Vellanki</name>
+    <uri></uri>
+    <email>me@chaitanyavellanki.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Concurrency in Go can be achieved by using &lt;a href=&quot;https://golang.org/doc/effective_go.html#goroutines&quot;&gt;goroutines&lt;/a&gt;, A goroutine is basically a function which executes concurrently with other goroutines/functions. Here is a basic &lt;a href=&quot;http://play.golang.org/p/I84oNjrh96&quot;&gt;example&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;time&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello from a goroutine&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Second&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Good Bye!!!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;A goroutine can be invoked like this “go funcName()”. As goroutines execute concurrently with other functions we have used a time.Sleep with 1 second duration so that the goroutine can run. Let’s say if we did not have the time.Sleep in the main function, the program exits printing the “Good Bye!!!” string. Same &lt;a href=&quot;http://play.golang.org/p/PA50RJI1en&quot;&gt;example&lt;/a&gt; without the time.Sleep&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Hello from a goroutine&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Good Bye!!!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Ah, you might be wondering what good are goroutines when i cannot pass information between goroutines, functions. This is where channels come into picture. A channel is pipe through which messages can be sent/received. More about channels &lt;a href=&quot;http://tour.golang.org/#66&quot;&gt;here&lt;/a&gt;. Let’s go through a example illustrating the usage of goroutines, channels.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;go&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+	&lt;span class=&quot;s&quot;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;
+	&lt;span class=&quot;s&quot;&gt;&amp;quot;github.com/iand/feedparser&amp;quot;&lt;/span&gt;
+	&lt;span class=&quot;s&quot;&gt;&amp;quot;io/ioutil&amp;quot;&lt;/span&gt;
+	&lt;span class=&quot;s&quot;&gt;&amp;quot;net&amp;quot;&lt;/span&gt;
+	&lt;span class=&quot;s&quot;&gt;&amp;quot;net/http&amp;quot;&lt;/span&gt;
+	&lt;span class=&quot;s&quot;&gt;&amp;quot;strings&amp;quot;&lt;/span&gt;
+	&lt;span class=&quot;s&quot;&gt;&amp;quot;time&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//using the timeout code as in http://stackoverflow.com/questions/16895294/how-to-set-timeout-for-http-get-requests-in-golang&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timeout&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Duration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dialTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;network&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;addr&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Conn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DialTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;network&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parseFeed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;feedURL&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;completed&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;chan&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;transport&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Transport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;Dial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dialTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;nx&quot;&gt;client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;Transport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;feedURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;responseBytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ioutil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ReadAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;reader&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;strings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;NewReader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;responseBytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;feed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;feedparser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;NewFeed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;starString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;strings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;*&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;starString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;feed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;feed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Num Posts/Items: &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;feed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;starString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+			&lt;span class=&quot;c1&quot;&gt;// uncomment the lines below to the individual posts/items&lt;/span&gt;
+			&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;			     for _, item := range feed.Items {&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;			     fmt.Println(&amp;quot;Title: &amp;quot;, item.Title)&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;			     fmt.Println(&amp;quot;Description: &amp;quot;, item.Description)&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;			   }&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;			*/&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;completed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;nx&quot;&gt;categoryByFeedURL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://cdnjs.com/rss.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                                   &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;https://blog.twitter.com/api/blog.rss?name=engineering&amp;amp;alt=rss&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;             &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://rubyrogues.com/feed/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                                &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;https://tech.dropbox.com/feed/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                             &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://news.ycombinator.com/rss&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                            &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/HighScalability&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/html5rocks&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                     &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/TechCrunch/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                    &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://venturebeat.com/feed/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                               &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;https://github.com/blog.atom&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                               &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://weblog.rubyonrails.org/feed/atom.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://podcasts.thoughtbot.com/giantrobots.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                             &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/railscasts&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                     &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/nvidia/parallelforall?format=xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;               &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/codinghorror&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                   &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://rss.slashdot.org/Slashdot/slashdot&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                  &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.kickstarter.com/projects/feed.atom&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                              &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.mashable.com/Mashable&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                         &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.gawker.com/gizmodo/full&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                       &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/ommalik&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                        &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/OfficialAndroidBlog&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                            &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://vimcasts.org/feeds/ogg&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                              &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.engadget.com/rss.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                            &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://blogs.computerworld.com/rss.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                     &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/cnet/NnTv&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                      &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.wired.com/wired/index&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                         &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.anandtech.com/rss/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                              &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://appleinsider.com.feedsportal.com/c/33975/f/616168/index.rss&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;         &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.arstechnica.com/arstechnica/index?format=xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                  &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.pcworld.com/index.rss&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                           &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.searchengineland.com/searchengineland?format=xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;              &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/UnwiredView&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                    &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.theregister.co.uk/headlines.atom&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.technologyreview.com/topnews.rss&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/tedtalks_video&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                 &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/avc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                            &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feed.onstartups.com/onstartups&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                      &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/IeeeSpectrumPodcasts&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                           &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/IeeeSpectrumVideo&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                              &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/IeeeSpectrumFullText&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                           &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/GoogleOpenSourceBlog&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                           &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/37signals/beMH&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                 &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.joelonsoftware.com/rss.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                      &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://martinfowler.com/feed.atom&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                          &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.hanselman.com/scotthanselman&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                  &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.randsinrepose.com/index.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                     &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://bokardo.com/feed/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                                   &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://blog.stackoverflow.com/feed/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                        &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/thoughtworks-blogs&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                             &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.artima.com/weblogs/feeds/weblogs.rss&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                            &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/blogspot/RLXA&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                  &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/blogspot/SbSV&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                  &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/InsideSearch&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                   &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/GDBcode&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                        &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds2.feedburner.com/blogspot/Egta&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                 &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/GoogleOnlineSecurityBlog&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                       &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/GoogleStudentBlog&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                              &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/GoogleTranslateBlog&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                            &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://techblog.netflix.com/feeds/posts/default&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                            &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://tech-book-store.amazon.com/blog/feed/recentPosts.rss&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/Ruby5?format=xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                               &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/PetrMitrichev?format=xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                       &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://xkcd.com/rss.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                                    &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.perfplanet.com/rss.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                          &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feed.dilbert.com/dilbert/daily_strip?format=xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                     &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.stanford.edu/group/edcorner/uploads/podcast/EducatorsCorner.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;developer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.zdnet.com/blog/rss.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                          &lt;span class=&quot;s&quot;&gt;&amp;quot;tech&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.reuters.com/reuters/topNews&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                   &lt;span class=&quot;s&quot;&gt;&amp;quot;news&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://rss.cnn.com/rss/cnn_topstories.rss&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                  &lt;span class=&quot;s&quot;&gt;&amp;quot;news&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.abcnews.com/abcnews/topstories&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                &lt;span class=&quot;s&quot;&gt;&amp;quot;news&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.npr.org/rss/rss.php?id=1001&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                     &lt;span class=&quot;s&quot;&gt;&amp;quot;news&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.harvardbusiness.org/harvardbusiness?format=xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                &lt;span class=&quot;s&quot;&gt;&amp;quot;business&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.thestreet.com/tsc/feeds/rss/latest-stories&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                    &lt;span class=&quot;s&quot;&gt;&amp;quot;business&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.forbes.com/real-time/feed2/&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                     &lt;span class=&quot;s&quot;&gt;&amp;quot;business&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/freakonomics&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                   &lt;span class=&quot;s&quot;&gt;&amp;quot;business&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://podcast.cnbc.com/mmpodcast/lightninground.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                       &lt;span class=&quot;s&quot;&gt;&amp;quot;business&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://www.economist.com/feeds/print-sections/77/business.xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;              &lt;span class=&quot;s&quot;&gt;&amp;quot;business&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/freakonomicsradio?format=xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                   &lt;span class=&quot;s&quot;&gt;&amp;quot;business&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.feedburner.com/fastcompany/headlines&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                          &lt;span class=&quot;s&quot;&gt;&amp;quot;business&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;s&quot;&gt;&amp;quot;http://feeds.fool.com/usmf/foolwatch&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                                       &lt;span class=&quot;s&quot;&gt;&amp;quot;business&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;numFeedURLs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;categoryByFeedURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;completed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;chan&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;numFeedURLs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;feedURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;categoryByFeedURL&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;go&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parseFeed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;feedURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;completed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;categoryByFeedURL&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;completed&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Finished fetching all feeds&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;sample-output&quot;&gt;Sample output&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;.....&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;..... (truncated some output)&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;.....&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;.....&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Giant Robots Smashing into other Giant Robots Podcast&lt;/span&gt;
+
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  112&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Amazon.com tech.book(store)&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://tech-book-store.amazon.com/blog/feed/recentPosts.rss&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  50&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Google Translate Blog&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://pubsubhubbub.appspot.com/&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  25&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;IEEE Spectrum Recent Content full text&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://spectrum.ieee.org&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  30&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Google Developers Blog&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://pubsubhubbub.appspot.com/&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  25&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Gigaom&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://gigaom.com&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  50&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Unwired View&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://www.unwiredview.com&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  50&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;STVP Entrepreneurship Corner&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://ecorner.stanford.edu/&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  218&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Martin Fowler&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://martinfowler.com&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  236&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Ruby Rogues&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://rubyrogues.com&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  20&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Freakonomics Radio&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://www.wnyc.org/articles/freakonomics-podcast/&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  150&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Latest TSC Headlines&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://www.thestreet.com/now/&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  50&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;The Netflix Tech Blog&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://www.blogger.com/feeds/725338818844296080/posts/default?start-index=26&amp;amp;max-results=25&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  25&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished fetching all feeds&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;./test_feed  0.78s user 0.27s system 8% cpu 12.454 total&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The above program concurrently fetches the posts from the RSS feeds. We have a map with key as the feedURL, the value is the category the feed belongs to.
+&lt;br /&gt;  &lt;/p&gt;
+
+&lt;p&gt;We create a boolean channel(buffered channel) with a capacity equal to the number of feed urls. We use this channel to coordinate between the main function and the goroutine. To fetch the feeds concurrently we launch as many goroutines as the number of feed urls. The reference of channel is also passed as a argument to goroutine.  After launching the goroutines we wait to receive messages from the channel (channels are blocking if there is no message to receive), A message is received (&amp;lt;-completed)from the channel when a goroutine sends a message on the channel (completed &amp;lt;- true), which can happen after either successfully parsing a feed url or due to a error while fetching the feed url. Once we recieve messages from all the goroutines the program prints “Finished fetching all feeds” and exits.  The program takes 11 sec to fetch all the feeds on my macbook pro. I noticed sometimes it takes longer to complete, this can be avoided by setting a timeout.
+&lt;br /&gt;  &lt;/p&gt;
+
+&lt;p&gt;I really excited to write code in Go. Happy hacking Gophers!!!.&lt;/p&gt;
+
+&lt;h4 id=&quot;installing-a-go-package&quot;&gt;Installing a go package&lt;/h4&gt;
+&lt;p&gt;Set the GOPATH environment variable and install the package using the ‘go get’&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;export GOPATH=~/Documents/projects/go&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;go get github.com/iand/feedparser&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The package will be installed to $GOPATH/pkg directory.&lt;/p&gt;
+
+&lt;h4 id=&quot;go-resources&quot;&gt;Go Resources&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gobyexample.com/&quot;&gt;gobyexample.com&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://play.golang.org/&quot;&gt;play.golang.org&lt;/a&gt; web console to try out small go programs&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://golang.org/doc/effective_go.html&quot;&gt;Effective Go&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://vimeo.com/49718712&quot;&gt;‘Concurrency is NOT Parallelism’ - Rob Pike&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=f6kdp27TYZs&quot;&gt;Go concurrency patterns&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=QDDwwePbDtw&quot;&gt;Advanced Go concurrency patterns&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/2014/08/22/concurrency-with-go&quot;&gt;Concurrency in Go&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on August 22, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -1584,25 +1891,6 @@ on unix.stackexchange&lt;/p&gt;
 
 
   &lt;p&gt;&lt;a href=&quot;/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files&quot;&gt;/etc/passwd, /etc/group and /etc/shadow files&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on June 09, 2013.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[mtrace and muntrace]]></title>
-  <link rel="alternate" type="text/html" href="/2013/05/24/mtrace-and-muntrace" />
-  <id>/2013/05/24/mtrace-and-muntrace</id>
-  <published>2013-05-24T00:00:00+00:00</published>
-  <updated>2013-05-24T00:00:00+00:00</updated>
-  <author>
-    <name>NagaChaitanya Vellanki</name>
-    <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
-&lt;script src=&quot;https://gist.github.com/chaitanyav/5647714.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
-
-
-  &lt;p&gt;&lt;a href=&quot;/2013/05/24/mtrace-and-muntrace&quot;&gt;mtrace and muntrace&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on May 24, 2013.&lt;/p&gt;</content>
 </entry>
 
 </feed>

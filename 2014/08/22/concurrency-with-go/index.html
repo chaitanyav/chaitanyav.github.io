@@ -1,0 +1,498 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Concurrency in Go &#8211; Code Musings</title>
+<meta name="description" content="">
+<meta name="keywords" content="Golang">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Concurrency in Go">
+<meta property="og:description" content="">
+<meta property="og:url" content="/2014/08/22/concurrency-with-go">
+<meta property="og:site_name" content="Code Musings">
+
+
+
+
+
+<link rel="canonical" href="/2014/08/22/concurrency-with-go">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Code Musings Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+<link rel="stylesheet" href="/assets/css/pygments.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="">Code Musings</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				<li><a href="/about/" >About</a></li>
+		        
+				<li><a href="/posts/" >Posts</a></li>
+		        
+				<li><a href="/origami/" >Origami</a></li>
+		        
+				<li><a href="/fractals/" >Fractals</a></li>
+		        
+				<li><a href="/tags/" >Tags</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+	<img src="/images/bio-photo.png" class="bio-photo" alt="NagaChaitanya Vellanki bio photo"></a>
+
+<h3>NagaChaitanya Vellanki</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/nagachaitanya" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+
+<a href="http://github.com/chaitanyav" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+
+
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      
+        <h1><a href="/2014/08/22/concurrency-with-go" rel="bookmark" title="Concurrency in Go">Concurrency in Go</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>Concurrency in Go can be achieved by using <a href="https://golang.org/doc/effective_go.html#goroutines">goroutines</a>, A goroutine is basically a function which executes concurrently with other goroutines/functions. Here is a basic <a href="http://play.golang.org/p/I84oNjrh96">example</a></p>
+
+<div class="highlight"><pre><code class="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+<span class="kn">import</span> <span class="s">&quot;time&quot;</span>
+
+<span class="kd">func</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello from a goroutine&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">go</span> <span class="nx">foo</span><span class="p">()</span>
+
+  <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Good Bye!!!&quot;</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div>
+
+<p>A goroutine can be invoked like this “go funcName()”. As goroutines execute concurrently with other functions we have used a time.Sleep with 1 second duration so that the goroutine can run. Let’s say if we did not have the time.Sleep in the main function, the program exits printing the “Good Bye!!!” string. Same <a href="http://play.golang.org/p/PA50RJI1en">example</a> without the time.Sleep</p>
+
+<div class="highlight"><pre><code class="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+
+<span class="kd">func</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello from a goroutine&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">go</span> <span class="nx">foo</span><span class="p">()</span>
+
+  <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Good Bye!!!&quot;</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Ah, you might be wondering what good are goroutines when i cannot pass information between goroutines, functions. This is where channels come into picture. A channel is pipe through which messages can be sent/received. More about channels <a href="http://tour.golang.org/#66">here</a>. Let’s go through a example illustrating the usage of goroutines, channels.</p>
+
+<div class="highlight"><pre><code class="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&quot;fmt&quot;</span>
+	<span class="s">&quot;github.com/iand/feedparser&quot;</span>
+	<span class="s">&quot;io/ioutil&quot;</span>
+	<span class="s">&quot;net&quot;</span>
+	<span class="s">&quot;net/http&quot;</span>
+	<span class="s">&quot;strings&quot;</span>
+	<span class="s">&quot;time&quot;</span>
+<span class="p">)</span>
+
+<span class="c1">//using the timeout code as in http://stackoverflow.com/questions/16895294/how-to-set-timeout-for-http-get-requests-in-golang</span>
+<span class="kd">var</span> <span class="nx">timeout</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Duration</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">dialTimeout</span><span class="p">(</span><span class="nx">network</span><span class="p">,</span> <span class="nx">addr</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">net</span><span class="p">.</span><span class="nx">DialTimeout</span><span class="p">(</span><span class="nx">network</span><span class="p">,</span> <span class="nx">addr</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">parseFeed</span><span class="p">(</span><span class="nx">feedURL</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">completed</span> <span class="kd">chan</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">transport</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">Transport</span><span class="p">{</span>
+		<span class="nx">Dial</span><span class="p">:</span> <span class="nx">dialTimeout</span><span class="p">,</span>
+	<span class="p">}</span>
+
+	<span class="nx">client</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">Client</span><span class="p">{</span>
+		<span class="nx">Transport</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">transport</span><span class="p">,</span>
+	<span class="p">}</span>
+
+	<span class="nx">response</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="nx">feedURL</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">responseBytes</span><span class="p">,</span> <span class="kt">error</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadAll</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+		<span class="k">if</span> <span class="kt">error</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="kt">error</span><span class="p">)</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="nx">reader</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">NewReader</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">responseBytes</span><span class="p">))</span>
+			<span class="nx">feed</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">feedparser</span><span class="p">.</span><span class="nx">NewFeed</span><span class="p">(</span><span class="nx">reader</span><span class="p">)</span>
+			<span class="nx">starString</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">Repeat</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">starString</span><span class="p">)</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">feed</span><span class="p">.</span><span class="nx">Title</span><span class="p">)</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">feed</span><span class="p">.</span><span class="nx">Link</span><span class="p">)</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Num Posts/Items: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">feed</span><span class="p">.</span><span class="nx">Items</span><span class="p">))</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">starString</span><span class="p">)</span>
+
+			<span class="c1">// uncomment the lines below to the individual posts/items</span>
+			<span class="cm">/*</span>
+<span class="cm">			     for _, item := range feed.Items {</span>
+<span class="cm">			     fmt.Println(&quot;Title: &quot;, item.Title)</span>
+<span class="cm">			     fmt.Println(&quot;Description: &quot;, item.Description)</span>
+<span class="cm">			   }</span>
+<span class="cm">			*/</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="nx">completed</span> <span class="o">&lt;-</span> <span class="kc">true</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="nx">categoryByFeedURL</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+		<span class="s">&quot;http://cdnjs.com/rss.xml&quot;</span><span class="p">:</span>                                                   <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;https://blog.twitter.com/api/blog.rss?name=engineering&amp;alt=rss&quot;</span><span class="p">:</span>             <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://rubyrogues.com/feed/&quot;</span><span class="p">:</span>                                                <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;https://tech.dropbox.com/feed/&quot;</span><span class="p">:</span>                                             <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://news.ycombinator.com/rss&quot;</span><span class="p">:</span>                                            <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/HighScalability&quot;</span><span class="p">:</span>                                <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/html5rocks&quot;</span><span class="p">:</span>                                     <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/TechCrunch/&quot;</span><span class="p">:</span>                                    <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://venturebeat.com/feed/&quot;</span><span class="p">:</span>                                               <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;https://github.com/blog.atom&quot;</span><span class="p">:</span>                                               <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://weblog.rubyonrails.org/feed/atom.xml&quot;</span><span class="p">:</span>                                <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://podcasts.thoughtbot.com/giantrobots.xml&quot;</span><span class="p">:</span>                             <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/railscasts&quot;</span><span class="p">:</span>                                     <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/nvidia/parallelforall?format=xml&quot;</span><span class="p">:</span>               <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/codinghorror&quot;</span><span class="p">:</span>                                   <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://rss.slashdot.org/Slashdot/slashdot&quot;</span><span class="p">:</span>                                  <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.kickstarter.com/projects/feed.atom&quot;</span><span class="p">:</span>                              <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.mashable.com/Mashable&quot;</span><span class="p">:</span>                                         <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.gawker.com/gizmodo/full&quot;</span><span class="p">:</span>                                       <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/ommalik&quot;</span><span class="p">:</span>                                        <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/OfficialAndroidBlog&quot;</span><span class="p">:</span>                            <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://vimcasts.org/feeds/ogg&quot;</span><span class="p">:</span>                                              <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.engadget.com/rss.xml&quot;</span><span class="p">:</span>                                            <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://blogs.computerworld.com/rss.xml&quot;</span><span class="p">:</span>                                     <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/cnet/NnTv&quot;</span><span class="p">:</span>                                      <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.wired.com/wired/index&quot;</span><span class="p">:</span>                                         <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.anandtech.com/rss/&quot;</span><span class="p">:</span>                                              <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://appleinsider.com.feedsportal.com/c/33975/f/616168/index.rss&quot;</span><span class="p">:</span>         <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.arstechnica.com/arstechnica/index?format=xml&quot;</span><span class="p">:</span>                  <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.pcworld.com/index.rss&quot;</span><span class="p">:</span>                                           <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.searchengineland.com/searchengineland?format=xml&quot;</span><span class="p">:</span>              <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/UnwiredView&quot;</span><span class="p">:</span>                                    <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.theregister.co.uk/headlines.atom&quot;</span><span class="p">:</span>                                <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.technologyreview.com/topnews.rss&quot;</span><span class="p">:</span>                                <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/tedtalks_video&quot;</span><span class="p">:</span>                                 <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/avc&quot;</span><span class="p">:</span>                                            <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feed.onstartups.com/onstartups&quot;</span><span class="p">:</span>                                      <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/IeeeSpectrumPodcasts&quot;</span><span class="p">:</span>                           <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/IeeeSpectrumVideo&quot;</span><span class="p">:</span>                              <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/IeeeSpectrumFullText&quot;</span><span class="p">:</span>                           <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/GoogleOpenSourceBlog&quot;</span><span class="p">:</span>                           <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/37signals/beMH&quot;</span><span class="p">:</span>                                 <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.joelonsoftware.com/rss.xml&quot;</span><span class="p">:</span>                                      <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://martinfowler.com/feed.atom&quot;</span><span class="p">:</span>                                          <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.hanselman.com/scotthanselman&quot;</span><span class="p">:</span>                                  <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.randsinrepose.com/index.xml&quot;</span><span class="p">:</span>                                     <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://bokardo.com/feed/&quot;</span><span class="p">:</span>                                                   <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://blog.stackoverflow.com/feed/&quot;</span><span class="p">:</span>                                        <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/thoughtworks-blogs&quot;</span><span class="p">:</span>                             <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.artima.com/weblogs/feeds/weblogs.rss&quot;</span><span class="p">:</span>                            <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/blogspot/RLXA&quot;</span><span class="p">:</span>                                  <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/blogspot/SbSV&quot;</span><span class="p">:</span>                                  <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/InsideSearch&quot;</span><span class="p">:</span>                                   <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/GDBcode&quot;</span><span class="p">:</span>                                        <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds2.feedburner.com/blogspot/Egta&quot;</span><span class="p">:</span>                                 <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/GoogleOnlineSecurityBlog&quot;</span><span class="p">:</span>                       <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/GoogleStudentBlog&quot;</span><span class="p">:</span>                              <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/GoogleTranslateBlog&quot;</span><span class="p">:</span>                            <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://techblog.netflix.com/feeds/posts/default&quot;</span><span class="p">:</span>                            <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://tech-book-store.amazon.com/blog/feed/recentPosts.rss&quot;</span><span class="p">:</span>                <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/Ruby5?format=xml&quot;</span><span class="p">:</span>                               <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/PetrMitrichev?format=xml&quot;</span><span class="p">:</span>                       <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://xkcd.com/rss.xml&quot;</span><span class="p">:</span>                                                    <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.perfplanet.com/rss.xml&quot;</span><span class="p">:</span>                                          <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feed.dilbert.com/dilbert/daily_strip?format=xml&quot;</span><span class="p">:</span>                     <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.stanford.edu/group/edcorner/uploads/podcast/EducatorsCorner.xml&quot;</span><span class="p">:</span> <span class="s">&quot;developer&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.zdnet.com/blog/rss.xml&quot;</span><span class="p">:</span>                                          <span class="s">&quot;tech&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.reuters.com/reuters/topNews&quot;</span><span class="p">:</span>                                   <span class="s">&quot;news&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://rss.cnn.com/rss/cnn_topstories.rss&quot;</span><span class="p">:</span>                                  <span class="s">&quot;news&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.abcnews.com/abcnews/topstories&quot;</span><span class="p">:</span>                                <span class="s">&quot;news&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.npr.org/rss/rss.php?id=1001&quot;</span><span class="p">:</span>                                     <span class="s">&quot;news&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.harvardbusiness.org/harvardbusiness?format=xml&quot;</span><span class="p">:</span>                <span class="s">&quot;business&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.thestreet.com/tsc/feeds/rss/latest-stories&quot;</span><span class="p">:</span>                    <span class="s">&quot;business&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.forbes.com/real-time/feed2/&quot;</span><span class="p">:</span>                                     <span class="s">&quot;business&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/freakonomics&quot;</span><span class="p">:</span>                                   <span class="s">&quot;business&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://podcast.cnbc.com/mmpodcast/lightninground.xml&quot;</span><span class="p">:</span>                       <span class="s">&quot;business&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://www.economist.com/feeds/print-sections/77/business.xml&quot;</span><span class="p">:</span>              <span class="s">&quot;business&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/freakonomicsradio?format=xml&quot;</span><span class="p">:</span>                   <span class="s">&quot;business&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.feedburner.com/fastcompany/headlines&quot;</span><span class="p">:</span>                          <span class="s">&quot;business&quot;</span><span class="p">,</span>
+		<span class="s">&quot;http://feeds.fool.com/usmf/foolwatch&quot;</span><span class="p">:</span>                                       <span class="s">&quot;business&quot;</span><span class="p">,</span>
+	<span class="p">}</span>
+	<span class="nx">numFeedURLs</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">categoryByFeedURL</span><span class="p">)</span>
+	<span class="nx">completed</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">,</span> <span class="nx">numFeedURLs</span><span class="p">)</span>
+
+	<span class="k">for</span> <span class="nx">feedURL</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">categoryByFeedURL</span> <span class="p">{</span>
+		<span class="k">go</span> <span class="nx">parseFeed</span><span class="p">(</span><span class="nx">feedURL</span><span class="p">,</span> <span class="nx">completed</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="nx">_</span> <span class="p">=</span> <span class="k">range</span> <span class="nx">categoryByFeedURL</span> <span class="p">{</span>
+		<span class="o">&lt;-</span><span class="nx">completed</span>
+	<span class="p">}</span>
+
+	<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Finished fetching all feeds&quot;</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div>
+
+<h4 id="sample-output">Sample output</h4>
+
+<div class="highlight"><pre><code class="console"><span class="go">.....</span>
+<span class="go">..... (truncated some output)</span>
+<span class="go">.....</span>
+<span class="go">.....</span>
+<span class="go">********************************************************************************</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Giant Robots Smashing into other Giant Robots Podcast</span>
+
+<span class="go">Num Posts/Items:  112</span>
+<span class="go">********************************************************************************</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Amazon.com tech.book(store)</span>
+<span class="go">http://tech-book-store.amazon.com/blog/feed/recentPosts.rss</span>
+<span class="go">Num Posts/Items:  50</span>
+<span class="go">********************************************************************************</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Google Translate Blog</span>
+<span class="go">http://pubsubhubbub.appspot.com/</span>
+<span class="go">Num Posts/Items:  25</span>
+<span class="go">********************************************************************************</span>
+<span class="go">********************************************************************************</span>
+<span class="go">IEEE Spectrum Recent Content full text</span>
+<span class="go">http://spectrum.ieee.org</span>
+<span class="go">Num Posts/Items:  30</span>
+<span class="go">********************************************************************************</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Google Developers Blog</span>
+<span class="go">http://pubsubhubbub.appspot.com/</span>
+<span class="go">Num Posts/Items:  25</span>
+<span class="go">********************************************************************************</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Gigaom</span>
+<span class="go">http://gigaom.com</span>
+<span class="go">Num Posts/Items:  50</span>
+<span class="go">********************************************************************************</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Unwired View</span>
+<span class="go">http://www.unwiredview.com</span>
+<span class="go">Num Posts/Items:  50</span>
+<span class="go">********************************************************************************</span>
+<span class="go">********************************************************************************</span>
+<span class="go">STVP Entrepreneurship Corner</span>
+<span class="go">http://ecorner.stanford.edu/</span>
+<span class="go">Num Posts/Items:  218</span>
+<span class="go">********************************************************************************</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Martin Fowler</span>
+<span class="go">http://martinfowler.com</span>
+<span class="go">Num Posts/Items:  236</span>
+<span class="go">********************************************************************************</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Ruby Rogues</span>
+<span class="go">http://rubyrogues.com</span>
+<span class="go">Num Posts/Items:  20</span>
+<span class="go">********************************************************************************</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Freakonomics Radio</span>
+<span class="go">http://www.wnyc.org/articles/freakonomics-podcast/</span>
+<span class="go">Num Posts/Items:  150</span>
+<span class="go">********************************************************************************</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Latest TSC Headlines</span>
+<span class="go">http://www.thestreet.com/now/</span>
+<span class="go">Num Posts/Items:  50</span>
+<span class="go">********************************************************************************</span>
+<span class="go">********************************************************************************</span>
+<span class="go">The Netflix Tech Blog</span>
+<span class="go">http://www.blogger.com/feeds/725338818844296080/posts/default?start-index=26&amp;max-results=25</span>
+<span class="go">Num Posts/Items:  25</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Finished fetching all feeds</span>
+<span class="go">./test_feed  0.78s user 0.27s system 8% cpu 12.454 total</span></code></pre></div>
+
+<p>The above program concurrently fetches the posts from the RSS feeds. We have a map with key as the feedURL, the value is the category the feed belongs to.
+<br />  </p>
+
+<p>We create a boolean channel(buffered channel) with a capacity equal to the number of feed urls. We use this channel to coordinate between the main function and the goroutine. To fetch the feeds concurrently we launch as many goroutines as the number of feed urls. The reference of channel is also passed as a argument to goroutine.  After launching the goroutines we wait to receive messages from the channel (channels are blocking if there is no message to receive), A message is received (&lt;-completed)from the channel when a goroutine sends a message on the channel (completed &lt;- true), which can happen after either successfully parsing a feed url or due to a error while fetching the feed url. Once we recieve messages from all the goroutines the program prints “Finished fetching all feeds” and exits.  The program takes 11 sec to fetch all the feeds on my macbook pro. I noticed sometimes it takes longer to complete, this can be avoided by setting a timeout.
+<br />  </p>
+
+<p>I really excited to write code in Go. Happy hacking Gophers!!!.</p>
+
+<h4 id="installing-a-go-package">Installing a go package</h4>
+<p>Set the GOPATH environment variable and install the package using the ‘go get’</p>
+
+<div class="highlight"><pre><code class="console"><span class="go">export GOPATH=~/Documents/projects/go</span>
+<span class="go">go get github.com/iand/feedparser</span></code></pre></div>
+
+<p>The package will be installed to $GOPATH/pkg directory.</p>
+
+<h4 id="go-resources">Go Resources</h4>
+<ul>
+  <li><a href="https://gobyexample.com/">gobyexample.com</a></li>
+  <li><a href="http://play.golang.org/">play.golang.org</a> web console to try out small go programs</li>
+  <li><a href="https://golang.org/doc/effective_go.html">Effective Go</a></li>
+  <li><a href="https://vimeo.com/49718712">‘Concurrency is NOT Parallelism’ - Rob Pike</a></li>
+  <li><a href="https://www.youtube.com/watch?v=f6kdp27TYZs">Go concurrency patterns</a></li>
+  <li><a href="https://www.youtube.com/watch?v=QDDwwePbDtw">Advanced Go concurrency patterns</a></li>
+</ul>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          
+	<img src="/images/bio-photo.png" class="bio-photo" alt="NagaChaitanya Vellanki bio photo"></a>
+
+<h3>NagaChaitanya Vellanki</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/nagachaitanya" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+
+<a href="http://github.com/chaitanyav" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+
+
+
+
+        </div>
+        <p class="byline"><strong>Concurrency in Go</strong> was published on <time datetime="2014-08-22T00:00:00+00:00">August 22, 2014</time> by <a href="/about" title="About NagaChaitanya Vellanki">NagaChaitanya Vellanki</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="/2014/07/21/dragon-curve" title="Drawing Dragon Curve using L-system">Drawing Dragon Curve using L-system</a></li>
+    
+      <li><a href="/2014/07/16/bouncing-ball-using-opengl" title="Bouncing Ball using OpenGL">Bouncing Ball using OpenGL</a></li>
+    
+      <li><a href="/2014/07/13/getting-starting-with-opengl" title="Getting started with OpenGL on Mac OSX mavericks">Getting started with OpenGL on Mac OSX mavericks</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2014 NagaChaitanya Vellanki. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+  
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'codemusings'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+	        
+
+</body>
+</html>
