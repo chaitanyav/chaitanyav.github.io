@@ -163,29 +163,13 @@
 	<span class="s">&quot;fmt&quot;</span>
 	<span class="s">&quot;github.com/iand/feedparser&quot;</span>
 	<span class="s">&quot;io/ioutil&quot;</span>
-	<span class="s">&quot;net&quot;</span>
 	<span class="s">&quot;net/http&quot;</span>
 	<span class="s">&quot;strings&quot;</span>
 	<span class="s">&quot;time&quot;</span>
 <span class="p">)</span>
 
-<span class="c1">//using the timeout code as in http://stackoverflow.com/questions/16895294/how-to-set-timeout-for-http-get-requests-in-golang</span>
-<span class="kd">var</span> <span class="nx">timeout</span> <span class="p">=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Duration</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-
-<span class="kd">func</span> <span class="nx">dialTimeout</span><span class="p">(</span><span class="nx">network</span><span class="p">,</span> <span class="nx">addr</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">net</span><span class="p">.</span><span class="nx">DialTimeout</span><span class="p">(</span><span class="nx">network</span><span class="p">,</span> <span class="nx">addr</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">)</span>
-<span class="p">}</span>
-
 <span class="kd">func</span> <span class="nx">parseFeed</span><span class="p">(</span><span class="nx">feedURL</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">completed</span> <span class="kd">chan</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">transport</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">Transport</span><span class="p">{</span>
-		<span class="nx">Dial</span><span class="p">:</span> <span class="nx">dialTimeout</span><span class="p">,</span>
-	<span class="p">}</span>
-
-	<span class="nx">client</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">Client</span><span class="p">{</span>
-		<span class="nx">Transport</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">transport</span><span class="p">,</span>
-	<span class="p">}</span>
-
-	<span class="nx">response</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="nx">feedURL</span><span class="p">)</span>
+	<span class="nx">response</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="nx">feedURL</span><span class="p">)</span>
 	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
 		<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
 	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -306,7 +290,13 @@
 	<span class="p">}</span>
 
 	<span class="k">for</span> <span class="nx">_</span> <span class="p">=</span> <span class="k">range</span> <span class="nx">categoryByFeedURL</span> <span class="p">{</span>
-		<span class="o">&lt;-</span><span class="nx">completed</span>
+		<span class="k">select</span> <span class="p">{</span>
+		<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">completed</span><span class="p">:</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Finished Parsing a feed at: &quot;</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">())</span>
+		<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">time</span><span class="p">.</span><span class="nx">After</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Minute</span><span class="p">):</span>
+			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Time out!!, lets move on&quot;</span><span class="p">)</span>
+			<span class="nx">completed</span> <span class="o">&lt;-</span> <span class="kc">false</span>
+		<span class="p">}</span>
 	<span class="p">}</span>
 
 	<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Finished fetching all feeds&quot;</span><span class="p">)</span>
@@ -319,81 +309,77 @@
 <span class="go">.....</span>
 <span class="go">.....</span>
 <span class="go">********************************************************************************</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Giant Robots Smashing into other Giant Robots Podcast</span>
-
-<span class="go">Num Posts/Items:  112</span>
-<span class="go">********************************************************************************</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Amazon.com tech.book(store)</span>
-<span class="go">http://tech-book-store.amazon.com/blog/feed/recentPosts.rss</span>
-<span class="go">Num Posts/Items:  50</span>
-<span class="go">********************************************************************************</span>
-<span class="go">********************************************************************************</span>
 <span class="go">Google Translate Blog</span>
 <span class="go">http://pubsubhubbub.appspot.com/</span>
 <span class="go">Num Posts/Items:  25</span>
 <span class="go">********************************************************************************</span>
-<span class="go">********************************************************************************</span>
-<span class="go">IEEE Spectrum Recent Content full text</span>
-<span class="go">http://spectrum.ieee.org</span>
-<span class="go">Num Posts/Items:  30</span>
-<span class="go">********************************************************************************</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Google Developers Blog</span>
-<span class="go">http://pubsubhubbub.appspot.com/</span>
-<span class="go">Num Posts/Items:  25</span>
-<span class="go">********************************************************************************</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Gigaom</span>
-<span class="go">http://gigaom.com</span>
-<span class="go">Num Posts/Items:  50</span>
-<span class="go">********************************************************************************</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Unwired View</span>
-<span class="go">http://www.unwiredview.com</span>
-<span class="go">Num Posts/Items:  50</span>
-<span class="go">********************************************************************************</span>
-<span class="go">********************************************************************************</span>
-<span class="go">STVP Entrepreneurship Corner</span>
-<span class="go">http://ecorner.stanford.edu/</span>
-<span class="go">Num Posts/Items:  218</span>
-<span class="go">********************************************************************************</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Martin Fowler</span>
-<span class="go">http://martinfowler.com</span>
-<span class="go">Num Posts/Items:  236</span>
-<span class="go">********************************************************************************</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Ruby Rogues</span>
-<span class="go">http://rubyrogues.com</span>
-<span class="go">Num Posts/Items:  20</span>
-<span class="go">********************************************************************************</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Freakonomics Radio</span>
-<span class="go">http://www.wnyc.org/articles/freakonomics-podcast/</span>
-<span class="go">Num Posts/Items:  150</span>
-<span class="go">********************************************************************************</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Latest TSC Headlines</span>
-<span class="go">http://www.thestreet.com/now/</span>
-<span class="go">Num Posts/Items:  50</span>
-<span class="go">********************************************************************************</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:35.654612959 -0700 PDT</span>
 <span class="go">********************************************************************************</span>
 <span class="go">The Netflix Tech Blog</span>
 <span class="go">http://www.blogger.com/feeds/725338818844296080/posts/default?start-index=26&amp;max-results=25</span>
 <span class="go">Num Posts/Items:  25</span>
 <span class="go">********************************************************************************</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:36.722009376 -0700 PDT</span>
+<span class="go">********************************************************************************</span>
+<span class="go">VentureBeat</span>
+<span class="go">http://venturebeat.com</span>
+<span class="go">Num Posts/Items:  30</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:40.091771787 -0700 PDT</span>
+<span class="go">********************************************************************************</span>
+<span class="go">ABC News: Top Stories</span>
+<span class="go">http://abcnews.go.com/</span>
+<span class="go">Num Posts/Items:  33</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:40.235177514 -0700 PDT</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Economist.com</span>
+<span class="go">http://www.economist.com</span>
+<span class="go">Num Posts/Items:  20</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:40.349098971 -0700 PDT</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Ruby Rogues</span>
+<span class="go">http://rubyrogues.com</span>
+<span class="go">Num Posts/Items:  20</span>
+<span class="go">********************************************************************************</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:50.188633751 -0700 PDT</span>
+<span class="go">Get http://www.joelonsoftware.com/rss.xml: dial tcp: i/o timeout</span>
+<span class="go">Get http://www.engadget.com/rss.xml: dial tcp: i/o timeout</span>
+<span class="go">Get http://feeds.reuters.com/reuters/topNews: dial tcp: i/o timeout</span>
+<span class="go">Get http://feeds.mashable.com/Mashable: dial tcp: i/o timeout</span>
+<span class="go">Get http://feed.dilbert.com/dilbert/daily_strip?format=xml: dial tcp: i/o timeout</span>
+<span class="go">Get http://www.zdnet.com/blog/rss.xml: dial tcp: i/o timeout</span>
+<span class="go">Get http://www.npr.org/rss/rss.php?id=1001: dial tcp: i/o timeout</span>
+<span class="go">Get http://bokardo.com/feed/: dial tcp: i/o timeout</span>
+<span class="go">Get http://www.stanford.edu/group/edcorner/uploads/podcast/EducatorsCorner.xml: dial tcp: i/o timeout</span>
+<span class="go">Get https://tech.dropbox.com/feed/: dial tcp: i/o timeout</span>
+<span class="go">Get http://rss.slashdot.org/Slashdot/slashdot: dial tcp: i/o timeout</span>
+<span class="go">Get http://feeds.hanselman.com/scotthanselman: dial tcp: i/o timeout</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276427935 -0700 PDT</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276443162 -0700 PDT</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276448534 -0700 PDT</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.27645314 -0700 PDT</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276458319 -0700 PDT</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.27646313 -0700 PDT</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276468479 -0700 PDT</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276473478 -0700 PDT</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276478238 -0700 PDT</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276482996 -0700 PDT</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276488006 -0700 PDT</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276493035 -0700 PDT</span>
+<span class="go">Time out!!, lets move on</span>
+<span class="go">Finished Parsing a feed at:  2014-08-22 18:06:56.277632245 -0700 PDT</span>
 <span class="go">Finished fetching all feeds</span>
-<span class="go">./test_feed  0.78s user 0.27s system 8% cpu 12.454 total</span></code></pre></div>
+<span class="go">./test_feed  0.72s user 0.27s system 1% cpu 1:30.02 total</span></code></pre></div>
 
 <p>The above program concurrently fetches the posts from the RSS feeds. We have a map with key as the feedURL, the value is the category the feed belongs to.
 <br />  </p>
 
-<p>We create a boolean channel(buffered channel) with a capacity equal to the number of feed urls. We use this channel to coordinate between the main function and the goroutine. To fetch the feeds concurrently we launch as many goroutines as the number of feed urls. The reference of channel is also passed as a argument to goroutine.  After launching the goroutines we wait to receive messages from the channel (channels are blocking if there is no message to receive), A message is received (&lt;-completed)from the channel when a goroutine sends a message on the channel (completed &lt;- true), which can happen after either successfully parsing a feed url or due to a error while fetching the feed url. Once we recieve messages from all the goroutines the program prints “Finished fetching all feeds” and exits.  The program takes 11 sec to fetch all the feeds on my macbook pro. I noticed sometimes it takes longer to complete, this can be avoided by setting a timeout.
+<p>We create a boolean channel(buffered channel) with a capacity equal to the number of feed urls. We use this channel to coordinate between the main function and the goroutine. To fetch the feeds concurrently we launch as many goroutines as the number of feed urls. The reference of channel is also passed as a argument to goroutine.  After launching the goroutines we wait to receive messages from the channel (channels are blocking if there is no message to receive), A message is received (<strong>&lt;-completed</strong>) from the channel when a goroutine sends (<strong>completed &lt;- true</strong>) a message  on the channel, which can happen after either successfully parsing a feed url or due to a error while fetching the feed url. Sometimes it takes a while to fetch a particular feed, in this case we can send a message to a channel after a timeout so that we can deterministically move forward without waiting forever on the channel. This can be achieved by using the <strong>time.After()</strong> function with the select(which is like a switch statement for channels), the <strong>time.After()</strong> function sends out the time to the after the timeout is reached. Once we receive messages from all the goroutines the program prints “Finished fetching all feeds” and exits.
 <br />  </p>
 
-<p>I really excited to write code in Go. Happy hacking Gophers!!!.</p>
+<p>I really excited to write code in Go.<strong> Happy hacking Gophers!!!</strong>.</p>
 
 <h4 id="installing-a-go-package">Installing a go package</h4>
 <p>Set the GOPATH environment variable and install the package using the ‘go get’</p>
