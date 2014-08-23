@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-08-23T02:28:46+00:00</updated>
+<updated>2014-08-23T18:14:49+00:00</updated>
 <id>/</id>
 <author>
   <name>NagaChaitanya Vellanki</name>
@@ -300,6 +300,7 @@
   &lt;li&gt;&lt;a href=&quot;https://vimeo.com/49718712&quot;&gt;‘Concurrency is NOT Parallelism’ - Rob Pike&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=f6kdp27TYZs&quot;&gt;Go concurrency patterns&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=QDDwwePbDtw&quot;&gt;Advanced Go concurrency patterns&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://talks.golang.org/2013/bestpractices.slide#1&quot;&gt;Go Best Practices&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
   &lt;p&gt;&lt;a href=&quot;/2014/08/22/concurrency-with-go&quot;&gt;Concurrency in Go&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on August 22, 2014.&lt;/p&gt;</content>
