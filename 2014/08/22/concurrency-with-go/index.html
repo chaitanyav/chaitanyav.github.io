@@ -374,12 +374,12 @@
 <span class="go">./test_feed  0.72s user 0.27s system 1% cpu 1:30.02 total</span></code></pre></div>
 
 <p>The above program concurrently fetches the posts from the RSS feeds. We have a map with key as the feedURL, the value is the category the feed belongs to.
-<br />  </p>
+<br /></p>
 
 <p>We create a boolean channel(buffered channel) with a capacity equal to the number of feed urls. We use this channel to coordinate between the main function and the goroutine. To fetch the feeds concurrently we launch as many goroutines as the number of feed urls. The reference of channel is also passed as a argument to goroutine.  After launching the goroutines we wait to receive messages from the channel (channels are blocking if there is no message to receive), A message is received (<strong>&lt;-completed</strong>) from the channel when a goroutine sends (<strong>completed &lt;- true</strong>) a message  on the channel, which can happen after either successfully parsing a feed url or due to a error while fetching the feed url. Sometimes it takes a while to fetch a particular feed, in this case we can send a message to a channel after a timeout so that we can deterministically move forward without waiting forever on the channel. This can be achieved by using the <strong>time.After()</strong> function with the select(which is like a switch statement for channels), the <strong>time.After()</strong> function sends out the time to the after the timeout is reached. Once we receive messages from all the goroutines the program prints “Finished fetching all feeds” and exits.
-<br />  </p>
+<br /></p>
 
-<p>I really excited to write code in Go.<strong> Happy hacking Gophers!!!</strong>.</p>
+<p>I am really excited to write code in Go.<strong> Happy hacking Gophers!!!</strong>.</p>
 
 <h4 id="installing-a-go-package">Installing a go package</h4>
 <p>Set the GOPATH environment variable and install the package using the ‘go get’</p>
