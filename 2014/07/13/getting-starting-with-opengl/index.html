@@ -86,6 +86,8 @@
 		        
 				<li><a href="/tags/" >Tags</a></li>
 		        
+				<li><a href="/papers/" >Papers</a></li>
+		        
 		    </ul>
 		</nav>
 	</div><!-- /.top-navigation -->
@@ -126,7 +128,7 @@ previously run programs on Windows using Visual Studio, so i knew that glut
 needs to be installed on the system. But a google search revealed that they
 are already installed on the Mac OSX. Here is the standard location for these frameworks.</p>
 
-<div class="highlight"><pre><code class="console"><span class="go">/System/Library/Frameworks » ls GLUT.framework OpenGL.framework</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">/System/Library/Frameworks » ls GLUT.framework OpenGL.framework</span>
 <span class="go">GLUT.framework:</span>
 <span class="go">GLUT       Headers    Resources  Versions   module.map</span>
 
@@ -135,12 +137,12 @@ are already installed on the Mac OSX. Here is the standard location for these fr
 
 <p>These can linked with your program using the –framework option</p>
 
-<div class="highlight"><pre><code class="console"><span class="go">cc -o hello_gl hello_gl.c -framework,OpenGL,-framework,GLUT</span></code></pre></div>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">cc -o hello_gl hello_gl.c -framework,OpenGL,-framework,GLUT</span></code></pre></div>
 
 <p>You can also use the <a href="http://www.glfw.org/"><b>GLFW</b></a> library for creating windows, keyboard and mouse events with OpenGL.
 Download the GLFW zip files from <a href="http://www.glfw.org/"><b>here</b></a></p>
 
-<div class="highlight"><pre><code class="console"><span class="go">~/Downloads » ls glfw-3.0.4.zip</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~/Downloads » ls glfw-3.0.4.zip</span>
 <span class="go">glfw-3.0.4.zip</span>
 
 <span class="go">~/Downloads » unzip glfw-3.0.4.zip</span>
@@ -173,14 +175,14 @@ Download the GLFW zip files from <a href="http://www.glfw.org/"><b>here</b></a><
 
 <p>The above cmake command will generate the required make file to build and install the library on the system.</p>
 
-<div class="highlight"><pre><code class="console"><span class="go">~/Downloads/glfw-3.0.4 » ls</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~/Downloads/glfw-3.0.4 » ls</span>
 <span class="go">    CMake                    CMakeLists.txt           README.md                cmake_uninstall.cmake.in examples                 tests</span>
 <span class="go">    CMakeCache.txt           COPYING.txt              cmake_install.cmake      deps                     include</span>
 <span class="go">    CMakeFiles               Makefile                 cmake_uninstall.cmake    docs                     src</span></code></pre></div>
 
 <p>Run ‘<b>make</b>’ to build the library (Note: i have truncated the output of the make command)</p>
 
-<div class="highlight"><pre><code class="console"><span class="go">~/Downloads/glfw-3.0.4 » make</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~/Downloads/glfw-3.0.4 » make</span>
 <span class="go">    [  2%] Building C object src/CMakeFiles/glfw.dir/clipboard.c.o</span>
 <span class="go">    [  4%] Building C object src/CMakeFiles/glfw.dir/context.c.o</span>
 <span class="go">    [  6%] Building C object src/CMakeFiles/glfw.dir/gamma.c.o</span>
@@ -202,7 +204,7 @@ Download the GLFW zip files from <a href="http://www.glfw.org/"><b>here</b></a><
 
 <p>Run ‘<b>make install</b>’ to install the library to the standard system location</p>
 
-<div class="highlight"><pre><code class="console"><span class="go">~/Downloads/glfw-3.0.4 » sudo make install</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~/Downloads/glfw-3.0.4 » sudo make install</span>
 <span class="go">Password:</span>
 <span class="go">[ 36%] Built target glfw</span>
 <span class="go">[ 38%] Built target Boing</span>
@@ -241,7 +243,7 @@ Download the GLFW zip files from <a href="http://www.glfw.org/"><b>here</b></a><
 
 <p>Here is a example OpenGL program from <a href="http://www.glfw.org/docs/latest/quick.html">here</a></p>
 
-<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;GLFW/glfw3.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;GLFW/glfw3.h&gt;</span>
 <span class="cp">#include &lt;stdlib.h&gt;</span>
 <span class="cp">#include &lt;stdio.h&gt;</span>
 <span class="k">static</span> <span class="kt">void</span> <span class="nf">error_callback</span><span class="p">(</span><span class="kt">int</span> <span class="n">error</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">description</span><span class="p">)</span>
@@ -299,7 +301,7 @@ Download the GLFW zip files from <a href="http://www.glfw.org/"><b>here</b></a><
 
 <p>To compile, run the above program (assuming it is saved in a hello_gl.c)</p>
 
-<div class="highlight"><pre><code class="console"><span class="go">~/Documents/projects/opengl(branch:master*) » cc -o hello_gl hello_gl.c /usr/local/lib/libglfw3.a -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~/Documents/projects/opengl(branch:master*) » cc -o hello_gl hello_gl.c /usr/local/lib/libglfw3.a -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo</span>
 
 <span class="go">~/Documents/projects/opengl(branch:master*) » ./hello_gl</span></code></pre></div>
 
@@ -311,11 +313,11 @@ Download the GLFW zip files from <a href="http://www.glfw.org/"><b>here</b></a><
 
 <p>Hey, in case you want to use OpenGL, GLUT with your CUDA program. Here is how you compile your cuda program</p>
 
-<div class="highlight"><pre><code class="console"><span class="go">nvcc julia_gpu.cu -Xlinker -framework,OpenGL,-framework,GLUT</span></code></pre></div>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">nvcc julia_gpu.cu -Xlinker -framework,OpenGL,-framework,GLUT</span></code></pre></div>
 
 <p>Tip: To turn on dynlib use this option before running cmake</p>
 
-<div class="highlight"><pre><code class="console"><span class="go">cmake -D BUILD_SHARED_LIBS=ON ./</span></code></pre></div>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">cmake -D BUILD_SHARED_LIBS=ON ./</span></code></pre></div>
 
 <p>Happy Hacking!!!!</p>
 

@@ -86,6 +86,8 @@
 		        
 				<li><a href="/tags/" >Tags</a></li>
 		        
+				<li><a href="/papers/" >Papers</a></li>
+		        
 		    </ul>
 		</nav>
 	</div><!-- /.top-navigation -->
@@ -123,7 +125,7 @@
     <div class="article-wrap">
       <h4 id="stats-of-packages-available-in-apt-cache">Stats of packages available in apt-cache</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » apt-cache stats</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » apt-cache stats</span>
 <span class="go">Total package names: 56184 (1,124 k)</span>
 <span class="go">Total package structures: 95540 (5,350 k)</span>
 <span class="go">  Normal packages: 65375</span>
@@ -144,7 +146,7 @@
 
 <h4 id="update-the-package-database-as-specified-in-the-etcaptsourceslist-file">Update the package database (as specified in the /etc/apt/sources.list file)</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » sudo apt-get update</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » sudo apt-get update</span>
 <span class="go">Ign http://dl.google.com stable InRelease</span>
 <span class="go">Hit http://dl.google.com stable Release.gpg</span>
 <span class="go">Hit http://dl.google.com stable Release</span>
@@ -296,7 +298,7 @@
 
 <h4 id="search-the-package-database-for-a-given-keyword">Search the package database for a given keyword</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » apt-cache search mongodb</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » apt-cache search mongodb</span>
 <span class="go">python-bson - Python implementation of BSON for MongoDB</span>
 <span class="go">python-bson-ext - C-coded extension to the python-bson package</span>
 <span class="go">python-celery - async task/job queue based on message passing</span>
@@ -341,7 +343,7 @@
 
 <h4 id="installing-a-package">Installing a package</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">sudo apt-get install postgresql</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">sudo apt-get install postgresql</span>
 <span class="go">Reading package lists... Done</span>
 <span class="go">Building dependency tree</span>
 <span class="go">Reading state information... Done</span>
@@ -407,13 +409,13 @@
 
 <h4 id="download-a-package-without-installing">Download a package without installing</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » sudo apt-get download mysql-server</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » sudo apt-get download mysql-server</span>
 <span class="go">Get:1 Downloading mysql-server 5.5.35-0ubuntu0.13.10.2 [11.1 kB]</span>
 <span class="go">Fetched 11.1 kB in 0s (50.4 kB/s)</span></code></pre></div>
 
 <h4 id="show-info-about-a-package">Show info about a package</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » apt-cache show mongodb</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » apt-cache show mongodb</span>
 <span class="go">Package: mongodb</span>
 <span class="go">Priority: optional</span>
 <span class="go">Section: universe/database</span>
@@ -454,7 +456,7 @@
 
 <h4 id="upgrade-installed-packages">Upgrade installed packages</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » sudo apt-get upgrade</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » sudo apt-get upgrade</span>
 <span class="go">Reading package lists... Done</span>
 <span class="go">Building dependency tree</span>
 <span class="go">Reading state information... Done</span>
@@ -508,19 +510,19 @@
 
 <h4 id="upgrade-to-a-new-release-of-ubuntu">Upgrade to a new release of ubuntu</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » sudo apt-get dist-upgrade</span></code></pre></div>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » sudo apt-get dist-upgrade</span></code></pre></div>
 
 <h4 id="remove-archived-packages-in-varcacheaptarchives">Remove archived packages in /var/cache/apt/archives</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » sudo apt-get clean</span></code></pre></div>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » sudo apt-get clean</span></code></pre></div>
 
 <h4 id="remove-obsolete-packages">Remove obsolete packages</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » sudo apt-get autoclean</span></code></pre></div>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » sudo apt-get autoclean</span></code></pre></div>
 
 <h4 id="remove-a-package">Remove a package</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » sudo apt-get remove postgresql</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » sudo apt-get remove postgresql</span>
 <span class="go">Reading package lists... Done</span>
 <span class="go">Building dependency tree</span>
 <span class="go">Reading state information... Done</span>
@@ -539,7 +541,7 @@
 
 <h4 id="remove-a-package-with-config-files">Remove a package with config files</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » sudo apt-get remove --purge postgresql</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » sudo apt-get remove --purge postgresql</span>
 <span class="go">Reading package lists... Done</span>
 <span class="go">Building dependency tree</span>
 <span class="go">Reading state information... Done</span>
@@ -553,7 +555,7 @@
 
 <h4 id="remove-dependencies-for-a-removed-package">Remove dependencies for a removed package</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » sudo apt-get autoremove</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » sudo apt-get autoremove</span>
 <span class="go">Reading package lists... Done</span>
 <span class="go">Building dependency tree</span>
 <span class="go">Reading state information... Done</span>
@@ -580,11 +582,11 @@
 
 <h4 id="install-a-package-even-if-the-dependencies-are-unmet">Install a package even if the dependencies are unmet</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » sudo apt-get install -f postgresql</span></code></pre></div>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » sudo apt-get install -f postgresql</span></code></pre></div>
 
 <h4 id="list-dependencies-of-a-package">List dependencies of a package</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » sudo apt-cache depends vim</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » sudo apt-cache depends vim</span>
 <span class="go">vim</span>
 <span class="go">  Depends: vim-common</span>
 <span class="go">  Depends: vim-runtime</span>
@@ -603,7 +605,7 @@
 
 <h4 id="list-trusted-gpg-keys-for-package-sources">List trusted GPG keys for package sources</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » sudo apt-key list</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » sudo apt-key list</span>
 <span class="go">/etc/apt/trusted.gpg</span>
 <span class="go">\--------------------</span>
 <span class="go">pub   1024D/437D05B5 2004-09-12</span>
@@ -656,12 +658,12 @@
 
 <h4 id="list-aptitude-config-see-apt-config--h-for-more-options">List aptitude config (see apt-config -h for more options)</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » apt-config -v</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » apt-config -v</span>
 <span class="go">apt 0.9.9.1~ubuntu 1 for amd64 compiled on Sep 11 2013 17:45:29</span></code></pre></div>
 
 <h4 id="list-all-package-names">List all package names</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ » apt-cache pkgnames</span></code></pre></div>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">~ » apt-cache pkgnames</span></code></pre></div>
 
 
       <hr />

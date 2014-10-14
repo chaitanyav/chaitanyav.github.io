@@ -86,6 +86,8 @@
 		        
 				<li><a href="/tags/" >Tags</a></li>
 		        
+				<li><a href="/papers/" >Papers</a></li>
+		        
 		    </ul>
 		</nav>
 	</div><!-- /.top-navigation -->
@@ -123,7 +125,7 @@
     <div class="article-wrap">
       <p>Concurrency in Go can be achieved by using <a href="https://golang.org/doc/effective_go.html#goroutines">goroutines</a>, A goroutine is basically a function which executes concurrently with other goroutines/functions. Here is a basic <a href="http://play.golang.org/p/I84oNjrh96">example</a></p>
 
-<div class="highlight"><pre><code class="go"><span class="kn">package</span> <span class="nx">main</span>
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;time&quot;</span>
@@ -141,7 +143,7 @@
 
 <p>A goroutine can be invoked like this “go funcName()”. As goroutines execute concurrently with other functions we have used a time.Sleep with 1 second duration so that the goroutine can run. Let’s say if we did not have the time.Sleep in the main function, the program exits printing the “Good Bye!!!” string. Same <a href="http://play.golang.org/p/PA50RJI1en">example</a> without the time.Sleep</p>
 
-<div class="highlight"><pre><code class="go"><span class="kn">package</span> <span class="nx">main</span>
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 
@@ -157,7 +159,7 @@
 
 <p>Ah, you might be wondering what good are goroutines when i cannot pass information between goroutines, functions. This is where channels come into picture. A channel is pipe through which messages can be sent/received. More about channels <a href="http://tour.golang.org/#66">here</a>. Let’s go through a example illustrating the usage of goroutines, channels.</p>
 
-<div class="highlight"><pre><code class="go"><span class="cm">/* August 22, 2014</span>
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="cm">/* August 22, 2014</span>
 <span class="cm"> * Author: NagaChaitanya Vellanki</span>
 <span class="cm"> */</span>
 <span class="kn">package</span> <span class="nx">main</span>
@@ -307,7 +309,7 @@
 
 <h4 id="sample-output">Sample output</h4>
 
-<div class="highlight"><pre><code class="console"><span class="go">.....</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">.....</span>
 <span class="go">..... (truncated some output)</span>
 <span class="go">.....</span>
 <span class="go">.....</span>
@@ -387,7 +389,7 @@
 <h4 id="installing-a-go-package">Installing a go package</h4>
 <p>Set the GOPATH environment variable and install the package using the ‘go get’</p>
 
-<div class="highlight"><pre><code class="console"><span class="go">export GOPATH=~/Documents/projects/go</span>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">export GOPATH=~/Documents/projects/go</span>
 <span class="go">go get github.com/iand/feedparser</span></code></pre></div>
 
 <p>The package will be installed to $GOPATH/pkg directory.</p>
