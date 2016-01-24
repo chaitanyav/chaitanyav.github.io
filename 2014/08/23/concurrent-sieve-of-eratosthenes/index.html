@@ -125,89 +125,89 @@
     <div class="article-wrap">
       <p>Here is a program to compute primes less than or equal to a given N concurrently in Go.</p>
 
-<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="cm">/* August 23, 2014</span>
-<span class="cm"> * Author: NagaChaitanya Vellanki</span>
-<span class="cm"> * Concurrent Sieve of Eratosthenes</span>
-<span class="cm"> */</span>
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="c">/* August 23, 2014
+ * Author: NagaChaitanya Vellanki
+ * Concurrent Sieve of Eratosthenes
+ */</span><span class="x">
 
-<span class="kn">package</span> <span class="nx">main</span>
+</span><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
 
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&quot;fmt&quot;</span>
-	<span class="s">&quot;math&quot;</span>
-	<span class="s">&quot;sync&quot;</span>
-<span class="p">)</span>
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+	</span><span class="s">"fmt"</span><span class="x">
+	</span><span class="s">"math"</span><span class="x">
+	</span><span class="s">"sync"</span><span class="x">
+</span><span class="p">)</span><span class="x">
 
-<span class="kd">const</span> <span class="nx">N</span> <span class="kt">int64</span> <span class="p">=</span> <span class="mi">100</span>
+</span><span class="k">const</span><span class="x"> </span><span class="n">N</span><span class="x"> </span><span class="kt">int64</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="m">100</span><span class="x">
 
-<span class="kd">var</span> <span class="nx">primes</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">bool</span><span class="p">,</span> <span class="nx">N</span><span class="p">)</span>
+</span><span class="k">var</span><span class="x"> </span><span class="n">primes</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">bool</span><span class="p">,</span><span class="x"> </span><span class="n">N</span><span class="p">)</span><span class="x">
 
-<span class="kd">func</span> <span class="nx">computePrimes</span><span class="p">(</span><span class="nx">num</span> <span class="kt">int64</span><span class="p">,</span> <span class="nx">wg</span> <span class="o">*</span><span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">num</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">N</span><span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="nx">num</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">i</span><span class="o">%</span><span class="nx">num</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">primes</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">{</span>
-			<span class="nx">primes</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="kc">false</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="nx">wg</span><span class="p">.</span><span class="nx">Done</span><span class="p">()</span>
-<span class="p">}</span>
+</span><span class="k">func</span><span class="x"> </span><span class="n">computePrimes</span><span class="p">(</span><span class="n">num</span><span class="x"> </span><span class="kt">int64</span><span class="p">,</span><span class="x"> </span><span class="n">wg</span><span class="x"> </span><span class="o">*</span><span class="n">sync</span><span class="o">.</span><span class="n">WaitGroup</span><span class="p">)</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="k">for</span><span class="x"> </span><span class="n">i</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="m">2</span><span class="x"> </span><span class="o">*</span><span class="x"> </span><span class="n">num</span><span class="p">;</span><span class="x"> </span><span class="n">i</span><span class="x"> </span><span class="o">&lt;=</span><span class="x"> </span><span class="n">N</span><span class="p">;</span><span class="x"> </span><span class="n">i</span><span class="x"> </span><span class="o">+=</span><span class="x"> </span><span class="n">num</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="k">if</span><span class="x"> </span><span class="n">i</span><span class="o">%</span><span class="n">num</span><span class="x"> </span><span class="o">==</span><span class="x"> </span><span class="m">0</span><span class="x"> </span><span class="o">&amp;&amp;</span><span class="x"> </span><span class="n">primes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="p">]</span><span class="x"> </span><span class="p">{</span><span class="x">
+			</span><span class="n">primes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="p">]</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="no">false</span><span class="x">
+		</span><span class="p">}</span><span class="x">
+	</span><span class="p">}</span><span class="x">
+	</span><span class="n">wg</span><span class="o">.</span><span class="n">Done</span><span class="p">()</span><span class="x">
+</span><span class="p">}</span><span class="x">
 
-<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">sqrtN</span> <span class="o">:=</span> <span class="nb">int64</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">Ceil</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">Sqrt</span><span class="p">(</span><span class="nb">float64</span><span class="p">(</span><span class="nx">N</span><span class="p">))))</span>
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">sqrtN</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="kt">int64</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">Ceil</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">Sqrt</span><span class="p">(</span><span class="kt">float64</span><span class="p">(</span><span class="n">N</span><span class="p">))))</span><span class="x">
 
-	<span class="k">for</span> <span class="nx">index</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">primes</span> <span class="p">{</span>
-		<span class="nx">primes</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="p">=</span> <span class="kc">true</span>
-	<span class="p">}</span>
+	</span><span class="k">for</span><span class="x"> </span><span class="n">index</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">range</span><span class="x"> </span><span class="n">primes</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="n">primes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="no">true</span><span class="x">
+	</span><span class="p">}</span><span class="x">
 
-	<span class="kd">var</span> <span class="nx">wg</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+	</span><span class="k">var</span><span class="x"> </span><span class="n">wg</span><span class="x"> </span><span class="n">sync</span><span class="o">.</span><span class="n">WaitGroup</span><span class="x">
 
-	<span class="nx">wg</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-	<span class="k">go</span> <span class="nx">computePrimes</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">wg</span><span class="p">)</span>
+	</span><span class="n">wg</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">)</span><span class="x">
+	</span><span class="k">go</span><span class="x"> </span><span class="n">computePrimes</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="x"> </span><span class="o">&amp;</span><span class="n">wg</span><span class="p">)</span><span class="x">
 
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nb">int64</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">sqrtN</span><span class="p">;</span> <span class="nx">i</span> <span class="o">+=</span> <span class="mi">2</span> <span class="p">{</span>
-		<span class="nx">wg</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-		<span class="k">go</span> <span class="nx">computePrimes</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">wg</span><span class="p">)</span>
-	<span class="p">}</span>
+	</span><span class="k">for</span><span class="x"> </span><span class="n">i</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="kt">int64</span><span class="p">(</span><span class="m">3</span><span class="p">);</span><span class="x"> </span><span class="n">i</span><span class="x"> </span><span class="o">&lt;=</span><span class="x"> </span><span class="n">sqrtN</span><span class="p">;</span><span class="x"> </span><span class="n">i</span><span class="x"> </span><span class="o">+=</span><span class="x"> </span><span class="m">2</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="n">wg</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">)</span><span class="x">
+		</span><span class="k">go</span><span class="x"> </span><span class="n">computePrimes</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="x"> </span><span class="o">&amp;</span><span class="n">wg</span><span class="p">)</span><span class="x">
+	</span><span class="p">}</span><span class="x">
 
-	<span class="nx">wg</span><span class="p">.</span><span class="nx">Wait</span><span class="p">()</span>
-	<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Done computing primes less than or equal to&quot;</span><span class="p">,</span> <span class="nx">N</span><span class="p">,</span> <span class="s">&quot; :-)&quot;</span><span class="p">)</span>
+	</span><span class="n">wg</span><span class="o">.</span><span class="n">Wait</span><span class="p">()</span><span class="x">
+	</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Done computing primes less than or equal to"</span><span class="p">,</span><span class="x"> </span><span class="n">N</span><span class="p">,</span><span class="x"> </span><span class="s">" :-)"</span><span class="p">)</span><span class="x">
 
-	<span class="k">for</span> <span class="nx">index</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">primes</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">index</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">primes</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="p">{</span>
-			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+	</span><span class="k">for</span><span class="x"> </span><span class="n">index</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">range</span><span class="x"> </span><span class="n">primes</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="k">if</span><span class="x"> </span><span class="n">index</span><span class="x"> </span><span class="o">&gt;</span><span class="x"> </span><span class="m">0</span><span class="x"> </span><span class="o">&amp;&amp;</span><span class="x"> </span><span class="n">primes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="x"> </span><span class="p">{</span><span class="x">
+			</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">index</span><span class="x"> </span><span class="o">+</span><span class="x"> </span><span class="m">1</span><span class="p">)</span><span class="x">
+		</span><span class="p">}</span><span class="x">
+	</span><span class="p">}</span><span class="x">
 
-<span class="p">}</span></code></pre></div>
+</span><span class="p">}</span></code></pre></div>
 
 <h4 id="output-for-n--100">Output for n = 100</h4>
 
-<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">Done computing primes less than or equal to 100  :-)</span>
-<span class="go">2</span>
-<span class="go">3</span>
-<span class="go">5</span>
-<span class="go">7</span>
-<span class="go">11</span>
-<span class="go">13</span>
-<span class="go">17</span>
-<span class="go">19</span>
-<span class="go">23</span>
-<span class="go">29</span>
-<span class="go">31</span>
-<span class="go">37</span>
-<span class="go">41</span>
-<span class="go">43</span>
-<span class="go">47</span>
-<span class="go">53</span>
-<span class="go">59</span>
-<span class="go">61</span>
-<span class="go">67</span>
-<span class="go">71</span>
-<span class="go">73</span>
-<span class="go">79</span>
-<span class="go">83</span>
-<span class="go">89</span>
-<span class="go">97</span>
-<span class="go">./sieve  0.00s user 0.00s system 60% cpu 0.004 total</span></code></pre></div>
+<div class="highlight"><pre><code class="language-console" data-lang="console">Done computing primes less than or equal to 100  :-)
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+53
+59
+61
+67
+71
+73
+79
+83
+89
+97
+./sieve  0.00s user 0.00s system 60% cpu 0.004 total</code></pre></div>
 
 <ul>
   <li><a href="http://golang.org/pkg/sync/#WaitGroup">sync.WaitGroup</a></li>
@@ -260,7 +260,7 @@
     <hr />
   </div><!-- /.related-articles -->
   <footer>
-    <span>&copy; 2015 NagaChaitanya Vellanki. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2016 NagaChaitanya Vellanki. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

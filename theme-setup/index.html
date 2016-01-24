@@ -48,6 +48,14 @@
 <!-- Modernizr -->
 <script src="/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
 
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
 <!-- Icons -->
 <!-- 16x16 -->
 <link rel="shortcut icon" href="/favicon.ico">
@@ -75,19 +83,19 @@
 	<div class="top-navigation">
 		<nav role="navigation" id="site-nav" class="nav">
 		    <ul>
-		        
+
 				<li><a href="/about/" >About</a></li>
-		        
+
 				<li><a href="/posts/" >Posts</a></li>
-		        
+
 				<li><a href="/origami/" >Origami</a></li>
-		        
+
 				<li><a href="/fractals/" >Fractals</a></li>
-		        
+
 				<li><a href="/tags/" >Tags</a></li>
-		        
+
 				<li><a href="/papers/" >Papers</a></li>
-		        
+
 		    </ul>
 		</nav>
 	</div><!-- /.top-navigation -->
@@ -96,19 +104,19 @@
 
   <div class="image-wrap">
   <img src=
-    
+
       "/images/texture-feature-02.jpg"
-    
+
   alt="Theme Setup feature image">
-  
+
     <span class="image-credit">Photo Credit: <a href="http://texturelovers.com">Texture Lovers</a></span>
-  
+
   </div><!-- /.image-wrap -->
 
 
 <div id="main" role="main">
   <div class="article-author-side">
-    
+
 	<img src="/images/bio-photo.png" class="bio-photo" alt="NagaChaitanya Vellanki bio photo"></a>
 
 <h3>NagaChaitanya Vellanki</h3>
@@ -236,16 +244,16 @@
 <p>Edit page/post titles and URLs to include in the site’s navigation. For external links add <code>external: true</code>.</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># sample top navigation links</span>
-<span class="l-Scalar-Plain">links</span><span class="p-Indicator">:</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">About Page</span>
-    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/about/</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Posts</span>
-    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/posts/</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Other Page</span>
-    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/other-page/</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">External Page</span>
-    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">http://mademistakes.com</span>
-    <span class="l-Scalar-Plain">external</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span></code></pre></div>
+<span class="s">links</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">About Page</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s">/about/</span>
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">Posts</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s">/posts/</span>
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">Other Page</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s">/other-page/</span>
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">External Page</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s">http://mademistakes.com</span>
+    <span class="s">external</span><span class="pi">:</span> <span class="s">true</span></code></pre></div>
 
 <h3 id="adding-posts-and-pages">Adding Posts and Pages</h3>
 
@@ -255,8 +263,8 @@
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">rake new_post
 
-Enter a title <span class="k">for</span> your post: My Awesome Post
-Enter category name to group your post in <span class="o">(</span>leave blank <span class="k">for</span> none<span class="o">)</span>: blog
+Enter a title <span class="k">for </span>your post: My Awesome Post
+Enter category name to group your post <span class="k">in</span> <span class="o">(</span>leave blank <span class="k">for </span>none<span class="o">)</span>: blog
 Enter tags to classify your post <span class="o">(</span>comma separated<span class="o">)</span>: web development, code
 Creating new post: _posts/2014-02-10-my-awesome-post.md</code></pre></div>
 
@@ -268,16 +276,16 @@ Creating new post: _posts/2014-02-10-my-awesome-post.md</code></pre></div>
 
 <p>The two layouts make the assumption that the feature images live in the <code>images/</code> folder. To add a feature image to a post or page just include the filename in the front matter like so. </p>
 
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">image</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">feature</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">feature-image-filename.jpg</span>
-  <span class="l-Scalar-Plain">thumb</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">thumbnail-image.jpg</span> <span class="c1">#keep it square 200x200 px is good</span></code></pre></div>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">image</span><span class="pi">:</span>
+  <span class="s">feature</span><span class="pi">:</span> <span class="s">feature-image-filename.jpg</span>
+  <span class="s">thumb</span><span class="pi">:</span> <span class="s">thumbnail-image.jpg</span> <span class="c1">#keep it square 200x200 px is good</span></code></pre></div>
 
 <p>If you want to apply attribution to a feature image use the following YAML front matter on posts or pages. Image credits appear directly below the feature image with a link back to the original source.</p>
 
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">image</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">feature</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">feature-image-filename.jpg</span>
-  <span class="l-Scalar-Plain">credit</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Michael Rose</span> <span class="c1">#name of the person or site you want to credit</span>
-  <span class="l-Scalar-Plain">creditlink</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">http://mademistakes.com</span> <span class="c1">#url to their site or licensing</span></code></pre></div>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">image</span><span class="pi">:</span>
+  <span class="s">feature</span><span class="pi">:</span> <span class="s">feature-image-filename.jpg</span>
+  <span class="s">credit</span><span class="pi">:</span> <span class="s">Michael Rose</span> <span class="c1">#name of the person or site you want to credit</span>
+  <span class="s">creditlink</span><span class="pi">:</span> <span class="s">http://mademistakes.com</span> <span class="c1">#url to their site or licensing</span></code></pre></div>
 
 <h4 id="post-index-page">Post Index Page</h4>
 
@@ -287,9 +295,9 @@ Creating new post: _posts/2014-02-10-my-awesome-post.md</code></pre></div>
   <li>In <code>_config.yml</code> under <code>links:</code> rename the title and URL to the following:</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">links</span><span class="p-Indicator">:</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Writing</span>
-    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/writing/</span></code></pre></div>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">links</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">title</span><span class="pi">:</span> <span class="s">Writing</span>
+    <span class="s">url</span><span class="pi">:</span> <span class="s">/writing/</span></code></pre></div>
 
 <ul>
   <li>Rename <code>posts.md</code> to <code>writing.md</code> and update the YAML front matter to match the title and URL set in <code>_config.yml</code></li>
@@ -306,11 +314,11 @@ Creating new post: _posts/2014-02-10-my-awesome-post.md</code></pre></div>
 
 <p class="notice"><strong>PS:</strong> The TOC is hidden on small devices because I haven’t gotten around to optimizing it. For now it only appears on larger screens (tablet and desktop).</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">&quot;table-of-contents&quot;</span> <span class="na">class=</span><span class="s">&quot;toc&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">"table-of-contents"</span> <span class="na">class=</span><span class="s">"toc"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;header&gt;</span>
     <span class="nt">&lt;h3&gt;</span>Contents<span class="nt">&lt;/h3&gt;</span>
   <span class="nt">&lt;/header&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;drawer&quot;</span> <span class="na">markdown=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"drawer"</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
 *  Auto generated table of contents
 {:toc}
 <span class="nt">&lt;/div&gt;</span>
@@ -322,7 +330,7 @@ Creating new post: _posts/2014-02-10-my-awesome-post.md</code></pre></div>
 
 <p>Not sure if this only effects Kramdown or if it’s an issue with Markdown in general. But adding YouTube video embeds causes errors when building your Jekyll site. To fix add a space between the <code>&lt;iframe&gt;</code> tags and remove <code>allowfullscreen</code>. Example below:</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">&quot;560&quot;</span> <span class="na">height=</span><span class="s">&quot;315&quot;</span> <span class="na">src=</span><span class="s">&quot;http://www.youtube.com/embed/PWf4WUoMXwg&quot;</span> <span class="na">frameborder=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/iframe&gt;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">"560"</span> <span class="na">height=</span><span class="s">"315"</span> <span class="na">src=</span><span class="s">"http://www.youtube.com/embed/PWf4WUoMXwg"</span> <span class="na">frameborder=</span><span class="s">"0"</span><span class="nt">&gt;</span> <span class="nt">&lt;/iframe&gt;</span></code></pre></div>
 
 <hr />
 
@@ -360,13 +368,13 @@ Creating new post: _posts/2014-02-10-my-awesome-post.md</code></pre></div>
 </div>
 
     </div><!-- /.article-wrap -->
-    
+
   </article>
 </div><!-- /#index -->
 
 <div class="footer-wrap">
   <footer>
-    <span>&copy; 2015 NagaChaitanya Vellanki. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2016 NagaChaitanya Vellanki. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->
@@ -379,7 +387,7 @@ Creating new post: _posts/2014-02-10-my-awesome-post.md</code></pre></div>
 <script src="/assets/js/scripts.min.js"></script>
 
 
-          
+
 
 </body>
 </html>

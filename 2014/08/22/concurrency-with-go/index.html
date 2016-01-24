@@ -125,258 +125,258 @@
     <div class="article-wrap">
       <p>Concurrency in Go can be achieved by using <a href="https://golang.org/doc/effective_go.html#goroutines">goroutines</a>, A goroutine is basically a function which executes concurrently with other goroutines/functions. Here is a basic <a href="http://play.golang.org/p/I84oNjrh96">example</a></p>
 
-<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
 
-<span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
-<span class="kn">import</span> <span class="s">&quot;time&quot;</span>
+</span><span class="k">import</span><span class="x"> </span><span class="s">"fmt"</span><span class="x">
+</span><span class="k">import</span><span class="x"> </span><span class="s">"time"</span><span class="x">
 
-<span class="kd">func</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello from a goroutine&quot;</span><span class="p">)</span>
-<span class="p">}</span>
+</span><span class="k">func</span><span class="x"> </span><span class="n">foo</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello from a goroutine"</span><span class="p">)</span><span class="x">
+</span><span class="p">}</span><span class="x">
 
-<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">go</span> <span class="nx">foo</span><span class="p">()</span>
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+  </span><span class="k">go</span><span class="x"> </span><span class="n">foo</span><span class="p">()</span><span class="x">
 
-  <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span>
-  <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Good Bye!!!&quot;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></div>
+  </span><span class="n">time</span><span class="o">.</span><span class="n">Sleep</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">Second</span><span class="x"> </span><span class="o">*</span><span class="x"> </span><span class="m">1</span><span class="p">)</span><span class="x">
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Good Bye!!!"</span><span class="p">)</span><span class="x">
+</span><span class="p">}</span></code></pre></div>
 
 <p>A goroutine can be invoked like this “go funcName()”. As goroutines execute concurrently with other functions we have used a time.Sleep with 1 second duration so that the goroutine can run. Let’s say if we did not have the time.Sleep in the main function, the program exits printing the “Good Bye!!!” string. Same <a href="http://play.golang.org/p/PA50RJI1en">example</a> without the time.Sleep</p>
 
-<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
 
-<span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+</span><span class="k">import</span><span class="x"> </span><span class="s">"fmt"</span><span class="x">
 
-<span class="kd">func</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello from a goroutine&quot;</span><span class="p">)</span>
-<span class="p">}</span>
+</span><span class="k">func</span><span class="x"> </span><span class="n">foo</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello from a goroutine"</span><span class="p">)</span><span class="x">
+</span><span class="p">}</span><span class="x">
 
-<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">go</span> <span class="nx">foo</span><span class="p">()</span>
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+  </span><span class="k">go</span><span class="x"> </span><span class="n">foo</span><span class="p">()</span><span class="x">
 
-  <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Good Bye!!!&quot;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></div>
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Good Bye!!!"</span><span class="p">)</span><span class="x">
+</span><span class="p">}</span></code></pre></div>
 
 <p>Ah, you might be wondering what good are goroutines when i cannot pass information between goroutines, functions. This is where channels come into picture. A channel is pipe through which messages can be sent/received. More about channels <a href="http://tour.golang.org/#66">here</a>. Let’s go through a example illustrating the usage of goroutines, channels.</p>
 
-<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="cm">/* August 22, 2014</span>
-<span class="cm"> * Author: NagaChaitanya Vellanki</span>
-<span class="cm"> */</span>
-<span class="kn">package</span> <span class="nx">main</span>
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span class="c">/* August 22, 2014
+ * Author: NagaChaitanya Vellanki
+ */</span><span class="x">
+</span><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
 
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&quot;fmt&quot;</span>
-	<span class="s">&quot;github.com/iand/feedparser&quot;</span>
-	<span class="s">&quot;io/ioutil&quot;</span>
-	<span class="s">&quot;net/http&quot;</span>
-	<span class="s">&quot;strings&quot;</span>
-	<span class="s">&quot;time&quot;</span>
-<span class="p">)</span>
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+	</span><span class="s">"fmt"</span><span class="x">
+	</span><span class="s">"github.com/iand/feedparser"</span><span class="x">
+	</span><span class="s">"io/ioutil"</span><span class="x">
+	</span><span class="s">"net/http"</span><span class="x">
+	</span><span class="s">"strings"</span><span class="x">
+	</span><span class="s">"time"</span><span class="x">
+</span><span class="p">)</span><span class="x">
 
-<span class="kd">func</span> <span class="nx">parseFeed</span><span class="p">(</span><span class="nx">feedURL</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">completed</span> <span class="kd">chan</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">response</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="nx">feedURL</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-		<span class="nx">responseBytes</span><span class="p">,</span> <span class="kt">error</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadAll</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
-		<span class="k">if</span> <span class="kt">error</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="kt">error</span><span class="p">)</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="nx">reader</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">NewReader</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">responseBytes</span><span class="p">))</span>
-			<span class="nx">feed</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">feedparser</span><span class="p">.</span><span class="nx">NewFeed</span><span class="p">(</span><span class="nx">reader</span><span class="p">)</span>
-			<span class="nx">starString</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">Repeat</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
-			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">starString</span><span class="p">)</span>
-			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">feed</span><span class="p">.</span><span class="nx">Title</span><span class="p">)</span>
-			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">feed</span><span class="p">.</span><span class="nx">Link</span><span class="p">)</span>
-			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Num Posts/Items: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">feed</span><span class="p">.</span><span class="nx">Items</span><span class="p">))</span>
-			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">starString</span><span class="p">)</span>
+</span><span class="k">func</span><span class="x"> </span><span class="n">parseFeed</span><span class="p">(</span><span class="n">feedURL</span><span class="x"> </span><span class="kt">string</span><span class="p">,</span><span class="x"> </span><span class="n">completed</span><span class="x"> </span><span class="k">chan</span><span class="x"> </span><span class="kt">bool</span><span class="p">)</span><span class="x"> </span><span class="p">{</span><span class="x">
+	</span><span class="n">response</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="n">feedURL</span><span class="p">)</span><span class="x">
+	</span><span class="k">if</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">!=</span><span class="x"> </span><span class="no">nil</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="x">
+	</span><span class="p">}</span><span class="x"> </span><span class="k">else</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="n">responseBytes</span><span class="p">,</span><span class="x"> </span><span class="kt">error</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+		</span><span class="k">if</span><span class="x"> </span><span class="kt">error</span><span class="x"> </span><span class="o">!=</span><span class="x"> </span><span class="no">nil</span><span class="x"> </span><span class="p">{</span><span class="x">
+			</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">error</span><span class="p">)</span><span class="x">
+		</span><span class="p">}</span><span class="x"> </span><span class="k">else</span><span class="x"> </span><span class="p">{</span><span class="x">
+			</span><span class="n">reader</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">responseBytes</span><span class="p">))</span><span class="x">
+			</span><span class="n">feed</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">feedparser</span><span class="o">.</span><span class="n">NewFeed</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span><span class="x">
+			</span><span class="n">starString</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">strings</span><span class="o">.</span><span class="n">Repeat</span><span class="p">(</span><span class="s">"*"</span><span class="p">,</span><span class="x"> </span><span class="m">80</span><span class="p">)</span><span class="x">
+			</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">starString</span><span class="p">)</span><span class="x">
+			</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">Title</span><span class="p">)</span><span class="x">
+			</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">Link</span><span class="p">)</span><span class="x">
+			</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Num Posts/Items: "</span><span class="p">,</span><span class="x"> </span><span class="nb">len</span><span class="p">(</span><span class="n">feed</span><span class="o">.</span><span class="n">Items</span><span class="p">))</span><span class="x">
+			</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">starString</span><span class="p">)</span><span class="x">
 
-			<span class="c1">// uncomment the lines below to the individual posts/items</span>
-			<span class="cm">/*</span>
-<span class="cm">			     for _, item := range feed.Items {</span>
-<span class="cm">			     fmt.Println(&quot;Title: &quot;, item.Title)</span>
-<span class="cm">			     fmt.Println(&quot;Description: &quot;, item.Description)</span>
-<span class="cm">			   }</span>
-<span class="cm">			*/</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="nx">completed</span> <span class="o">&lt;-</span> <span class="kc">true</span>
-<span class="p">}</span>
+			</span><span class="c">// uncomment the lines below to the individual posts/items</span><span class="x">
+			</span><span class="c">/*
+			     for _, item := range feed.Items {
+			     fmt.Println("Title: ", item.Title)
+			     fmt.Println("Description: ", item.Description)
+			   }
+			*/</span><span class="x">
+		</span><span class="p">}</span><span class="x">
+	</span><span class="p">}</span><span class="x">
+	</span><span class="n">completed</span><span class="x"> </span><span class="o">&lt;-</span><span class="x"> </span><span class="no">true</span><span class="x">
+</span><span class="p">}</span><span class="x">
 
-<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
 
-	<span class="nx">categoryByFeedURL</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
-		<span class="s">&quot;http://cdnjs.com/rss.xml&quot;</span><span class="p">:</span>                                                   <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;https://blog.twitter.com/api/blog.rss?name=engineering&amp;alt=rss&quot;</span><span class="p">:</span>             <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://rubyrogues.com/feed/&quot;</span><span class="p">:</span>                                                <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;https://tech.dropbox.com/feed/&quot;</span><span class="p">:</span>                                             <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://news.ycombinator.com/rss&quot;</span><span class="p">:</span>                                            <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/HighScalability&quot;</span><span class="p">:</span>                                <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/html5rocks&quot;</span><span class="p">:</span>                                     <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/TechCrunch/&quot;</span><span class="p">:</span>                                    <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://venturebeat.com/feed/&quot;</span><span class="p">:</span>                                               <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;https://github.com/blog.atom&quot;</span><span class="p">:</span>                                               <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://weblog.rubyonrails.org/feed/atom.xml&quot;</span><span class="p">:</span>                                <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://podcasts.thoughtbot.com/giantrobots.xml&quot;</span><span class="p">:</span>                             <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/railscasts&quot;</span><span class="p">:</span>                                     <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/nvidia/parallelforall?format=xml&quot;</span><span class="p">:</span>               <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/codinghorror&quot;</span><span class="p">:</span>                                   <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://rss.slashdot.org/Slashdot/slashdot&quot;</span><span class="p">:</span>                                  <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.kickstarter.com/projects/feed.atom&quot;</span><span class="p">:</span>                              <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.mashable.com/Mashable&quot;</span><span class="p">:</span>                                         <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.gawker.com/gizmodo/full&quot;</span><span class="p">:</span>                                       <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/ommalik&quot;</span><span class="p">:</span>                                        <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/OfficialAndroidBlog&quot;</span><span class="p">:</span>                            <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://vimcasts.org/feeds/ogg&quot;</span><span class="p">:</span>                                              <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.engadget.com/rss.xml&quot;</span><span class="p">:</span>                                            <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://blogs.computerworld.com/rss.xml&quot;</span><span class="p">:</span>                                     <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/cnet/NnTv&quot;</span><span class="p">:</span>                                      <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.wired.com/wired/index&quot;</span><span class="p">:</span>                                         <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.anandtech.com/rss/&quot;</span><span class="p">:</span>                                              <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://appleinsider.com.feedsportal.com/c/33975/f/616168/index.rss&quot;</span><span class="p">:</span>         <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.arstechnica.com/arstechnica/index?format=xml&quot;</span><span class="p">:</span>                  <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.pcworld.com/index.rss&quot;</span><span class="p">:</span>                                           <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.searchengineland.com/searchengineland?format=xml&quot;</span><span class="p">:</span>              <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/UnwiredView&quot;</span><span class="p">:</span>                                    <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.theregister.co.uk/headlines.atom&quot;</span><span class="p">:</span>                                <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.technologyreview.com/topnews.rss&quot;</span><span class="p">:</span>                                <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/tedtalks_video&quot;</span><span class="p">:</span>                                 <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/avc&quot;</span><span class="p">:</span>                                            <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feed.onstartups.com/onstartups&quot;</span><span class="p">:</span>                                      <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/IeeeSpectrumPodcasts&quot;</span><span class="p">:</span>                           <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/IeeeSpectrumVideo&quot;</span><span class="p">:</span>                              <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/IeeeSpectrumFullText&quot;</span><span class="p">:</span>                           <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/GoogleOpenSourceBlog&quot;</span><span class="p">:</span>                           <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/37signals/beMH&quot;</span><span class="p">:</span>                                 <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.joelonsoftware.com/rss.xml&quot;</span><span class="p">:</span>                                      <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://martinfowler.com/feed.atom&quot;</span><span class="p">:</span>                                          <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.hanselman.com/scotthanselman&quot;</span><span class="p">:</span>                                  <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.randsinrepose.com/index.xml&quot;</span><span class="p">:</span>                                     <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://bokardo.com/feed/&quot;</span><span class="p">:</span>                                                   <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://blog.stackoverflow.com/feed/&quot;</span><span class="p">:</span>                                        <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/thoughtworks-blogs&quot;</span><span class="p">:</span>                             <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.artima.com/weblogs/feeds/weblogs.rss&quot;</span><span class="p">:</span>                            <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/blogspot/RLXA&quot;</span><span class="p">:</span>                                  <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/blogspot/SbSV&quot;</span><span class="p">:</span>                                  <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/InsideSearch&quot;</span><span class="p">:</span>                                   <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/GDBcode&quot;</span><span class="p">:</span>                                        <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds2.feedburner.com/blogspot/Egta&quot;</span><span class="p">:</span>                                 <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/GoogleOnlineSecurityBlog&quot;</span><span class="p">:</span>                       <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/GoogleStudentBlog&quot;</span><span class="p">:</span>                              <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/GoogleTranslateBlog&quot;</span><span class="p">:</span>                            <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://techblog.netflix.com/feeds/posts/default&quot;</span><span class="p">:</span>                            <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://tech-book-store.amazon.com/blog/feed/recentPosts.rss&quot;</span><span class="p">:</span>                <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/Ruby5?format=xml&quot;</span><span class="p">:</span>                               <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/PetrMitrichev?format=xml&quot;</span><span class="p">:</span>                       <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://xkcd.com/rss.xml&quot;</span><span class="p">:</span>                                                    <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.perfplanet.com/rss.xml&quot;</span><span class="p">:</span>                                          <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feed.dilbert.com/dilbert/daily_strip?format=xml&quot;</span><span class="p">:</span>                     <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.stanford.edu/group/edcorner/uploads/podcast/EducatorsCorner.xml&quot;</span><span class="p">:</span> <span class="s">&quot;developer&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.zdnet.com/blog/rss.xml&quot;</span><span class="p">:</span>                                          <span class="s">&quot;tech&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.reuters.com/reuters/topNews&quot;</span><span class="p">:</span>                                   <span class="s">&quot;news&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://rss.cnn.com/rss/cnn_topstories.rss&quot;</span><span class="p">:</span>                                  <span class="s">&quot;news&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.abcnews.com/abcnews/topstories&quot;</span><span class="p">:</span>                                <span class="s">&quot;news&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.npr.org/rss/rss.php?id=1001&quot;</span><span class="p">:</span>                                     <span class="s">&quot;news&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.harvardbusiness.org/harvardbusiness?format=xml&quot;</span><span class="p">:</span>                <span class="s">&quot;business&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.thestreet.com/tsc/feeds/rss/latest-stories&quot;</span><span class="p">:</span>                    <span class="s">&quot;business&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.forbes.com/real-time/feed2/&quot;</span><span class="p">:</span>                                     <span class="s">&quot;business&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/freakonomics&quot;</span><span class="p">:</span>                                   <span class="s">&quot;business&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://podcast.cnbc.com/mmpodcast/lightninground.xml&quot;</span><span class="p">:</span>                       <span class="s">&quot;business&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://www.economist.com/feeds/print-sections/77/business.xml&quot;</span><span class="p">:</span>              <span class="s">&quot;business&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/freakonomicsradio?format=xml&quot;</span><span class="p">:</span>                   <span class="s">&quot;business&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.feedburner.com/fastcompany/headlines&quot;</span><span class="p">:</span>                          <span class="s">&quot;business&quot;</span><span class="p">,</span>
-		<span class="s">&quot;http://feeds.fool.com/usmf/foolwatch&quot;</span><span class="p">:</span>                                       <span class="s">&quot;business&quot;</span><span class="p">,</span>
-	<span class="p">}</span>
-	<span class="nx">numFeedURLs</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">categoryByFeedURL</span><span class="p">)</span>
-	<span class="nx">completed</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">,</span> <span class="nx">numFeedURLs</span><span class="p">)</span>
+	</span><span class="n">categoryByFeedURL</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="x">
+		</span><span class="s">"http://cdnjs.com/rss.xml"</span><span class="o">:</span><span class="x">                                                   </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"https://blog.twitter.com/api/blog.rss?name=engineering&amp;alt=rss"</span><span class="o">:</span><span class="x">             </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://rubyrogues.com/feed/"</span><span class="o">:</span><span class="x">                                                </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"https://tech.dropbox.com/feed/"</span><span class="o">:</span><span class="x">                                             </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://news.ycombinator.com/rss"</span><span class="o">:</span><span class="x">                                            </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/HighScalability"</span><span class="o">:</span><span class="x">                                </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/html5rocks"</span><span class="o">:</span><span class="x">                                     </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/TechCrunch/"</span><span class="o">:</span><span class="x">                                    </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://venturebeat.com/feed/"</span><span class="o">:</span><span class="x">                                               </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"https://github.com/blog.atom"</span><span class="o">:</span><span class="x">                                               </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://weblog.rubyonrails.org/feed/atom.xml"</span><span class="o">:</span><span class="x">                                </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://podcasts.thoughtbot.com/giantrobots.xml"</span><span class="o">:</span><span class="x">                             </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/railscasts"</span><span class="o">:</span><span class="x">                                     </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/nvidia/parallelforall?format=xml"</span><span class="o">:</span><span class="x">               </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/codinghorror"</span><span class="o">:</span><span class="x">                                   </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://rss.slashdot.org/Slashdot/slashdot"</span><span class="o">:</span><span class="x">                                  </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.kickstarter.com/projects/feed.atom"</span><span class="o">:</span><span class="x">                              </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.mashable.com/Mashable"</span><span class="o">:</span><span class="x">                                         </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.gawker.com/gizmodo/full"</span><span class="o">:</span><span class="x">                                       </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/ommalik"</span><span class="o">:</span><span class="x">                                        </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/OfficialAndroidBlog"</span><span class="o">:</span><span class="x">                            </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://vimcasts.org/feeds/ogg"</span><span class="o">:</span><span class="x">                                              </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.engadget.com/rss.xml"</span><span class="o">:</span><span class="x">                                            </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://blogs.computerworld.com/rss.xml"</span><span class="o">:</span><span class="x">                                     </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/cnet/NnTv"</span><span class="o">:</span><span class="x">                                      </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.wired.com/wired/index"</span><span class="o">:</span><span class="x">                                         </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.anandtech.com/rss/"</span><span class="o">:</span><span class="x">                                              </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://appleinsider.com.feedsportal.com/c/33975/f/616168/index.rss"</span><span class="o">:</span><span class="x">         </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.arstechnica.com/arstechnica/index?format=xml"</span><span class="o">:</span><span class="x">                  </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.pcworld.com/index.rss"</span><span class="o">:</span><span class="x">                                           </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.searchengineland.com/searchengineland?format=xml"</span><span class="o">:</span><span class="x">              </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/UnwiredView"</span><span class="o">:</span><span class="x">                                    </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.theregister.co.uk/headlines.atom"</span><span class="o">:</span><span class="x">                                </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.technologyreview.com/topnews.rss"</span><span class="o">:</span><span class="x">                                </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/tedtalks_video"</span><span class="o">:</span><span class="x">                                 </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/avc"</span><span class="o">:</span><span class="x">                                            </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feed.onstartups.com/onstartups"</span><span class="o">:</span><span class="x">                                      </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/IeeeSpectrumPodcasts"</span><span class="o">:</span><span class="x">                           </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/IeeeSpectrumVideo"</span><span class="o">:</span><span class="x">                              </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/IeeeSpectrumFullText"</span><span class="o">:</span><span class="x">                           </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/GoogleOpenSourceBlog"</span><span class="o">:</span><span class="x">                           </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/37signals/beMH"</span><span class="o">:</span><span class="x">                                 </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.joelonsoftware.com/rss.xml"</span><span class="o">:</span><span class="x">                                      </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://martinfowler.com/feed.atom"</span><span class="o">:</span><span class="x">                                          </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.hanselman.com/scotthanselman"</span><span class="o">:</span><span class="x">                                  </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.randsinrepose.com/index.xml"</span><span class="o">:</span><span class="x">                                     </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://bokardo.com/feed/"</span><span class="o">:</span><span class="x">                                                   </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://blog.stackoverflow.com/feed/"</span><span class="o">:</span><span class="x">                                        </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/thoughtworks-blogs"</span><span class="o">:</span><span class="x">                             </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.artima.com/weblogs/feeds/weblogs.rss"</span><span class="o">:</span><span class="x">                            </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/blogspot/RLXA"</span><span class="o">:</span><span class="x">                                  </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/blogspot/SbSV"</span><span class="o">:</span><span class="x">                                  </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/InsideSearch"</span><span class="o">:</span><span class="x">                                   </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/GDBcode"</span><span class="o">:</span><span class="x">                                        </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds2.feedburner.com/blogspot/Egta"</span><span class="o">:</span><span class="x">                                 </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/GoogleOnlineSecurityBlog"</span><span class="o">:</span><span class="x">                       </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/GoogleStudentBlog"</span><span class="o">:</span><span class="x">                              </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/GoogleTranslateBlog"</span><span class="o">:</span><span class="x">                            </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://techblog.netflix.com/feeds/posts/default"</span><span class="o">:</span><span class="x">                            </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://tech-book-store.amazon.com/blog/feed/recentPosts.rss"</span><span class="o">:</span><span class="x">                </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/Ruby5?format=xml"</span><span class="o">:</span><span class="x">                               </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/PetrMitrichev?format=xml"</span><span class="o">:</span><span class="x">                       </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://xkcd.com/rss.xml"</span><span class="o">:</span><span class="x">                                                    </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.perfplanet.com/rss.xml"</span><span class="o">:</span><span class="x">                                          </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feed.dilbert.com/dilbert/daily_strip?format=xml"</span><span class="o">:</span><span class="x">                     </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.stanford.edu/group/edcorner/uploads/podcast/EducatorsCorner.xml"</span><span class="o">:</span><span class="x"> </span><span class="s">"developer"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.zdnet.com/blog/rss.xml"</span><span class="o">:</span><span class="x">                                          </span><span class="s">"tech"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.reuters.com/reuters/topNews"</span><span class="o">:</span><span class="x">                                   </span><span class="s">"news"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://rss.cnn.com/rss/cnn_topstories.rss"</span><span class="o">:</span><span class="x">                                  </span><span class="s">"news"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.abcnews.com/abcnews/topstories"</span><span class="o">:</span><span class="x">                                </span><span class="s">"news"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.npr.org/rss/rss.php?id=1001"</span><span class="o">:</span><span class="x">                                     </span><span class="s">"news"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.harvardbusiness.org/harvardbusiness?format=xml"</span><span class="o">:</span><span class="x">                </span><span class="s">"business"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.thestreet.com/tsc/feeds/rss/latest-stories"</span><span class="o">:</span><span class="x">                    </span><span class="s">"business"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.forbes.com/real-time/feed2/"</span><span class="o">:</span><span class="x">                                     </span><span class="s">"business"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/freakonomics"</span><span class="o">:</span><span class="x">                                   </span><span class="s">"business"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://podcast.cnbc.com/mmpodcast/lightninground.xml"</span><span class="o">:</span><span class="x">                       </span><span class="s">"business"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://www.economist.com/feeds/print-sections/77/business.xml"</span><span class="o">:</span><span class="x">              </span><span class="s">"business"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/freakonomicsradio?format=xml"</span><span class="o">:</span><span class="x">                   </span><span class="s">"business"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.feedburner.com/fastcompany/headlines"</span><span class="o">:</span><span class="x">                          </span><span class="s">"business"</span><span class="p">,</span><span class="x">
+		</span><span class="s">"http://feeds.fool.com/usmf/foolwatch"</span><span class="o">:</span><span class="x">                                       </span><span class="s">"business"</span><span class="p">,</span><span class="x">
+	</span><span class="p">}</span><span class="x">
+	</span><span class="n">numFeedURLs</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="nb">len</span><span class="p">(</span><span class="n">categoryByFeedURL</span><span class="p">)</span><span class="x">
+	</span><span class="n">completed</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="nb">make</span><span class="p">(</span><span class="k">chan</span><span class="x"> </span><span class="kt">bool</span><span class="p">,</span><span class="x"> </span><span class="n">numFeedURLs</span><span class="p">)</span><span class="x">
 
-	<span class="k">for</span> <span class="nx">feedURL</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">categoryByFeedURL</span> <span class="p">{</span>
-		<span class="k">go</span> <span class="nx">parseFeed</span><span class="p">(</span><span class="nx">feedURL</span><span class="p">,</span> <span class="nx">completed</span><span class="p">)</span>
-	<span class="p">}</span>
+	</span><span class="k">for</span><span class="x"> </span><span class="n">feedURL</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="k">range</span><span class="x"> </span><span class="n">categoryByFeedURL</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="k">go</span><span class="x"> </span><span class="n">parseFeed</span><span class="p">(</span><span class="n">feedURL</span><span class="p">,</span><span class="x"> </span><span class="n">completed</span><span class="p">)</span><span class="x">
+	</span><span class="p">}</span><span class="x">
 
-	<span class="k">for</span> <span class="nx">_</span> <span class="p">=</span> <span class="k">range</span> <span class="nx">categoryByFeedURL</span> <span class="p">{</span>
-		<span class="k">select</span> <span class="p">{</span>
-		<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">completed</span><span class="p">:</span>
-			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Finished Parsing a feed at: &quot;</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">())</span>
-		<span class="k">case</span> <span class="o">&lt;-</span><span class="nx">time</span><span class="p">.</span><span class="nx">After</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Minute</span><span class="p">):</span>
-			<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Time out!!, lets move on&quot;</span><span class="p">)</span>
-			<span class="nx">completed</span> <span class="o">&lt;-</span> <span class="kc">false</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
+	</span><span class="k">for</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="k">range</span><span class="x"> </span><span class="n">categoryByFeedURL</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="k">select</span><span class="x"> </span><span class="p">{</span><span class="x">
+		</span><span class="k">case</span><span class="x"> </span><span class="o">&lt;-</span><span class="n">completed</span><span class="o">:</span><span class="x">
+			</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Finished Parsing a feed at: "</span><span class="p">,</span><span class="x"> </span><span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">())</span><span class="x">
+		</span><span class="k">case</span><span class="x"> </span><span class="o">&lt;-</span><span class="n">time</span><span class="o">.</span><span class="n">After</span><span class="p">(</span><span class="m">1</span><span class="x"> </span><span class="o">*</span><span class="x"> </span><span class="n">time</span><span class="o">.</span><span class="n">Minute</span><span class="p">)</span><span class="o">:</span><span class="x">
+			</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Time out!!, lets move on"</span><span class="p">)</span><span class="x">
+			</span><span class="n">completed</span><span class="x"> </span><span class="o">&lt;-</span><span class="x"> </span><span class="no">false</span><span class="x">
+		</span><span class="p">}</span><span class="x">
+	</span><span class="p">}</span><span class="x">
 
-	<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Finished fetching all feeds&quot;</span><span class="p">)</span>
-<span class="p">}</span></code></pre></div>
+	</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Finished fetching all feeds"</span><span class="p">)</span><span class="x">
+</span><span class="p">}</span></code></pre></div>
 
 <h4 id="sample-output">Sample output</h4>
 
-<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">.....</span>
-<span class="go">..... (truncated some output)</span>
-<span class="go">.....</span>
-<span class="go">.....</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Google Translate Blog</span>
-<span class="go">http://pubsubhubbub.appspot.com/</span>
-<span class="go">Num Posts/Items:  25</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:35.654612959 -0700 PDT</span>
-<span class="go">********************************************************************************</span>
-<span class="go">The Netflix Tech Blog</span>
-<span class="go">http://www.blogger.com/feeds/725338818844296080/posts/default?start-index=26&amp;max-results=25</span>
-<span class="go">Num Posts/Items:  25</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:36.722009376 -0700 PDT</span>
-<span class="go">********************************************************************************</span>
-<span class="go">VentureBeat</span>
-<span class="go">http://venturebeat.com</span>
-<span class="go">Num Posts/Items:  30</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:40.091771787 -0700 PDT</span>
-<span class="go">********************************************************************************</span>
-<span class="go">ABC News: Top Stories</span>
-<span class="go">http://abcnews.go.com/</span>
-<span class="go">Num Posts/Items:  33</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:40.235177514 -0700 PDT</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Economist.com</span>
-<span class="go">http://www.economist.com</span>
-<span class="go">Num Posts/Items:  20</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:40.349098971 -0700 PDT</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Ruby Rogues</span>
-<span class="go">http://rubyrogues.com</span>
-<span class="go">Num Posts/Items:  20</span>
-<span class="go">********************************************************************************</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:50.188633751 -0700 PDT</span>
-<span class="go">Get http://www.joelonsoftware.com/rss.xml: dial tcp: i/o timeout</span>
-<span class="go">Get http://www.engadget.com/rss.xml: dial tcp: i/o timeout</span>
-<span class="go">Get http://feeds.reuters.com/reuters/topNews: dial tcp: i/o timeout</span>
-<span class="go">Get http://feeds.mashable.com/Mashable: dial tcp: i/o timeout</span>
-<span class="go">Get http://feed.dilbert.com/dilbert/daily_strip?format=xml: dial tcp: i/o timeout</span>
-<span class="go">Get http://www.zdnet.com/blog/rss.xml: dial tcp: i/o timeout</span>
-<span class="go">Get http://www.npr.org/rss/rss.php?id=1001: dial tcp: i/o timeout</span>
-<span class="go">Get http://bokardo.com/feed/: dial tcp: i/o timeout</span>
-<span class="go">Get http://www.stanford.edu/group/edcorner/uploads/podcast/EducatorsCorner.xml: dial tcp: i/o timeout</span>
-<span class="go">Get https://tech.dropbox.com/feed/: dial tcp: i/o timeout</span>
-<span class="go">Get http://rss.slashdot.org/Slashdot/slashdot: dial tcp: i/o timeout</span>
-<span class="go">Get http://feeds.hanselman.com/scotthanselman: dial tcp: i/o timeout</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276427935 -0700 PDT</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276443162 -0700 PDT</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276448534 -0700 PDT</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.27645314 -0700 PDT</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276458319 -0700 PDT</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.27646313 -0700 PDT</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276468479 -0700 PDT</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276473478 -0700 PDT</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276478238 -0700 PDT</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276482996 -0700 PDT</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276488006 -0700 PDT</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:05:56.276493035 -0700 PDT</span>
-<span class="go">Time out!!, lets move on</span>
-<span class="go">Finished Parsing a feed at:  2014-08-22 18:06:56.277632245 -0700 PDT</span>
-<span class="go">Finished fetching all feeds</span>
-<span class="go">./test_feed  0.72s user 0.27s system 1% cpu 1:30.02 total</span></code></pre></div>
+<div class="highlight"><pre><code class="language-console" data-lang="console">.....
+..... (truncated some output)
+.....
+.....
+********************************************************************************
+Google Translate Blog
+http://pubsubhubbub.appspot.com/
+Num Posts/Items:  25
+********************************************************************************
+Finished Parsing a feed at:  2014-08-22 18:05:35.654612959 -0700 PDT
+********************************************************************************
+The Netflix Tech Blog
+http://www.blogger.com/feeds/725338818844296080/posts/default?start-index=26&amp;max-results=25
+Num Posts/Items:  25
+********************************************************************************
+Finished Parsing a feed at:  2014-08-22 18:05:36.722009376 -0700 PDT
+********************************************************************************
+VentureBeat
+http://venturebeat.com
+Num Posts/Items:  30
+********************************************************************************
+Finished Parsing a feed at:  2014-08-22 18:05:40.091771787 -0700 PDT
+********************************************************************************
+ABC News: Top Stories
+http://abcnews.go.com/
+Num Posts/Items:  33
+********************************************************************************
+Finished Parsing a feed at:  2014-08-22 18:05:40.235177514 -0700 PDT
+********************************************************************************
+Economist.com
+http://www.economist.com
+Num Posts/Items:  20
+********************************************************************************
+Finished Parsing a feed at:  2014-08-22 18:05:40.349098971 -0700 PDT
+********************************************************************************
+Ruby Rogues
+http://rubyrogues.com
+Num Posts/Items:  20
+********************************************************************************
+Finished Parsing a feed at:  2014-08-22 18:05:50.188633751 -0700 PDT
+Get http://www.joelonsoftware.com/rss.xml: dial tcp: i/o timeout
+Get http://www.engadget.com/rss.xml: dial tcp: i/o timeout
+Get http://feeds.reuters.com/reuters/topNews: dial tcp: i/o timeout
+Get http://feeds.mashable.com/Mashable: dial tcp: i/o timeout
+Get http://feed.dilbert.com/dilbert/daily_strip?format=xml: dial tcp: i/o timeout
+Get http://www.zdnet.com/blog/rss.xml: dial tcp: i/o timeout
+Get http://www.npr.org/rss/rss.php?id=1001: dial tcp: i/o timeout
+Get http://bokardo.com/feed/: dial tcp: i/o timeout
+Get http://www.stanford.edu/group/edcorner/uploads/podcast/EducatorsCorner.xml: dial tcp: i/o timeout
+Get https://tech.dropbox.com/feed/: dial tcp: i/o timeout
+Get http://rss.slashdot.org/Slashdot/slashdot: dial tcp: i/o timeout
+Get http://feeds.hanselman.com/scotthanselman: dial tcp: i/o timeout
+Finished Parsing a feed at:  2014-08-22 18:05:56.276427935 -0700 PDT
+Finished Parsing a feed at:  2014-08-22 18:05:56.276443162 -0700 PDT
+Finished Parsing a feed at:  2014-08-22 18:05:56.276448534 -0700 PDT
+Finished Parsing a feed at:  2014-08-22 18:05:56.27645314 -0700 PDT
+Finished Parsing a feed at:  2014-08-22 18:05:56.276458319 -0700 PDT
+Finished Parsing a feed at:  2014-08-22 18:05:56.27646313 -0700 PDT
+Finished Parsing a feed at:  2014-08-22 18:05:56.276468479 -0700 PDT
+Finished Parsing a feed at:  2014-08-22 18:05:56.276473478 -0700 PDT
+Finished Parsing a feed at:  2014-08-22 18:05:56.276478238 -0700 PDT
+Finished Parsing a feed at:  2014-08-22 18:05:56.276482996 -0700 PDT
+Finished Parsing a feed at:  2014-08-22 18:05:56.276488006 -0700 PDT
+Finished Parsing a feed at:  2014-08-22 18:05:56.276493035 -0700 PDT
+Time out!!, lets move on
+Finished Parsing a feed at:  2014-08-22 18:06:56.277632245 -0700 PDT
+Finished fetching all feeds
+./test_feed  0.72s user 0.27s system 1% cpu 1:30.02 total</code></pre></div>
 
 <p>The above program concurrently fetches the posts from the RSS feeds. We have a map with key as the feedURL, the value is the category the feed belongs to.
 <br /></p>
@@ -389,8 +389,8 @@
 <h4 id="installing-a-go-package">Installing a go package</h4>
 <p>Set the GOPATH environment variable and install the package using the ‘go get’</p>
 
-<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">export GOPATH=~/Documents/projects/go</span>
-<span class="go">go get github.com/iand/feedparser</span></code></pre></div>
+<div class="highlight"><pre><code class="language-console" data-lang="console">export GOPATH=~/Documents/projects/go
+go get github.com/iand/feedparser</code></pre></div>
 
 <p>The package will be installed to $GOPATH/pkg directory.</p>
 
@@ -451,7 +451,7 @@
     <hr />
   </div><!-- /.related-articles -->
   <footer>
-    <span>&copy; 2015 NagaChaitanya Vellanki. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2016 NagaChaitanya Vellanki. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->
