@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2016-01-30T02:09:52+00:00</updated>
+<updated>2016-01-30T02:59:04+00:00</updated>
 <id>/</id>
 <author>
   <name>NagaChaitanya Vellanki</name>
@@ -62,6 +62,9 @@
 
 &lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculatorw3tk2apnvu-targetblanklargelogxa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/w3tk2apnvu&quot; target=&quot;_blank&quot;&gt;$\large{\log{x}}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/w3tk2apnvu&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/w3tk2apnvu.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculator67ti0zs8it-targetblanklargetextcomparison-of-log2x-x-x--log2x-x2-2x-xa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/67ti0zs8it&quot; target=&quot;_blank&quot;&gt;$\large{\text{Comparison of }\log_2{x}, x, x . \log_2{x}, x^2, 2^x, x!}$&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/67ti0zs8it&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/67ti0zs8it.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;notes&quot;&gt;Notes&lt;/h3&gt;
 &lt;ul&gt;
