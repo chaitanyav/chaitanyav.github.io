@@ -4,13 +4,633 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2017-07-04T05:32:41+00:00</updated>
+<updated>2017-07-23T10:07:19+00:00</updated>
 <id>/</id>
 <author>
   <name>NagaChaitanya Vellanki</name>
   <uri>/</uri>
   <email>me@chaitanyavellanki.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Google Test & Google Mock Installation]]></title>
+  <link rel="alternate" type="text/html" href="/2017/07/23/google-test" />
+  <id>/2017/07/23/google-test</id>
+  <published>2017-07-23T00:00:00+00:00</published>
+  <updated>2017-07-23T00:00:00+00:00</updated>
+  <author>
+    <name>NagaChaitanya Vellanki</name>
+    <uri></uri>
+    <email>me@chaitanyavellanki.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Download the latest version of google test from &lt;a href=&quot;https://github.com/google/googletest/releases&quot;&gt;here&lt;/a&gt;.
+Type the following commands in the terminal after cd into the directory where the tarball was downloaded to.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;tar -xvzf googletest-release-1.8.0.tar.gz
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googletest-release-1.8.0
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googletest
+cmake .
+make
+sudo make install
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googlemock
+cmake .
+make
+sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt;
+Make sure /usr/local/lib is added to your LD_LIBRARY_PATH environment variable before using the frameworks. 
+To set the LD_LIBRARY_PATH environment variable&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googlemock ᐅ &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/lib:&lt;span class=&quot;nv&quot;&gt;$LD_LIBRARY_PATH&lt;/span&gt;
+
+~/Downloads/googletest-release-1.8.0 ᐅ &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$LD_LIBRARY_PATH&lt;/span&gt;
+/usr/local/cuda/lib:/usr/local/lib:&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;You may want to append/add /usr/local/lib to the LD_LIBRARY_PATH environment variable in your .bashrc or .zshrc&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;console-output-of-the-commands&quot;&gt;Console output of the commands&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads ᐅ tar -xvzf googletest-release-1.8.0.tar.gz
+x googletest-release-1.8.0/
+x googletest-release-1.8.0/.gitignore
+x googletest-release-1.8.0/.travis.yml
+x googletest-release-1.8.0/CMakeLists.txt
+x googletest-release-1.8.0/README.md
+x googletest-release-1.8.0/appveyor.yml
+x googletest-release-1.8.0/googlemock/
+x googletest-release-1.8.0/googlemock/CHANGES
+x googletest-release-1.8.0/googlemock/CMakeLists.txt
+x googletest-release-1.8.0/googlemock/CONTRIBUTORS
+x googletest-release-1.8.0/googlemock/LICENSE
+x googletest-release-1.8.0/googlemock/Makefile.am
+x googletest-release-1.8.0/googlemock/README.md
+x googletest-release-1.8.0/googlemock/build-aux/
+x googletest-release-1.8.0/googlemock/build-aux/.keep
+x googletest-release-1.8.0/googlemock/configure.ac
+x googletest-release-1.8.0/googlemock/docs/
+x googletest-release-1.8.0/googlemock/docs/CheatSheet.md
+x googletest-release-1.8.0/googlemock/docs/CookBook.md
+x googletest-release-1.8.0/googlemock/docs/DesignDoc.md
+x googletest-release-1.8.0/googlemock/docs/DevGuide.md
+x googletest-release-1.8.0/googlemock/docs/Documentation.md
+x googletest-release-1.8.0/googlemock/docs/ForDummies.md
+x googletest-release-1.8.0/googlemock/docs/FrequentlyAskedQuestions.md
+x googletest-release-1.8.0/googlemock/docs/KnownIssues.md
+x googletest-release-1.8.0/googlemock/docs/v1_5/
+x googletest-release-1.8.0/googlemock/docs/v1_5/CheatSheet.md
+x googletest-release-1.8.0/googlemock/docs/v1_5/CookBook.md
+x googletest-release-1.8.0/googlemock/docs/v1_5/Documentation.md
+x googletest-release-1.8.0/googlemock/docs/v1_5/ForDummies.md
+x googletest-release-1.8.0/googlemock/docs/v1_5/FrequentlyAskedQuestions.md
+x googletest-release-1.8.0/googlemock/docs/v1_6/
+x googletest-release-1.8.0/googlemock/docs/v1_6/CheatSheet.md
+x googletest-release-1.8.0/googlemock/docs/v1_6/CookBook.md
+x googletest-release-1.8.0/googlemock/docs/v1_6/Documentation.md
+x googletest-release-1.8.0/googlemock/docs/v1_6/ForDummies.md
+x googletest-release-1.8.0/googlemock/docs/v1_6/FrequentlyAskedQuestions.md
+x googletest-release-1.8.0/googlemock/docs/v1_7/
+x googletest-release-1.8.0/googlemock/docs/v1_7/CheatSheet.md
+x googletest-release-1.8.0/googlemock/docs/v1_7/CookBook.md
+x googletest-release-1.8.0/googlemock/docs/v1_7/Documentation.md
+x googletest-release-1.8.0/googlemock/docs/v1_7/ForDummies.md
+x googletest-release-1.8.0/googlemock/docs/v1_7/FrequentlyAskedQuestions.md
+x googletest-release-1.8.0/googlemock/include/
+x googletest-release-1.8.0/googlemock/include/gmock/
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-actions.h
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-cardinalities.h
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-generated-actions.h
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-generated-actions.h.pump
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-generated-function-mockers.h
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-generated-function-mockers.h.pump
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-generated-matchers.h
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-generated-matchers.h.pump
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-generated-nice-strict.h
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-generated-nice-strict.h.pump
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-matchers.h
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-more-actions.h
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-more-matchers.h
+x googletest-release-1.8.0/googlemock/include/gmock/gmock-spec-builders.h
+x googletest-release-1.8.0/googlemock/include/gmock/gmock.h
+x googletest-release-1.8.0/googlemock/include/gmock/internal/
+x googletest-release-1.8.0/googlemock/include/gmock/internal/custom/
+x googletest-release-1.8.0/googlemock/include/gmock/internal/custom/gmock-generated-actions.h
+x googletest-release-1.8.0/googlemock/include/gmock/internal/custom/gmock-generated-actions.h.pump
+x googletest-release-1.8.0/googlemock/include/gmock/internal/custom/gmock-matchers.h
+x googletest-release-1.8.0/googlemock/include/gmock/internal/custom/gmock-port.h
+x googletest-release-1.8.0/googlemock/include/gmock/internal/gmock-generated-internal-utils.h
+x googletest-release-1.8.0/googlemock/include/gmock/internal/gmock-generated-internal-utils.h.pump
+x googletest-release-1.8.0/googlemock/include/gmock/internal/gmock-internal-utils.h
+x googletest-release-1.8.0/googlemock/include/gmock/internal/gmock-port.h
+x googletest-release-1.8.0/googlemock/make/
+x googletest-release-1.8.0/googlemock/make/Makefile
+x googletest-release-1.8.0/googlemock/msvc/
+x googletest-release-1.8.0/googlemock/msvc/2005/
+x googletest-release-1.8.0/googlemock/msvc/2005/gmock.sln
+x googletest-release-1.8.0/googlemock/msvc/2005/gmock.vcproj
+x googletest-release-1.8.0/googlemock/msvc/2005/gmock_config.vsprops
+x googletest-release-1.8.0/googlemock/msvc/2005/gmock_main.vcproj
+x googletest-release-1.8.0/googlemock/msvc/2005/gmock_test.vcproj
+x googletest-release-1.8.0/googlemock/msvc/2010/
+x googletest-release-1.8.0/googlemock/msvc/2010/gmock.sln
+x googletest-release-1.8.0/googlemock/msvc/2010/gmock.vcxproj
+x googletest-release-1.8.0/googlemock/msvc/2010/gmock_config.props
+x googletest-release-1.8.0/googlemock/msvc/2010/gmock_main.vcxproj
+x googletest-release-1.8.0/googlemock/msvc/2010/gmock_test.vcxproj
+x googletest-release-1.8.0/googlemock/msvc/2015/
+x googletest-release-1.8.0/googlemock/msvc/2015/gmock.sln
+x googletest-release-1.8.0/googlemock/msvc/2015/gmock.vcxproj
+x googletest-release-1.8.0/googlemock/msvc/2015/gmock_config.props
+x googletest-release-1.8.0/googlemock/msvc/2015/gmock_main.vcxproj
+x googletest-release-1.8.0/googlemock/msvc/2015/gmock_test.vcxproj
+x googletest-release-1.8.0/googlemock/scripts/
+x googletest-release-1.8.0/googlemock/scripts/fuse_gmock_files.py
+x googletest-release-1.8.0/googlemock/scripts/generator/
+x googletest-release-1.8.0/googlemock/scripts/generator/LICENSE
+x googletest-release-1.8.0/googlemock/scripts/generator/README
+x googletest-release-1.8.0/googlemock/scripts/generator/README.cppclean
+x googletest-release-1.8.0/googlemock/scripts/generator/cpp/
+x googletest-release-1.8.0/googlemock/scripts/generator/cpp/__init__.py
+x googletest-release-1.8.0/googlemock/scripts/generator/cpp/ast.py
+x googletest-release-1.8.0/googlemock/scripts/generator/cpp/gmock_class.py
+x googletest-release-1.8.0/googlemock/scripts/generator/cpp/gmock_class_test.py
+x googletest-release-1.8.0/googlemock/scripts/generator/cpp/keywords.py
+x googletest-release-1.8.0/googlemock/scripts/generator/cpp/tokenize.py
+x googletest-release-1.8.0/googlemock/scripts/generator/cpp/utils.py
+x googletest-release-1.8.0/googlemock/scripts/generator/gmock_gen.py
+x googletest-release-1.8.0/googlemock/scripts/gmock-config.in
+x googletest-release-1.8.0/googlemock/scripts/gmock_doctor.py
+x googletest-release-1.8.0/googlemock/scripts/upload.py
+x googletest-release-1.8.0/googlemock/scripts/upload_gmock.py
+x googletest-release-1.8.0/googlemock/src/
+x googletest-release-1.8.0/googlemock/src/gmock-all.cc
+x googletest-release-1.8.0/googlemock/src/gmock-cardinalities.cc
+x googletest-release-1.8.0/googlemock/src/gmock-internal-utils.cc
+x googletest-release-1.8.0/googlemock/src/gmock-matchers.cc
+x googletest-release-1.8.0/googlemock/src/gmock-spec-builders.cc
+x googletest-release-1.8.0/googlemock/src/gmock.cc
+x googletest-release-1.8.0/googlemock/src/gmock_main.cc
+x googletest-release-1.8.0/googlemock/test/
+x googletest-release-1.8.0/googlemock/test/gmock-actions_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock-cardinalities_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock-generated-actions_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock-generated-function-mockers_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock-generated-internal-utils_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock-generated-matchers_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock-internal-utils_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock-matchers_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock-more-actions_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock-nice-strict_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock-port_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock-spec-builders_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock_all_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock_ex_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock_leak_test.py
+x googletest-release-1.8.0/googlemock/test/gmock_leak_test_.cc
+x googletest-release-1.8.0/googlemock/test/gmock_link2_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock_link_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock_link_test.h
+x googletest-release-1.8.0/googlemock/test/gmock_output_test.py
+x googletest-release-1.8.0/googlemock/test/gmock_output_test_.cc
+x googletest-release-1.8.0/googlemock/test/gmock_output_test_golden.txt
+x googletest-release-1.8.0/googlemock/test/gmock_stress_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock_test.cc
+x googletest-release-1.8.0/googlemock/test/gmock_test_utils.py
+x googletest-release-1.8.0/googletest/
+x googletest-release-1.8.0/googletest/.gitignore
+x googletest-release-1.8.0/googletest/CHANGES
+x googletest-release-1.8.0/googletest/CMakeLists.txt
+x googletest-release-1.8.0/googletest/CONTRIBUTORS
+x googletest-release-1.8.0/googletest/LICENSE
+x googletest-release-1.8.0/googletest/Makefile.am
+x googletest-release-1.8.0/googletest/README.md
+x googletest-release-1.8.0/googletest/build-aux/
+x googletest-release-1.8.0/googletest/build-aux/.keep
+x googletest-release-1.8.0/googletest/cmake/
+x googletest-release-1.8.0/googletest/cmake/internal_utils.cmake
+x googletest-release-1.8.0/googletest/codegear/
+x googletest-release-1.8.0/googletest/codegear/gtest.cbproj
+x googletest-release-1.8.0/googletest/codegear/gtest.groupproj
+x googletest-release-1.8.0/googletest/codegear/gtest_all.cc
+x googletest-release-1.8.0/googletest/codegear/gtest_link.cc
+x googletest-release-1.8.0/googletest/codegear/gtest_main.cbproj
+x googletest-release-1.8.0/googletest/codegear/gtest_unittest.cbproj
+x googletest-release-1.8.0/googletest/configure.ac
+x googletest-release-1.8.0/googletest/docs/
+x googletest-release-1.8.0/googletest/docs/AdvancedGuide.md
+x googletest-release-1.8.0/googletest/docs/DevGuide.md
+x googletest-release-1.8.0/googletest/docs/Documentation.md
+x googletest-release-1.8.0/googletest/docs/FAQ.md
+x googletest-release-1.8.0/googletest/docs/Primer.md
+x googletest-release-1.8.0/googletest/docs/PumpManual.md
+x googletest-release-1.8.0/googletest/docs/Samples.md
+x googletest-release-1.8.0/googletest/docs/V1_5_AdvancedGuide.md
+x googletest-release-1.8.0/googletest/docs/V1_5_Documentation.md
+x googletest-release-1.8.0/googletest/docs/V1_5_FAQ.md
+x googletest-release-1.8.0/googletest/docs/V1_5_Primer.md
+x googletest-release-1.8.0/googletest/docs/V1_5_PumpManual.md
+x googletest-release-1.8.0/googletest/docs/V1_5_XcodeGuide.md
+x googletest-release-1.8.0/googletest/docs/V1_6_AdvancedGuide.md
+x googletest-release-1.8.0/googletest/docs/V1_6_Documentation.md
+x googletest-release-1.8.0/googletest/docs/V1_6_FAQ.md
+x googletest-release-1.8.0/googletest/docs/V1_6_Primer.md
+x googletest-release-1.8.0/googletest/docs/V1_6_PumpManual.md
+x googletest-release-1.8.0/googletest/docs/V1_6_Samples.md
+x googletest-release-1.8.0/googletest/docs/V1_6_XcodeGuide.md
+x googletest-release-1.8.0/googletest/docs/V1_7_AdvancedGuide.md
+x googletest-release-1.8.0/googletest/docs/V1_7_Documentation.md
+x googletest-release-1.8.0/googletest/docs/V1_7_FAQ.md
+x googletest-release-1.8.0/googletest/docs/V1_7_Primer.md
+x googletest-release-1.8.0/googletest/docs/V1_7_PumpManual.md
+x googletest-release-1.8.0/googletest/docs/V1_7_Samples.md
+x googletest-release-1.8.0/googletest/docs/V1_7_XcodeGuide.md
+x googletest-release-1.8.0/googletest/docs/XcodeGuide.md
+x googletest-release-1.8.0/googletest/include/
+x googletest-release-1.8.0/googletest/include/gtest/
+x googletest-release-1.8.0/googletest/include/gtest/gtest-death-test.h
+x googletest-release-1.8.0/googletest/include/gtest/gtest-message.h
+x googletest-release-1.8.0/googletest/include/gtest/gtest-param-test.h
+x googletest-release-1.8.0/googletest/include/gtest/gtest-param-test.h.pump
+x googletest-release-1.8.0/googletest/include/gtest/gtest-printers.h
+x googletest-release-1.8.0/googletest/include/gtest/gtest-spi.h
+x googletest-release-1.8.0/googletest/include/gtest/gtest-test-part.h
+x googletest-release-1.8.0/googletest/include/gtest/gtest-typed-test.h
+x googletest-release-1.8.0/googletest/include/gtest/gtest.h
+x googletest-release-1.8.0/googletest/include/gtest/gtest_pred_impl.h
+x googletest-release-1.8.0/googletest/include/gtest/gtest_prod.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/
+x googletest-release-1.8.0/googletest/include/gtest/internal/custom/
+x googletest-release-1.8.0/googletest/include/gtest/internal/custom/gtest-port.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/custom/gtest-printers.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/custom/gtest.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-death-test-internal.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-filepath.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-internal.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-linked_ptr.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-param-util-generated.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-param-util-generated.h.pump
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-param-util.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-port-arch.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-port.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-string.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-tuple.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-tuple.h.pump
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-type-util.h
+x googletest-release-1.8.0/googletest/include/gtest/internal/gtest-type-util.h.pump
+x googletest-release-1.8.0/googletest/m4/
+x googletest-release-1.8.0/googletest/m4/acx_pthread.m4
+x googletest-release-1.8.0/googletest/m4/gtest.m4
+x googletest-release-1.8.0/googletest/make/
+x googletest-release-1.8.0/googletest/make/Makefile
+x googletest-release-1.8.0/googletest/msvc/
+x googletest-release-1.8.0/googletest/msvc/gtest-md.sln
+x googletest-release-1.8.0/googletest/msvc/gtest-md.vcproj
+x googletest-release-1.8.0/googletest/msvc/gtest.sln
+x googletest-release-1.8.0/googletest/msvc/gtest.vcproj
+x googletest-release-1.8.0/googletest/msvc/gtest_main-md.vcproj
+x googletest-release-1.8.0/googletest/msvc/gtest_main.vcproj
+x googletest-release-1.8.0/googletest/msvc/gtest_prod_test-md.vcproj
+x googletest-release-1.8.0/googletest/msvc/gtest_prod_test.vcproj
+x googletest-release-1.8.0/googletest/msvc/gtest_unittest-md.vcproj
+x googletest-release-1.8.0/googletest/msvc/gtest_unittest.vcproj
+x googletest-release-1.8.0/googletest/samples/
+x googletest-release-1.8.0/googletest/samples/prime_tables.h
+x googletest-release-1.8.0/googletest/samples/sample1.cc
+x googletest-release-1.8.0/googletest/samples/sample1.h
+x googletest-release-1.8.0/googletest/samples/sample10_unittest.cc
+x googletest-release-1.8.0/googletest/samples/sample1_unittest.cc
+x googletest-release-1.8.0/googletest/samples/sample2.cc
+x googletest-release-1.8.0/googletest/samples/sample2.h
+x googletest-release-1.8.0/googletest/samples/sample2_unittest.cc
+x googletest-release-1.8.0/googletest/samples/sample3-inl.h
+x googletest-release-1.8.0/googletest/samples/sample3_unittest.cc
+x googletest-release-1.8.0/googletest/samples/sample4.cc
+x googletest-release-1.8.0/googletest/samples/sample4.h
+x googletest-release-1.8.0/googletest/samples/sample4_unittest.cc
+x googletest-release-1.8.0/googletest/samples/sample5_unittest.cc
+x googletest-release-1.8.0/googletest/samples/sample6_unittest.cc
+x googletest-release-1.8.0/googletest/samples/sample7_unittest.cc
+x googletest-release-1.8.0/googletest/samples/sample8_unittest.cc
+x googletest-release-1.8.0/googletest/samples/sample9_unittest.cc
+x googletest-release-1.8.0/googletest/scripts/
+x googletest-release-1.8.0/googletest/scripts/common.py
+x googletest-release-1.8.0/googletest/scripts/fuse_gtest_files.py
+x googletest-release-1.8.0/googletest/scripts/gen_gtest_pred_impl.py
+x googletest-release-1.8.0/googletest/scripts/gtest-config.in
+x googletest-release-1.8.0/googletest/scripts/pump.py
+x googletest-release-1.8.0/googletest/scripts/release_docs.py
+x googletest-release-1.8.0/googletest/scripts/test/
+x googletest-release-1.8.0/googletest/scripts/test/Makefile
+x googletest-release-1.8.0/googletest/scripts/upload.py
+x googletest-release-1.8.0/googletest/scripts/upload_gtest.py
+x googletest-release-1.8.0/googletest/src/
+x googletest-release-1.8.0/googletest/src/gtest-all.cc
+x googletest-release-1.8.0/googletest/src/gtest-death-test.cc
+x googletest-release-1.8.0/googletest/src/gtest-filepath.cc
+x googletest-release-1.8.0/googletest/src/gtest-internal-inl.h
+x googletest-release-1.8.0/googletest/src/gtest-port.cc
+x googletest-release-1.8.0/googletest/src/gtest-printers.cc
+x googletest-release-1.8.0/googletest/src/gtest-test-part.cc
+x googletest-release-1.8.0/googletest/src/gtest-typed-test.cc
+x googletest-release-1.8.0/googletest/src/gtest.cc
+x googletest-release-1.8.0/googletest/src/gtest_main.cc
+x googletest-release-1.8.0/googletest/test/
+x googletest-release-1.8.0/googletest/test/gtest-death-test_ex_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-death-test_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-filepath_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-linked_ptr_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-listener_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-message_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-options_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-param-test2_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-param-test_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-param-test_test.h
+x googletest-release-1.8.0/googletest/test/gtest-port_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-printers_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-test-part_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-tuple_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-typed-test2_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-typed-test_test.cc
+x googletest-release-1.8.0/googletest/test/gtest-typed-test_test.h
+x googletest-release-1.8.0/googletest/test/gtest-unittest-api_test.cc
+x googletest-release-1.8.0/googletest/test/gtest_all_test.cc
+x googletest-release-1.8.0/googletest/test/gtest_break_on_failure_unittest.py
+x googletest-release-1.8.0/googletest/test/gtest_break_on_failure_unittest_.cc
+x googletest-release-1.8.0/googletest/test/gtest_catch_exceptions_test.py
+x googletest-release-1.8.0/googletest/test/gtest_catch_exceptions_test_.cc
+x googletest-release-1.8.0/googletest/test/gtest_color_test.py
+x googletest-release-1.8.0/googletest/test/gtest_color_test_.cc
+x googletest-release-1.8.0/googletest/test/gtest_env_var_test.py
+x googletest-release-1.8.0/googletest/test/gtest_env_var_test_.cc
+x googletest-release-1.8.0/googletest/test/gtest_environment_test.cc
+x googletest-release-1.8.0/googletest/test/gtest_filter_unittest.py
+x googletest-release-1.8.0/googletest/test/gtest_filter_unittest_.cc
+x googletest-release-1.8.0/googletest/test/gtest_help_test.py
+x googletest-release-1.8.0/googletest/test/gtest_help_test_.cc
+x googletest-release-1.8.0/googletest/test/gtest_list_tests_unittest.py
+x googletest-release-1.8.0/googletest/test/gtest_list_tests_unittest_.cc
+x googletest-release-1.8.0/googletest/test/gtest_main_unittest.cc
+x googletest-release-1.8.0/googletest/test/gtest_no_test_unittest.cc
+x googletest-release-1.8.0/googletest/test/gtest_output_test.py
+x googletest-release-1.8.0/googletest/test/gtest_output_test_.cc
+x googletest-release-1.8.0/googletest/test/gtest_output_test_golden_lin.txt
+x googletest-release-1.8.0/googletest/test/gtest_pred_impl_unittest.cc
+x googletest-release-1.8.0/googletest/test/gtest_premature_exit_test.cc
+x googletest-release-1.8.0/googletest/test/gtest_prod_test.cc
+x googletest-release-1.8.0/googletest/test/gtest_repeat_test.cc
+x googletest-release-1.8.0/googletest/test/gtest_shuffle_test.py
+x googletest-release-1.8.0/googletest/test/gtest_shuffle_test_.cc
+x googletest-release-1.8.0/googletest/test/gtest_sole_header_test.cc
+x googletest-release-1.8.0/googletest/test/gtest_stress_test.cc
+x googletest-release-1.8.0/googletest/test/gtest_test_utils.py
+x googletest-release-1.8.0/googletest/test/gtest_throw_on_failure_ex_test.cc
+x googletest-release-1.8.0/googletest/test/gtest_throw_on_failure_test.py
+x googletest-release-1.8.0/googletest/test/gtest_throw_on_failure_test_.cc
+x googletest-release-1.8.0/googletest/test/gtest_uninitialized_test.py
+x googletest-release-1.8.0/googletest/test/gtest_uninitialized_test_.cc
+x googletest-release-1.8.0/googletest/test/gtest_unittest.cc
+x googletest-release-1.8.0/googletest/test/gtest_xml_outfile1_test_.cc
+x googletest-release-1.8.0/googletest/test/gtest_xml_outfile2_test_.cc
+x googletest-release-1.8.0/googletest/test/gtest_xml_outfiles_test.py
+x googletest-release-1.8.0/googletest/test/gtest_xml_output_unittest.py
+x googletest-release-1.8.0/googletest/test/gtest_xml_output_unittest_.cc
+x googletest-release-1.8.0/googletest/test/gtest_xml_test_utils.py
+x googletest-release-1.8.0/googletest/test/production.cc
+x googletest-release-1.8.0/googletest/test/production.h
+x googletest-release-1.8.0/googletest/xcode/
+x googletest-release-1.8.0/googletest/xcode/Config/
+x googletest-release-1.8.0/googletest/xcode/Config/DebugProject.xcconfig
+x googletest-release-1.8.0/googletest/xcode/Config/FrameworkTarget.xcconfig
+x googletest-release-1.8.0/googletest/xcode/Config/General.xcconfig
+x googletest-release-1.8.0/googletest/xcode/Config/ReleaseProject.xcconfig
+x googletest-release-1.8.0/googletest/xcode/Config/StaticLibraryTarget.xcconfig
+x googletest-release-1.8.0/googletest/xcode/Config/TestTarget.xcconfig
+x googletest-release-1.8.0/googletest/xcode/Resources/
+x googletest-release-1.8.0/googletest/xcode/Resources/Info.plist
+x googletest-release-1.8.0/googletest/xcode/Samples/
+x googletest-release-1.8.0/googletest/xcode/Samples/FrameworkSample/
+x googletest-release-1.8.0/googletest/xcode/Samples/FrameworkSample/Info.plist
+x googletest-release-1.8.0/googletest/xcode/Samples/FrameworkSample/WidgetFramework.xcodeproj/
+x googletest-release-1.8.0/googletest/xcode/Samples/FrameworkSample/WidgetFramework.xcodeproj/project.pbxproj
+x googletest-release-1.8.0/googletest/xcode/Samples/FrameworkSample/runtests.sh
+x googletest-release-1.8.0/googletest/xcode/Samples/FrameworkSample/widget.cc
+x googletest-release-1.8.0/googletest/xcode/Samples/FrameworkSample/widget.h
+x googletest-release-1.8.0/googletest/xcode/Samples/FrameworkSample/widget_test.cc
+x googletest-release-1.8.0/googletest/xcode/Scripts/
+x googletest-release-1.8.0/googletest/xcode/Scripts/runtests.sh
+x googletest-release-1.8.0/googletest/xcode/Scripts/versiongenerate.py
+x googletest-release-1.8.0/googletest/xcode/gtest.xcodeproj/
+x googletest-release-1.8.0/googletest/xcode/gtest.xcodeproj/project.pbxproj
+x googletest-release-1.8.0/travis.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads ᐅ &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googletest-release-1.8.0
+
+~/Downloads/googletest-release-1.8.0 ᐅ ls
+CMakeLists.txt README.md      appveyor.yml   googlemock     googletest     travis.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0 ᐅ &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googletest
+
+~/Downloads/googletest-release-1.8.0/googletest ᐅ ls
+CHANGES        CONTRIBUTORS   Makefile.am    build-aux      codegear       docs           m4             msvc           scripts        &lt;span class=&quot;nb&quot;&gt;test
+&lt;/span&gt;CMakeLists.txt LICENSE        README.md      cmake          configure.ac   include        make           samples        src            xcode&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googletest ᐅ cmake .
+-- The CXX compiler identification is AppleClang 7.3.0.7030031
+-- The C compiler identification is AppleClang 7.3.0.7030031
+-- Check &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
+-- Check &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+-- Detecting CXX compile features
+-- Detecting CXX compile features - &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+-- Check &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
+-- Check &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+-- Detecting C compile features
+-- Detecting C compile features - &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+-- Found PythonInterp: /usr/local/bin/python &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;found version &lt;span class=&quot;s2&quot;&gt;&quot;2.7.12&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+-- Looking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;pthread.h
+-- Looking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;pthread.h - found
+-- Looking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;pthread_create
+-- Looking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;pthread_create - found
+-- Found Threads: TRUE
+-- Configuring &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+-- Generating &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+-- Build files have been written to: /Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googletest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googletest ᐅ make
+Scanning dependencies of target gtest
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 25%] Building CXX object CMakeFiles/gtest.dir/src/gtest-all.cc.o
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 50%] Linking CXX static library libgtest.a
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 50%] Built target gtest
+Scanning dependencies of target gtest_main
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 75%] Building CXX object CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;100%] Linking CXX static library libgtest_main.a
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;100%] Built target gtest_main&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googletest ᐅ sudo make install
+Password:
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 50%] Built target gtest
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;100%] Built target gtest_main
+Install the project...
+-- Install configuration: &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;
+-- Installing: /usr/local/lib/libgtest.a
+-- Installing: /usr/local/lib/libgtest_main.a
+-- Up-to-date: /usr/local/include/gtest
+-- Up-to-date: /usr/local/include/gtest/gtest-death-test.h
+-- Up-to-date: /usr/local/include/gtest/gtest-message.h
+-- Up-to-date: /usr/local/include/gtest/gtest-param-test.h
+-- Up-to-date: /usr/local/include/gtest/gtest-param-test.h.pump
+-- Up-to-date: /usr/local/include/gtest/gtest-printers.h
+-- Up-to-date: /usr/local/include/gtest/gtest-spi.h
+-- Up-to-date: /usr/local/include/gtest/gtest-test-part.h
+-- Up-to-date: /usr/local/include/gtest/gtest-typed-test.h
+-- Up-to-date: /usr/local/include/gtest/gtest.h
+-- Up-to-date: /usr/local/include/gtest/gtest_pred_impl.h
+-- Up-to-date: /usr/local/include/gtest/gtest_prod.h
+-- Up-to-date: /usr/local/include/gtest/internal
+-- Up-to-date: /usr/local/include/gtest/internal/custom
+-- Up-to-date: /usr/local/include/gtest/internal/custom/gtest-port.h
+-- Up-to-date: /usr/local/include/gtest/internal/custom/gtest-printers.h
+-- Up-to-date: /usr/local/include/gtest/internal/custom/gtest.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-death-test-internal.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-filepath.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-internal.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-linked_ptr.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-param-util-generated.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-param-util-generated.h.pump
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-param-util.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-port-arch.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-port.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-string.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-tuple.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-tuple.h.pump
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-type-util.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-type-util.h.pump&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googletest ᐅ &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..
+
+~/Downloads/googletest-release-1.8.0 ᐅ &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googlemock&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googlemock ᐅ cmake .
+-- The CXX compiler identification is AppleClang 7.3.0.7030031
+-- The C compiler identification is AppleClang 7.3.0.7030031
+-- Check &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
+-- Check &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+-- Detecting CXX compile features
+-- Detecting CXX compile features - &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+-- Check &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
+-- Check &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+-- Detecting C compile features
+-- Detecting C compile features - &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+-- Found PythonInterp: /usr/local/bin/python &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;found version &lt;span class=&quot;s2&quot;&gt;&quot;2.7.12&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+-- Looking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;pthread.h
+-- Looking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;pthread.h - found
+-- Looking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;pthread_create
+-- Looking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;pthread_create - found
+-- Found Threads: TRUE
+-- Configuring &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+-- Generating &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+-- Build files have been written to: /Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googlemock&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googlemock ᐅ make
+Scanning dependencies of target gmock
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  9%] Building CXX object CMakeFiles/gmock.dir/Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googletest/src/gtest-all.cc.o
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 18%] Building CXX object CMakeFiles/gmock.dir/src/gmock-all.cc.o
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 27%] Linking CXX static library libgmock.a
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 27%] Built target gmock
+Scanning dependencies of target gmock_main
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 36%] Building CXX object CMakeFiles/gmock_main.dir/Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googletest/src/gtest-all.cc.o
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 45%] Building CXX object CMakeFiles/gmock_main.dir/src/gmock-all.cc.o
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 54%] Building CXX object CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 63%] Linking CXX static library libgmock_main.a
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 63%] Built target gmock_main
+Scanning dependencies of target gtest
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 72%] Building CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 81%] Linking CXX static library libgtest.a
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 81%] Built target gtest
+Scanning dependencies of target gtest_main
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 90%] Building CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;100%] Linking CXX static library libgtest_main.a
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;100%] Built target gtest_main&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googlemock ᐅ sudo make install
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 27%] Built target gmock
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 63%] Built target gmock_main
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 81%] Built target gtest
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;100%] Built target gtest_main
+Install the project...
+-- Install configuration: &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;
+-- Installing: /usr/local/lib/libgmock.a
+-- Installing: /usr/local/lib/libgmock_main.a
+-- Up-to-date: /usr/local/include/gmock
+-- Up-to-date: /usr/local/include/gmock/gmock-actions.h
+-- Up-to-date: /usr/local/include/gmock/gmock-cardinalities.h
+-- Up-to-date: /usr/local/include/gmock/gmock-generated-actions.h
+-- Up-to-date: /usr/local/include/gmock/gmock-generated-actions.h.pump
+-- Up-to-date: /usr/local/include/gmock/gmock-generated-function-mockers.h
+-- Up-to-date: /usr/local/include/gmock/gmock-generated-function-mockers.h.pump
+-- Up-to-date: /usr/local/include/gmock/gmock-generated-matchers.h
+-- Up-to-date: /usr/local/include/gmock/gmock-generated-matchers.h.pump
+-- Up-to-date: /usr/local/include/gmock/gmock-generated-nice-strict.h
+-- Up-to-date: /usr/local/include/gmock/gmock-generated-nice-strict.h.pump
+-- Up-to-date: /usr/local/include/gmock/gmock-matchers.h
+-- Up-to-date: /usr/local/include/gmock/gmock-more-actions.h
+-- Up-to-date: /usr/local/include/gmock/gmock-more-matchers.h
+-- Up-to-date: /usr/local/include/gmock/gmock-spec-builders.h
+-- Up-to-date: /usr/local/include/gmock/gmock.h
+-- Up-to-date: /usr/local/include/gmock/internal
+-- Up-to-date: /usr/local/include/gmock/internal/custom
+-- Up-to-date: /usr/local/include/gmock/internal/custom/gmock-generated-actions.h
+-- Up-to-date: /usr/local/include/gmock/internal/custom/gmock-generated-actions.h.pump
+-- Up-to-date: /usr/local/include/gmock/internal/custom/gmock-matchers.h
+-- Up-to-date: /usr/local/include/gmock/internal/custom/gmock-port.h
+-- Up-to-date: /usr/local/include/gmock/internal/gmock-generated-internal-utils.h
+-- Up-to-date: /usr/local/include/gmock/internal/gmock-generated-internal-utils.h.pump
+-- Up-to-date: /usr/local/include/gmock/internal/gmock-internal-utils.h
+-- Up-to-date: /usr/local/include/gmock/internal/gmock-port.h
+-- Installing: /usr/local/lib/libgtest.a
+-- Installing: /usr/local/lib/libgtest_main.a
+-- Up-to-date: /usr/local/include/gtest
+-- Up-to-date: /usr/local/include/gtest/gtest-death-test.h
+-- Up-to-date: /usr/local/include/gtest/gtest-message.h
+-- Up-to-date: /usr/local/include/gtest/gtest-param-test.h
+-- Up-to-date: /usr/local/include/gtest/gtest-param-test.h.pump
+-- Up-to-date: /usr/local/include/gtest/gtest-printers.h
+-- Up-to-date: /usr/local/include/gtest/gtest-spi.h
+-- Up-to-date: /usr/local/include/gtest/gtest-test-part.h
+-- Up-to-date: /usr/local/include/gtest/gtest-typed-test.h
+-- Up-to-date: /usr/local/include/gtest/gtest.h
+-- Up-to-date: /usr/local/include/gtest/gtest_pred_impl.h
+-- Up-to-date: /usr/local/include/gtest/gtest_prod.h
+-- Up-to-date: /usr/local/include/gtest/internal
+-- Up-to-date: /usr/local/include/gtest/internal/custom
+-- Up-to-date: /usr/local/include/gtest/internal/custom/gtest-port.h
+-- Up-to-date: /usr/local/include/gtest/internal/custom/gtest-printers.h
+-- Up-to-date: /usr/local/include/gtest/internal/custom/gtest.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-death-test-internal.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-filepath.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-internal.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-linked_ptr.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-param-util-generated.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-param-util-generated.h.pump
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-param-util.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-port-arch.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-port.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-string.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-tuple.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-tuple.h.pump
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-type-util.h
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-type-util.h.pump&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/2017/07/23/google-test&quot;&gt;Google Test & Google Mock Installation&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on July 23, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -2623,24 +3243,6 @@ on unix.stackexchange&lt;/p&gt;
 
 
   &lt;p&gt;&lt;a href=&quot;/2013/06/20/system-and-file-limits&quot;&gt;system and file limits&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on June 20, 2013.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Reading process info from /proc]]></title>
-  <link rel="alternate" type="text/html" href="/2013/06/20/reading-process-info-from-proc" />
-  <id>/2013/06/20/reading-process-info-from-proc</id>
-  <published>2013-06-20T00:00:00+00:00</published>
-  <updated>2013-06-20T00:00:00+00:00</updated>
-  <author>
-    <name>NagaChaitanya Vellanki</name>
-    <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
-  </author>
-  <content type="html">&lt;script src=&quot;https://gist.github.com/chaitanyav/5828625.js&quot;&gt;//1&lt;/script&gt;
-
-
-  &lt;p&gt;&lt;a href=&quot;/2013/06/20/reading-process-info-from-proc&quot;&gt;Reading process info from /proc&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on June 20, 2013.&lt;/p&gt;</content>
 </entry>
 
 </feed>
