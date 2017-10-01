@@ -139,7 +139,7 @@
     <div class="article-wrap">
       <h4 id="stats-of-packages-available-in-apt-cache">Stats of packages available in apt-cache</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~ » apt-cache stats
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » apt-cache stats
 Total package names: 56184 (1,124 k)
 Total package structures: 95540 (5,350 k)
   Normal packages: 65375
@@ -156,11 +156,11 @@ Total Provides mappings: 15671 (313 k)
 Total globbed strings: 378 (4,029 )
 Total dependency version space: 2,652 k
 Total slack space: 40.2 k
-<span class="err">Total space accounted for: 28.1 M</span></code></pre></figure>
+Total space accounted for: 28.1 M</code></pre></figure>
 
 <h4 id="update-the-package-database-as-specified-in-the-etcaptsourceslist-file">Update the package database (as specified in the /etc/apt/sources.list file)</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~ » sudo apt-get update
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » sudo apt-get update
 Ign http://dl.google.com stable InRelease
 Hit http://dl.google.com stable Release.gpg
 Hit http://dl.google.com stable Release
@@ -308,11 +308,11 @@ Ign http://us.archive.ubuntu.com saucy-backports/multiverse Translation-en_US
 Ign http://us.archive.ubuntu.com saucy-backports/restricted Translation-en_US
 Ign http://us.archive.ubuntu.com saucy-backports/universe Translation-en_US
 Fetched 1,535 kB in 19s (79.2 kB/s)
-<span class="err">Reading package lists... Done</span></code></pre></figure>
+Reading package lists... Done</code></pre></figure>
 
 <h4 id="search-the-package-database-for-a-given-keyword">Search the package database for a given keyword</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~ » apt-cache search mongodb
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » apt-cache search mongodb
 python-bson - Python implementation of BSON for MongoDB
 python-bson-ext - C-coded extension to the python-bson package
 python-celery - async task/job queue based on message passing
@@ -353,11 +353,11 @@ syslog-ng-core - Next generation system logging daemon (core)
 syslog-ng-dbg - Next generation system logging daemon (debug symbols)
 syslog-ng-mod-json - Next generation system logging daemon (JSON plugin)
 syslog-ng-mod-mongodb - Next generation system logging daemon (MongoDB plugin)
-<span class="err">syslog-ng-mod-sql - Next generation system logging daemon (SQL plugin)</span></code></pre></figure>
+syslog-ng-mod-sql - Next generation system logging daemon (SQL plugin)</code></pre></figure>
 
 <h4 id="installing-a-package">Installing a package</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">sudo apt-get install postgresql
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">sudo apt-get install postgresql
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -419,17 +419,17 @@ Creating new cluster 9.1/main ...
 update-alternatives: using /usr/share/postgresql/9.1/man/man1/postmaster.1.gz to provide /usr/share/man/man1/postmaster.1.gz (postmaster.1.gz) in auto mode
 * Starting PostgreSQL 9.1 database server                                                                                                                        [ OK ]
 Setting up postgresql (9.3+146really9.1+148) ...
-<span class="err">Processing triggers for libc-bin ...</span></code></pre></figure>
+Processing triggers for libc-bin ...</code></pre></figure>
 
 <h4 id="download-a-package-without-installing">Download a package without installing</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~ » sudo apt-get download mysql-server
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » sudo apt-get download mysql-server
 Get:1 Downloading mysql-server 5.5.35-0ubuntu0.13.10.2 [11.1 kB]
-<span class="err">Fetched 11.1 kB in 0s (50.4 kB/s)</span></code></pre></figure>
+Fetched 11.1 kB in 0s (50.4 kB/s)</code></pre></figure>
 
 <h4 id="show-info-about-a-package">Show info about a package</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~ » apt-cache show mongodb
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » apt-cache show mongodb
 Package: mongodb
 Priority: optional
 Section: universe/database
@@ -466,11 +466,11 @@ Description-md5: 8fa8c030cb4f008d0ac716b496446f9d
 Homepage: http://www.mongodb.org
 Description-md5: 8fa8c030cb4f008d0ac716b496446f9d
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
-<span class="err">Origin: Ubuntu</span></code></pre></figure>
+Origin: Ubuntu</code></pre></figure>
 
 <h4 id="upgrade-installed-packages">Upgrade installed packages</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~ » sudo apt-get upgrade
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » sudo apt-get upgrade
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -520,23 +520,23 @@ Removing debian:cacert.org_root.pem
 Removing debian:Equifax_Secure_eBusiness_CA_2.pem
 Removing debian:TC_TrustCenter_Universal_CA_III.pem
 done.
-<span class="err">done.</span></code></pre></figure>
+done.</code></pre></figure>
 
 <h4 id="upgrade-to-a-new-release-of-ubuntu">Upgrade to a new release of ubuntu</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="err">~ » sudo apt-get dist-upgrade</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » sudo apt-get dist-upgrade</code></pre></figure>
 
 <h4 id="remove-archived-packages-in-varcacheaptarchives">Remove archived packages in /var/cache/apt/archives</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="err">~ » sudo apt-get clean</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » sudo apt-get clean</code></pre></figure>
 
 <h4 id="remove-obsolete-packages">Remove obsolete packages</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="err">~ » sudo apt-get autoclean</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » sudo apt-get autoclean</code></pre></figure>
 
 <h4 id="remove-a-package">Remove a package</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~ » sudo apt-get remove postgresql
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » sudo apt-get remove postgresql
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -551,11 +551,11 @@ required:
     After this operation, 70.7 kB disk space will be freed.
     Do you want to continue [Y/n]? y
     (Reading database ... 220711 files and directories currently installed.)
-<span class="err">    Removing postgresql ...</span></code></pre></figure>
+    Removing postgresql ...</code></pre></figure>
 
 <h4 id="remove-a-package-with-config-files">Remove a package with config files</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~ » sudo apt-get remove --purge postgresql
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » sudo apt-get remove --purge postgresql
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -565,11 +565,11 @@ required:
   libpq5 postgresql-9.1 postgresql-client-9.1 postgresql-client-common
   postgresql-common
   Use 'apt-get autoremove' to remove them.
-<span class="err">  0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.</span></code></pre></figure>
+  0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.</code></pre></figure>
 
 <h4 id="remove-dependencies-for-a-removed-package">Remove dependencies for a removed package</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~ » sudo apt-get autoremove
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » sudo apt-get autoremove
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -592,15 +592,15 @@ The following packages will be REMOVED:
       Removing postgresql-client-common ...
       Processing triggers for libc-bin ...
       Processing triggers for ureadahead ...
-<span class="err">      Processing triggers for man-db ...</span></code></pre></figure>
+      Processing triggers for man-db ...</code></pre></figure>
 
 <h4 id="install-a-package-even-if-the-dependencies-are-unmet">Install a package even if the dependencies are unmet</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="err">~ » sudo apt-get install -f postgresql</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » sudo apt-get install -f postgresql</code></pre></figure>
 
 <h4 id="list-dependencies-of-a-package">List dependencies of a package</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~ » sudo apt-cache depends vim
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » sudo apt-cache depends vim
 vim
   Depends: vim-common
   Depends: vim-runtime
@@ -615,11 +615,11 @@ vim
     exuberant-ctags
   Suggests: vim-doc
   Suggests: vim-scripts
-<span class="err">  Conflicts: vim:i386</span></code></pre></figure>
+  Conflicts: vim:i386</code></pre></figure>
 
 <h4 id="list-trusted-gpg-keys-for-package-sources">List trusted GPG keys for package sources</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~ » sudo apt-key list
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » sudo apt-key list
 /etc/apt/trusted.gpg
 \--------------------
 pub   1024D/437D05B5 2004-09-12
@@ -668,16 +668,16 @@ uid                  Launchpad PPA for Alex Murray
 /etc/apt/trusted.gpg.d//bitcoin-bitcoin.gpg
 \-------------------------------------------
 pub   1024R/8842CE5E 2011-10-26
-<span class="err">uid                  Launchpad PPA for Bitcoin</span></code></pre></figure>
+uid                  Launchpad PPA for Bitcoin</code></pre></figure>
 
 <h4 id="list-aptitude-config-see-apt-config--h-for-more-options">List aptitude config (see apt-config -h for more options)</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~ » apt-config -v
-<span class="err">apt 0.9.9.1~ubuntu 1 for amd64 compiled on Sep 11 2013 17:45:29</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » apt-config -v
+apt 0.9.9.1~ubuntu 1 for amd64 compiled on Sep 11 2013 17:45:29</code></pre></figure>
 
 <h4 id="list-all-package-names">List all package names</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="err">~ » apt-cache pkgnames</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~ » apt-cache pkgnames</code></pre></figure>
 
 
       <hr />
