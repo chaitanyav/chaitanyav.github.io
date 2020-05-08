@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code Musings</title>
-    <link>http://example.org/</link>
+    <link>http://chaitanyav.github.io/</link>
     <description>Recent content on Code Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://chaitanyav.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
