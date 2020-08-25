@@ -2,50 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code Musings</title>
-    <link>http://chaitanyav.github.io/</link>
+    <link>https://chaitanyav.github.io/</link>
     <description>Recent content on Code Musings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 08 May 2020 10:52:09 -0700</lastBuildDate>
     
-	<atom:link href="http://chaitanyav.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chaitanyav.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>http://chaitanyav.github.io/about/</link>
+      <link>https://chaitanyav.github.io/about/</link>
       <pubDate>Fri, 08 May 2020 10:52:09 -0700</pubDate>
       
-      <guid>http://chaitanyav.github.io/about/</guid>
+      <guid>https://chaitanyav.github.io/about/</guid>
       <description>I am a Software Engineer, hacker, web developer, mathematics lover and a amatuer photographer.
 Links to my work:  OneUpFeeds My personal RSS feed reader CS229 Project: Separation of Speech From Noise Challenge SVD and its applications in image processing Balancing chemical equations using Gaussian Elimination Laplace Transform Application, Solving Differential Equations describing a projectile in motion Spam Classification using Naive Bayes UVA Judge Status Page RubyGems  Fibonacci  Partitions   RubyOnRails Contribution Folding@Home Contribution Flick Photosets    Clarion Alley, San Francisco</description>
     </item>
     
     <item>
       <title>Diversions</title>
-      <link>http://chaitanyav.github.io/diversions/</link>
+      <link>https://chaitanyav.github.io/diversions/</link>
       <pubDate>Fri, 08 May 2020 10:43:33 -0700</pubDate>
       
-      <guid>http://chaitanyav.github.io/diversions/</guid>
+      <guid>https://chaitanyav.github.io/diversions/</guid>
       <description>కళ&amp;#3134;రవ&amp;#3135;, మహ&amp;#3134;ప&amp;#3149;రస&amp;#3149;థ&amp;#3134;న&amp;#3074; - శ&amp;#3149;ర&amp;#3136;శ&amp;#3149;ర&amp;#3136; ప&amp;#3147;న&amp;#3136;, ప&amp;#3147;న&amp;#3136;, ప&amp;#3147;త&amp;#3143; ప&amp;#3147;న&amp;#3136;! సత&amp;#3137;ల&amp;#3149;, స&amp;#3137;త&amp;#3137;ల&amp;#3149;, హ&amp;#3135;త&amp;#3137;ల&amp;#3149; ప&amp;#3147;న&amp;#3136;! ప&amp;#3147;త&amp;#3143; ప&amp;#3147;న&amp;#3136;! ర&amp;#3134;న&amp;#3136;, ర&amp;#3134;న&amp;#3136;,  వస&amp;#3149;త&amp;#3143; ర&amp;#3134;న&amp;#3136;! కష&amp;#3149;ట&amp;#3134;ల&amp;#3149;, నష&amp;#3149;ట&amp;#3134;ల&amp;#3149;, క&amp;#3147;ప&amp;#3134;ల&amp;#3149;, త&amp;#3134;ప&amp;#3134;ల&amp;#3149;, శ&amp;#3134;ప&amp;#3134;ల&amp;#3149; ర&amp;#3134;న&amp;#3136;! వస&amp;#3149;త&amp;#3143; ర&amp;#3134;న&amp;#3136;! త&amp;#3135;ట&amp;#3149;ల&amp;#3138;, ర&amp;#3134;ట&amp;#3149;ల&amp;#3138;, ప&amp;#3134;ట&amp;#3149;ల&amp;#3138;, ర&amp;#3134;న&amp;#3136;! ర&amp;#3134;న&amp;#3136;, ర&amp;#3134;న&amp;#3136;! క&amp;#3134;న&amp;#3136;, క&amp;#3134;న&amp;#3136;! గ&amp;#3134;న&amp;#3074;, ధ&amp;#3149;య&amp;#3134;న&amp;#3074;! హ&amp;#3134;స&amp;#3074;, ల&amp;#3134;స&amp;#3074;! క&amp;#3134;న&amp;#3136;, క&amp;#3134;న&amp;#3136;! కళ&amp;#3134;రవ&amp;#3136;, పవ&amp;#3136;! కవ&amp;#3136;!   </description>
     </item>
     
     <item>
       <title>Fractals</title>
-      <link>http://chaitanyav.github.io/fractals/</link>
+      <link>https://chaitanyav.github.io/fractals/</link>
       <pubDate>Fri, 08 May 2020 10:35:27 -0700</pubDate>
       
-      <guid>http://chaitanyav.github.io/fractals/</guid>
+      <guid>https://chaitanyav.github.io/fractals/</guid>
       <description>Note: All the fractals below are drawn using OpenGL/CUDA. Source code OpenGL, CUDA
   References:  http://www-user.uni-bremen.de/schmuhl/fractals/fractal_curves.html http://en.wikipedia.org/wiki/L-system http://en.wikipedia.org/wiki/Hilbert_curve http://en.wikipedia.org/wiki/Dragon_curve CUDA by Example: An Introduction to General-Purpose GPU Programming 1st Author: Jason Sanders, Edward Kandrot Pages: 312 Publisher: Addison-Wesley Professional ©2010 ISBN: 0131387685 9780131387683 The Nature of Code: Simulating Natural Systems with Processing Paperback – December 13, 2012 by Daniel Shiffman http://en.wikipedia.org/wiki/Gosper_curve http://en.wikipedia.org/wiki/Levy_C_curve http://www.malsys.cz/  Sierpinski Triangle    Hilbert Curve    Heighway Dragon   Twin Dragon   Ter Dragon   Fractal Plant     Islands and Lakes   Pentadentrite   Koch Snowflake   Sierpinski Carpet   Cantor Set   Julia Set   Mandelbrot Set   Circle Recursive   Cross-Stitch Curve   Box Fractal a.</description>
     </item>
     
     <item>
       <title>Origami</title>
-      <link>http://chaitanyav.github.io/origami/</link>
+      <link>https://chaitanyav.github.io/origami/</link>
       <pubDate>Fri, 08 May 2020 10:03:40 -0700</pubDate>
       
-      <guid>http://chaitanyav.github.io/origami/</guid>
+      <guid>https://chaitanyav.github.io/origami/</guid>
       <description>Models based on Geometric Origami by Faye E. Goldman  Decoration Unit, Icosahedron    Icosahedron    Tetrahedron    Octahedron(four equilateral triangles meeting a vertex)    Rhombic Triacontahedron (credit: Nagamani Vellanki (my mom))   Hexahedron   Dodecahedron    Truncated Tetrahedron   Egg (credit: Nagamani Vellanki (my mom))   Snub Dodecahedron (credit: Nagamani Vellanki (my mom))     Cuboctahedron (credit: Nagamani Vellanki (my mom))   Icosidodecahedron (credit: Nagamani Vellanki (my mom))  Models based on Wild &amp;amp; Wonderful origami by Mari Ono &amp;amp; Roshin Ono  Karasu(Crow)   Tsuru(Crane)     Kujira(Whale)   Tenntoumushi(Ladybird)   Semi(Cicida)   Hebi(Snake)   Kamereonn(Chameleon)   Kani(Crab)   Penguin   Umigame(Sea Turtle)   Chiita(Cheetah)   Kirin(Giraffe)   Cho(Butterfly)   Saru(Monkey)  ##Models based on Origami Farm by Mari Ono</description>
     </item>
     
