@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-08-23T00:20:18+00:00</updated>
+<updated>2014-08-23T01:28:57+00:00</updated>
 <id>/</id>
 <author>
   <name>NagaChaitanya Vellanki</name>
@@ -66,29 +66,13 @@
 	&lt;span class=&quot;s&quot;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;
 	&lt;span class=&quot;s&quot;&gt;&amp;quot;github.com/iand/feedparser&amp;quot;&lt;/span&gt;
 	&lt;span class=&quot;s&quot;&gt;&amp;quot;io/ioutil&amp;quot;&lt;/span&gt;
-	&lt;span class=&quot;s&quot;&gt;&amp;quot;net&amp;quot;&lt;/span&gt;
 	&lt;span class=&quot;s&quot;&gt;&amp;quot;net/http&amp;quot;&lt;/span&gt;
 	&lt;span class=&quot;s&quot;&gt;&amp;quot;strings&amp;quot;&lt;/span&gt;
 	&lt;span class=&quot;s&quot;&gt;&amp;quot;time&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;c1&quot;&gt;//using the timeout code as in http://stackoverflow.com/questions/16895294/how-to-set-timeout-for-http-get-requests-in-golang&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timeout&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Duration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Second&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dialTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;network&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;addr&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Conn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DialTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;network&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
 &lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parseFeed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;feedURL&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;completed&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;chan&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nx&quot;&gt;transport&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Transport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;nx&quot;&gt;Dial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dialTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;nx&quot;&gt;client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;nx&quot;&gt;Transport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;transport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;feedURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;feedURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 		&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -209,7 +193,13 @@
 	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;categoryByFeedURL&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;completed&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;completed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Finished Parsing a feed at: &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;After&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Minute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Time out!!, lets move on&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;completed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 	&lt;span class=&quot;nx&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Finished fetching all feeds&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -222,81 +212,77 @@
 &lt;span class=&quot;go&quot;&gt;.....&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;.....&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Giant Robots Smashing into other Giant Robots Podcast&lt;/span&gt;
-
-&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  112&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Amazon.com tech.book(store)&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;http://tech-book-store.amazon.com/blog/feed/recentPosts.rss&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  50&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;Google Translate Blog&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;http://pubsubhubbub.appspot.com/&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;Num Posts/Items:  25&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;IEEE Spectrum Recent Content full text&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;http://spectrum.ieee.org&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  30&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Google Developers Blog&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;http://pubsubhubbub.appspot.com/&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  25&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Gigaom&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;http://gigaom.com&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  50&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Unwired View&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;http://www.unwiredview.com&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  50&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;STVP Entrepreneurship Corner&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;http://ecorner.stanford.edu/&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  218&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Martin Fowler&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;http://martinfowler.com&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  236&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Ruby Rogues&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;http://rubyrogues.com&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  20&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Freakonomics Radio&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;http://www.wnyc.org/articles/freakonomics-podcast/&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  150&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Latest TSC Headlines&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;http://www.thestreet.com/now/&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  50&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:35.654612959 -0700 PDT&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;The Netflix Tech Blog&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;http://www.blogger.com/feeds/725338818844296080/posts/default?start-index=26&amp;amp;max-results=25&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;Num Posts/Items:  25&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:36.722009376 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;VentureBeat&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://venturebeat.com&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  30&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:40.091771787 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;ABC News: Top Stories&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://abcnews.go.com/&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  33&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:40.235177514 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Economist.com&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://www.economist.com&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  20&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:40.349098971 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Ruby Rogues&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;http://rubyrogues.com&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Num Posts/Items:  20&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;********************************************************************************&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:50.188633751 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Get http://www.joelonsoftware.com/rss.xml: dial tcp: i/o timeout&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Get http://www.engadget.com/rss.xml: dial tcp: i/o timeout&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Get http://feeds.reuters.com/reuters/topNews: dial tcp: i/o timeout&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Get http://feeds.mashable.com/Mashable: dial tcp: i/o timeout&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Get http://feed.dilbert.com/dilbert/daily_strip?format=xml: dial tcp: i/o timeout&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Get http://www.zdnet.com/blog/rss.xml: dial tcp: i/o timeout&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Get http://www.npr.org/rss/rss.php?id=1001: dial tcp: i/o timeout&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Get http://bokardo.com/feed/: dial tcp: i/o timeout&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Get http://www.stanford.edu/group/edcorner/uploads/podcast/EducatorsCorner.xml: dial tcp: i/o timeout&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Get https://tech.dropbox.com/feed/: dial tcp: i/o timeout&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Get http://rss.slashdot.org/Slashdot/slashdot: dial tcp: i/o timeout&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Get http://feeds.hanselman.com/scotthanselman: dial tcp: i/o timeout&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:56.276427935 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:56.276443162 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:56.276448534 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:56.27645314 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:56.276458319 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:56.27646313 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:56.276468479 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:56.276473478 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:56.276478238 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:56.276482996 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:56.276488006 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:05:56.276493035 -0700 PDT&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Time out!!, lets move on&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Finished Parsing a feed at:  2014-08-22 18:06:56.277632245 -0700 PDT&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;Finished fetching all feeds&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;./test_feed  0.78s user 0.27s system 8% cpu 12.454 total&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;go&quot;&gt;./test_feed  0.72s user 0.27s system 1% cpu 1:30.02 total&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The above program concurrently fetches the posts from the RSS feeds. We have a map with key as the feedURL, the value is the category the feed belongs to.
 &lt;br /&gt;  &lt;/p&gt;
 
-&lt;p&gt;We create a boolean channel(buffered channel) with a capacity equal to the number of feed urls. We use this channel to coordinate between the main function and the goroutine. To fetch the feeds concurrently we launch as many goroutines as the number of feed urls. The reference of channel is also passed as a argument to goroutine.  After launching the goroutines we wait to receive messages from the channel (channels are blocking if there is no message to receive), A message is received (&amp;lt;-completed)from the channel when a goroutine sends a message on the channel (completed &amp;lt;- true), which can happen after either successfully parsing a feed url or due to a error while fetching the feed url. Once we recieve messages from all the goroutines the program prints “Finished fetching all feeds” and exits.  The program takes 11 sec to fetch all the feeds on my macbook pro. I noticed sometimes it takes longer to complete, this can be avoided by setting a timeout.
+&lt;p&gt;We create a boolean channel(buffered channel) with a capacity equal to the number of feed urls. We use this channel to coordinate between the main function and the goroutine. To fetch the feeds concurrently we launch as many goroutines as the number of feed urls. The reference of channel is also passed as a argument to goroutine.  After launching the goroutines we wait to receive messages from the channel (channels are blocking if there is no message to receive), A message is received (&lt;strong&gt;&amp;lt;-completed&lt;/strong&gt;) from the channel when a goroutine sends (&lt;strong&gt;completed &amp;lt;- true&lt;/strong&gt;) a message  on the channel, which can happen after either successfully parsing a feed url or due to a error while fetching the feed url. Sometimes it takes a while to fetch a particular feed, in this case we can send a message to a channel after a timeout so that we can deterministically move forward without waiting forever on the channel. This can be achieved by using the &lt;strong&gt;time.After()&lt;/strong&gt; function with the select(which is like a switch statement for channels), the &lt;strong&gt;time.After()&lt;/strong&gt; function sends out the time to the after the timeout is reached. Once we receive messages from all the goroutines the program prints “Finished fetching all feeds” and exits.
 &lt;br /&gt;  &lt;/p&gt;
 
-&lt;p&gt;I really excited to write code in Go. Happy hacking Gophers!!!.&lt;/p&gt;
+&lt;p&gt;I really excited to write code in Go.&lt;strong&gt; Happy hacking Gophers!!!&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h4 id=&quot;installing-a-go-package&quot;&gt;Installing a go package&lt;/h4&gt;
 &lt;p&gt;Set the GOPATH environment variable and install the package using the ‘go get’&lt;/p&gt;
