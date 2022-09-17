@@ -136,87 +136,89 @@ To compile the program below :
 </p>
 </div>
 
-<div class="highlight"><pre><code class="c"><span class="lineno"> 1</span> <span class="cp">#include &lt;GLFW/glfw3.h&gt;</span>
-<span class="lineno"> 2</span> <span class="cp">#include &lt;stdio.h&gt;</span>
-<span class="lineno"> 3</span> <span class="cp">#include &lt;stdlib.h&gt;</span>
-<span class="lineno"> 4</span> <span class="cp">#include &lt;math.h&gt;</span>
-<span class="lineno"> 5</span> 
-<span class="lineno"> 6</span> <span class="k">static</span> <span class="kt">float</span> <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14159265358979323846</span><span class="p">;</span>
-<span class="lineno"> 7</span> <span class="k">static</span> <span class="kt">float</span> <span class="n">RADIUS</span> <span class="o">=</span> <span class="mf">40.0f</span><span class="p">;</span>
-<span class="lineno"> 8</span> 
-<span class="lineno"> 9</span> <span class="kt">void</span> <span class="nf">draw_circle</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">10</span>   <span class="n">glColor4f</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">);</span>
-<span class="lineno">11</span>   <span class="n">glLineWidth</span><span class="p">(</span><span class="mf">4.0f</span><span class="p">);</span>
-<span class="lineno">12</span>   <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_TRIANGLE_FAN</span><span class="p">);</span>
-<span class="lineno">13</span>   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">radian</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">radian</span> <span class="o">&lt;</span> <span class="mi">360</span><span class="p">;</span> <span class="n">radian</span><span class="o">++</span><span class="p">)</span>
-<span class="lineno">14</span>     <span class="p">{</span>
-<span class="lineno">15</span>       <span class="kt">float</span> <span class="n">degree</span> <span class="o">=</span> <span class="n">radian</span> <span class="o">*</span> <span class="p">(</span><span class="n">PI</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">);</span>
-<span class="lineno">16</span>       <span class="n">glVertex2f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">RADIUS</span> <span class="o">*</span> <span class="n">cosf</span><span class="p">(</span><span class="n">degree</span><span class="p">),</span> <span class="n">y</span> <span class="o">+</span> <span class="n">RADIUS</span> <span class="o">*</span> <span class="n">sinf</span><span class="p">(</span><span class="n">degree</span><span class="p">));</span>
-<span class="lineno">17</span>     <span class="p">}</span>
-<span class="lineno">18</span> 
-<span class="lineno">19</span>     <span class="n">glEnd</span><span class="p">();</span>
-<span class="lineno">20</span>   <span class="p">}</span>
-<span class="lineno">21</span> 
-<span class="lineno">22</span>   <span class="k">static</span> <span class="kt">void</span> <span class="nf">key_callback</span><span class="p">(</span><span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span> <span class="kt">int</span> <span class="n">key</span><span class="p">,</span> <span class="kt">int</span> <span class="n">scancode</span><span class="p">,</span> <span class="kt">int</span> <span class="n">action</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mods</span><span class="p">)</span>
-<span class="lineno">23</span>   <span class="p">{</span>
-<span class="lineno">24</span>     <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">GLFW_KEY_ESCAPE</span> <span class="o">&amp;&amp;</span> <span class="n">action</span> <span class="o">==</span> <span class="n">GLFW_PRESS</span><span class="p">)</span>
-<span class="lineno">25</span>       <span class="n">glfwSetWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">GL_TRUE</span><span class="p">);</span>
-<span class="lineno">26</span>     <span class="p">}</span>
-<span class="lineno">27</span> 
-<span class="lineno">28</span>     <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-<span class="lineno">29</span>       <span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">;</span>
-<span class="lineno">30</span> 
-<span class="lineno">31</span>       <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">glfwInit</span><span class="p">())</span> <span class="p">{</span>
-<span class="lineno">32</span>         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-<span class="lineno">33</span>       <span class="p">}</span>
-<span class="lineno">34</span> 
-<span class="lineno">35</span>       <span class="n">GLFWmonitor</span><span class="o">*</span> <span class="n">monitor</span>  <span class="o">=</span> <span class="n">glfwGetPrimaryMonitor</span><span class="p">();</span>
-<span class="lineno">36</span>       <span class="k">const</span> <span class="n">GLFWvidmode</span><span class="o">*</span> <span class="n">vidmode</span> <span class="o">=</span> <span class="n">glfwGetVideoMode</span><span class="p">(</span><span class="n">monitor</span><span class="p">);</span>
-<span class="lineno">37</span> 
-<span class="lineno">38</span>       <span class="n">window</span> <span class="o">=</span> <span class="n">glfwCreateWindow</span><span class="p">(</span><span class="n">vidmode</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">,</span> <span class="n">vidmode</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span> <span class="s">&quot;Bouncing Ball&quot;</span><span class="p">,</span> <span class="n">monitor</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-<span class="lineno">39</span>       <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">window</span><span class="p">)</span> <span class="p">{</span>
-<span class="lineno">40</span>         <span class="n">glfwTerminate</span><span class="p">();</span>
-<span class="lineno">41</span>         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-<span class="lineno">42</span>       <span class="p">}</span>
-<span class="lineno">43</span> 
-<span class="lineno">44</span>       <span class="n">glfwSetKeyCallback</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">key_callback</span><span class="p">);</span>
-<span class="lineno">45</span>       <span class="n">glfwMakeContextCurrent</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
-<span class="lineno">46</span> 
-<span class="lineno">47</span>       <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
-<span class="lineno">48</span>       <span class="n">glfwGetFramebufferSize</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">width</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">height</span><span class="p">);</span>
-<span class="lineno">49</span>       <span class="kt">float</span> <span class="n">ratio</span> <span class="o">=</span> <span class="n">width</span> <span class="o">/</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="n">height</span><span class="p">;</span>
-<span class="lineno">50</span>       <span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
-<span class="lineno">51</span>       <span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
-<span class="lineno">52</span>       <span class="kt">float</span> <span class="n">xspeed</span> <span class="o">=</span> <span class="mf">10.0f</span><span class="p">;</span>
-<span class="lineno">53</span>       <span class="kt">float</span> <span class="n">yspeed</span> <span class="o">=</span> <span class="mf">10.0f</span><span class="p">;</span>
-<span class="lineno">54</span> 
-<span class="lineno">55</span>       <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
-<span class="lineno">56</span>       <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">);</span>
-<span class="lineno">57</span>       <span class="n">glLoadIdentity</span><span class="p">();</span>
-<span class="lineno">58</span>       <span class="n">glOrtho</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">);</span>
-<span class="lineno">59</span>       <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">);</span>
-<span class="lineno">60</span>       <span class="n">glLoadIdentity</span><span class="p">();</span>
-<span class="lineno">61</span> 
-<span class="lineno">62</span>       <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span> <span class="p">{</span>
-<span class="lineno">63</span>         <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="p">);</span>
-<span class="lineno">64</span>         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">xspeed</span><span class="p">;</span>
-<span class="lineno">65</span>         <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">yspeed</span><span class="p">;</span>
-<span class="lineno">66</span> 
-<span class="lineno">67</span>         <span class="k">if</span> <span class="p">((</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">width</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
-<span class="lineno">68</span>           <span class="n">xspeed</span> <span class="o">=</span> <span class="n">xspeed</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-<span class="lineno">69</span>         <span class="p">}</span>
-<span class="lineno">70</span>         <span class="k">if</span> <span class="p">((</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">height</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
-<span class="lineno">71</span>           <span class="n">yspeed</span> <span class="o">=</span> <span class="n">yspeed</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-<span class="lineno">72</span>         <span class="p">}</span>
-<span class="lineno">73</span> 
-<span class="lineno">74</span>         <span class="n">draw_circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
-<span class="lineno">75</span>         <span class="n">glfwSwapBuffers</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
-<span class="lineno">76</span>         <span class="n">glfwPollEvents</span><span class="p">();</span>
-<span class="lineno">77</span>       <span class="p">}</span>
-<span class="lineno">78</span> 
-<span class="lineno">79</span>       <span class="n">glfwTerminate</span><span class="p">();</span>
-<span class="lineno">80</span>       <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="lineno">81</span>     <span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="c"><span class="lineno"> 1</span> <span class="cm">/* Author: NagaChaitanya Vellanki */</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="cp">#include &lt;GLFW/glfw3.h&gt;</span>
+<span class="lineno"> 4</span> <span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="lineno"> 5</span> <span class="cp">#include &lt;stdlib.h&gt;</span>
+<span class="lineno"> 6</span> <span class="cp">#include &lt;math.h&gt;</span>
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span> <span class="k">static</span> <span class="kt">float</span> <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14159265358979323846</span><span class="p">;</span>
+<span class="lineno"> 9</span> <span class="k">static</span> <span class="kt">float</span> <span class="n">RADIUS</span> <span class="o">=</span> <span class="mf">40.0f</span><span class="p">;</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> <span class="kt">void</span> <span class="nf">draw_circle</span><span class="p">(</span><span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">12</span>   <span class="n">glColor4f</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">);</span>
+<span class="lineno">13</span>   <span class="n">glLineWidth</span><span class="p">(</span><span class="mf">4.0f</span><span class="p">);</span>
+<span class="lineno">14</span>   <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_TRIANGLE_FAN</span><span class="p">);</span>
+<span class="lineno">15</span>   <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">radian</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">radian</span> <span class="o">&lt;</span> <span class="mi">360</span><span class="p">;</span> <span class="n">radian</span><span class="o">++</span><span class="p">)</span>
+<span class="lineno">16</span>     <span class="p">{</span>
+<span class="lineno">17</span>       <span class="kt">float</span> <span class="n">degree</span> <span class="o">=</span> <span class="n">radian</span> <span class="o">*</span> <span class="p">(</span><span class="n">PI</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">);</span>
+<span class="lineno">18</span>       <span class="n">glVertex2f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">RADIUS</span> <span class="o">*</span> <span class="n">cosf</span><span class="p">(</span><span class="n">degree</span><span class="p">),</span> <span class="n">y</span> <span class="o">+</span> <span class="n">RADIUS</span> <span class="o">*</span> <span class="n">sinf</span><span class="p">(</span><span class="n">degree</span><span class="p">));</span>
+<span class="lineno">19</span>     <span class="p">}</span>
+<span class="lineno">20</span> 
+<span class="lineno">21</span>     <span class="n">glEnd</span><span class="p">();</span>
+<span class="lineno">22</span>   <span class="p">}</span>
+<span class="lineno">23</span> 
+<span class="lineno">24</span>   <span class="k">static</span> <span class="kt">void</span> <span class="nf">key_callback</span><span class="p">(</span><span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span> <span class="kt">int</span> <span class="n">key</span><span class="p">,</span> <span class="kt">int</span> <span class="n">scancode</span><span class="p">,</span> <span class="kt">int</span> <span class="n">action</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mods</span><span class="p">)</span>
+<span class="lineno">25</span>   <span class="p">{</span>
+<span class="lineno">26</span>     <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">GLFW_KEY_ESCAPE</span> <span class="o">&amp;&amp;</span> <span class="n">action</span> <span class="o">==</span> <span class="n">GLFW_PRESS</span><span class="p">)</span>
+<span class="lineno">27</span>       <span class="n">glfwSetWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">GL_TRUE</span><span class="p">);</span>
+<span class="lineno">28</span>     <span class="p">}</span>
+<span class="lineno">29</span> 
+<span class="lineno">30</span>     <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+<span class="lineno">31</span>       <span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">;</span>
+<span class="lineno">32</span> 
+<span class="lineno">33</span>       <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">glfwInit</span><span class="p">())</span> <span class="p">{</span>
+<span class="lineno">34</span>         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="lineno">35</span>       <span class="p">}</span>
+<span class="lineno">36</span> 
+<span class="lineno">37</span>       <span class="n">GLFWmonitor</span><span class="o">*</span> <span class="n">monitor</span>  <span class="o">=</span> <span class="n">glfwGetPrimaryMonitor</span><span class="p">();</span>
+<span class="lineno">38</span>       <span class="k">const</span> <span class="n">GLFWvidmode</span><span class="o">*</span> <span class="n">vidmode</span> <span class="o">=</span> <span class="n">glfwGetVideoMode</span><span class="p">(</span><span class="n">monitor</span><span class="p">);</span>
+<span class="lineno">39</span> 
+<span class="lineno">40</span>       <span class="n">window</span> <span class="o">=</span> <span class="n">glfwCreateWindow</span><span class="p">(</span><span class="n">vidmode</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">,</span> <span class="n">vidmode</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span> <span class="s">&quot;Bouncing Ball&quot;</span><span class="p">,</span> <span class="n">monitor</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="lineno">41</span>       <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">window</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">42</span>         <span class="n">glfwTerminate</span><span class="p">();</span>
+<span class="lineno">43</span>         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="lineno">44</span>       <span class="p">}</span>
+<span class="lineno">45</span> 
+<span class="lineno">46</span>       <span class="n">glfwSetKeyCallback</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">key_callback</span><span class="p">);</span>
+<span class="lineno">47</span>       <span class="n">glfwMakeContextCurrent</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+<span class="lineno">48</span> 
+<span class="lineno">49</span>       <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+<span class="lineno">50</span>       <span class="n">glfwGetFramebufferSize</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">width</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">height</span><span class="p">);</span>
+<span class="lineno">51</span>       <span class="kt">float</span> <span class="n">ratio</span> <span class="o">=</span> <span class="n">width</span> <span class="o">/</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="n">height</span><span class="p">;</span>
+<span class="lineno">52</span>       <span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+<span class="lineno">53</span>       <span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+<span class="lineno">54</span>       <span class="kt">float</span> <span class="n">xspeed</span> <span class="o">=</span> <span class="mf">10.0f</span><span class="p">;</span>
+<span class="lineno">55</span>       <span class="kt">float</span> <span class="n">yspeed</span> <span class="o">=</span> <span class="mf">10.0f</span><span class="p">;</span>
+<span class="lineno">56</span> 
+<span class="lineno">57</span>       <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+<span class="lineno">58</span>       <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">);</span>
+<span class="lineno">59</span>       <span class="n">glLoadIdentity</span><span class="p">();</span>
+<span class="lineno">60</span>       <span class="n">glOrtho</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">);</span>
+<span class="lineno">61</span>       <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">);</span>
+<span class="lineno">62</span>       <span class="n">glLoadIdentity</span><span class="p">();</span>
+<span class="lineno">63</span> 
+<span class="lineno">64</span>       <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">65</span>         <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="p">);</span>
+<span class="lineno">66</span>         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">xspeed</span><span class="p">;</span>
+<span class="lineno">67</span>         <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">yspeed</span><span class="p">;</span>
+<span class="lineno">68</span> 
+<span class="lineno">69</span>         <span class="k">if</span> <span class="p">((</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">width</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">70</span>           <span class="n">xspeed</span> <span class="o">=</span> <span class="n">xspeed</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="lineno">71</span>         <span class="p">}</span>
+<span class="lineno">72</span>         <span class="k">if</span> <span class="p">((</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">height</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">73</span>           <span class="n">yspeed</span> <span class="o">=</span> <span class="n">yspeed</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="lineno">74</span>         <span class="p">}</span>
+<span class="lineno">75</span> 
+<span class="lineno">76</span>         <span class="n">draw_circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="lineno">77</span>         <span class="n">glfwSwapBuffers</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+<span class="lineno">78</span>         <span class="n">glfwPollEvents</span><span class="p">();</span>
+<span class="lineno">79</span>       <span class="p">}</span>
+<span class="lineno">80</span> 
+<span class="lineno">81</span>       <span class="n">glfwTerminate</span><span class="p">();</span>
+<span class="lineno">82</span>       <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">83</span>     <span class="p">}</span></code></pre></div>
 
 <h2 id="video">Video</h2>
 <div>
@@ -259,11 +261,11 @@ To compile the program below :
   <h4>You might also enjoy <small class="pull-right">(<a href="/posts/">View all posts</a>)</small></h4>
     <ul>
     
+      <li><a href="/2014/07/21/dragon-curve" title="Drawing Dragon Curve using L-system">Drawing Dragon Curve using L-system</a></li>
+    
       <li><a href="/2014/07/20/sierpinski-triangle" title="Drawing Sierpinski Triangle using L-system">Drawing Sierpinski Triangle using L-system</a></li>
     
       <li><a href="/2014/07/19/pattern-with-circles" title="Pattern formed by drawing circles recursively">Pattern formed by drawing circles recursively</a></li>
-    
-      <li><a href="/2014/07/19/cantor-set" title="Cantor Set using OpenGL">Cantor Set using OpenGL</a></li>
     
     </ul>
     <hr />

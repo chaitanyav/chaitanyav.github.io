@@ -1,0 +1,473 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Drawing Dragon Curve using L-system &#8211; Code Musings</title>
+<meta name="description" content="">
+<meta name="keywords" content="OpenGL, GLFW">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Drawing Dragon Curve using L-system">
+<meta property="og:description" content="">
+<meta property="og:url" content="/2014/07/21/dragon-curve">
+<meta property="og:site_name" content="Code Musings">
+
+
+
+
+
+<link rel="canonical" href="/2014/07/21/dragon-curve">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Code Musings Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+<link rel="stylesheet" href="/assets/css/pygments.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="">Code Musings</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				<li><a href="/about/" >About</a></li>
+		        
+				<li><a href="/posts/" >Posts</a></li>
+		        
+				<li><a href="/origami/" >Origami</a></li>
+		        
+				<li><a href="/tags/" >Tags</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+	<img src="/images/bio-photo.png" class="bio-photo" alt="NagaChaitanya Vellanki bio photo"></a>
+
+<h3>NagaChaitanya Vellanki</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/nagachaitanya" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+
+<a href="http://github.com/chaitanyav" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+
+
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      
+        <h1><a href="/2014/07/21/dragon-curve" rel="bookmark" title="Drawing Dragon Curve using L-system">Drawing Dragon Curve using L-system</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <div>
+<p>
+<cite>
+Reference: http://en.wikipedia.org/wiki/Dragon_curve
+</cite>
+</p>
+</div>
+<div>
+<p>
+To compile the program below :
+
+<div class="highlight"><pre><code class="console"><span class="go">clang++ -o dragon_curve dragon_curve.cpp -lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo</span></code></pre></div>
+
+</p>
+</div>
+
+<div class="highlight"><pre><code class="cpp"><span class="lineno">  1</span> <span class="c1">//</span>
+<span class="lineno">  2</span> <span class="c1">// Author: NagaChaitanya Vellanki</span>
+<span class="lineno">  3</span> <span class="c1">//</span>
+<span class="lineno">  4</span> 
+<span class="lineno">  5</span> <span class="cp">#include &lt;GLFW/glfw3.h&gt;</span>
+<span class="lineno">  6</span> <span class="cp">#include &lt;iostream&gt;</span>
+<span class="lineno">  7</span> <span class="cp">#include &lt;string&gt;</span>
+<span class="lineno">  8</span> <span class="cp">#include &lt;climits&gt;</span>
+<span class="lineno">  9</span> 
+<span class="lineno"> 10</span> <span class="k">static</span> <span class="kt">float</span> <span class="n">LINE_LENGTH</span> <span class="o">=</span> <span class="mf">0.5f</span><span class="p">;</span>
+<span class="lineno"> 11</span> 
+<span class="lineno"> 12</span> <span class="k">static</span> <span class="kt">void</span> <span class="nf">key_callback</span><span class="p">(</span><span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span> <span class="kt">int</span> <span class="n">key</span><span class="p">,</span> <span class="kt">int</span> <span class="n">scancode</span><span class="p">,</span> <span class="kt">int</span> <span class="n">action</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mods</span><span class="p">)</span>
+<span class="lineno"> 13</span> <span class="p">{</span>
+<span class="lineno"> 14</span>   <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">GLFW_KEY_ESCAPE</span> <span class="o">&amp;&amp;</span> <span class="n">action</span> <span class="o">==</span> <span class="n">GLFW_PRESS</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 15</span>     <span class="n">glfwSetWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">GL_TRUE</span><span class="p">);</span>
+<span class="lineno"> 16</span>   <span class="p">}</span>
+<span class="lineno"> 17</span> <span class="p">}</span>
+<span class="lineno"> 18</span> 
+<span class="lineno"> 19</span> 
+<span class="lineno"> 20</span> <span class="c1">//angle: 120°</span>
+<span class="lineno"> 21</span> <span class="c1">// initial string F</span>
+<span class="lineno"> 22</span> <span class="c1">// string rewriting rules</span>
+<span class="lineno"> 23</span> <span class="c1">// F ↦ F+F−F</span>
+<span class="lineno"> 24</span> <span class="c1">// - turn left by 90 degrees</span>
+<span class="lineno"> 25</span> <span class="c1">// + turn right by 90 degrees</span>
+<span class="lineno"> 26</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">terDragonLSystemRepresentation</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno"> 27</span>   <span class="kt">int</span> <span class="n">generation</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno"> 28</span>   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">current</span> <span class="o">=</span> <span class="s">&quot;F&quot;</span><span class="p">;</span>
+<span class="lineno"> 29</span> 
+<span class="lineno"> 30</span>   <span class="k">while</span><span class="p">(</span><span class="n">generation</span> <span class="o">&lt;</span> <span class="mi">14</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 31</span>     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">next</span><span class="p">;</span>
+<span class="lineno"> 32</span>     <span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">current</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 33</span>       <span class="k">switch</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 34</span>         <span class="k">case</span> <span class="sc">&#39;F&#39;</span>:
+<span class="lineno"> 35</span>         <span class="n">next</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;F+F-F&quot;</span><span class="p">);</span>
+<span class="lineno"> 36</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno"> 37</span>         <span class="k">case</span> <span class="sc">&#39;-&#39;</span>:
+<span class="lineno"> 38</span>         <span class="n">next</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">);</span>
+<span class="lineno"> 39</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno"> 40</span>         <span class="k">case</span> <span class="sc">&#39;+&#39;</span>:
+<span class="lineno"> 41</span>         <span class="n">next</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;+&quot;</span><span class="p">);</span>
+<span class="lineno"> 42</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno"> 43</span>       <span class="p">};</span>
+<span class="lineno"> 44</span>     <span class="p">}</span>
+<span class="lineno"> 45</span> 
+<span class="lineno"> 46</span>     <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+<span class="lineno"> 47</span>     <span class="n">generation</span><span class="o">++</span><span class="p">;</span>
+<span class="lineno"> 48</span>     <span class="c1">//std::cout &lt;&lt; &quot;Generation: &quot; &lt;&lt;  &quot; &quot; &lt;&lt; current &lt;&lt; std::endl;</span>
+<span class="lineno"> 49</span>   <span class="p">}</span>
+<span class="lineno"> 50</span> 
+<span class="lineno"> 51</span>   <span class="k">return</span> <span class="n">current</span><span class="p">;</span>
+<span class="lineno"> 52</span> <span class="p">}</span>
+<span class="lineno"> 53</span> 
+<span class="lineno"> 54</span> 
+<span class="lineno"> 55</span> <span class="c1">//angle: 90°</span>
+<span class="lineno"> 56</span> <span class="c1">//initial string FX+FX+</span>
+<span class="lineno"> 57</span> <span class="c1">//string rewriting rules</span>
+<span class="lineno"> 58</span> <span class="c1">//X ↦ X+YF</span>
+<span class="lineno"> 59</span> <span class="c1">//Y ↦ FX−Y</span>
+<span class="lineno"> 60</span> <span class="c1">// - turn left by 90 degrees</span>
+<span class="lineno"> 61</span> <span class="c1">// + turn right by 90 degrees</span>
+<span class="lineno"> 62</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">twinDragonLSystemRepresentation</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno"> 63</span>   <span class="kt">int</span> <span class="n">generation</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno"> 64</span>   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">current</span> <span class="o">=</span> <span class="s">&quot;FX+FX+&quot;</span><span class="p">;</span>
+<span class="lineno"> 65</span> 
+<span class="lineno"> 66</span>   <span class="k">while</span><span class="p">(</span><span class="n">generation</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 67</span>     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">next</span><span class="p">;</span>
+<span class="lineno"> 68</span>     <span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">current</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 69</span>       <span class="k">switch</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno"> 70</span>         <span class="k">case</span> <span class="sc">&#39;X&#39;</span>:
+<span class="lineno"> 71</span>         <span class="n">next</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;X+YF&quot;</span><span class="p">);</span>
+<span class="lineno"> 72</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno"> 73</span>         <span class="k">case</span> <span class="sc">&#39;Y&#39;</span>:
+<span class="lineno"> 74</span>         <span class="n">next</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;FX-Y&quot;</span><span class="p">);</span>
+<span class="lineno"> 75</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno"> 76</span>         <span class="k">case</span> <span class="sc">&#39;F&#39;</span>:
+<span class="lineno"> 77</span>         <span class="n">next</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="lineno"> 78</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno"> 79</span>         <span class="k">case</span> <span class="sc">&#39;-&#39;</span>:
+<span class="lineno"> 80</span>         <span class="n">next</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">);</span>
+<span class="lineno"> 81</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno"> 82</span>         <span class="k">case</span> <span class="sc">&#39;+&#39;</span>:
+<span class="lineno"> 83</span>         <span class="n">next</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;+&quot;</span><span class="p">);</span>
+<span class="lineno"> 84</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno"> 85</span>       <span class="p">};</span>
+<span class="lineno"> 86</span>     <span class="p">}</span>
+<span class="lineno"> 87</span> 
+<span class="lineno"> 88</span>     <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+<span class="lineno"> 89</span>     <span class="n">generation</span><span class="o">++</span><span class="p">;</span>
+<span class="lineno"> 90</span>     <span class="c1">//std::cout &lt;&lt; &quot;Generation: &quot; &lt;&lt;  &quot; &quot; &lt;&lt; current &lt;&lt; std::endl;</span>
+<span class="lineno"> 91</span>   <span class="p">}</span>
+<span class="lineno"> 92</span> 
+<span class="lineno"> 93</span>   <span class="k">return</span> <span class="n">current</span><span class="p">;</span>
+<span class="lineno"> 94</span> <span class="p">}</span>
+<span class="lineno"> 95</span> 
+<span class="lineno"> 96</span> 
+<span class="lineno"> 97</span> <span class="c1">// Heighway dragon</span>
+<span class="lineno"> 98</span> <span class="c1">// angle: 90°</span>
+<span class="lineno"> 99</span> <span class="c1">// initial: string FX</span>
+<span class="lineno">100</span> <span class="c1">// string rewriting rules</span>
+<span class="lineno">101</span> <span class="c1">// X ↦ X+YF+</span>
+<span class="lineno">102</span> <span class="c1">// Y ↦ −FX−Y.</span>
+<span class="lineno">103</span> <span class="c1">// - turn left by 90 degrees</span>
+<span class="lineno">104</span> <span class="c1">// + turn right by 90 degrees</span>
+<span class="lineno">105</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">heighwayDragonLSystemRepresentation</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno">106</span>   <span class="kt">int</span> <span class="n">generation</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">107</span>   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">current</span> <span class="o">=</span> <span class="s">&quot;FX&quot;</span><span class="p">;</span>
+<span class="lineno">108</span> 
+<span class="lineno">109</span>   <span class="k">while</span><span class="p">(</span><span class="n">generation</span> <span class="o">&lt;</span> <span class="mi">21</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">110</span>     <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">next</span><span class="p">;</span>
+<span class="lineno">111</span>     <span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">current</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">current</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">112</span>       <span class="k">switch</span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">113</span>         <span class="k">case</span> <span class="sc">&#39;X&#39;</span>:
+<span class="lineno">114</span>         <span class="n">next</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;X+YF+&quot;</span><span class="p">);</span>
+<span class="lineno">115</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno">116</span>         <span class="k">case</span> <span class="sc">&#39;Y&#39;</span>:
+<span class="lineno">117</span>         <span class="n">next</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;-FX-Y&quot;</span><span class="p">);</span>
+<span class="lineno">118</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno">119</span>         <span class="k">case</span> <span class="sc">&#39;F&#39;</span>:
+<span class="lineno">120</span>         <span class="n">next</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+<span class="lineno">121</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno">122</span>         <span class="k">case</span> <span class="sc">&#39;-&#39;</span>:
+<span class="lineno">123</span>         <span class="n">next</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">);</span>
+<span class="lineno">124</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno">125</span>         <span class="k">case</span> <span class="sc">&#39;+&#39;</span>:
+<span class="lineno">126</span>         <span class="n">next</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;+&quot;</span><span class="p">);</span>
+<span class="lineno">127</span>         <span class="k">break</span><span class="p">;</span>
+<span class="lineno">128</span>       <span class="p">};</span>
+<span class="lineno">129</span>     <span class="p">}</span>
+<span class="lineno">130</span> 
+<span class="lineno">131</span>     <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+<span class="lineno">132</span>     <span class="n">generation</span><span class="o">++</span><span class="p">;</span>
+<span class="lineno">133</span>     <span class="c1">//std::cout &lt;&lt; &quot;Generation: &quot; &lt;&lt;  &quot; &quot; &lt;&lt; current &lt;&lt; std::endl;</span>
+<span class="lineno">134</span>   <span class="p">}</span>
+<span class="lineno">135</span> 
+<span class="lineno">136</span>   <span class="k">return</span> <span class="n">current</span><span class="p">;</span>
+<span class="lineno">137</span> <span class="p">}</span>
+<span class="lineno">138</span> 
+<span class="lineno">139</span> <span class="kt">void</span> <span class="n">drawDragon</span><span class="p">(</span><span class="kt">int</span> <span class="n">type</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">140</span>   <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">lrep</span><span class="p">;</span>
+<span class="lineno">141</span>   <span class="kt">float</span> <span class="n">angle</span><span class="p">;</span>
+<span class="lineno">142</span> 
+<span class="lineno">143</span>   <span class="k">switch</span><span class="p">(</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">144</span>     <span class="k">case</span> <span class="mi">0</span>:
+<span class="lineno">145</span>     <span class="n">lrep</span> <span class="o">=</span> <span class="n">heighwayDragonLSystemRepresentation</span><span class="p">();</span>
+<span class="lineno">146</span>     <span class="n">angle</span> <span class="o">=</span> <span class="mf">90.0f</span><span class="p">;</span>
+<span class="lineno">147</span>     <span class="k">break</span><span class="p">;</span>
+<span class="lineno">148</span>     <span class="k">case</span> <span class="mi">1</span>:
+<span class="lineno">149</span>     <span class="n">lrep</span> <span class="o">=</span> <span class="n">twinDragonLSystemRepresentation</span><span class="p">();</span>
+<span class="lineno">150</span>     <span class="n">angle</span> <span class="o">=</span> <span class="mf">90.0f</span><span class="p">;</span>
+<span class="lineno">151</span>     <span class="k">break</span><span class="p">;</span>
+<span class="lineno">152</span>     <span class="k">case</span> <span class="mi">2</span>:
+<span class="lineno">153</span>     <span class="n">lrep</span> <span class="o">=</span> <span class="n">terDragonLSystemRepresentation</span><span class="p">();</span>
+<span class="lineno">154</span>     <span class="n">angle</span> <span class="o">=</span> <span class="mf">120.0f</span><span class="p">;</span>
+<span class="lineno">155</span>     <span class="k">break</span><span class="p">;</span>
+<span class="lineno">156</span>   <span class="p">};</span>
+<span class="lineno">157</span> 
+<span class="lineno">158</span> 
+<span class="lineno">159</span>   <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="p">);</span>
+<span class="lineno">160</span>   <span class="n">glPushMatrix</span><span class="p">();</span>
+<span class="lineno">161</span>   <span class="k">for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">lrep</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">lrep</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">162</span>     <span class="k">if</span><span class="p">(</span><span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="sc">&#39;F&#39;</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">163</span>       <span class="n">glColor4f</span><span class="p">(</span><span class="mf">0.5f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">);</span>
+<span class="lineno">164</span>       <span class="n">glLineWidth</span><span class="p">(</span><span class="mf">2.0f</span><span class="p">);</span>
+<span class="lineno">165</span>       <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_LINES</span><span class="p">);</span>
+<span class="lineno">166</span>       <span class="n">glVertex2f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="lineno">167</span>       <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">LINE_LENGTH</span><span class="p">;</span>
+<span class="lineno">168</span>       <span class="n">glVertex2f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="lineno">169</span>       <span class="n">glEnd</span><span class="p">();</span>
+<span class="lineno">170</span>     <span class="p">}</span>
+<span class="lineno">171</span>     <span class="k">if</span><span class="p">(</span><span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="sc">&#39;-&#39;</span> <span class="o">||</span> <span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="sc">&#39;+&#39;</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">172</span>       <span class="n">glTranslatef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">);</span>
+<span class="lineno">173</span>       <span class="n">x</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+<span class="lineno">174</span>       <span class="n">y</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+<span class="lineno">175</span>       <span class="kt">int</span> <span class="n">sign</span> <span class="o">=</span> <span class="p">((</span><span class="o">*</span><span class="n">it</span> <span class="o">==</span> <span class="sc">&#39;-&#39;</span><span class="p">)</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="lineno">176</span>       <span class="n">glRotatef</span><span class="p">(</span><span class="n">sign</span> <span class="o">*</span> <span class="n">angle</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">);</span>
+<span class="lineno">177</span>     <span class="p">}</span>
+<span class="lineno">178</span>   <span class="p">}</span>
+<span class="lineno">179</span>   <span class="n">glPopMatrix</span><span class="p">();</span>
+<span class="lineno">180</span> <span class="p">}</span>
+<span class="lineno">181</span> 
+<span class="lineno">182</span> <span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+<span class="lineno">183</span>   <span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">;</span>
+<span class="lineno">184</span> 
+<span class="lineno">185</span>   <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">glfwInit</span><span class="p">())</span> <span class="p">{</span>
+<span class="lineno">186</span>     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="lineno">187</span>   <span class="p">}</span>
+<span class="lineno">188</span> 
+<span class="lineno">189</span>   <span class="n">GLFWmonitor</span><span class="o">*</span> <span class="n">monitor</span>  <span class="o">=</span> <span class="n">glfwGetPrimaryMonitor</span><span class="p">();</span>
+<span class="lineno">190</span>   <span class="k">const</span> <span class="n">GLFWvidmode</span><span class="o">*</span> <span class="n">vidmode</span> <span class="o">=</span> <span class="n">glfwGetVideoMode</span><span class="p">(</span><span class="n">monitor</span><span class="p">);</span>
+<span class="lineno">191</span> 
+<span class="lineno">192</span>   <span class="n">window</span> <span class="o">=</span> <span class="n">glfwCreateWindow</span><span class="p">(</span><span class="n">vidmode</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">,</span> <span class="n">vidmode</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span> <span class="s">&quot;Sierpinski Triangle&quot;</span><span class="p">,</span> <span class="n">monitor</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="lineno">193</span>   <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">window</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">194</span>     <span class="n">glfwTerminate</span><span class="p">();</span>
+<span class="lineno">195</span>     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="lineno">196</span>   <span class="p">}</span>
+<span class="lineno">197</span> 
+<span class="lineno">198</span>   <span class="n">glfwSetKeyCallback</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">key_callback</span><span class="p">);</span>
+<span class="lineno">199</span>   <span class="n">glfwMakeContextCurrent</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+<span class="lineno">200</span> 
+<span class="lineno">201</span>   <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+<span class="lineno">202</span> 
+<span class="lineno">203</span>   <span class="n">glfwGetFramebufferSize</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">width</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">height</span><span class="p">);</span>
+<span class="lineno">204</span>   <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+<span class="lineno">205</span>   <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">);</span>
+<span class="lineno">206</span>   <span class="n">glLoadIdentity</span><span class="p">();</span>
+<span class="lineno">207</span>   <span class="n">glOrtho</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">);</span>
+<span class="lineno">208</span>   <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">);</span>
+<span class="lineno">209</span>   <span class="n">glLoadIdentity</span><span class="p">();</span>
+<span class="lineno">210</span> 
+<span class="lineno">211</span>   <span class="kt">long</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">212</span>   <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span> <span class="p">{</span>
+<span class="lineno">213</span>     <span class="k">if</span><span class="p">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">214</span>       <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">215</span>     <span class="p">}</span>
+<span class="lineno">216</span> 
+<span class="lineno">217</span>     <span class="k">switch</span><span class="p">(</span><span class="o">++</span><span class="n">count</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">218</span>       <span class="k">case</span> <span class="mi">0</span>:
+<span class="lineno">219</span>       <span class="n">drawDragon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+<span class="lineno">220</span>       <span class="k">break</span><span class="p">;</span>
+<span class="lineno">221</span>       <span class="k">case</span> <span class="mi">1</span>:
+<span class="lineno">222</span>       <span class="n">drawDragon</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+<span class="lineno">223</span>       <span class="k">break</span><span class="p">;</span>
+<span class="lineno">224</span>       <span class="k">case</span> <span class="mi">2</span>:
+<span class="lineno">225</span>       <span class="n">drawDragon</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="mf">200.0f</span><span class="p">);</span>
+<span class="lineno">226</span>       <span class="k">break</span><span class="p">;</span>
+<span class="lineno">227</span>     <span class="p">};</span>
+<span class="lineno">228</span>     <span class="n">glfwSwapBuffers</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+<span class="lineno">229</span>     <span class="n">glfwPollEvents</span><span class="p">();</span>
+<span class="lineno">230</span>   <span class="p">}</span>
+<span class="lineno">231</span> 
+<span class="lineno">232</span>   <span class="n">glfwTerminate</span><span class="p">();</span>
+<span class="lineno">233</span>   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="lineno">234</span> <span class="p">}</span></code></pre></div>
+
+<h2 id="hieghway-dragon">Hieghway Dragon</h2>
+<div>
+<img src="/images/hieghway_dragon.png" title="Hieghway Dragon" alt="Hieghway Dragon" />
+<br />
+</div>
+
+<h2 id="twin-dragon">Twin Dragon</h2>
+<div>
+<img src="/images/twin_dragon.png" title="Twin Dragon" alt="Twin Dragon" />
+<br />
+</div>
+
+<h2 id="ter-dragon">Ter Dragon</h2>
+<div>
+<img src="/images/ter_dragon.png" title="Ter Dragon" alt="Ter Dragon" />
+<br />
+</div>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          
+	<img src="/images/bio-photo.png" class="bio-photo" alt="NagaChaitanya Vellanki bio photo"></a>
+
+<h3>NagaChaitanya Vellanki</h3>
+<p></p>
+
+
+
+<a href="http://linkedin.com/in/nagachaitanya" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+
+<a href="http://github.com/chaitanyav" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+
+
+
+
+        </div>
+        <p class="byline"><strong>Drawing Dragon Curve using L-system</strong> was published on <time datetime="2014-07-21T00:00:00+00:00">July 21, 2014</time> by <a href="/about" title="About NagaChaitanya Vellanki">NagaChaitanya Vellanki</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="/2014/07/20/sierpinski-triangle" title="Drawing Sierpinski Triangle using L-system">Drawing Sierpinski Triangle using L-system</a></li>
+    
+      <li><a href="/2014/07/19/pattern-with-circles" title="Pattern formed by drawing circles recursively">Pattern formed by drawing circles recursively</a></li>
+    
+      <li><a href="/2014/07/19/cantor-set" title="Cantor Set using OpenGL">Cantor Set using OpenGL</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2014 NagaChaitanya Vellanki. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+  
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'codemusings'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+	        
+
+</body>
+</html>
