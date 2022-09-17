@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>/proc filesystem linux</title>
+    <title>SecureRandom ruby</title>
     <meta name="description" content="">
     <meta name="author" content="NagaChaitanya Vellanki">
 
@@ -101,143 +101,103 @@
       <div class="content">
         
 <div class="page-header">
-  <h1>/proc filesystem linux <small>Supporting tagline</small></h1>
+  <h1>SecureRandom ruby <small>Supporting tagline</small></h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <h4 id="max-process-identifier">Max process identifier</h4>
-<pre><code>cat /proc/sys/kernel/pid_max
-32768
+    <p>SecureRandom module in Ruby can be used to generate random data (bytes,
+numbers, strings). It uses OpenSSL internally (see <a href="https://github.com/ruby/ruby/blob/trunk/lib/securerandom.rb">source code</a>
+for more details).</p>
+
+<pre><code>irb(main):001:0&gt; require 'securerandom'
+=&gt; true
+irb(main):002:0&gt; SecureRandom.class
+=&gt; Module
 </code></pre>
 
-<h4 id="command-line-arguments-of-any-process">Command line arguments of any process</h4>
-<pre><code>irb(main):001:0&gt; $$
-=&gt; 28168
+<p><strong>Random numbers:</strong></p>
 
-irb(main):002:0&gt; puts File.read("/proc/self/cmdline")
-irb
-=&gt; nil
+<p>To generate random integers less than n (n &gt; 0)</p>
 
-irb(main):003:0&gt; puts File.read("/proc/28168/cmdline")
-irb
-=&gt; nil
+<pre><code>irb(main):004:0&gt; 10.times{p SecureRandom.random_number(100)}
+43
+85
+60
+38
+39
+11
+25
+50
+33
+17
+=&gt; 10
 </code></pre>
 
-<h4 id="process-status">Process status</h4>
-<pre><code>irb(main):001:0&gt; $$
-=&gt; 8255
+<p>To generate random floating point numbers (specify n &lt;= 0)</p>
 
-cat /proc/8255/status
-
-Name:   irb
-State:  S (sleeping)
-Tgid:   8255
-Pid:    8255
-PPid:   7848
-TracerPid:      0
-Uid:    1000    1000    1000    1000
-Gid:    1000    1000    1000    1000
-FDSize: 64
-Groups: 4 24 27 30 46 108 124 1000
-VmPeak:    48404 kB
-VmSize:    48404 kB
-VmLck:         0 kB
-VmPin:         0 kB
-VmHWM:     10980 kB
-VmRSS:     10980 kB
-VmData:     9452 kB
-VmStk:       136 kB
-VmExe:      2524 kB
-VmLib:      3552 kB
-VmPTE:       100 kB
-VmSwap:        0 kB
-Threads:        2
-SigQ:   0/7756
-SigPnd: 0000000000000000
-ShdPnd: 0000000000000000
-SigBlk: 0000000000000000
-SigIgn: 0000000000001000
-SigCgt: 0000000182006e47
-CapInh: 0000000000000000
-CapPrm: 0000000000000000
-CapEff: 0000000000000000
-CapBnd: 0000001fffffffff
-Seccomp:        0
-Cpus_allowed:   ffffffff,ffffffff
-Cpus_allowed_list:      0-63
-Mems_allowed:   00000000,00000001
-Mems_allowed_list:      0
-voluntary_ctxt_switches:        39
-nonvoluntary_ctxt_switches:     119
+<pre><code>irb(main):007:0&gt; 10.times{p SecureRandom.random_number(0)}
+0.4078857773248713
+0.4438855743681517
+0.22977523972328207
+0.3413509270611511
+0.4174679667072889
+0.08786033731795606
+0.8478556241028843
+0.7389558407058121
+0.8063676912935767
+0.6985829466830608
+=&gt; 10
 </code></pre>
 
-<h4 id="cpu-info">CPU info</h4>
+<p><strong>Random bytes:</strong></p>
 
-<pre><code>cat /proc/cpuinfo
+<p>To generate random n bytes</p>
 
-processor       : 0
-vendor_id       : AuthenticAMD
-cpu family      : 16
-model           : 5
-model name      : AMD Phenom(tm) II P960 Quad-Core Processor
-stepping        : 3
-microcode       : 0x10000c8
-cpu MHz         : 1795.549
-cache size      : 512 KB
-fpu             : yes
-fpu_exception   : yes
-cpuid level     : 5
-wp              : yes
-flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca
-cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx mmxext fxsr_opt
-pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl tsc_reliable
-nonstop_tsc pni cx16 x2apic popcnt hypervisor lahf_lm extapic cr8_legacy
-abm sse4a misalignsse 3dnowprefetch osvw
-bogomips        : 3591.09
-TLB size        : 1024 4K pages
-clflush size    : 64
-cache_alignment : 64
-address sizes   : 40 bits physical, 48 bits virtual
-power management:
+<pre><code>irb(main):008:0&gt; SecureRandom.random_bytes(15)
+=&gt; "\eT\xCC\x97\xA5\x18\xFF\xEA\x9BT\xB3\xA7\xB0\x0F\x85"
 </code></pre>
 
-<h4 id="symlink-to-the-original-exe">Symlink to the original exe</h4>
-<pre><code>irb(main):001:0&gt; $$
-=&gt; 8438
+<p>for hex bytes</p>
 
-» ls -l /proc/8438/exe
-lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:06 /proc/8438/exe -&gt; /usr/local/bin/ruby
+<pre><code>irb(main):011:0&gt; SecureRandom.hex(20)
+=&gt; "88adbb214a8364c3ebf81e2203c7218ee3aaf59e"
 </code></pre>
 
-<h4 id="current-working-directory-of-the-process">Current working directory of the process</h4>
-<pre><code>» echo $$
-8023
+<p>for base64 encoded bytes</p>
 
-» ls -l /proc/8023/cwd
-lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:14 /proc/8023/cwd -&gt; /home/naruto/chaitanyav.github.com
+<pre><code>irb(main):014:0&gt; SecureRandom.base64(20)
+=&gt; "gPHf3U0npHmSXJTT+Xz/rn0C8Xg="
 </code></pre>
 
-<h4 id="kernel-uptime-idle-time">Kernel uptime, idle time</h4>
-<pre><code>cat /proc/uptime
-11806673.25 24499.77
+<p>for url safe base64 encoded bytes</p>
+
+<pre><code>irb(main):018:0&gt; SecureRandom.urlsafe_base64(20)
+=&gt; "a9xtB405QiSlIDNiX9AhSz4jYq8"
 </code></pre>
 
-<h4 id="load-on-the-system-averaged-over-1-5-and-15-minutes">Load on the system averaged over 1, 5 and 15 minutes</h4>
-<pre><code>cat /proc/loadavg
-0.02 0.07 0.03 1/226 32569
+<p>This module can also be used for generating uuids similar to uuidgen</p>
+
+<pre><code>~ » uuidgen
+0589FE3D-E65D-40F2-A3E3-301A5EF624E4
 </code></pre>
 
+<p>Note: the uuid generated by this module is completely random and is not made
+up of MAC address as per the docs</p>
+
+<pre><code>irb(main):002:0&gt; SecureRandom.uuid
+=&gt; "bf172c47-003e-4bad-b86d-0baffad78d6c"
+</code></pre>
 
     <hr>
     <div class="pagination">
       <ul>
       
-        <li class="prev"><a href="/2013/02/14/yes-command-implementation" title="yes command implementation">&larr; Previous</a></li>
+        <li class="prev"><a href="/2014/03/24/ubuntu-package-management-demystified" title="Ubuntu package management desmystified">&larr; Previous</a></li>
       
         <li><a href="/archive.html">Archive</a></li>
       
-        <li class="next"><a href="/2013/03/06/printenv-command-implementation" title="printenv command implementation">Next &rarr;</a></li>
+        <li class="next disabled"><a>Next &rarr;</a>
       
       </ul>
     </div>
@@ -267,7 +227,7 @@ lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:14 /proc/8023/cwd -&gt; /home/naruto/chai
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>16 February 2013</span></div>
+    <div class="date"><span>29 May 2014</span></div>
 
   
     <h4>Tags</h4>
@@ -278,7 +238,7 @@ lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:14 /proc/8023/cwd -&gt; /home/naruto/chai
 
   
      
-    	<li><a href="/tags.html#system-ref">system <span>22</span></a></li>
+    	<li><a href="/tags.html#ruby-ref">ruby <span>1</span></a></li>
     
   
 
