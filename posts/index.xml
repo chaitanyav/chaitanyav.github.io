@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on my blog</title>
+    <link>https://chaitanyav.github.io/posts/</link>
+    <description>Recent content in Posts on my blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://chaitanyav.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Writing Man Pages</title>
+      <link>https://chaitanyav.github.io/posts/man_pages/</link>
+      <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chaitanyav.github.io/posts/man_pages/</guid>
+      <description>I am writing about my experience working with man pages today. I have never written/updated any man pages in the past. The man page i updated was intro(3) of the FreeBSD Library Functions Manual.
+Updating the man page involved going through the FreeBSD source code src/lib and figuring out the libraries that exist. I came across many libraries which i had never heard of e.g. Performance Counters Library pmc(3) 😲.And i had to find out which of those libraries have a man page so that they can be listed.</description>
+    </item>
+    
+  </channel>
+</rss>
