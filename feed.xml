@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-08-23T01:28:57+00:00</updated>
+<updated>2014-08-23T02:28:46+00:00</updated>
 <id>/</id>
 <author>
   <name>NagaChaitanya Vellanki</name>
@@ -277,12 +277,12 @@
 &lt;span class=&quot;go&quot;&gt;./test_feed  0.72s user 0.27s system 1% cpu 1:30.02 total&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The above program concurrently fetches the posts from the RSS feeds. We have a map with key as the feedURL, the value is the category the feed belongs to.
-&lt;br /&gt;  &lt;/p&gt;
+&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;We create a boolean channel(buffered channel) with a capacity equal to the number of feed urls. We use this channel to coordinate between the main function and the goroutine. To fetch the feeds concurrently we launch as many goroutines as the number of feed urls. The reference of channel is also passed as a argument to goroutine.  After launching the goroutines we wait to receive messages from the channel (channels are blocking if there is no message to receive), A message is received (&lt;strong&gt;&amp;lt;-completed&lt;/strong&gt;) from the channel when a goroutine sends (&lt;strong&gt;completed &amp;lt;- true&lt;/strong&gt;) a message  on the channel, which can happen after either successfully parsing a feed url or due to a error while fetching the feed url. Sometimes it takes a while to fetch a particular feed, in this case we can send a message to a channel after a timeout so that we can deterministically move forward without waiting forever on the channel. This can be achieved by using the &lt;strong&gt;time.After()&lt;/strong&gt; function with the select(which is like a switch statement for channels), the &lt;strong&gt;time.After()&lt;/strong&gt; function sends out the time to the after the timeout is reached. Once we receive messages from all the goroutines the program prints “Finished fetching all feeds” and exits.
-&lt;br /&gt;  &lt;/p&gt;
+&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;I really excited to write code in Go.&lt;strong&gt; Happy hacking Gophers!!!&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;I am really excited to write code in Go.&lt;strong&gt; Happy hacking Gophers!!!&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h4 id=&quot;installing-a-go-package&quot;&gt;Installing a go package&lt;/h4&gt;
 &lt;p&gt;Set the GOPATH environment variable and install the package using the ‘go get’&lt;/p&gt;
