@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-07-13T17:19:20+00:00</updated>
+<updated>2014-07-15T00:42:32+00:00</updated>
 <id>/</id>
 <author>
   <name>NagaChaitanya Vellanki</name>
@@ -60,12 +60,12 @@ Download the GLFW zip files from &lt;a href=&quot;http://www.glfw.org/&quot;&gt;
 &lt;span class=&quot;go&quot;&gt;-- Check for working C compiler: /usr/bin/cc -- works&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;-- Detecting C compiler ABI info&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;-- Detecting C compiler ABI info - done&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;-- Found OpenGL: /System/Library/Frameworks/OpenGL.framework  &lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;-- Found OpenGL: /System/Library/Frameworks/OpenGL.framework&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;-- Looking for include file pthread.h&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;-- Looking for include file pthread.h - found&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;-- Looking for pthread_create&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;-- Looking for pthread_create - found&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;-- Found Threads: TRUE  &lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;-- Found Threads: TRUE&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;-- Could NOT find Doxygen (missing:  DOXYGEN_EXECUTABLE)&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;-- Using Cocoa for window creation&lt;/span&gt;
 &lt;span class=&quot;go&quot;&gt;-- Using NSGL for context creation&lt;/span&gt;
@@ -215,6 +215,10 @@ Download the GLFW zip files from &lt;a href=&quot;http://www.glfw.org/&quot;&gt;
 &lt;p&gt;Hey, in case you want to use OpenGL, GLUT with your CUDA program. Here is how you compile your cuda program&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;nvcc julia_gpu.cu -Xlinker -framework,OpenGL,-framework,GLUT&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Tip: To turn on dynlib use this option before running cmake&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;cmake -D BUILD_SHARED_LIBS=ON ./&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Happy Hacking!!!!&lt;/p&gt;
 
