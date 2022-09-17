@@ -132,116 +132,116 @@ It can also format the code using a custom configuration file.</p>
 <p>To dump the configuration for a predefined style like LLVM
 use the following command.</p>
 
-<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">$ clang-format --style=LLVM -dump-config</span>
-<span class="go">  ---</span>
-<span class="go">  Language:        Cpp</span>
-<span class="go">  # BasedOnStyle:  LLVM</span>
-<span class="go">  AccessModifierOffset: -2</span>
-<span class="go">  ConstructorInitializerIndentWidth: 4</span>
-<span class="go">  AlignEscapedNewlinesLeft: false</span>
-<span class="go">  AlignTrailingComments: true</span>
-<span class="go">  AllowAllParametersOfDeclarationOnNextLine: true</span>
-<span class="go">  AllowShortBlocksOnASingleLine: false</span>
-<span class="go">  AllowShortIfStatementsOnASingleLine: false</span>
-<span class="go">  AllowShortLoopsOnASingleLine: false</span>
-<span class="go">  AllowShortFunctionsOnASingleLine: All</span>
-<span class="go">  AlwaysBreakTemplateDeclarations: false</span>
-<span class="go">  AlwaysBreakBeforeMultilineStrings: false</span>
-<span class="go">  BreakBeforeBinaryOperators: false</span>
-<span class="go">  BreakBeforeTernaryOperators: true</span>
-<span class="go">  BreakConstructorInitializersBeforeComma: false</span>
-<span class="go">  BinPackParameters: true</span>
-<span class="go">  ColumnLimit:     80</span>
-<span class="go">  ConstructorInitializerAllOnOneLineOrOnePerLine: false</span>
-<span class="go">  DerivePointerAlignment: false</span>
-<span class="go">  ExperimentalAutoDetectBinPacking: false</span>
-<span class="go">  IndentCaseLabels: false</span>
-<span class="go">  IndentWrappedFunctionNames: false</span>
-<span class="go">  IndentFunctionDeclarationAfterType: false</span>
-<span class="go">  MaxEmptyLinesToKeep: 1</span>
-<span class="go">  KeepEmptyLinesAtTheStartOfBlocks: true</span>
-<span class="go">  NamespaceIndentation: None</span>
-<span class="go">  ObjCSpaceAfterProperty: false</span>
-<span class="go">  ObjCSpaceBeforeProtocolList: true</span>
-<span class="go">  PenaltyBreakBeforeFirstCallParameter: 19</span>
-<span class="go">  PenaltyBreakComment: 300</span>
-<span class="go">  PenaltyBreakString: 1000</span>
-<span class="go">  PenaltyBreakFirstLessLess: 120</span>
-<span class="go">  PenaltyExcessCharacter: 1000000</span>
-<span class="go">  PenaltyReturnTypeOnItsOwnLine: 60</span>
-<span class="go">  PointerAlignment: Right</span>
-<span class="go">  SpacesBeforeTrailingComments: 1</span>
-<span class="go">  Cpp11BracedListStyle: true</span>
-<span class="go">  Standard:        Cpp11</span>
-<span class="go">  IndentWidth:     2</span>
-<span class="go">  TabWidth:        8</span>
-<span class="go">  UseTab:          Never</span>
-<span class="go">  BreakBeforeBraces: Attach</span>
-<span class="go">  SpacesInParentheses: false</span>
-<span class="go">  SpacesInAngles:  false</span>
-<span class="go">  SpaceInEmptyParentheses: false</span>
-<span class="go">  SpacesInCStyleCastParentheses: false</span>
-<span class="go">  SpacesInContainerLiterals: true</span>
-<span class="go">  SpaceBeforeAssignmentOperators: true</span>
-<span class="go">  ContinuationIndentWidth: 4</span>
-<span class="go">  CommentPragmas:  &#39;^ IWYU pragma:&#39;</span>
-<span class="go">  ForEachMacros:   [ foreach, Q_FOREACH, BOOST_FOREACH ]</span>
-<span class="go">  SpaceBeforeParens: ControlStatements</span>
-<span class="go">  DisableFormat:   false</span>
-<span class="go">  ...</span></code></pre></div>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">$ clang-format --style=LLVM -dump-config
+  ---
+  Language:        Cpp
+  # BasedOnStyle:  LLVM
+  AccessModifierOffset: -2
+  ConstructorInitializerIndentWidth: 4
+  AlignEscapedNewlinesLeft: false
+  AlignTrailingComments: true
+  AllowAllParametersOfDeclarationOnNextLine: true
+  AllowShortBlocksOnASingleLine: false
+  AllowShortIfStatementsOnASingleLine: false
+  AllowShortLoopsOnASingleLine: false
+  AllowShortFunctionsOnASingleLine: All
+  AlwaysBreakTemplateDeclarations: false
+  AlwaysBreakBeforeMultilineStrings: false
+  BreakBeforeBinaryOperators: false
+  BreakBeforeTernaryOperators: true
+  BreakConstructorInitializersBeforeComma: false
+  BinPackParameters: true
+  ColumnLimit:     80
+  ConstructorInitializerAllOnOneLineOrOnePerLine: false
+  DerivePointerAlignment: false
+  ExperimentalAutoDetectBinPacking: false
+  IndentCaseLabels: false
+  IndentWrappedFunctionNames: false
+  IndentFunctionDeclarationAfterType: false
+  MaxEmptyLinesToKeep: 1
+  KeepEmptyLinesAtTheStartOfBlocks: true
+  NamespaceIndentation: None
+  ObjCSpaceAfterProperty: false
+  ObjCSpaceBeforeProtocolList: true
+  PenaltyBreakBeforeFirstCallParameter: 19
+  PenaltyBreakComment: 300
+  PenaltyBreakString: 1000
+  PenaltyBreakFirstLessLess: 120
+  PenaltyExcessCharacter: 1000000
+  PenaltyReturnTypeOnItsOwnLine: 60
+  PointerAlignment: Right
+  SpacesBeforeTrailingComments: 1
+  Cpp11BracedListStyle: true
+  Standard:        Cpp11
+  IndentWidth:     2
+  TabWidth:        8
+  UseTab:          Never
+  BreakBeforeBraces: Attach
+  SpacesInParentheses: false
+  SpacesInAngles:  false
+  SpaceInEmptyParentheses: false
+  SpacesInCStyleCastParentheses: false
+  SpacesInContainerLiterals: true
+  SpaceBeforeAssignmentOperators: true
+  ContinuationIndentWidth: 4
+  CommentPragmas:  '^ IWYU pragma:'
+  ForEachMacros:   [ foreach, Q_FOREACH, BOOST_FOREACH ]
+  SpaceBeforeParens: ControlStatements
+  DisableFormat:   false
+  ...</code></pre></div>
 
 <p>To format the code using a custom config use the following command</p>
 
-<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">$ clang-format -i -style=file HelloWorld.cpp</span></code></pre></div>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">$ clang-format -i -style=file HelloWorld.cpp</code></pre></div>
 
 <p>The above command edits the file inplace. The config should be specified in a file named ‘.clang-format’ in YAML format.
 Note: the configuration file ohould be present in the same directory as source
 code. Example .clang-format</p>
 
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">Language</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Cpp</span>
-<span class="l-Scalar-Plain">IndentWidth</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2</span>
-<span class="l-Scalar-Plain">ColumnLimit</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">80</span>
-<span class="l-Scalar-Plain">TabWidth</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">4</span>
-<span class="l-Scalar-Plain">IndentCaseLabels</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-<span class="l-Scalar-Plain">AllowShortIfStatementsOnASingleLine</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
-<span class="l-Scalar-Plain">AllowShortLoopsOnASingleLine</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
-<span class="l-Scalar-Plain">AllowShortIfStatementsOnASingleLine</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
-<span class="l-Scalar-Plain">AllowShortFunctionsOnASingleLine</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
-<span class="l-Scalar-Plain">AllowShortBlocksOnASingleLine</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
-<span class="l-Scalar-Plain">ConstructorInitializerAllOnOneLineOrOnePerLine</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-<span class="l-Scalar-Plain">SpaceBeforeAssignmentOperators</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-<span class="l-Scalar-Plain">SpaceBeforeParens</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ControlStatements</span>
-<span class="l-Scalar-Plain">BinPackParameters</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
-<span class="l-Scalar-Plain">NamespaceIndentation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">All</span>
-<span class="l-Scalar-Plain">PointerAlignment</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Right</span></code></pre></div>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">Language</span><span class="pi">:</span> <span class="s">Cpp</span>
+<span class="s">IndentWidth</span><span class="pi">:</span> <span class="s">2</span>
+<span class="s">ColumnLimit</span><span class="pi">:</span> <span class="s">80</span>
+<span class="s">TabWidth</span><span class="pi">:</span> <span class="s">4</span>
+<span class="s">IndentCaseLabels</span><span class="pi">:</span> <span class="s">true</span>
+<span class="s">AllowShortIfStatementsOnASingleLine</span><span class="pi">:</span> <span class="s">false</span>
+<span class="s">AllowShortLoopsOnASingleLine</span><span class="pi">:</span> <span class="s">false</span>
+<span class="s">AllowShortIfStatementsOnASingleLine</span><span class="pi">:</span> <span class="s">false</span>
+<span class="s">AllowShortFunctionsOnASingleLine</span><span class="pi">:</span> <span class="s">false</span>
+<span class="s">AllowShortBlocksOnASingleLine</span><span class="pi">:</span> <span class="s">false</span>
+<span class="s">ConstructorInitializerAllOnOneLineOrOnePerLine</span><span class="pi">:</span> <span class="s">true</span>
+<span class="s">SpaceBeforeAssignmentOperators</span><span class="pi">:</span> <span class="s">true</span>
+<span class="s">SpaceBeforeParens</span><span class="pi">:</span> <span class="s">ControlStatements</span>
+<span class="s">BinPackParameters</span><span class="pi">:</span> <span class="s">false</span>
+<span class="s">NamespaceIndentation</span><span class="pi">:</span> <span class="s">All</span>
+<span class="s">PointerAlignment</span><span class="pi">:</span> <span class="s">Right</span></code></pre></div>
 
 <p>Here is a C++ file from the xerces library (before formatting with clang-format)</p>
 
-<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cm">/*</span>
-<span class="cm"> * Licensed to the Apache Software Foundation (ASF) under one or more</span>
-<span class="cm"> * contributor license agreements.  See the NOTICE file distributed with</span>
-<span class="cm"> * this work for additional information regarding copyright ownership.</span>
-<span class="cm"> * The ASF licenses this file to You under the Apache License, Version 2.0</span>
-<span class="cm"> * (the &quot;License&quot;); you may not use this file except in compliance with</span>
-<span class="cm"> * the License.  You may obtain a copy of the License at</span>
-<span class="cm"> *</span>
-<span class="cm"> *      http://www.apache.org/licenses/LICENSE-2.0</span>
-<span class="cm"> *</span>
-<span class="cm"> * Unless required by applicable law or agreed to in writing, software</span>
-<span class="cm"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
-<span class="cm"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<span class="cm"> * See the License for the specific language governing permissions and</span>
-<span class="cm"> * limitations under the License.</span>
-<span class="cm"> */</span>
+<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cm">/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */</span>
 
-<span class="cm">/*</span>
-<span class="cm"> * $Id: DOMPrintFilter.cpp 671894 2008-06-26 13:29:21Z borisk $</span>
-<span class="cm"> */</span>
+<span class="cm">/*
+ * $Id: DOMPrintFilter.cpp 671894 2008-06-26 13:29:21Z borisk $
+ */</span>
 
-<span class="cp">#include &quot;DOMPrintFilter.hpp&quot;</span>
-<span class="cp">#include &lt;xercesc/util/XMLUniDefs.hpp&gt;</span>
-<span class="cp">#include &lt;xercesc/util/XMLString.hpp&gt;</span>
-
+<span class="cp">#include "DOMPrintFilter.hpp"
+#include &lt;xercesc/util/XMLUniDefs.hpp&gt;
+#include &lt;xercesc/util/XMLString.hpp&gt;
+</span>
 <span class="k">static</span> <span class="k">const</span> <span class="n">XMLCh</span>  <span class="n">element_person</span><span class="p">[]</span><span class="o">=</span>
 <span class="p">{</span>
   <span class="n">chLatin_p</span><span class="p">,</span> <span class="n">chLatin_e</span><span class="p">,</span> <span class="n">chLatin_r</span><span class="p">,</span> <span class="n">chLatin_s</span><span class="p">,</span> <span class="n">chLatin_o</span><span class="p">,</span> <span class="n">chLatin_n</span><span class="p">,</span> <span class="n">chNull</span>
@@ -259,65 +259,65 @@ code. Example .clang-format</p>
 <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FilterAction</span> <span class="n">DOMPrintFilter</span><span class="o">::</span>
 <span class="n">acceptNode</span><span class="p">(</span><span class="k">const</span> <span class="n">DOMNode</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="k">const</span>
 <span class="p">{</span>
-  <span class="c1">//</span>
-  <span class="c1">// The DOMLSSerializer shall call getWhatToShow() before calling</span>
-  <span class="c1">// acceptNode(), to show nodes which are supposed to be</span>
-  <span class="c1">// shown to this filter.</span>
-  <span class="c1">//</span>
-  <span class="c1">// REVISIT: In case the DOMLSSerializer does not follow the protocol,</span>
-  <span class="c1">//          Shall the filter honour, or NOT, what it claims</span>
-  <span class="c1">//          it is interested in ?</span>
-  <span class="c1">//</span>
-  <span class="c1">// The DOMLS specs does not specify that acceptNode() shall do</span>
-  <span class="c1">// this way, or not, so it is up the implementation,</span>
-  <span class="c1">// to skip the code below for the sake of performance ...</span>
-  <span class="c1">//</span>
-  <span class="k">if</span> <span class="p">((</span><span class="n">getWhatToShow</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeType</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="c1">//
+</span>  <span class="c1">// The DOMLSSerializer shall call getWhatToShow() before calling
+</span>  <span class="c1">// acceptNode(), to show nodes which are supposed to be
+</span>  <span class="c1">// shown to this filter.
+</span>  <span class="c1">//
+</span>  <span class="c1">// REVISIT: In case the DOMLSSerializer does not follow the protocol,
+</span>  <span class="c1">//          Shall the filter honour, or NOT, what it claims
+</span>  <span class="c1">//          it is interested in ?
+</span>  <span class="c1">//
+</span>  <span class="c1">// The DOMLS specs does not specify that acceptNode() shall do
+</span>  <span class="c1">// this way, or not, so it is up the implementation,
+</span>  <span class="c1">// to skip the code below for the sake of performance ...
+</span>  <span class="c1">//
+</span>  <span class="k">if</span> <span class="p">((</span><span class="n">getWhatToShow</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeType</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_ACCEPT</span><span class="p">;</span>
 
   <span class="k">switch</span> <span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeType</span><span class="p">())</span>
   <span class="p">{</span>
-  <span class="k">case</span> <span class="n">DOMNode</span><span class="o">::</span><span class="nl">ELEMENT_NODE</span><span class="p">:</span>
+  <span class="k">case</span> <span class="n">DOMNode</span><span class="p">:</span><span class="o">:</span><span class="n">ELEMENT_NODE</span><span class="o">:</span>
     <span class="p">{</span>
-      <span class="c1">// for element whose name is &quot;person&quot;, skip it</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">XMLString</span><span class="o">::</span><span class="n">compareString</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeName</span><span class="p">(),</span> <span class="n">element_person</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+      <span class="c1">// for element whose name is "person", skip it
+</span>      <span class="k">if</span> <span class="p">(</span><span class="n">XMLString</span><span class="o">::</span><span class="n">compareString</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeName</span><span class="p">(),</span> <span class="n">element_person</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_SKIP</span><span class="p">;</span>
-      <span class="c1">// for element whose name is &quot;line&quot;, reject it</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">XMLString</span><span class="o">::</span><span class="n">compareString</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeName</span><span class="p">(),</span> <span class="n">element_link</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+      <span class="c1">// for element whose name is "line", reject it
+</span>      <span class="k">if</span> <span class="p">(</span><span class="n">XMLString</span><span class="o">::</span><span class="n">compareString</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeName</span><span class="p">(),</span> <span class="n">element_link</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>
-      <span class="c1">// for rest, accept it</span>
-      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_ACCEPT</span><span class="p">;</span>
+      <span class="c1">// for rest, accept it
+</span>      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_ACCEPT</span><span class="p">;</span>
 
       <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
-  <span class="k">case</span> <span class="n">DOMNode</span><span class="o">::</span><span class="nl">COMMENT_NODE</span><span class="p">:</span>
+  <span class="k">case</span> <span class="n">DOMNode</span><span class="p">:</span><span class="o">:</span><span class="n">COMMENT_NODE</span><span class="o">:</span>
     <span class="p">{</span>
-      <span class="c1">// the WhatToShow will make this no effect</span>
-      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>
+      <span class="c1">// the WhatToShow will make this no effect
+</span>      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>
       <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
-  <span class="k">case</span> <span class="n">DOMNode</span><span class="o">::</span><span class="nl">TEXT_NODE</span><span class="p">:</span>
+  <span class="k">case</span> <span class="n">DOMNode</span><span class="p">:</span><span class="o">:</span><span class="n">TEXT_NODE</span><span class="o">:</span>
     <span class="p">{</span>
-      <span class="c1">// the WhatToShow will make this no effect</span>
-      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>
+      <span class="c1">// the WhatToShow will make this no effect
+</span>      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>
       <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
-  <span class="k">case</span> <span class="n">DOMNode</span><span class="o">::</span><span class="nl">DOCUMENT_TYPE_NODE</span><span class="p">:</span>
+  <span class="k">case</span> <span class="n">DOMNode</span><span class="p">:</span><span class="o">:</span><span class="n">DOCUMENT_TYPE_NODE</span><span class="o">:</span>
     <span class="p">{</span>
-      <span class="c1">// even we say we are going to process document type,</span>
-      <span class="c1">// we are not able be to see this node since</span>
-      <span class="c1">// DOMLSSerializerImpl (a XercesC&#39;s default implementation</span>
-      <span class="c1">// of DOMLSSerializer) will not pass DocumentType node to</span>
-      <span class="c1">// this filter.</span>
-      <span class="c1">//</span>
-      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>  <span class="c1">// no effect</span>
-      <span class="k">break</span><span class="p">;</span>
+      <span class="c1">// even we say we are going to process document type,
+</span>      <span class="c1">// we are not able be to see this node since
+</span>      <span class="c1">// DOMLSSerializerImpl (a XercesC's default implementation
+</span>      <span class="c1">// of DOMLSSerializer) will not pass DocumentType node to
+</span>      <span class="c1">// this filter.
+</span>      <span class="c1">//
+</span>      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>  <span class="c1">// no effect
+</span>      <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
-  <span class="k">case</span> <span class="n">DOMNode</span><span class="o">::</span><span class="nl">DOCUMENT_NODE</span><span class="p">:</span>
+  <span class="k">case</span> <span class="n">DOMNode</span><span class="p">:</span><span class="o">:</span><span class="n">DOCUMENT_NODE</span><span class="o">:</span>
     <span class="p">{</span>
-      <span class="c1">// same as DOCUMENT_NODE</span>
-      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>  <span class="c1">// no effect</span>
-      <span class="k">break</span><span class="p">;</span>
+      <span class="c1">// same as DOCUMENT_NODE
+</span>      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>  <span class="c1">// no effect
+</span>      <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="k">default</span> <span class="o">:</span>
     <span class="p">{</span>
@@ -331,31 +331,31 @@ code. Example .clang-format</p>
 
 <p>same file after formatting with clang-format</p>
 
-<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cm">/*</span>
-<span class="cm"> * Licensed to the Apache Software Foundation (ASF) under one or more</span>
-<span class="cm"> * contributor license agreements.  See the NOTICE file distributed with</span>
-<span class="cm"> * this work for additional information regarding copyright ownership.</span>
-<span class="cm"> * The ASF licenses this file to You under the Apache License, Version 2.0</span>
-<span class="cm"> * (the &quot;License&quot;); you may not use this file except in compliance with</span>
-<span class="cm"> * the License.  You may obtain a copy of the License at</span>
-<span class="cm"> *</span>
-<span class="cm"> *      http://www.apache.org/licenses/LICENSE-2.0</span>
-<span class="cm"> *</span>
-<span class="cm"> * Unless required by applicable law or agreed to in writing, software</span>
-<span class="cm"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
-<span class="cm"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<span class="cm"> * See the License for the specific language governing permissions and</span>
-<span class="cm"> * limitations under the License.</span>
-<span class="cm"> */</span>
+<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="cm">/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */</span>
 
-<span class="cm">/*</span>
-<span class="cm"> * $Id: DOMPrintFilter.cpp 671894 2008-06-26 13:29:21Z borisk $</span>
-<span class="cm"> */</span>
+<span class="cm">/*
+ * $Id: DOMPrintFilter.cpp 671894 2008-06-26 13:29:21Z borisk $
+ */</span>
 
-<span class="cp">#include &quot;DOMPrintFilter.hpp&quot;</span>
-<span class="cp">#include &lt;xercesc/util/XMLUniDefs.hpp&gt;</span>
-<span class="cp">#include &lt;xercesc/util/XMLString.hpp&gt;</span>
-
+<span class="cp">#include "DOMPrintFilter.hpp"
+#include &lt;xercesc/util/XMLUniDefs.hpp&gt;
+#include &lt;xercesc/util/XMLString.hpp&gt;
+</span>
 <span class="k">static</span> <span class="k">const</span> <span class="n">XMLCh</span> <span class="n">element_person</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">chLatin_p</span><span class="p">,</span> <span class="n">chLatin_e</span><span class="p">,</span> <span class="n">chLatin_r</span><span class="p">,</span> <span class="n">chLatin_s</span><span class="p">,</span> <span class="n">chLatin_o</span><span class="p">,</span> <span class="n">chLatin_n</span><span class="p">,</span> <span class="n">chNull</span><span class="p">};</span>
 
@@ -367,59 +367,59 @@ code. Example .clang-format</p>
 
 <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FilterAction</span>
 <span class="n">DOMPrintFilter</span><span class="o">::</span><span class="n">acceptNode</span><span class="p">(</span><span class="k">const</span> <span class="n">DOMNode</span> <span class="o">*</span><span class="n">node</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-  <span class="c1">//</span>
-  <span class="c1">// The DOMLSSerializer shall call getWhatToShow() before calling</span>
-  <span class="c1">// acceptNode(), to show nodes which are supposed to be</span>
-  <span class="c1">// shown to this filter.</span>
-  <span class="c1">//</span>
-  <span class="c1">// REVISIT: In case the DOMLSSerializer does not follow the protocol,</span>
-  <span class="c1">//          Shall the filter honour, or NOT, what it claims</span>
-  <span class="c1">//          it is interested in ?</span>
-  <span class="c1">//</span>
-  <span class="c1">// The DOMLS specs does not specify that acceptNode() shall do</span>
-  <span class="c1">// this way, or not, so it is up the implementation,</span>
-  <span class="c1">// to skip the code below for the sake of performance ...</span>
-  <span class="c1">//</span>
-  <span class="k">if</span> <span class="p">((</span><span class="n">getWhatToShow</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeType</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="c1">//
+</span>  <span class="c1">// The DOMLSSerializer shall call getWhatToShow() before calling
+</span>  <span class="c1">// acceptNode(), to show nodes which are supposed to be
+</span>  <span class="c1">// shown to this filter.
+</span>  <span class="c1">//
+</span>  <span class="c1">// REVISIT: In case the DOMLSSerializer does not follow the protocol,
+</span>  <span class="c1">//          Shall the filter honour, or NOT, what it claims
+</span>  <span class="c1">//          it is interested in ?
+</span>  <span class="c1">//
+</span>  <span class="c1">// The DOMLS specs does not specify that acceptNode() shall do
+</span>  <span class="c1">// this way, or not, so it is up the implementation,
+</span>  <span class="c1">// to skip the code below for the sake of performance ...
+</span>  <span class="c1">//
+</span>  <span class="k">if</span> <span class="p">((</span><span class="n">getWhatToShow</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeType</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_ACCEPT</span><span class="p">;</span>
 
   <span class="k">switch</span> <span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeType</span><span class="p">())</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">DOMNode</span><span class="o">::</span><span class="nl">ELEMENT_NODE</span><span class="p">:</span> <span class="p">{</span>
-      <span class="c1">// for element whose name is &quot;person&quot;, skip it</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">XMLString</span><span class="o">::</span><span class="n">compareString</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeName</span><span class="p">(),</span> <span class="n">element_person</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">DOMNode</span><span class="p">:</span><span class="o">:</span><span class="n">ELEMENT_NODE</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// for element whose name is "person", skip it
+</span>      <span class="k">if</span> <span class="p">(</span><span class="n">XMLString</span><span class="o">::</span><span class="n">compareString</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeName</span><span class="p">(),</span> <span class="n">element_person</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_SKIP</span><span class="p">;</span>
-      <span class="c1">// for element whose name is &quot;line&quot;, reject it</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">XMLString</span><span class="o">::</span><span class="n">compareString</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeName</span><span class="p">(),</span> <span class="n">element_link</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="c1">// for element whose name is "line", reject it
+</span>      <span class="k">if</span> <span class="p">(</span><span class="n">XMLString</span><span class="o">::</span><span class="n">compareString</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">getNodeName</span><span class="p">(),</span> <span class="n">element_link</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>
-      <span class="c1">// for rest, accept it</span>
-      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_ACCEPT</span><span class="p">;</span>
+      <span class="c1">// for rest, accept it
+</span>      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_ACCEPT</span><span class="p">;</span>
 
       <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="k">case</span> <span class="n">DOMNode</span><span class="o">::</span><span class="nl">COMMENT_NODE</span><span class="p">:</span> <span class="p">{</span>
-      <span class="c1">// the WhatToShow will make this no effect</span>
-      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">DOMNode</span><span class="p">:</span><span class="o">:</span><span class="n">COMMENT_NODE</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// the WhatToShow will make this no effect
+</span>      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>
       <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="k">case</span> <span class="n">DOMNode</span><span class="o">::</span><span class="nl">TEXT_NODE</span><span class="p">:</span> <span class="p">{</span>
-      <span class="c1">// the WhatToShow will make this no effect</span>
-      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">DOMNode</span><span class="p">:</span><span class="o">:</span><span class="n">TEXT_NODE</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// the WhatToShow will make this no effect
+</span>      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span>
       <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="k">case</span> <span class="n">DOMNode</span><span class="o">::</span><span class="nl">DOCUMENT_TYPE_NODE</span><span class="p">:</span> <span class="p">{</span>
-      <span class="c1">// even we say we are going to process document type,</span>
-      <span class="c1">// we are not able be to see this node since</span>
-      <span class="c1">// DOMLSSerializerImpl (a XercesC&#39;s default implementation</span>
-      <span class="c1">// of DOMLSSerializer) will not pass DocumentType node to</span>
-      <span class="c1">// this filter.</span>
-      <span class="c1">//</span>
-      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span> <span class="c1">// no effect</span>
-      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">DOMNode</span><span class="p">:</span><span class="o">:</span><span class="n">DOCUMENT_TYPE_NODE</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// even we say we are going to process document type,
+</span>      <span class="c1">// we are not able be to see this node since
+</span>      <span class="c1">// DOMLSSerializerImpl (a XercesC's default implementation
+</span>      <span class="c1">// of DOMLSSerializer) will not pass DocumentType node to
+</span>      <span class="c1">// this filter.
+</span>      <span class="c1">//
+</span>      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span> <span class="c1">// no effect
+</span>      <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="k">case</span> <span class="n">DOMNode</span><span class="o">::</span><span class="nl">DOCUMENT_NODE</span><span class="p">:</span> <span class="p">{</span>
-      <span class="c1">// same as DOCUMENT_NODE</span>
-      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span> <span class="c1">// no effect</span>
-      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">DOMNode</span><span class="p">:</span><span class="o">:</span><span class="n">DOCUMENT_NODE</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// same as DOCUMENT_NODE
+</span>      <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_REJECT</span><span class="p">;</span> <span class="c1">// no effect
+</span>      <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">default</span><span class="o">:</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">DOMNodeFilter</span><span class="o">::</span><span class="n">FILTER_ACCEPT</span><span class="p">;</span>
@@ -486,7 +486,7 @@ code. Example .clang-format</p>
     <hr />
   </div><!-- /.related-articles -->
   <footer>
-    <span>&copy; 2015 NagaChaitanya Vellanki. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2016 NagaChaitanya Vellanki. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->

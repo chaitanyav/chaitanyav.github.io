@@ -125,19 +125,19 @@
     <div class="article-wrap">
       <h4 id="max-process-identifier">Max process identifier</h4>
 
-<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">cat /proc/sys/kernel/pid_max</span>
-<span class="go">32768</span></code></pre></div>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">cat /proc/sys/kernel/pid_max
+32768</code></pre></div>
 
 <h4 id="command-line-arguments-of-any-process">Command line arguments of any process</h4>
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="vg">$$</span>
 <span class="o">=&gt;</span> <span class="mi">28168</span>
 
-<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">puts</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;/proc/self/cmdline&quot;</span><span class="p">)</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">puts</span> <span class="no">File</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="s2">"/proc/self/cmdline"</span><span class="p">)</span>
 <span class="n">irb</span>
 <span class="o">=&gt;</span> <span class="kp">nil</span>
 
-<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">003</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">puts</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;/proc/28168/cmdline&quot;</span><span class="p">)</span>
+<span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">003</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">puts</span> <span class="no">File</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="s2">"/proc/28168/cmdline"</span><span class="p">)</span>
 <span class="n">irb</span>
 <span class="o">=&gt;</span> <span class="kp">nil</span></code></pre></div>
 
@@ -146,103 +146,103 @@
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="vg">$$</span>
 <span class="o">=&gt;</span> <span class="mi">8255</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">cat /proc/8255/status</span>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">cat /proc/8255/status
 
-<span class="go">Name:   irb</span>
-<span class="go">State:  S (sleeping)</span>
-<span class="go">Tgid:   8255</span>
-<span class="go">Pid:    8255</span>
-<span class="go">PPid:   7848</span>
-<span class="go">TracerPid:      0</span>
-<span class="go">Uid:    1000    1000    1000    1000</span>
-<span class="go">Gid:    1000    1000    1000    1000</span>
-<span class="go">FDSize: 64</span>
-<span class="go">Groups: 4 24 27 30 46 108 124 1000</span>
-<span class="go">VmPeak:    48404 kB</span>
-<span class="go">VmSize:    48404 kB</span>
-<span class="go">VmLck:         0 kB</span>
-<span class="go">VmPin:         0 kB</span>
-<span class="go">VmHWM:     10980 kB</span>
-<span class="go">VmRSS:     10980 kB</span>
-<span class="go">VmData:     9452 kB</span>
-<span class="go">VmStk:       136 kB</span>
-<span class="go">VmExe:      2524 kB</span>
-<span class="go">VmLib:      3552 kB</span>
-<span class="go">VmPTE:       100 kB</span>
-<span class="go">VmSwap:        0 kB</span>
-<span class="go">Threads:        2</span>
-<span class="go">SigQ:   0/7756</span>
-<span class="go">SigPnd: 0000000000000000</span>
-<span class="go">ShdPnd: 0000000000000000</span>
-<span class="go">SigBlk: 0000000000000000</span>
-<span class="go">SigIgn: 0000000000001000</span>
-<span class="go">SigCgt: 0000000182006e47</span>
-<span class="go">CapInh: 0000000000000000</span>
-<span class="go">CapPrm: 0000000000000000</span>
-<span class="go">CapEff: 0000000000000000</span>
-<span class="go">CapBnd: 0000001fffffffff</span>
-<span class="go">Seccomp:        0</span>
-<span class="go">Cpus_allowed:   ffffffff,ffffffff</span>
-<span class="go">Cpus_allowed_list:      0-63</span>
-<span class="go">Mems_allowed:   00000000,00000001</span>
-<span class="go">Mems_allowed_list:      0</span>
-<span class="go">voluntary_ctxt_switches:        39</span>
-<span class="go">nonvoluntary_ctxt_switches:     119</span></code></pre></div>
+Name:   irb
+State:  S (sleeping)
+Tgid:   8255
+Pid:    8255
+PPid:   7848
+TracerPid:      0
+Uid:    1000    1000    1000    1000
+Gid:    1000    1000    1000    1000
+FDSize: 64
+Groups: 4 24 27 30 46 108 124 1000
+VmPeak:    48404 kB
+VmSize:    48404 kB
+VmLck:         0 kB
+VmPin:         0 kB
+VmHWM:     10980 kB
+VmRSS:     10980 kB
+VmData:     9452 kB
+VmStk:       136 kB
+VmExe:      2524 kB
+VmLib:      3552 kB
+VmPTE:       100 kB
+VmSwap:        0 kB
+Threads:        2
+SigQ:   0/7756
+SigPnd: 0000000000000000
+ShdPnd: 0000000000000000
+SigBlk: 0000000000000000
+SigIgn: 0000000000001000
+SigCgt: 0000000182006e47
+CapInh: 0000000000000000
+CapPrm: 0000000000000000
+CapEff: 0000000000000000
+CapBnd: 0000001fffffffff
+Seccomp:        0
+Cpus_allowed:   ffffffff,ffffffff
+Cpus_allowed_list:      0-63
+Mems_allowed:   00000000,00000001
+Mems_allowed_list:      0
+voluntary_ctxt_switches:        39
+nonvoluntary_ctxt_switches:     119</code></pre></div>
 
 <h4 id="cpu-info">CPU info</h4>
 
-<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">cat /proc/cpuinfo</span>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">cat /proc/cpuinfo
 
-<span class="go">processor       : 0</span>
-<span class="go">vendor_id       : AuthenticAMD</span>
-<span class="go">cpu family      : 16</span>
-<span class="go">model           : 5</span>
-<span class="go">model name      : AMD Phenom(tm) II P960 Quad-Core Processor</span>
-<span class="go">stepping        : 3</span>
-<span class="go">microcode       : 0x10000c8</span>
-<span class="go">cpu MHz         : 1795.549</span>
-<span class="go">cache size      : 512 KB</span>
-<span class="go">fpu             : yes</span>
-<span class="go">fpu_exception   : yes</span>
-<span class="go">cpuid level     : 5</span>
-<span class="go">wp              : yes</span>
-<span class="go">flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca</span>
-<span class="go">cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx mmxext fxsr_opt</span>
-<span class="go">pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl tsc_reliable</span>
-<span class="go">nonstop_tsc pni cx16 x2apic popcnt hypervisor lahf_lm extapic cr8_legacy</span>
-<span class="go">abm sse4a misalignsse 3dnowprefetch osvw</span>
-<span class="go">bogomips        : 3591.09</span>
-<span class="go">TLB size        : 1024 4K pages</span>
-<span class="go">clflush size    : 64</span>
-<span class="go">cache_alignment : 64</span>
-<span class="go">address sizes   : 40 bits physical, 48 bits virtual</span>
-<span class="go">power management:</span></code></pre></div>
+processor       : 0
+vendor_id       : AuthenticAMD
+cpu family      : 16
+model           : 5
+model name      : AMD Phenom(tm) II P960 Quad-Core Processor
+stepping        : 3
+microcode       : 0x10000c8
+cpu MHz         : 1795.549
+cache size      : 512 KB
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 5
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca
+cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx mmxext fxsr_opt
+pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nopl tsc_reliable
+nonstop_tsc pni cx16 x2apic popcnt hypervisor lahf_lm extapic cr8_legacy
+abm sse4a misalignsse 3dnowprefetch osvw
+bogomips        : 3591.09
+TLB size        : 1024 4K pages
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 40 bits physical, 48 bits virtual
+power management:</code></pre></div>
 
 <h4 id="symlink-to-the-original-exe">Symlink to the original exe</h4>
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="vg">$$</span>
 <span class="o">=&gt;</span> <span class="mi">8438</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">» ls -l /proc/8438/exe</span>
-<span class="go">lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:06 /proc/8438/exe -&gt; /usr/local/bin/ruby</span></code></pre></div>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">» ls -l /proc/8438/exe
+lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:06 /proc/8438/exe -&gt; /usr/local/bin/ruby</code></pre></div>
 
 <h4 id="current-working-directory-of-the-process">Current working directory of the process</h4>
 
-<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">» echo $$</span>
-<span class="go">8023</span>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">» echo $$
+8023
 
-<span class="go">» ls -l /proc/8023/cwd</span>
-<span class="go">lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:14 /proc/8023/cwd -&gt; /home/naruto/chaitanyav.github.com</span></code></pre></div>
+» ls -l /proc/8023/cwd
+lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:14 /proc/8023/cwd -&gt; /home/naruto/chaitanyav.github.com</code></pre></div>
 
 <h4 id="kernel-uptime-idle-time">Kernel uptime, idle time</h4>
 
-<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">cat /proc/uptime</span>
-<span class="go">11806673.25 24499.77</span></code></pre></div>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">cat /proc/uptime
+11806673.25 24499.77</code></pre></div>
 
 <h4 id="load-on-the-system-averaged-over-1-5-and-15-minutes">Load on the system averaged over 1, 5 and 15 minutes</h4>
 
-<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">cat /proc/loadavg</span>
-<span class="go">0.02 0.07 0.03 1/226 32569</span></code></pre></div>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">cat /proc/loadavg
+0.02 0.07 0.03 1/226 32569</code></pre></div>
 
 
       <hr />
@@ -291,7 +291,7 @@
     <hr />
   </div><!-- /.related-articles -->
   <footer>
-    <span>&copy; 2015 NagaChaitanya Vellanki. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+    <span>&copy; 2016 NagaChaitanya Vellanki. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
 
   </footer>
 </div><!-- /.footer-wrap -->
