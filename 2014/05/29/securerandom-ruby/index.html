@@ -86,6 +86,8 @@
 		        
 				<li><a href="/tags/" >Tags</a></li>
 		        
+				<li><a href="/papers/" >Papers</a></li>
+		        
 		    </ul>
 		</nav>
 	</div><!-- /.top-navigation -->
@@ -125,7 +127,7 @@
 numbers, strings). It uses OpenSSL internally (see <a href="https://github.com/ruby/ruby/blob/trunk/lib/securerandom.rb">source code</a>
 for more details).</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">require</span> <span class="s1">&#39;securerandom&#39;</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">require</span> <span class="s1">&#39;securerandom&#39;</span>
 <span class="o">=&gt;</span> <span class="kp">true</span>
 <span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">class</span>
 <span class="o">=&gt;</span> <span class="no">Module</span></code></pre></div>
@@ -134,7 +136,7 @@ for more details).</p>
 
 <p>To generate random integers less than n (n &gt; 0)</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">004</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="mi">10</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="nb">p</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_number</span><span class="p">(</span><span class="mi">100</span><span class="p">)}</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">004</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="mi">10</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="nb">p</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_number</span><span class="p">(</span><span class="mi">100</span><span class="p">)}</span>
   <span class="mi">43</span>
   <span class="mi">85</span>
   <span class="mi">60</span>
@@ -149,7 +151,7 @@ for more details).</p>
 
 <p>To generate random floating point numbers (specify n &lt;= 0)</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">007</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="mi">10</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="nb">p</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_number</span><span class="p">(</span><span class="mi">0</span><span class="p">)}</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">007</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="mi">10</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="nb">p</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_number</span><span class="p">(</span><span class="mi">0</span><span class="p">)}</span>
   <span class="mi">0</span><span class="o">.</span><span class="mi">4078857773248713</span>
   <span class="mi">0</span><span class="o">.</span><span class="mi">4438855743681517</span>
   <span class="mi">0</span><span class="o">.</span><span class="mi">22977523972328207</span>
@@ -166,33 +168,33 @@ for more details).</p>
 
 <p>To generate random n bytes</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">00</span><span class="mi">8</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_bytes</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">00</span><span class="mi">8</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">random_bytes</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
   <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="se">\e</span><span class="s2">T</span><span class="se">\xCC\x97\xA5\x18\xFF\xEA\x9B</span><span class="s2">T</span><span class="se">\xB3\xA7\xB0\x0F\x85</span><span class="s2">&quot;</span></code></pre></div>
 
 <p>for hex bytes</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">011</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">hex</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">011</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">hex</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
   <span class="o">=&gt;</span> <span class="s2">&quot;88adbb214a8364c3ebf81e2203c7218ee3aaf59e&quot;</span></code></pre></div>
 
 <p>for base64 encoded bytes</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">014</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">base64</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">014</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">base64</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
   <span class="o">=&gt;</span> <span class="s2">&quot;gPHf3U0npHmSXJTT+Xz/rn0C8Xg=&quot;</span></code></pre></div>
 
 <p>for url safe base64 encoded bytes</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">01</span><span class="mi">8</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">urlsafe_base64</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">01</span><span class="mi">8</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">urlsafe_base64</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
   <span class="o">=&gt;</span> <span class="s2">&quot;a9xtB405QiSlIDNiX9AhSz4jYq8&quot;</span></code></pre></div>
 
 <p>This module can also be used for generating uuids similar to uuidgen</p>
 
-<div class="highlight"><pre><code class="shell-session"><span class="go">~ » uuidgen</span>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">~ » uuidgen</span>
 <span class="go">  0589FE3D-E65D-40F2-A3E3-301A5EF624E4</span></code></pre></div>
 
 <p>Note: the uuid generated by this module is completely random and is not made
 up of MAC address as per the docs</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">uuid</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">SecureRandom</span><span class="o">.</span><span class="n">uuid</span>
   <span class="o">=&gt;</span> <span class="s2">&quot;bf172c47-003e-4bad-b86d-0baffad78d6c&quot;</span></code></pre></div>
 
 

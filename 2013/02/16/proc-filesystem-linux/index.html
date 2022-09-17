@@ -86,6 +86,8 @@
 		        
 				<li><a href="/tags/" >Tags</a></li>
 		        
+				<li><a href="/papers/" >Papers</a></li>
+		        
 		    </ul>
 		</nav>
 	</div><!-- /.top-navigation -->
@@ -123,12 +125,12 @@
     <div class="article-wrap">
       <h4 id="max-process-identifier">Max process identifier</h4>
 
-<div class="highlight"><pre><code class="shell-session"><span class="go">cat /proc/sys/kernel/pid_max</span>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">cat /proc/sys/kernel/pid_max</span>
 <span class="go">32768</span></code></pre></div>
 
 <h4 id="command-line-arguments-of-any-process">Command line arguments of any process</h4>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="vg">$$</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="vg">$$</span>
 <span class="o">=&gt;</span> <span class="mi">28168</span>
 
 <span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">002</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="nb">puts</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;/proc/self/cmdline&quot;</span><span class="p">)</span>
@@ -141,10 +143,10 @@
 
 <h4 id="process-status">Process status</h4>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="vg">$$</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="vg">$$</span>
 <span class="o">=&gt;</span> <span class="mi">8255</span></code></pre></div>
 
-<div class="highlight"><pre><code class="shell-session"><span class="go">cat /proc/8255/status</span>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">cat /proc/8255/status</span>
 
 <span class="go">Name:   irb</span>
 <span class="go">State:  S (sleeping)</span>
@@ -189,7 +191,7 @@
 
 <h4 id="cpu-info">CPU info</h4>
 
-<div class="highlight"><pre><code class="shell-session"><span class="go">cat /proc/cpuinfo</span>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">cat /proc/cpuinfo</span>
 
 <span class="go">processor       : 0</span>
 <span class="go">vendor_id       : AuthenticAMD</span>
@@ -218,15 +220,15 @@
 
 <h4 id="symlink-to-the-original-exe">Symlink to the original exe</h4>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="vg">$$</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">001</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="vg">$$</span>
 <span class="o">=&gt;</span> <span class="mi">8438</span></code></pre></div>
 
-<div class="highlight"><pre><code class="shell-session"><span class="go">» ls -l /proc/8438/exe</span>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">» ls -l /proc/8438/exe</span>
 <span class="go">lrwxrwxrwx 1 naruto naruto 0 Jun 10 10:06 /proc/8438/exe -&gt; /usr/local/bin/ruby</span></code></pre></div>
 
 <h4 id="current-working-directory-of-the-process">Current working directory of the process</h4>
 
-<div class="highlight"><pre><code class="shell-session"><span class="go">» echo $$</span>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">» echo $$</span>
 <span class="go">8023</span>
 
 <span class="go">» ls -l /proc/8023/cwd</span>
@@ -234,12 +236,12 @@
 
 <h4 id="kernel-uptime-idle-time">Kernel uptime, idle time</h4>
 
-<div class="highlight"><pre><code class="shell-session"><span class="go">cat /proc/uptime</span>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">cat /proc/uptime</span>
 <span class="go">11806673.25 24499.77</span></code></pre></div>
 
 <h4 id="load-on-the-system-averaged-over-1-5-and-15-minutes">Load on the system averaged over 1, 5 and 15 minutes</h4>
 
-<div class="highlight"><pre><code class="shell-session"><span class="go">cat /proc/loadavg</span>
+<div class="highlight"><pre><code class="language-shell-session" data-lang="shell-session"><span class="go">cat /proc/loadavg</span>
 <span class="go">0.02 0.07 0.03 1/226 32569</span></code></pre></div>
 
 
