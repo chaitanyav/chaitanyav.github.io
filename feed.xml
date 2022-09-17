@@ -4,13 +4,345 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-10-31T23:36:32+00:00</updated>
+<updated>2015-01-29T04:17:45+00:00</updated>
 <id>/</id>
 <author>
   <name>NagaChaitanya Vellanki</name>
   <uri>/</uri>
   <email>me@chaitanyavellanki.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[ClangFormat]]></title>
+  <link rel="alternate" type="text/html" href="/2015/01/28/clang-format" />
+  <id>/2015/01/28/clang-format</id>
+  <published>2015-01-28T00:00:00+00:00</published>
+  <updated>2015-01-28T00:00:00+00:00</updated>
+  <author>
+    <name>NagaChaitanya Vellanki</name>
+    <uri></uri>
+    <email>me@chaitanyavellanki.com</email>
+  </author>
+  <content type="html">&lt;p&gt;ClangFormat can be used to format C/C++/Obj-C code, its part of the tools in
+the clang compiler tool chain. It makes formatting painless, consistent across all
+source files in a project and its fast. ClangFormat can format the code using
+a predefined style(configuration) like LLVM, Google, Chromium, Mozilla, WebKit.
+It can also format the code using a custom configuration file.&lt;/p&gt;
+
+&lt;p&gt;To dump the configuration for a predefined style like LLVM
+use the following command.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;&lt;span class=&quot;go&quot;&gt;$ clang-format --style=LLVM -dump-config&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  ---&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  Language:        Cpp&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  # BasedOnStyle:  LLVM&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  AccessModifierOffset: -2&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  ConstructorInitializerIndentWidth: 4&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  AlignEscapedNewlinesLeft: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  AlignTrailingComments: true&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  AllowAllParametersOfDeclarationOnNextLine: true&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  AllowShortBlocksOnASingleLine: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  AllowShortIfStatementsOnASingleLine: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  AllowShortLoopsOnASingleLine: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  AllowShortFunctionsOnASingleLine: All&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  AlwaysBreakTemplateDeclarations: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  AlwaysBreakBeforeMultilineStrings: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  BreakBeforeBinaryOperators: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  BreakBeforeTernaryOperators: true&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  BreakConstructorInitializersBeforeComma: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  BinPackParameters: true&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  ColumnLimit:     80&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  ConstructorInitializerAllOnOneLineOrOnePerLine: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  DerivePointerAlignment: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  ExperimentalAutoDetectBinPacking: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  IndentCaseLabels: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  IndentWrappedFunctionNames: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  IndentFunctionDeclarationAfterType: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  MaxEmptyLinesToKeep: 1&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  KeepEmptyLinesAtTheStartOfBlocks: true&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  NamespaceIndentation: None&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  ObjCSpaceAfterProperty: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  ObjCSpaceBeforeProtocolList: true&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  PenaltyBreakBeforeFirstCallParameter: 19&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  PenaltyBreakComment: 300&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  PenaltyBreakString: 1000&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  PenaltyBreakFirstLessLess: 120&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  PenaltyExcessCharacter: 1000000&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  PenaltyReturnTypeOnItsOwnLine: 60&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  PointerAlignment: Right&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  SpacesBeforeTrailingComments: 1&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  Cpp11BracedListStyle: true&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  Standard:        Cpp11&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  IndentWidth:     2&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  TabWidth:        8&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  UseTab:          Never&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  BreakBeforeBraces: Attach&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  SpacesInParentheses: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  SpacesInAngles:  false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  SpaceInEmptyParentheses: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  SpacesInCStyleCastParentheses: false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  SpacesInContainerLiterals: true&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  SpaceBeforeAssignmentOperators: true&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  ContinuationIndentWidth: 4&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  CommentPragmas:  &amp;#39;^ IWYU pragma:&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  ForEachMacros:   [ foreach, Q_FOREACH, BOOST_FOREACH ]&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  SpaceBeforeParens: ControlStatements&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  DisableFormat:   false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;  ...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To format the code using a custom config use the following command&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;&lt;span class=&quot;go&quot;&gt;$ clang-format -i -style=file HelloWorld.cpp&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The above command edits the file inplace. The config should be specified in a file named ‘.clang-format’ in YAML format.
+Note: the configuration file ohould be present in the same directory as source
+code. Example .clang-format&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;Language&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;Cpp&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;IndentWidth&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;ColumnLimit&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;80&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;TabWidth&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;4&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;IndentCaseLabels&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;AllowShortIfStatementsOnASingleLine&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;AllowShortLoopsOnASingleLine&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;AllowShortIfStatementsOnASingleLine&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;AllowShortFunctionsOnASingleLine&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;AllowShortBlocksOnASingleLine&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;ConstructorInitializerAllOnOneLineOrOnePerLine&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;SpaceBeforeAssignmentOperators&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;SpaceBeforeParens&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;ControlStatements&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;BinPackParameters&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;NamespaceIndentation&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;All&lt;/span&gt;
+&lt;span class=&quot;l-Scalar-Plain&quot;&gt;PointerAlignment&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;Right&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here is a C++ file from the xerces library (before formatting with clang-format)&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * Licensed to the Apache Software Foundation (ASF) under one or more&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * contributor license agreements.  See the NOTICE file distributed with&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * this work for additional information regarding copyright ownership.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * The ASF licenses this file to You under the Apache License, Version 2.0&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * (the &amp;quot;License&amp;quot;); you may not use this file except in compliance with&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * the License.  You may obtain a copy of the License at&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *      http://www.apache.org/licenses/LICENSE-2.0&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * Unless required by applicable law or agreed to in writing, software&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * distributed under the License is distributed on an &amp;quot;AS IS&amp;quot; BASIS,&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * See the License for the specific language governing permissions and&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * limitations under the License.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; */&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * $Id: DOMPrintFilter.cpp 671894 2008-06-26 13:29:21Z borisk $&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; */&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#include &amp;quot;DOMPrintFilter.hpp&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;xercesc/util/XMLUniDefs.hpp&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;xercesc/util/XMLString.hpp&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;XMLCh&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;element_person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;chLatin_p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chNull&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;XMLCh&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;element_link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;chLatin_l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chNull&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;DOMPrintFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DOMPrintFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ShowType&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;whatToShow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fWhatToShow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;whatToShow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FilterAction&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMPrintFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;acceptNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// The DOMLSSerializer shall call getWhatToShow() before calling&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// acceptNode(), to show nodes which are supposed to be&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// shown to this filter.&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// REVISIT: In case the DOMLSSerializer does not follow the protocol,&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//          Shall the filter honour, or NOT, what it claims&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//          it is interested in ?&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// The DOMLS specs does not specify that acceptNode() shall do&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// this way, or not, so it is up the implementation,&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// to skip the code below for the sake of performance ...&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getWhatToShow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getNodeType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_ACCEPT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getNodeType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;ELEMENT_NODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// for element whose name is &amp;quot;person&amp;quot;, skip it&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;XMLString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compareString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getNodeName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element_person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_SKIP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// for element whose name is &amp;quot;line&amp;quot;, reject it&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;XMLString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compareString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getNodeName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element_link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_REJECT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// for rest, accept it&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_ACCEPT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;COMMENT_NODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// the WhatToShow will make this no effect&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_REJECT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;TEXT_NODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// the WhatToShow will make this no effect&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_REJECT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;DOCUMENT_TYPE_NODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// even we say we are going to process document type,&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// we are not able be to see this node since&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// DOMLSSerializerImpl (a XercesC&amp;#39;s default implementation&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// of DOMLSSerializer) will not pass DocumentType node to&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// this filter.&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_REJECT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// no effect&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;DOCUMENT_NODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// same as DOCUMENT_NODE&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_REJECT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// no effect&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_ACCEPT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_ACCEPT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;same file after formatting with clang-format&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * Licensed to the Apache Software Foundation (ASF) under one or more&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * contributor license agreements.  See the NOTICE file distributed with&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * this work for additional information regarding copyright ownership.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * The ASF licenses this file to You under the Apache License, Version 2.0&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * (the &amp;quot;License&amp;quot;); you may not use this file except in compliance with&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * the License.  You may obtain a copy of the License at&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *      http://www.apache.org/licenses/LICENSE-2.0&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * Unless required by applicable law or agreed to in writing, software&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * distributed under the License is distributed on an &amp;quot;AS IS&amp;quot; BASIS,&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * See the License for the specific language governing permissions and&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * limitations under the License.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; */&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * $Id: DOMPrintFilter.cpp 671894 2008-06-26 13:29:21Z borisk $&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; */&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#include &amp;quot;DOMPrintFilter.hpp&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;xercesc/util/XMLUniDefs.hpp&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;xercesc/util/XMLString.hpp&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;XMLCh&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element_person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;chLatin_p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chNull&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;XMLCh&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element_link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;chLatin_l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chLatin_k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chNull&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;DOMPrintFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DOMPrintFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ShowType&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;whatToShow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fWhatToShow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;whatToShow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FilterAction&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;DOMPrintFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;acceptNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// The DOMLSSerializer shall call getWhatToShow() before calling&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// acceptNode(), to show nodes which are supposed to be&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// shown to this filter.&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// REVISIT: In case the DOMLSSerializer does not follow the protocol,&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//          Shall the filter honour, or NOT, what it claims&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//          it is interested in ?&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// The DOMLS specs does not specify that acceptNode() shall do&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// this way, or not, so it is up the implementation,&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// to skip the code below for the sake of performance ...&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getWhatToShow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getNodeType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_ACCEPT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getNodeType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;ELEMENT_NODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// for element whose name is &amp;quot;person&amp;quot;, skip it&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;XMLString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compareString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getNodeName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element_person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_SKIP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// for element whose name is &amp;quot;line&amp;quot;, reject it&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;XMLString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compareString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getNodeName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element_link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_REJECT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// for rest, accept it&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_ACCEPT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;COMMENT_NODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// the WhatToShow will make this no effect&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_REJECT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;TEXT_NODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// the WhatToShow will make this no effect&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_REJECT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;DOCUMENT_TYPE_NODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// even we say we are going to process document type,&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// we are not able be to see this node since&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// DOMLSSerializerImpl (a XercesC&amp;#39;s default implementation&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// of DOMLSSerializer) will not pass DocumentType node to&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// this filter.&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_REJECT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// no effect&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;DOCUMENT_NODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// same as DOCUMENT_NODE&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_REJECT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// no effect&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_ACCEPT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_ACCEPT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Clean code == Happy Programmer, Keep hacking!!!!&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://llvm.org/releases/3.5.0/tools/clang/docs/ClangFormatStyleOptions.html&quot;&gt;http://llvm.org/releases/3.5.0/tools/clang/docs/ClangFormatStyleOptions.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.irill.org/videos/euro-llvm-2013/jasper-hires.webm&quot;&gt;http://www.irill.org/videos/euro-llvm-2013/jasper-hires.webm&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://channel9.msdn.com/Events/GoingNative/2013/The-Care-and-Feeding-of-C-s-Dragons&quot;&gt;http://channel9.msdn.com/Events/GoingNative/2013/The-Care-and-Feeding-of-C-s-Dragons&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;clang-format –help&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/2015/01/28/clang-format&quot;&gt;ClangFormat&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on January 28, 2015.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -1936,24 +2268,6 @@ on unix.stackexchange&lt;/p&gt;
 
 
   &lt;p&gt;&lt;a href=&quot;/2013/06/20/creating-temporary-files&quot;&gt;creating temporary files&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on June 20, 2013.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[uptime command implementation]]></title>
-  <link rel="alternate" type="text/html" href="/2013/06/10/uptime-command-implementation" />
-  <id>/2013/06/10/uptime-command-implementation</id>
-  <published>2013-06-10T00:00:00+00:00</published>
-  <updated>2013-06-10T00:00:00+00:00</updated>
-  <author>
-    <name>NagaChaitanya Vellanki</name>
-    <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
-&lt;script src=&quot;https://gist.github.com/chaitanyav/5754292.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/2013/06/10/uptime-command-implementation&quot;&gt;uptime command implementation&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on June 10, 2013.&lt;/p&gt;</content>
 </entry>
 
 </feed>
