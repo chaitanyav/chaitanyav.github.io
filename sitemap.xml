@@ -3,12 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://chaitanyav.github.io/about/</loc>
-    <lastmod>2020-05-08T10:52:09-07:00</lastmod>
+    <loc>https://chaitanyav.github.io/</loc>
+    <lastmod>2020-09-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chaitanyav.github.io/</loc>
+    <loc>https://chaitanyav.github.io/posts/</loc>
+    <lastmod>2020-09-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chaitanyav.github.io/posts/man_pages/</loc>
+    <lastmod>2020-09-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chaitanyav.github.io/open_source/</loc>
+    <lastmod>2020-08-26T20:28:26-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chaitanyav.github.io/about/</loc>
     <lastmod>2020-05-08T10:52:09-07:00</lastmod>
   </url>
   

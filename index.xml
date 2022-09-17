@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Code Musings</title>
+    <title>my blog</title>
     <link>https://chaitanyav.github.io/</link>
-    <description>Recent content on Code Musings</description>
+    <description>Recent content on my blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 May 2020 10:52:09 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://chaitanyav.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Writing Man Pages</title>
+      <link>https://chaitanyav.github.io/posts/man_pages/</link>
+      <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chaitanyav.github.io/posts/man_pages/</guid>
+      <description>I am writing about my experience working with man pages today. I have never written/updated any man pages in the past. The man page i updated was intro(3) of the FreeBSD Library Functions Manual.
+Updating the man page involved going through the FreeBSD source code src/lib and figuring out the libraries that exist. I came across many libraries which i had never heard of e.g. Performance Counters Library pmc(3) 😲.And i had to find out which of those libraries have a man page so that they can be listed.</description>
+    </item>
     
-	<atom:link href="https://chaitanyav.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>Open Source</title>
+      <link>https://chaitanyav.github.io/open_source/</link>
+      <pubDate>Wed, 26 Aug 2020 20:28:26 -0700</pubDate>
+      
+      <guid>https://chaitanyav.github.io/open_source/</guid>
+      <description>I like to contribute to open source, here are links to some of my tiny contributions 🙏
+ FreeBSD  Reduce duplication in sys/*/include files Improve test coverage for sbuf   Scala tools, compiler (2.13.x)  CodePrinter prints backquote names Add doc string to Array.from   ffmpeg: Add tests for functions in hash.c RubyGems  Fibonacci: a ruby c-extension to explore fibonacci series efficiently Partitions   RubyOnRails Contribution  </description>
+    </item>
     
     <item>
       <title>About</title>
@@ -17,8 +33,8 @@
       <pubDate>Fri, 08 May 2020 10:52:09 -0700</pubDate>
       
       <guid>https://chaitanyav.github.io/about/</guid>
-      <description>I am a Software Engineer, hacker, web developer, mathematics lover and a amatuer photographer.
-Links to my work:  OneUpFeeds My personal RSS feed reader CS229 Project: Separation of Speech From Noise Challenge SVD and its applications in image processing Balancing chemical equations using Gaussian Elimination Laplace Transform Application, Solving Differential Equations describing a projectile in motion Spam Classification using Naive Bayes UVA Judge Status Page RubyGems  Fibonacci Partitions   RubyOnRails Contribution Folding@Home Contribution Flick Photosets  Clarion Alley, San Francisco</description>
+      <description>I am a Software Engineer.
+Links to my work:  OneUpFeeds My personal RSS feed reader CS229 Project: Separation of Speech From Noise Challenge SVD and its applications in image processing Balancing chemical equations using Gaussian Elimination Laplace Transform Application, Solving Differential Equations describing a projectile in motion Spam Classification using Naive Bayes  Used to be a Folding@Home contributor  Folding@Home Contribution  pgp  Fingerprint  pub 3072R/C4996E83 2020-07-23 NagaChaitanya Vellanki &amp;lt;pnagato@protonmail.</description>
     </item>
     
     <item>
