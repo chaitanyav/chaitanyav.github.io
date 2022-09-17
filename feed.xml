@@ -4,12 +4,12 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2017-09-09T21:19:04+00:00</updated>
+<updated>2017-10-01T17:30:05+00:00</updated>
 <id>/</id>
 <author>
   <name>NagaChaitanya Vellanki</name>
   <uri>/</uri>
-  <email>me@chaitanyavellanki.com</email>
+  <email>vellanki.nagachaitanya@protonmail.com</email>
 </author>
 
 
@@ -22,31 +22,31 @@
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;h3 id=&quot;assertions&quot;&gt;Assertions&lt;/h3&gt;
 &lt;p&gt;Google Test  supports a two kinds of assertions&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;ASSERT_&lt;/em&gt;* &lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;EXPECT_&lt;/em&gt;*  &lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;ASSERT_&lt;/em&gt;*&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;EXPECT_&lt;/em&gt;*&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Assertions of type &lt;em&gt;ASSERT_&lt;/em&gt;* are fatal i.e. failure of a &lt;em&gt;ASSERT_&lt;/em&gt;*
 causes the test to fail and will prevent the assertions following it from
-runing whereas assertions of type &lt;em&gt;EXPECT_&lt;/em&gt;* are non-fatal i.e. failure of a &lt;em&gt;EXPECT_&lt;/em&gt;* will not prevent the assertions following it from running.  &lt;/p&gt;
+runing whereas assertions of type &lt;em&gt;EXPECT_&lt;/em&gt;* are non-fatal i.e. failure of a &lt;em&gt;EXPECT_&lt;/em&gt;* will not prevent the assertions following it from running.&lt;/p&gt;
 
 &lt;p&gt;For a complete list of supported assertions, Please see &lt;a href=&quot;https://github.com/google/googletest/blob/master/googletest/docs/Primer.md&quot;&gt;Google Test Primer&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &quot;gtest/gtest.h&quot;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &quot;gtest/gtest.h&quot;
 #include &amp;lt;iostream&amp;gt;
 #include &amp;lt;random&amp;gt;
 &lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rollDice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;noexcept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rollDice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;noexcept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;invalid_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isEven&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;noexcept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isEven&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;noexcept&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rollDice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;noexcept&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rollDice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;noexcept&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random_device&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mt19937&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniform_int_distribution&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -88,7 +88,7 @@ runing whereas assertions of type &lt;em&gt;EXPECT_&lt;/em&gt;* are non-fatal i.
   &lt;span class=&quot;n&quot;&gt;ASSERT_EQ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3628800&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isEven&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;noexcept&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isEven&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;noexcept&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;TEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsEven&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TestWithEvenInputs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;ASSERT_TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isEven&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
@@ -117,14 +117,14 @@ runing whereas assertions of type &lt;em&gt;EXPECT_&lt;/em&gt;* are non-fatal i.
 &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InitGoogleTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RUN_ALL_TESTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Below is the  output from sample test program containing
 fatal, non-fatal assertions. All the assertions from the 
 test &lt;em&gt;NonFatalAssert&lt;/em&gt; were run but only one assertion
 from &lt;em&gt;FatalAssert&lt;/em&gt; was run.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;[==========]&lt;/span&gt; Running 9 tests from 4 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;cases.
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;[==========]&lt;/span&gt; Running 9 tests from 4 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;cases.
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;----------] Global &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;environment &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;-up.
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;----------] 1 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;from RollDice
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; RUN      &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; RollDice.TestOutcome
@@ -175,7 +175,7 @@ Value of: isEven&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;15&lt;span class=&
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  FAILED  &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; IsEven.FatalAssert
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  FAILED  &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; IsEven.NonFatalAssert
 
- 2 FAILED TESTS&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ 2 FAILED TESTS&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;em&gt;SUCCEED()&lt;/em&gt; macro is only for documentation purposes and it does not output the message to the
 output stream.&lt;/p&gt;
@@ -198,11 +198,11 @@ output stream.&lt;/p&gt;
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;h3 id=&quot;dissecting-our-first-test-program-using-google-test-gtest&quot;&gt;Dissecting our first test program using Google Test (gtest)&lt;/h3&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &quot;gtest/gtest.h&quot;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &quot;gtest/gtest.h&quot;
 &lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;TEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LearnGoogleTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Test1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -210,7 +210,7 @@ output stream.&lt;/p&gt;
 &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InitGoogleTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RUN_ALL_TESTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;The test program starts by including the header file &lt;em&gt;“gtest/gtest.h”&lt;/em&gt;.&lt;/li&gt;
@@ -221,15 +221,16 @@ macro &lt;em&gt;RUN_ALL_TESTS()&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;Each test is defined in the &lt;em&gt;TEST(test_case_name, test_name)&lt;/em&gt; macro block. For e.g.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;n&quot;&gt;TEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Factorial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;  &lt;span class=&quot;n&quot;&gt;TEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Factorial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
    &lt;span class=&quot;n&quot;&gt;EXPECT_EQ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;em&gt;EXPECT_EQ(val1, val2)&lt;/em&gt; is a assertion macro which tests for &lt;em&gt;val1 == val2&lt;/em&gt; &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;EXPECT_EQ(val1, val2)&lt;/em&gt; is a assertion macro which tests for &lt;em&gt;val1 == val2&lt;/em&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;compiling-and-running-a-test-program&quot;&gt;Compiling and Running a test program&lt;/h3&gt;
+&lt;p&gt;###Compiling and Running a test program&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &quot;gtest/gtest.h&quot;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &quot;gtest/gtest.h&quot;
 &lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;TEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LearnGoogleTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Test1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;EXPECT_EQ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -238,9 +239,9 @@ macro &lt;em&gt;RUN_ALL_TESTS()&lt;/em&gt;&lt;/li&gt;
 &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InitGoogleTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RUN_ALL_TESTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Documents/projects/cpp_gtest ᐅ clang++ -o first_example first_example.cpp -I/usr/local/include --std&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c++14 -L/usr/local/lib -lgtest
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Documents/projects/cpp_gtest ᐅ clang++ -o first_example first_example.cpp -I/usr/local/include --std&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c++14 -L/usr/local/lib -lgtest
 
 ~/Documents/projects/cpp_gtest ᐅ ./first_example
 &lt;span class=&quot;o&quot;&gt;[==========]&lt;/span&gt; Running 1 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;from 1 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt;.
@@ -252,12 +253,12 @@ macro &lt;em&gt;RUN_ALL_TESTS()&lt;/em&gt;&lt;/li&gt;
 
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;----------] Global &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;environment tear-down
 &lt;span class=&quot;o&quot;&gt;[==========]&lt;/span&gt; 1 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;from 1 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; ran. &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0 ms total&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  PASSED  &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; 1 test.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  PASSED  &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; 1 test.&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;By virtue of using the gtest framework, the test program’s behavior can be controlled
-by command line flags. To see the commandline flags available &lt;/p&gt;
+by command line flags. To see the commandline flags available&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Documents/projects/cpp_gtest ᐅ ./first_example --help
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Documents/projects/cpp_gtest ᐅ ./first_example --help
 This program contains tests written using Google Test. You can use the
 following &lt;span class=&quot;nb&quot;&gt;command &lt;/span&gt;line flags to control its behavior:
 
@@ -267,8 +268,8 @@ Test Selection:
       TEST&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Foo, Bar&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; is &lt;span class=&quot;s2&quot;&gt;&quot;Foo.Bar&quot;&lt;/span&gt;.
   --gtest_filter&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;POSTIVE_PATTERNS[-NEGATIVE_PATTERNS]
       Run only the tests whose name matches one of the positive patterns but
-      none of the negative patterns. &lt;span class=&quot;s1&quot;&gt;&#39;?&#39;&lt;/span&gt; matches any single character; &lt;span class=&quot;s1&quot;&gt;&#39;*&#39;&lt;/span&gt;
-      matches any substring; &lt;span class=&quot;s1&quot;&gt;&#39;:&#39;&lt;/span&gt; separates two patterns.
+      none of the negative patterns. &lt;span class=&quot;s1&quot;&gt;'?'&lt;/span&gt; matches any single character; &lt;span class=&quot;s1&quot;&gt;'*'&lt;/span&gt;
+      matches any substring; &lt;span class=&quot;s1&quot;&gt;':'&lt;/span&gt; separates two patterns.
   --gtest_also_run_disabled_tests
       Run all disabled tests too.
 
@@ -285,7 +286,7 @@ Test Output:
   --gtest_color&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;yes|no|auto&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
       Enable/disable colored output. The default is auto.
   --gtest_print_time&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
-      Don&lt;span class=&quot;se&quot;&gt;\&#39;&lt;/span&gt;t print the elapsed &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;of each test.
+      Don&lt;span class=&quot;se&quot;&gt;\'&lt;/span&gt;t print the elapsed &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;of each test.
   --gtest_output&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;xml[:DIRECTORY_PATH/|:FILE_PATH]
       Generate an XML report &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;the given directory or with the given file
       name. FILE_PATH defaults to test_details.xml.
@@ -309,16 +310,16 @@ disable colored text output, you can either specify --gtest_color&lt;span class=
 For more information, please &lt;span class=&quot;nb&quot;&gt;read &lt;/span&gt;the Google Test documentation at
 https://github.com/google/googletest/. If you find a bug &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;Google Test
 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;not one &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;your own code or tests&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, please report it to
-&amp;lt;googletestframework@googlegroups.com&amp;gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&amp;lt;googletestframework@googlegroups.com&amp;gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The commandline flags can be also be controlled programmatically as follows:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FLAGS_gtest_color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;no&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// turns off the coloring of the test output
 &lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FLAGS_gtest_print_time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// this will turn off printing the elapsed test time
 &lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InitGoogleTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RUN_ALL_TESTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
   &lt;p&gt;&lt;a href=&quot;/2017/07/24/google-test-part1&quot;&gt;Google Test - Part 1&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on July 24, 2017.&lt;/p&gt;</content>
 </entry>
@@ -333,12 +334,12 @@ https://github.com/google/googletest/. If you find a bug &lt;span class=&quot;k&
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Download the latest version of google test from &lt;a href=&quot;https://github.com/google/googletest/releases&quot;&gt;here&lt;/a&gt;.
 Type the following commands in the terminal after cd into the directory where the tarball was downloaded to.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;tar -xvzf googletest-release-1.8.0.tar.gz
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;tar -xvzf googletest-release-1.8.0.tar.gz
 &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googletest-release-1.8.0
 &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googletest
 cmake .
@@ -348,22 +349,22 @@ sudo make install
 &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googlemock
 cmake .
 make
-sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt;
 Make sure /usr/local/lib is added to your LD_LIBRARY_PATH environment variable before using the frameworks. 
 To set the LD_LIBRARY_PATH environment variable&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googlemock ᐅ &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/lib:&lt;span class=&quot;nv&quot;&gt;$LD_LIBRARY_PATH&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googlemock ᐅ &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/lib:&lt;span class=&quot;nv&quot;&gt;$LD_LIBRARY_PATH&lt;/span&gt;
 
 ~/Downloads/googletest-release-1.8.0 ᐅ &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$LD_LIBRARY_PATH&lt;/span&gt;
-/usr/local/cuda/lib:/usr/local/lib:&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+/usr/local/cuda/lib:/usr/local/lib:&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;You may want to append/add /usr/local/lib to the LD_LIBRARY_PATH environment variable in your .bashrc or .zshrc&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;console-output-of-the-commands&quot;&gt;Console output of the commands&lt;/h3&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads ᐅ tar -xvzf googletest-release-1.8.0.tar.gz
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads ᐅ tar -xvzf googletest-release-1.8.0.tar.gz
 x googletest-release-1.8.0/
 x googletest-release-1.8.0/.gitignore
 x googletest-release-1.8.0/.travis.yml
@@ -733,20 +734,20 @@ x googletest-release-1.8.0/googletest/xcode/Scripts/runtests.sh
 x googletest-release-1.8.0/googletest/xcode/Scripts/versiongenerate.py
 x googletest-release-1.8.0/googletest/xcode/gtest.xcodeproj/
 x googletest-release-1.8.0/googletest/xcode/gtest.xcodeproj/project.pbxproj
-x googletest-release-1.8.0/travis.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+x googletest-release-1.8.0/travis.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads ᐅ &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googletest-release-1.8.0
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads ᐅ &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googletest-release-1.8.0
 
 ~/Downloads/googletest-release-1.8.0 ᐅ ls
-CMakeLists.txt README.md      appveyor.yml   googlemock     googletest     travis.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+CMakeLists.txt README.md      appveyor.yml   googlemock     googletest     travis.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0 ᐅ &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googletest
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0 ᐅ &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googletest
 
 ~/Downloads/googletest-release-1.8.0/googletest ᐅ ls
 CHANGES        CONTRIBUTORS   Makefile.am    build-aux      codegear       docs           m4             msvc           scripts        &lt;span class=&quot;nb&quot;&gt;test
-&lt;/span&gt;CMakeLists.txt LICENSE        README.md      cmake          configure.ac   include        make           samples        src            xcode&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/span&gt;CMakeLists.txt LICENSE        README.md      cmake          configure.ac   include        make           samples        src            xcode&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googletest ᐅ cmake .
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googletest ᐅ cmake .
 -- The CXX compiler identification is AppleClang 7.3.0.7030031
 -- The C compiler identification is AppleClang 7.3.0.7030031
 -- Check &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
@@ -769,9 +770,9 @@ CHANGES        CONTRIBUTORS   Makefile.am    build-aux      codegear       docs 
 -- Found Threads: TRUE
 -- Configuring &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
 -- Generating &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
--- Build files have been written to: /Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googletest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+-- Build files have been written to: /Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googletest&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googletest ᐅ make
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googletest ᐅ make
 Scanning dependencies of target gtest
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 25%] Building CXX object CMakeFiles/gtest.dir/src/gtest-all.cc.o
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 50%] Linking CXX static library libgtest.a
@@ -779,9 +780,9 @@ Scanning dependencies of target gtest
 Scanning dependencies of target gtest_main
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 75%] Building CXX object CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;100%] Linking CXX static library libgtest_main.a
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;100%] Built target gtest_main&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;100%] Built target gtest_main&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googletest ᐅ sudo make install
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googletest ᐅ sudo make install
 Password:
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 50%] Built target gtest
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;100%] Built target gtest_main
@@ -819,13 +820,13 @@ Install the project...
 -- Up-to-date: /usr/local/include/gtest/internal/gtest-tuple.h
 -- Up-to-date: /usr/local/include/gtest/internal/gtest-tuple.h.pump
 -- Up-to-date: /usr/local/include/gtest/internal/gtest-type-util.h
--- Up-to-date: /usr/local/include/gtest/internal/gtest-type-util.h.pump&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-type-util.h.pump&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googletest ᐅ &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googletest ᐅ &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ..
 
-~/Downloads/googletest-release-1.8.0 ᐅ &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googlemock&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+~/Downloads/googletest-release-1.8.0 ᐅ &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;googlemock&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googlemock ᐅ cmake .
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googlemock ᐅ cmake .
 -- The CXX compiler identification is AppleClang 7.3.0.7030031
 -- The C compiler identification is AppleClang 7.3.0.7030031
 -- Check &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
@@ -848,9 +849,9 @@ Install the project...
 -- Found Threads: TRUE
 -- Configuring &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
 -- Generating &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
--- Build files have been written to: /Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googlemock&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+-- Build files have been written to: /Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googlemock&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googlemock ᐅ make
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googlemock ᐅ make
 Scanning dependencies of target gmock
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  9%] Building CXX object CMakeFiles/gmock.dir/Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googletest/src/gtest-all.cc.o
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 18%] Building CXX object CMakeFiles/gmock.dir/src/gmock-all.cc.o
@@ -869,9 +870,9 @@ Scanning dependencies of target gtest
 Scanning dependencies of target gtest_main
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 90%] Building CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;100%] Linking CXX static library libgtest_main.a
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;100%] Built target gtest_main&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;100%] Built target gtest_main&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googlemock ᐅ sudo make install
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Downloads/googletest-release-1.8.0/googlemock ᐅ sudo make install
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 27%] Built target gmock
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 63%] Built target gmock_main
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; 81%] Built target gtest
@@ -938,7 +939,7 @@ Install the project...
 -- Up-to-date: /usr/local/include/gtest/internal/gtest-tuple.h
 -- Up-to-date: /usr/local/include/gtest/internal/gtest-tuple.h.pump
 -- Up-to-date: /usr/local/include/gtest/internal/gtest-type-util.h
--- Up-to-date: /usr/local/include/gtest/internal/gtest-type-util.h.pump&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+-- Up-to-date: /usr/local/include/gtest/internal/gtest-type-util.h.pump&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
   &lt;p&gt;&lt;a href=&quot;/2017/07/23/google-test&quot;&gt;Google Test & Google Mock Installation&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on July 23, 2017.&lt;/p&gt;</content>
 </entry>
@@ -953,51 +954,51 @@ Install the project...
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
-  <content type="html">&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculatorqwofvbent6-targetblanklargesinxa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/qwofvbent6&quot; target=&quot;_blank&quot;&gt;$\large{sinx}$&lt;/a&gt;&lt;/h3&gt;
+  <content type="html">&lt;h3 id=&quot;largesinx&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/qwofvbent6&quot; target=&quot;_blank&quot;&gt;$\large{sinx}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/qwofvbent6&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/qwofvbent6.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculatorsgyipmehya-targetblanklargecosxa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/sgyipmehya&quot; target=&quot;_blank&quot;&gt;$\large{cosx}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largecosx&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/sgyipmehya&quot; target=&quot;_blank&quot;&gt;$\large{cosx}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/sgyipmehya&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/sgyipmehya.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculatorexcenis4e4-targetblanklargesinx-cosxa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/excenis4e4&quot; target=&quot;_blank&quot;&gt;$\large{sinx,\ cosx}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largesinx-cosx&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/excenis4e4&quot; target=&quot;_blank&quot;&gt;$\large{sinx,\ cosx}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/excenis4e4&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/excenis4e4.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculator2usp9hs2qc-targetblanklargetanxa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/2usp9hs2qc&quot; target=&quot;_blank&quot;&gt;$\large{tanx}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largetanx&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/2usp9hs2qc&quot; target=&quot;_blank&quot;&gt;$\large{tanx}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/2usp9hs2qc&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/2usp9hs2qc.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculatorprjyyo1uru-targetblanklargesecxa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/prjyyo1uru&quot; target=&quot;_blank&quot;&gt;$\large{secx}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largesecx&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/prjyyo1uru&quot; target=&quot;_blank&quot;&gt;$\large{secx}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/prjyyo1uru&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/prjyyo1uru.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculator9l6apovnv5-targetblanklargexa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/9l6apovnv5&quot; target=&quot;_blank&quot;&gt;$\large{|x|}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largex&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/9l6apovnv5&quot; target=&quot;_blank&quot;&gt;$\large{|x|}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/9l6apovnv5&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/9l6apovnv5.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculatorgzmshwhmbj-targetblanklargex2a&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/gzmshwhmbj&quot; target=&quot;_blank&quot;&gt;$\large{x^2}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largex2&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/gzmshwhmbj&quot; target=&quot;_blank&quot;&gt;$\large{x^2}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/gzmshwhmbj&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/gzmshwhmbj.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculator8mmojfybpw-targetblanklargesqrtxa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/8mmojfybpw&quot; target=&quot;_blank&quot;&gt;$\large{\sqrt{x}}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largesqrtx&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/8mmojfybpw&quot; target=&quot;_blank&quot;&gt;$\large{\sqrt{x}}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/8mmojfybpw&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/8mmojfybpw.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculatorjvzrrfspra-targetblanklargex3a&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/jvzrrfspra&quot; target=&quot;_blank&quot;&gt;$\large{x^3}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largex3&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/jvzrrfspra&quot; target=&quot;_blank&quot;&gt;$\large{x^3}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/jvzrrfspra&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/jvzrrfspra.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculatorj4zidnz1sk-targetblanklargesqrt3xa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/j4zidnz1sk&quot; target=&quot;_blank&quot;&gt;$\large{\sqrt[3]{x}}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largesqrt3x&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/j4zidnz1sk&quot; target=&quot;_blank&quot;&gt;$\large{\sqrt[3]{x}}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/j4zidnz1sk&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/j4zidnz1sk.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculatorjni1fmbhkt-targetblanklargefrac1xa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/jni1fmbhkt&quot; target=&quot;_blank&quot;&gt;$\large{\frac{1}{x}}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largefrac1x&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/jni1fmbhkt&quot; target=&quot;_blank&quot;&gt;$\large{\frac{1}{x}}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/jni1fmbhkt&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/jni1fmbhkt.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculatorvedf4yeb5q-targetblanklargeexa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/vedf4yeb5q&quot; target=&quot;_blank&quot;&gt;$\large{e^x}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largeex&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/vedf4yeb5q&quot; target=&quot;_blank&quot;&gt;$\large{e^x}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/vedf4yeb5q&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/vedf4yeb5q.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculatortabn1ymkdq-targetblanklargelnxa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/tabn1ymkdq&quot; target=&quot;_blank&quot;&gt;$\large{\ln{x}}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largelnx&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/tabn1ymkdq&quot; target=&quot;_blank&quot;&gt;$\large{\ln{x}}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/tabn1ymkdq&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/tabn1ymkdq.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculatorw3tk2apnvu-targetblanklargelogxa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/w3tk2apnvu&quot; target=&quot;_blank&quot;&gt;$\large{\log{x}}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largelogx&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/w3tk2apnvu&quot; target=&quot;_blank&quot;&gt;$\large{\log{x}}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/w3tk2apnvu&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/w3tk2apnvu.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;a-hrefhttpswwwdesmoscomcalculator67ti0zs8it-targetblanklargetextcomparison-of--log2x-x-x--log2x-x2-2x-xa&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/67ti0zs8it&quot; target=&quot;_blank&quot;&gt;$\large{\text{Comparison of }\ \log_2{x},\ x,\ (x . \log_2{x}),\ x^2,\ 2^x,\ x!}$&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;largetextcomparison-of--log_2x-x-x--log_2x-x2-2x-x&quot;&gt;&lt;a href=&quot;https://www.desmos.com/calculator/67ti0zs8it&quot; target=&quot;_blank&quot;&gt;$\large{\text{Comparison of }\ \log_2{x},\ x,\ (x . \log_2{x}),\ x^2,\ 2^x,\ x!}$&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a title=&quot;Click here to view with the Desmos Graphing Calculator&quot; href=&quot;https://www.desmos.com/calculator/67ti0zs8it&quot; target=&quot;_blank&quot;&gt;  &lt;img src=&quot;https://s3.amazonaws.com/grapher/exports/67ti0zs8it.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;notes&quot;&gt;Notes&lt;/h3&gt;
@@ -1021,7 +1022,7 @@ Install the project...
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;p&gt;ClangFormat can be used to format C/C++/Obj-C code, its part of the tools in
 the clang compiler tool chain. It makes formatting painless, consistent across all
@@ -1032,7 +1033,7 @@ It can also format the code using a custom configuration file.&lt;/p&gt;
 &lt;p&gt;To dump the configuration for a predefined style like LLVM
 use the following command.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;$ clang-format --style=LLVM -dump-config
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;  $ clang-format --style=LLVM -dump-config
   ---
   Language:        Cpp
   # BasedOnStyle:  LLVM
@@ -1084,21 +1085,24 @@ use the following command.&lt;/p&gt;
   SpacesInContainerLiterals: true
   SpaceBeforeAssignmentOperators: true
   ContinuationIndentWidth: 4
-  CommentPragmas:  &#39;^ IWYU pragma:&#39;
+  CommentPragmas:  '^ IWYU pragma:'
   ForEachMacros:   [ foreach, Q_FOREACH, BOOST_FOREACH ]
   SpaceBeforeParens: ControlStatements
   DisableFormat:   false
-  ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  ...
+
+
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;To format the code using a custom config use the following command&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;$ clang-format -i -style=file HelloWorld.cpp&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt; $ clang-format -i -style=file HelloWorld.cpp&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The above command edits the file inplace. The config should be specified in a file named ‘.clang-format’ in YAML format.
 Note: the configuration file ohould be present in the same directory as source
 code. Example .clang-format&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;s&quot;&gt;Language&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Cpp&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;s&quot;&gt;Language&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Cpp&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;IndentWidth&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;ColumnLimit&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;80&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;TabWidth&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;4&lt;/span&gt;
@@ -1113,11 +1117,11 @@ code. Example .clang-format&lt;/p&gt;
 &lt;span class=&quot;s&quot;&gt;SpaceBeforeParens&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ControlStatements&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;BinPackParameters&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;false&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;NamespaceIndentation&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;All&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;PointerAlignment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Right&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;s&quot;&gt;PointerAlignment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Right&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Here is a C++ file from the xerces library (before formatting with clang-format)&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -1206,7 +1210,7 @@ code. Example .clang-format&lt;/p&gt;
     &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;c1&quot;&gt;// even we say we are going to process document type,
 &lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// we are not able be to see this node since
-&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// DOMLSSerializerImpl (a XercesC&#39;s default implementation
+&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// DOMLSSerializerImpl (a XercesC's default implementation
 &lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// of DOMLSSerializer) will not pass DocumentType node to
 &lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// this filter.
 &lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;//
@@ -1227,11 +1231,11 @@ code. Example .clang-format&lt;/p&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_ACCEPT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;same file after formatting with clang-format&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -1309,7 +1313,7 @@ code. Example .clang-format&lt;/p&gt;
     &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DOCUMENT_TYPE_NODE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;c1&quot;&gt;// even we say we are going to process document type,
 &lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// we are not able be to see this node since
-&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// DOMLSSerializerImpl (a XercesC&#39;s default implementation
+&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// DOMLSSerializerImpl (a XercesC's default implementation
 &lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// of DOMLSSerializer) will not pass DocumentType node to
 &lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;// this filter.
 &lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;//
@@ -1328,11 +1332,11 @@ code. Example .clang-format&lt;/p&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DOMNodeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FILTER_ACCEPT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;em&gt;Clean code == Happy Programmer, Keep hacking!!!!&lt;/em&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;##References&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://llvm.org/releases/3.5.0/tools/clang/docs/ClangFormatStyleOptions.html&quot;&gt;http://llvm.org/releases/3.5.0/tools/clang/docs/ClangFormatStyleOptions.html&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.irill.org/videos/euro-llvm-2013/jasper-hires.webm&quot;&gt;http://www.irill.org/videos/euro-llvm-2013/jasper-hires.webm&lt;/a&gt;&lt;/li&gt;
@@ -1353,11 +1357,11 @@ code. Example .clang-format&lt;/p&gt;
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Here is a program to compute primes less than or equal to a given N concurrently in Go.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;c&quot;&gt;/* August 23, 2014
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;c&quot;&gt;/* August 23, 2014
  * Author: NagaChaitanya Vellanki
  * Concurrent Sieve of Eratosthenes
  */&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
@@ -1409,11 +1413,11 @@ code. Example .clang-format&lt;/p&gt;
 		&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
 	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
 
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;output-for-n--100&quot;&gt;Output for n = 100&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;Done computing primes less than or equal to 100  :-)
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;Done computing primes less than or equal to 100  :-)
 2
 3
 5
@@ -1439,7 +1443,7 @@ code. Example .clang-format&lt;/p&gt;
 83
 89
 97
-./sieve  0.00s user 0.00s system 60% cpu 0.004 total&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;./sieve  0.00s user 0.00s system 60% cpu 0.004 total&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://golang.org/pkg/sync/#WaitGroup&quot;&gt;sync.WaitGroup&lt;/a&gt;&lt;/li&gt;
@@ -1459,11 +1463,11 @@ code. Example .clang-format&lt;/p&gt;
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Concurrency in Go can be achieved by using &lt;a href=&quot;https://golang.org/doc/effective_go.html#goroutines&quot;&gt;goroutines&lt;/a&gt;, A goroutine is basically a function which executes concurrently with other goroutines/functions. Here is a basic &lt;a href=&quot;http://play.golang.org/p/I84oNjrh96&quot;&gt;example&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
 
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;time&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
@@ -1477,11 +1481,11 @@ code. Example .clang-format&lt;/p&gt;
 
   &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Second&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Good Bye!!!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;A goroutine can be invoked like this “go funcName()”. As goroutines execute concurrently with other functions we have used a time.Sleep with 1 second duration so that the goroutine can run. Let’s say if we did not have the time.Sleep in the main function, the program exits printing the “Good Bye!!!” string. Same &lt;a href=&quot;http://play.golang.org/p/PA50RJI1en&quot;&gt;example&lt;/a&gt; without the time.Sleep&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
 
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
 
@@ -1493,11 +1497,12 @@ code. Example .clang-format&lt;/p&gt;
   &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;go&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
 
   &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Good Bye!!!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+ &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Ah, you might be wondering what good are goroutines when i cannot pass information between goroutines, functions. This is where channels come into picture. A channel is pipe through which messages can be sent/received. More about channels &lt;a href=&quot;http://tour.golang.org/#66&quot;&gt;here&lt;/a&gt;. Let’s go through a example illustrating the usage of goroutines, channels.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;c&quot;&gt;/* August 22, 2014
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;c&quot;&gt;/* August 22, 2014
  * Author: NagaChaitanya Vellanki
  */&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
@@ -1643,11 +1648,11 @@ code. Example .clang-format&lt;/p&gt;
 	&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
 
 	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Finished fetching all feeds&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;sample-output&quot;&gt;Sample output&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;.....
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;.....
 ..... (truncated some output)
 .....
 .....
@@ -1714,7 +1719,7 @@ Finished Parsing a feed at:  2014-08-22 18:05:56.276493035 -0700 PDT
 Time out!!, lets move on
 Finished Parsing a feed at:  2014-08-22 18:06:56.277632245 -0700 PDT
 Finished fetching all feeds
-./test_feed  0.72s user 0.27s system 1% cpu 1:30.02 total&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;./test_feed  0.72s user 0.27s system 1% cpu 1:30.02 total&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The above program concurrently fetches the posts from the RSS feeds. We have a map with key as the feedURL, the value is the category the feed belongs to.
 &lt;br /&gt;&lt;/p&gt;
@@ -1724,15 +1729,15 @@ Finished fetching all feeds
 
 &lt;p&gt;I am really excited to write code in Go.&lt;strong&gt; Happy hacking Gophers!!!&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;h4 id=&quot;installing-a-go-package&quot;&gt;Installing a go package&lt;/h4&gt;
-&lt;p&gt;Set the GOPATH environment variable and install the package using the ‘go get’&lt;/p&gt;
+&lt;p&gt;####Installing a go package ####
+Set the GOPATH environment variable and install the package using the ‘go get’&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;export GOPATH=~/Documents/projects/go
-go get github.com/iand/feedparser&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;export GOPATH=~/Documents/projects/go
+&lt;span class=&quot;err&quot;&gt;go get github.com/iand/feedparser&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The package will be installed to $GOPATH/pkg directory.&lt;/p&gt;
 
-&lt;h4 id=&quot;go-resources&quot;&gt;Go Resources&lt;/h4&gt;
+&lt;p&gt;####Go Resources###&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://gobyexample.com/&quot;&gt;gobyexample.com&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://play.golang.org/&quot;&gt;play.golang.org&lt;/a&gt; web console to try out small go programs&lt;/li&gt;
@@ -1756,7 +1761,7 @@ go get github.com/iand/feedparser&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;div&gt;
 &lt;p&gt;
@@ -1769,12 +1774,12 @@ Reference: &lt;a href=&quot;http://en.wikipedia.org/wiki/Dragon_curve&quot; targ
 &lt;p&gt;
 To compile the program below :
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;clang++ -o dragon_curve dragon_curve.cpp -lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;err&quot;&gt;clang++ -o dragon_curve dragon_curve.cpp -lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
 4
@@ -2040,13 +2045,13 @@ To compile the program below :
     &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iterator&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;F&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'F'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;F+F-F&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;-&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'-'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;-&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;+&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'+'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
@@ -2076,19 +2081,19 @@ To compile the program below :
     &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iterator&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;X&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'X'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;X+YF&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;Y&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'Y'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;FX-Y&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;F&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'F'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;F&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;-&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'-'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;-&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;+&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'+'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
@@ -2119,19 +2124,19 @@ To compile the program below :
     &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iterator&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;X&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'X'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;X+YF+&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;Y&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'Y'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;-FX-Y&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;F&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'F'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;F&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;-&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'-'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;-&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;+&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'+'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
@@ -2168,7 +2173,7 @@ To compile the program below :
   &lt;span class=&quot;n&quot;&gt;glClear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GL_COLOR_BUFFER_BIT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;glPushMatrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iterator&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lrep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lrep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;F&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'F'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;glColor4f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;glLineWidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;glBegin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GL_LINES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -2177,11 +2182,11 @@ To compile the program below :
       &lt;span class=&quot;n&quot;&gt;glVertex2f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;glEnd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;-&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;+&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'-'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'+'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;glTranslatef&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-      &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sign&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&#39;-&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sign&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'-'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;glRotatef&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sign&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;angle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -2241,28 +2246,25 @@ To compile the program below :
   &lt;span class=&quot;n&quot;&gt;glfwTerminate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-
-
-##Hieghway Dragon
+&lt;p&gt;##Hieghway Dragon&lt;/p&gt;
 &lt;div&gt;
 &lt;img src=&quot;https://farm3.staticflickr.com/2938/14543504049_389bdbef25_k.jpg&quot; title=&quot;Hieghway Dragon&quot; alt=&quot;Hieghway Dragon&quot; /&gt;
 &lt;br /&gt;
 &lt;/div&gt;
 
-##Twin Dragon
+&lt;p&gt;##Twin Dragon&lt;/p&gt;
 &lt;div&gt;
 &lt;img src=&quot;https://farm4.staticflickr.com/3897/14543498728_295d60c947_k.jpg&quot; title=&quot;Twin Dragon&quot; alt=&quot;Twin Dragon&quot; /&gt;
 &lt;br /&gt;
 &lt;/div&gt;
 
-##Ter Dragon
+&lt;p&gt;##Ter Dragon&lt;/p&gt;
 &lt;div&gt;
 &lt;img src=&quot;https://farm3.staticflickr.com/2903/14707141896_0a0a1cb2fa_k.jpg&quot; title=&quot;Ter Dragon&quot; alt=&quot;Ter Dragon&quot; /&gt;
 &lt;br /&gt;
 &lt;/div&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
   &lt;p&gt;&lt;a href=&quot;/2014/07/21/dragon-curve&quot;&gt;Drawing Dragon Curve using L-system&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on July 21, 2014.&lt;/p&gt;</content>
 </entry>
@@ -2277,7 +2279,7 @@ To compile the program below :
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;div&gt;
 &lt;p&gt;
@@ -2291,12 +2293,12 @@ by Daniel Shiffman
 &lt;p&gt;
 To compile the program below :
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;clang -o bouncing_ball bouncing_ball.c -lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;err&quot;&gt;clang -o bouncing_ball bouncing_ball.c -lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
 2
 3
 4
@@ -2461,15 +2463,12 @@ To compile the program below :
       &lt;span class=&quot;n&quot;&gt;glfwTerminate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
       &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-
-
-##Video
+&lt;p&gt;##Video&lt;/p&gt;
 &lt;div&gt;
 &lt;iframe src=&quot;//player.vimeo.com/video/100959191&quot; width=&quot;500&quot; height=&quot;375&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href=&quot;http://vimeo.com/100959191&quot;&gt;Bouncing Ball&lt;/a&gt; from &lt;a href=&quot;http://vimeo.com/user19528801&quot;&gt;NagaChaitanya Vellanki&lt;/a&gt; on &lt;a href=&quot;https://vimeo.com&quot;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
   &lt;p&gt;&lt;a href=&quot;/2014/07/16/bouncing-ball-using-opengl&quot;&gt;Bouncing Ball using OpenGL&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on July 16, 2014.&lt;/p&gt;</content>
 </entry>
@@ -2484,28 +2483,28 @@ To compile the program below :
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I was wondering how to run OpenGL programs on Mac OSX mavericks. I have
 previously run programs on Windows using Visual Studio, so i knew that glut
 needs to be installed on the system. But a google search revealed that they
 are already installed on the Mac OSX. Here is the standard location for these frameworks.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;/System/Library/Frameworks » ls GLUT.framework OpenGL.framework
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;/System/Library/Frameworks » ls GLUT.framework OpenGL.framework
 GLUT.framework:
 GLUT       Headers    Resources  Versions   module.map
 
 OpenGL.framework:
-Headers    Libraries  OpenGL     Resources  Versions   module.map&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;Headers    Libraries  OpenGL     Resources  Versions   module.map&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;These can linked with your program using the –framework option&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;cc -o hello_gl hello_gl.c -framework,OpenGL,-framework,GLUT&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;err&quot;&gt;cc -o hello_gl hello_gl.c -framework,OpenGL,-framework,GLUT&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;You can also use the &lt;a href=&quot;http://www.glfw.org/&quot;&gt;&lt;b&gt;GLFW&lt;/b&gt;&lt;/a&gt; library for creating windows, keyboard and mouse events with OpenGL.
 Download the GLFW zip files from &lt;a href=&quot;http://www.glfw.org/&quot;&gt;&lt;b&gt;here&lt;/b&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~/Downloads » ls glfw-3.0.4.zip
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~/Downloads » ls glfw-3.0.4.zip
 glfw-3.0.4.zip
 
 ~/Downloads » unzip glfw-3.0.4.zip
@@ -2534,18 +2533,18 @@ CMakeLists.txt           README.md                deps                     examp
 -- Building GLFW only for the native architecture
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/nagachaitanyavellanki/Downloads/glfw-3.0.4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;-- Build files have been written to: /Users/nagachaitanyavellanki/Downloads/glfw-3.0.4&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The above cmake command will generate the required make file to build and install the library on the system.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~/Downloads/glfw-3.0.4 » ls
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;    ~/Downloads/glfw-3.0.4 » ls
     CMake                    CMakeLists.txt           README.md                cmake_uninstall.cmake.in examples                 tests
     CMakeCache.txt           COPYING.txt              cmake_install.cmake      deps                     include
-    CMakeFiles               Makefile                 cmake_uninstall.cmake    docs                     src&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;    CMakeFiles               Makefile                 cmake_uninstall.cmake    docs                     src&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Run ‘&lt;b&gt;make&lt;/b&gt;’ to build the library (Note: i have truncated the output of the make command)&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~/Downloads/glfw-3.0.4 » make
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;    ~/Downloads/glfw-3.0.4 » make
     [  2%] Building C object src/CMakeFiles/glfw.dir/clipboard.c.o
     [  4%] Building C object src/CMakeFiles/glfw.dir/context.c.o
     [  6%] Building C object src/CMakeFiles/glfw.dir/gamma.c.o
@@ -2563,11 +2562,11 @@ CMakeLists.txt           README.md                deps                     examp
     .......
     .......
     .......
-    [100%] Built target windows&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;    [100%] Built target windows&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Run ‘&lt;b&gt;make install&lt;/b&gt;’ to install the library to the standard system location&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~/Downloads/glfw-3.0.4 » sudo make install
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~/Downloads/glfw-3.0.4 » sudo make install
 Password:
 [ 36%] Built target glfw
 [ 38%] Built target Boing
@@ -2602,11 +2601,11 @@ Install the project...
 -- Installing: /usr/local/lib/cmake/glfw/glfwTargets.cmake
 -- Installing: /usr/local/lib/cmake/glfw/glfwTargets-noconfig.cmake
 -- Installing: /usr/local/lib/pkgconfig/glfw3.pc
--- Installing: /usr/local/lib/libglfw3.a&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;-- Installing: /usr/local/lib/libglfw3.a&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Here is a example OpenGL program from &lt;a href=&quot;http://www.glfw.org/docs/latest/quick.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;GLFW/glfw3.h&amp;gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;GLFW/glfw3.h&amp;gt;
 #include &amp;lt;stdlib.h&amp;gt;
 #include &amp;lt;stdio.h&amp;gt;
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;error_callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -2660,13 +2659,13 @@ Install the project...
     &lt;span class=&quot;n&quot;&gt;glfwDestroyWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;glfwTerminate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EXIT_SUCCESS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;To compile, run the above program (assuming it is saved in a hello_gl.c)&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~/Documents/projects/opengl(branch:master*) » cc -o hello_gl hello_gl.c /usr/local/lib/libglfw3.a -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~/Documents/projects/opengl(branch:master*) » cc -o hello_gl hello_gl.c /usr/local/lib/libglfw3.a -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
 
-~/Documents/projects/opengl(branch:master*) » ./hello_gl&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;~/Documents/projects/opengl(branch:master*) » ./hello_gl&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Here is a screenshot of the program window&lt;/p&gt;
 &lt;div&gt;
@@ -2676,11 +2675,11 @@ Install the project...
 
 &lt;p&gt;Hey, in case you want to use OpenGL, GLUT with your CUDA program. Here is how you compile your cuda program&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;nvcc julia_gpu.cu -Xlinker -framework,OpenGL,-framework,GLUT&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;err&quot;&gt;nvcc julia_gpu.cu -Xlinker -framework,OpenGL,-framework,GLUT&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Tip: To turn on dynlib use this option before running cmake&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;cmake -D BUILD_SHARED_LIBS=ON ./&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;err&quot;&gt;cmake -D BUILD_SHARED_LIBS=ON ./&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Happy Hacking!!!!&lt;/p&gt;
 
@@ -2697,7 +2696,7 @@ Install the project...
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;script src=&quot;https://gist.github.com/anonymous/4e3c254c8e0a993b4138.js&quot;&gt;//1&lt;/script&gt;
 
@@ -2715,22 +2714,22 @@ Install the project...
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;p&gt;SecureRandom module in Ruby can be used to generate random data (bytes,
 numbers, strings). It uses OpenSSL internally (see &lt;a href=&quot;https://github.com/ruby/ruby/blob/trunk/lib/securerandom.rb&quot;&gt;source code&lt;/a&gt;
 for more details).&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;securerandom&#39;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'securerandom'&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;002&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Module&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Module&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;Random numbers:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;To generate random integers less than n (n &amp;gt; 0)&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;004&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;times&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;random_number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;004&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;times&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;random_number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
   &lt;span class=&quot;mi&quot;&gt;43&lt;/span&gt;
   &lt;span class=&quot;mi&quot;&gt;85&lt;/span&gt;
   &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;
@@ -2741,11 +2740,12 @@ for more details).&lt;/p&gt;
   &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;
   &lt;span class=&quot;mi&quot;&gt;33&lt;/span&gt;
   &lt;span class=&quot;mi&quot;&gt;17&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;To generate random floating point numbers (specify n &amp;lt;= 0)&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;007&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;times&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;random_number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;007&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;times&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;random_number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
   &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4078857773248713&lt;/span&gt;
   &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4438855743681517&lt;/span&gt;
   &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;22977523972328207&lt;/span&gt;
@@ -2756,40 +2756,47 @@ for more details).&lt;/p&gt;
   &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7389558407058121&lt;/span&gt;
   &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8063676912935767&lt;/span&gt;
   &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6985829466830608&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;Random bytes:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;To generate random n bytes&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;random_bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xCC\x97\xA5\x18\xFF\xEA\x9B&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xB3\xA7\xB0\x0F\x85&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;random_bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xCC\x97\xA5\x18\xFF\xEA\x9B&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\xB3\xA7\xB0\x0F\x85&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;for hex bytes&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;011&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;hex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;88adbb214a8364c3ebf81e2203c7218ee3aaf59e&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;011&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;hex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;88adbb214a8364c3ebf81e2203c7218ee3aaf59e&quot;&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;for base64 encoded bytes&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;base64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;gPHf3U0npHmSXJTT+Xz/rn0C8Xg=&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;base64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;gPHf3U0npHmSXJTT+Xz/rn0C8Xg=&quot;&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;for url safe base64 encoded bytes&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;01&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;urlsafe_base64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a9xtB405QiSlIDNiX9AhSz4jYq8&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;01&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;urlsafe_base64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a9xtB405QiSlIDNiX9AhSz4jYq8&quot;&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This module can also be used for generating uuids similar to uuidgen&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;~ » uuidgen
-  0589FE3D-E65D-40F2-A3E3-301A5EF624E4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;  ~ » uuidgen
+  0589FE3D-E65D-40F2-A3E3-301A5EF624E4
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Note: the uuid generated by this module is completely random and is not made
 up of MAC address as per the docs&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;002&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;uuid&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;bf172c47-003e-4bad-b86d-0baffad78d6c&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;002&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;uuid&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;bf172c47-003e-4bad-b86d-0baffad78d6c&quot;&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 
   &lt;p&gt;&lt;a href=&quot;/2014/05/29/securerandom-ruby&quot;&gt;SecureRandom ruby&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on May 29, 2014.&lt;/p&gt;</content>
@@ -2805,11 +2812,11 @@ up of MAC address as per the docs&lt;/p&gt;
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;h4 id=&quot;stats-of-packages-available-in-apt-cache&quot;&gt;Stats of packages available in apt-cache&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » apt-cache stats
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » apt-cache stats
 Total package names: 56184 (1,124 k)
 Total package structures: 95540 (5,350 k)
   Normal packages: 65375
@@ -2826,11 +2833,11 @@ Total Provides mappings: 15671 (313 k)
 Total globbed strings: 378 (4,029 )
 Total dependency version space: 2,652 k
 Total slack space: 40.2 k
-Total space accounted for: 28.1 M&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;Total space accounted for: 28.1 M&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;update-the-package-database-as-specified-in-the-etcaptsourceslist-file&quot;&gt;Update the package database (as specified in the /etc/apt/sources.list file)&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get update
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get update
 Ign http://dl.google.com stable InRelease
 Hit http://dl.google.com stable Release.gpg
 Hit http://dl.google.com stable Release
@@ -2978,11 +2985,11 @@ Ign http://us.archive.ubuntu.com saucy-backports/multiverse Translation-en_US
 Ign http://us.archive.ubuntu.com saucy-backports/restricted Translation-en_US
 Ign http://us.archive.ubuntu.com saucy-backports/universe Translation-en_US
 Fetched 1,535 kB in 19s (79.2 kB/s)
-Reading package lists... Done&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;Reading package lists... Done&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;search-the-package-database-for-a-given-keyword&quot;&gt;Search the package database for a given keyword&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » apt-cache search mongodb
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » apt-cache search mongodb
 python-bson - Python implementation of BSON for MongoDB
 python-bson-ext - C-coded extension to the python-bson package
 python-celery - async task/job queue based on message passing
@@ -3023,11 +3030,11 @@ syslog-ng-core - Next generation system logging daemon (core)
 syslog-ng-dbg - Next generation system logging daemon (debug symbols)
 syslog-ng-mod-json - Next generation system logging daemon (JSON plugin)
 syslog-ng-mod-mongodb - Next generation system logging daemon (MongoDB plugin)
-syslog-ng-mod-sql - Next generation system logging daemon (SQL plugin)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;syslog-ng-mod-sql - Next generation system logging daemon (SQL plugin)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;installing-a-package&quot;&gt;Installing a package&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;sudo apt-get install postgresql
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;sudo apt-get install postgresql
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -3058,7 +3065,7 @@ Selecting previously unselected package postgresql-client-9.1.
 Unpacking postgresql-client-9.1 (from .../postgresql-client-9.1_9.1.12-0ubuntu0.13.10_amd64.deb) ...
 Selecting previously unselected package postgresql-common.
 Unpacking postgresql-common (from .../postgresql-common_148_all.deb) ...
-Adding &#39;diversion of /usr/bin/pg_config to /usr/bin/pg_config.libpq-dev by postgresql-common&#39;
+Adding 'diversion of /usr/bin/pg_config to /usr/bin/pg_config.libpq-dev by postgresql-common'
 Selecting previously unselected package postgresql-9.1.
 Unpacking postgresql-9.1 (from .../postgresql-9.1_9.1.12-0ubuntu0.13.10_amd64.deb) ...
 Selecting previously unselected package postgresql.
@@ -3089,17 +3096,17 @@ Creating new cluster 9.1/main ...
 update-alternatives: using /usr/share/postgresql/9.1/man/man1/postmaster.1.gz to provide /usr/share/man/man1/postmaster.1.gz (postmaster.1.gz) in auto mode
 * Starting PostgreSQL 9.1 database server                                                                                                                        [ OK ]
 Setting up postgresql (9.3+146really9.1+148) ...
-Processing triggers for libc-bin ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;Processing triggers for libc-bin ...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;download-a-package-without-installing&quot;&gt;Download a package without installing&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get download mysql-server
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get download mysql-server
 Get:1 Downloading mysql-server 5.5.35-0ubuntu0.13.10.2 [11.1 kB]
-Fetched 11.1 kB in 0s (50.4 kB/s)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;Fetched 11.1 kB in 0s (50.4 kB/s)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;show-info-about-a-package&quot;&gt;Show info about a package&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » apt-cache show mongodb
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » apt-cache show mongodb
 Package: mongodb
 Priority: optional
 Section: universe/database
@@ -3116,8 +3123,8 @@ SHA1: 340bddf7c143c8358c2acb9a52e1b46cf2d2e4c2
 SHA256: 13697dcab4532eef6bc3a9fccd45a3eb6ccee8e5d39c0bc9a998be8d562215f7
 Description-en: object/document-oriented database (metapackage)
 MongoDB is a high-performance, open source, schema-free
-document-oriented data store that&#39;s easy to deploy, manage
-and use. It&#39;s network accessible, written in C++ and offers
+document-oriented data store that's easy to deploy, manage
+and use. It's network accessible, written in C++ and offers
 the following features:
 .
     * Collection oriented storage - easy storage of object-style data
@@ -3136,11 +3143,11 @@ Description-md5: 8fa8c030cb4f008d0ac716b496446f9d
 Homepage: http://www.mongodb.org
 Description-md5: 8fa8c030cb4f008d0ac716b496446f9d
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
-Origin: Ubuntu&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;Origin: Ubuntu&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;upgrade-installed-packages&quot;&gt;Upgrade installed packages&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get upgrade
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get upgrade
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -3190,23 +3197,23 @@ Removing debian:cacert.org_root.pem
 Removing debian:Equifax_Secure_eBusiness_CA_2.pem
 Removing debian:TC_TrustCenter_Universal_CA_III.pem
 done.
-done.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;done.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;upgrade-to-a-new-release-of-ubuntu&quot;&gt;Upgrade to a new release of ubuntu&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get dist-upgrade&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;err&quot;&gt;~ » sudo apt-get dist-upgrade&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;remove-archived-packages-in-varcacheaptarchives&quot;&gt;Remove archived packages in /var/cache/apt/archives&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get clean&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;err&quot;&gt;~ » sudo apt-get clean&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;remove-obsolete-packages&quot;&gt;Remove obsolete packages&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get autoclean&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;err&quot;&gt;~ » sudo apt-get autoclean&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;remove-a-package&quot;&gt;Remove a package&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get remove postgresql
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get remove postgresql
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -3214,32 +3221,32 @@ The following packages were automatically installed and are no longer
 required:
   libpq5 postgresql-9.1 postgresql-client-9.1 postgresql-client-common
   postgresql-common
-  Use &#39;apt-get autoremove&#39; to remove them.
+  Use 'apt-get autoremove' to remove them.
   The following packages will be REMOVED:
     postgresql
     0 upgraded, 0 newly installed, 1 to remove and 0 not upgraded.
     After this operation, 70.7 kB disk space will be freed.
     Do you want to continue [Y/n]? y
     (Reading database ... 220711 files and directories currently installed.)
-    Removing postgresql ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;    Removing postgresql ...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;remove-a-package-with-config-files&quot;&gt;Remove a package with config files&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get remove --purge postgresql
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get remove --purge postgresql
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
-Package &#39;postgresql&#39; is not installed, so not removed
+Package 'postgresql' is not installed, so not removed
 The following packages were automatically installed and are no longer
 required:
   libpq5 postgresql-9.1 postgresql-client-9.1 postgresql-client-common
   postgresql-common
-  Use &#39;apt-get autoremove&#39; to remove them.
-  0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  Use 'apt-get autoremove' to remove them.
+&lt;span class=&quot;err&quot;&gt;  0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;remove-dependencies-for-a-removed-package&quot;&gt;Remove dependencies for a removed package&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get autoremove
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get autoremove
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -3257,20 +3264,20 @@ The following packages will be REMOVED:
     Removing libpq5 ...
     Removing postgresql-common ...
       * No PostgreSQL clusters exist; see &quot;man pg_createcluster&quot;
-      Removing &#39;diversion of /usr/bin/pg_config to
-      /usr/bin/pg_config.libpq-dev by postgresql-common&#39;
+      Removing 'diversion of /usr/bin/pg_config to
+      /usr/bin/pg_config.libpq-dev by postgresql-common'
       Removing postgresql-client-common ...
       Processing triggers for libc-bin ...
       Processing triggers for ureadahead ...
-      Processing triggers for man-db ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;      Processing triggers for man-db ...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;install-a-package-even-if-the-dependencies-are-unmet&quot;&gt;Install a package even if the dependencies are unmet&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-get install -f postgresql&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;err&quot;&gt;~ » sudo apt-get install -f postgresql&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;list-dependencies-of-a-package&quot;&gt;List dependencies of a package&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-cache depends vim
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-cache depends vim
 vim
   Depends: vim-common
   Depends: vim-runtime
@@ -3285,11 +3292,11 @@ vim
     exuberant-ctags
   Suggests: vim-doc
   Suggests: vim-scripts
-  Conflicts: vim:i386&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;  Conflicts: vim:i386&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;list-trusted-gpg-keys-for-package-sources&quot;&gt;List trusted GPG keys for package sources&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-key list
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » sudo apt-key list
 /etc/apt/trusted.gpg
 \--------------------
 pub   1024D/437D05B5 2004-09-12
@@ -3338,16 +3345,16 @@ uid                  Launchpad PPA for Alex Murray
 /etc/apt/trusted.gpg.d//bitcoin-bitcoin.gpg
 \-------------------------------------------
 pub   1024R/8842CE5E 2011-10-26
-uid                  Launchpad PPA for Bitcoin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;err&quot;&gt;uid                  Launchpad PPA for Bitcoin&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;list-aptitude-config-see-apt-config--h-for-more-options&quot;&gt;List aptitude config (see apt-config -h for more options)&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » apt-config -v
-apt 0.9.9.1~ubuntu 1 for amd64 compiled on Sep 11 2013 17:45:29&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » apt-config -v
+&lt;span class=&quot;err&quot;&gt;apt 0.9.9.1~ubuntu 1 for amd64 compiled on Sep 11 2013 17:45:29&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;list-all-package-names&quot;&gt;List all package names&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;~ » apt-cache pkgnames&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;err&quot;&gt;~ » apt-cache pkgnames&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 
   &lt;p&gt;&lt;a href=&quot;/2014/03/24/ubuntu-package-management-demystified&quot;&gt;Ubuntu package management desmystified&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on March 24, 2014.&lt;/p&gt;</content>
@@ -3363,7 +3370,7 @@ apt 0.9.9.1~ubuntu 1 for amd64 compiled on Sep 11 2013 17:45:29&lt;/code&gt;&lt;
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/6328763.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
@@ -3381,7 +3388,7 @@ apt 0.9.9.1~ubuntu 1 for amd64 compiled on Sep 11 2013 17:45:29&lt;/code&gt;&lt;
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/6328813.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
@@ -3399,7 +3406,7 @@ apt 0.9.9.1~ubuntu 1 for amd64 compiled on Sep 11 2013 17:45:29&lt;/code&gt;&lt;
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/6328707.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
@@ -3417,7 +3424,7 @@ apt 0.9.9.1~ubuntu 1 for amd64 compiled on Sep 11 2013 17:45:29&lt;/code&gt;&lt;
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/6328647.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
@@ -3435,7 +3442,7 @@ apt 0.9.9.1~ubuntu 1 for amd64 compiled on Sep 11 2013 17:45:29&lt;/code&gt;&lt;
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;p&gt;&lt;a href=&quot;https://vimeo.com/70286524&quot;&gt;click here to watch this video on HD fullscreen&lt;/a&gt;&lt;/p&gt;
 
@@ -3457,7 +3464,7 @@ apt 0.9.9.1~ubuntu 1 for amd64 compiled on Sep 11 2013 17:45:29&lt;/code&gt;&lt;
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;p&gt;&lt;a href=&quot;https://vimeo.com/70285723&quot;&gt;click here to watch this video on HD fullscreen&lt;/a&gt;&lt;/p&gt;
 
@@ -3481,27 +3488,27 @@ Vellanki&lt;/a&gt; on &lt;a href=&quot;https://vimeo.com&quot;&gt;Vimeo&lt;/a&gt
   <author>
     <name>NagaChaitanya Vellanki</name>
     <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
+    <email>vellanki.nagachaitanya@protonmail.com</email>
   </author>
   <content type="html">&lt;h4 id=&quot;using-apg-see-man-apg&quot;&gt;Using apg (see man apg)&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;~ » apg -M SNCL
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;~ » apg -M SNCL
 5OvDolges]
 or{Kneek7
 Poos&quot;dres2
 ecWopp4of&quot;
 Posh[glyd5
-5dranKad)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+5dranKad)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;using-devurandom-see-man-urandom&quot;&gt;Using /dev/urandom (see man urandom)&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;~ » cat /dev/urandom | tr -C -d &#39;A-Za-z0-9!@^*&#39; | fold -w 10 | head -n 1
-7!g^eRV7qV&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;~ » cat /dev/urandom | tr -C -d 'A-Za-z0-9!@^*' | fold -w 10 | head -n 1
+7!g^eRV7qV&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;using-pwgen-see-man-pwgen&quot;&gt;Using pwgen (see man pwgen)&lt;/h4&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;~ » pwgen -s -y -N 1
-nR4UH1?@&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell-session&quot; data-lang=&quot;shell-session&quot;&gt;~ » pwgen -s -y -N 1
+nR4UH1?@&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;For more info read this &lt;a href=&quot;http://unix.stackexchange.com/questions/462/how-to-create-strong-passwords-in-linux&quot;&gt;thread&lt;/a&gt;
 on unix.stackexchange&lt;/p&gt;

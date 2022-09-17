@@ -1,0 +1,426 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+<meta charset="utf-8">
+<title>Getting started with OpenGL on Mac OSX mavericks &#8211; Code Musings</title>
+<meta name="description" content="">
+<meta name="keywords" content="OpenGL">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting started with OpenGL on Mac OSX mavericks">
+<meta property="og:description" content="">
+<meta property="og:url" content="/2014/07/13/getting-starting-with-opengl">
+<meta property="og:site_name" content="Code Musings">
+
+
+
+
+
+<link rel="canonical" href="/2014/07/13/getting-starting-with-opengl">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Code Musings Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=NTR" rel="stylesheet">
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+<link rel="stylesheet" href="/assets/css/pygments.css">
+<link rel="stylesheet" href="/assets/css/monokai.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+	<script src="/assets/js/vendor/html5shiv.min.js"></script>
+	<script src="/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+
+<!-- Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="">Code Musings</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" id="site-nav" class="nav">
+		    <ul>
+		        
+				<li><a href="/about/" >About</a></li>
+		        
+				<li><a href="/posts/" >Posts</a></li>
+		        
+				<li><a href="/origami/" >Origami</a></li>
+		        
+				<li><a href="/fractals/" >Fractals</a></li>
+		        
+				<li><a href="/tags/" >Tags</a></li>
+		        
+				<li><a href="/papers/" >Papers</a></li>
+		        
+				<li><a href="/diversions/" >Diversions</a></li>
+		        
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    
+	<img src="/images/bio-photo.png" class="bio-photo" alt="NagaChaitanya Vellanki bio photo"></a>
+
+<h3>NagaChaitanya Vellanki</h3>
+<p></p>
+<a href="mailto:vellanki.nagachaitanya@protonmail.com" class="author-social" target="_blank"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i> Email</a>
+
+
+
+<a href="http://linkedin.com/in/nagachaitanya" class="author-social" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i> LinkedIn</a>
+
+
+<a href="http://github.com/chaitanyav" class="author-social" target="_blank"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i> Github</a>
+
+
+
+
+
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      
+        <h1><a href="/2014/07/13/getting-starting-with-opengl" rel="bookmark" title="Getting started with OpenGL on Mac OSX mavericks">Getting started with OpenGL on Mac OSX mavericks</a></h1>
+      
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>I was wondering how to run OpenGL programs on Mac OSX mavericks. I have
+previously run programs on Windows using Visual Studio, so i knew that glut
+needs to be installed on the system. But a google search revealed that they
+are already installed on the Mac OSX. Here is the standard location for these frameworks.</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console">/System/Library/Frameworks » ls GLUT.framework OpenGL.framework
+GLUT.framework:
+GLUT       Headers    Resources  Versions   module.map
+
+OpenGL.framework:
+<span class="err">Headers    Libraries  OpenGL     Resources  Versions   module.map</span></code></pre></figure>
+
+<p>These can linked with your program using the –framework option</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="err">cc -o hello_gl hello_gl.c -framework,OpenGL,-framework,GLUT</span></code></pre></figure>
+
+<p>You can also use the <a href="http://www.glfw.org/"><b>GLFW</b></a> library for creating windows, keyboard and mouse events with OpenGL.
+Download the GLFW zip files from <a href="http://www.glfw.org/"><b>here</b></a></p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console">~/Downloads » ls glfw-3.0.4.zip
+glfw-3.0.4.zip
+
+~/Downloads » unzip glfw-3.0.4.zip
+
+~/Downloads » cd glfw-3.0.4
+
+~/Downloads/glfw-3.0.4 » ls
+CMake                    COPYING.txt              cmake_uninstall.cmake.in docs                     include                  tests
+CMakeLists.txt           README.md                deps                     examples                 src
+
+~/Downloads/glfw-3.0.4 » cmake .
+-- The C compiler identification is Clang 5.1.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Found OpenGL: /System/Library/Frameworks/OpenGL.framework
+-- Looking for include file pthread.h
+-- Looking for include file pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - found
+-- Found Threads: TRUE
+-- Could NOT find Doxygen (missing:  DOXYGEN_EXECUTABLE)
+-- Using Cocoa for window creation
+-- Using NSGL for context creation
+-- Building GLFW only for the native architecture
+-- Configuring done
+-- Generating done
+<span class="err">-- Build files have been written to: /Users/nagachaitanyavellanki/Downloads/glfw-3.0.4</span></code></pre></figure>
+
+<p>The above cmake command will generate the required make file to build and install the library on the system.</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console">    ~/Downloads/glfw-3.0.4 » ls
+    CMake                    CMakeLists.txt           README.md                cmake_uninstall.cmake.in examples                 tests
+    CMakeCache.txt           COPYING.txt              cmake_install.cmake      deps                     include
+<span class="err">    CMakeFiles               Makefile                 cmake_uninstall.cmake    docs                     src</span></code></pre></figure>
+
+<p>Run ‘<b>make</b>’ to build the library (Note: i have truncated the output of the make command)</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console">    ~/Downloads/glfw-3.0.4 » make
+    [  2%] Building C object src/CMakeFiles/glfw.dir/clipboard.c.o
+    [  4%] Building C object src/CMakeFiles/glfw.dir/context.c.o
+    [  6%] Building C object src/CMakeFiles/glfw.dir/gamma.c.o
+    [  8%] Building C object src/CMakeFiles/glfw.dir/init.c.o
+    [ 10%] Building C object src/CMakeFiles/glfw.dir/input.c.o
+    [ 12%] Building C object src/CMakeFiles/glfw.dir/joystick.c.o
+    [ 14%] Building C object src/CMakeFiles/glfw.dir/monitor.c.o
+    [ 17%] Building C object src/CMakeFiles/glfw.dir/time.c.o
+    [ 19%] Building C object src/CMakeFiles/glfw.dir/window.c.o
+    [ 21%] Building C object src/CMakeFiles/glfw.dir/cocoa_clipboard.m.o
+    [ 23%] Building C object src/CMakeFiles/glfw.dir/cocoa_gamma.c.o
+    [ 25%] Building C object src/CMakeFiles/glfw.dir/cocoa_init.m.o
+    [ 27%] Building C object src/CMakeFiles/glfw.dir/cocoa_joystick.m.o
+    [ 29%] Building C object src/CMakeFiles/glfw.dir/cocoa_monitor.m.o
+    .......
+    .......
+    .......
+<span class="err">    [100%] Built target windows</span></code></pre></figure>
+
+<p>Run ‘<b>make install</b>’ to install the library to the standard system location</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console">~/Downloads/glfw-3.0.4 » sudo make install
+Password:
+[ 36%] Built target glfw
+[ 38%] Built target Boing
+[ 40%] Built target Gears
+[ 42%] Built target Simple
+[ 44%] Built target Split View
+[ 46%] Built target Wave
+[ 48%] Built target accuracy
+[ 53%] Built target clipboard
+[ 55%] Built target defaults
+[ 59%] Built target events
+[ 63%] Built target fsaa
+[ 68%] Built target gamma
+[ 72%] Built target glfwinfo
+[ 76%] Built target iconify
+[ 78%] Built target joysticks
+[ 82%] Built target modes
+[ 85%] Built target peter
+[ 87%] Built target reopen
+[ 89%] Built target sharing
+[ 91%] Built target tearing
+[ 95%] Built target threads
+[ 97%] Built target title
+[100%] Built target windows
+Install the project...
+-- Install configuration: ""
+-- Installing: /usr/local/include/GLFW
+-- Installing: /usr/local/include/GLFW/glfw3.h
+-- Installing: /usr/local/include/GLFW/glfw3native.h
+-- Installing: /usr/local/lib/cmake/glfw/glfwConfig.cmake
+-- Installing: /usr/local/lib/cmake/glfw/glfwConfigVersion.cmake
+-- Installing: /usr/local/lib/cmake/glfw/glfwTargets.cmake
+-- Installing: /usr/local/lib/cmake/glfw/glfwTargets-noconfig.cmake
+-- Installing: /usr/local/lib/pkgconfig/glfw3.pc
+<span class="err">-- Installing: /usr/local/lib/libglfw3.a</span></code></pre></figure>
+
+<p>Here is a example OpenGL program from <a href="http://www.glfw.org/docs/latest/quick.html">here</a></p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;GLFW/glfw3.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+</span><span class="k">static</span> <span class="kt">void</span> <span class="nf">error_callback</span><span class="p">(</span><span class="kt">int</span> <span class="n">error</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">description</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">fputs</span><span class="p">(</span><span class="n">description</span><span class="p">,</span> <span class="n">stderr</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">key_callback</span><span class="p">(</span><span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span> <span class="kt">int</span> <span class="n">key</span><span class="p">,</span> <span class="kt">int</span> <span class="n">scancode</span><span class="p">,</span> <span class="kt">int</span> <span class="n">action</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mods</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">GLFW_KEY_ESCAPE</span> <span class="o">&amp;&amp;</span> <span class="n">action</span> <span class="o">==</span> <span class="n">GLFW_PRESS</span><span class="p">)</span>
+        <span class="n">glfwSetWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">GL_TRUE</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">GLFWwindow</span><span class="o">*</span> <span class="n">window</span><span class="p">;</span>
+    <span class="n">glfwSetErrorCallback</span><span class="p">(</span><span class="n">error_callback</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">glfwInit</span><span class="p">())</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">glfwCreateWindow</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="s">"Simple example"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">window</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">glfwTerminate</span><span class="p">();</span>
+        <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">glfwMakeContextCurrent</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+    <span class="n">glfwSetKeyCallback</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">key_callback</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">glfwWindowShouldClose</span><span class="p">(</span><span class="n">window</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="kt">float</span> <span class="n">ratio</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+        <span class="n">glfwGetFramebufferSize</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">width</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">height</span><span class="p">);</span>
+        <span class="n">ratio</span> <span class="o">=</span> <span class="n">width</span> <span class="o">/</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="n">height</span><span class="p">;</span>
+        <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+        <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="p">);</span>
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">);</span>
+        <span class="n">glLoadIdentity</span><span class="p">();</span>
+        <span class="n">glOrtho</span><span class="p">(</span><span class="o">-</span><span class="n">ratio</span><span class="p">,</span> <span class="n">ratio</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">);</span>
+        <span class="n">glLoadIdentity</span><span class="p">();</span>
+        <span class="n">glRotatef</span><span class="p">((</span><span class="kt">float</span><span class="p">)</span> <span class="n">glfwGetTime</span><span class="p">()</span> <span class="o">*</span> <span class="mi">50</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
+        <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_TRIANGLES</span><span class="p">);</span>
+        <span class="n">glColor3f</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
+        <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">6</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
+        <span class="n">glColor3f</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
+        <span class="n">glVertex3f</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">6</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
+        <span class="n">glColor3f</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
+        <span class="n">glVertex3f</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">6</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="n">f</span><span class="p">);</span>
+        <span class="n">glEnd</span><span class="p">();</span>
+        <span class="n">glfwSwapBuffers</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+        <span class="n">glfwPollEvents</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="n">glfwDestroyWindow</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+    <span class="n">glfwTerminate</span><span class="p">();</span>
+    <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_SUCCESS</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>To compile, run the above program (assuming it is saved in a hello_gl.c)</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console">~/Documents/projects/opengl(branch:master*) » cc -o hello_gl hello_gl.c /usr/local/lib/libglfw3.a -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
+
+<span class="err">~/Documents/projects/opengl(branch:master*) » ./hello_gl</span></code></pre></figure>
+
+<p>Here is a screenshot of the program window</p>
+<div>
+<img src="/images/screenshot.png" title="hello_gl output" alt="hello_gl output" />
+<br />
+</div>
+
+<p>Hey, in case you want to use OpenGL, GLUT with your CUDA program. Here is how you compile your cuda program</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="err">nvcc julia_gpu.cu -Xlinker -framework,OpenGL,-framework,GLUT</span></code></pre></figure>
+
+<p>Tip: To turn on dynlib use this option before running cmake</p>
+
+<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="err">cmake -D BUILD_SHARED_LIBS=ON ./</span></code></pre></figure>
+
+<p>Happy Hacking!!!!</p>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          
+	<img src="/images/bio-photo.png" class="bio-photo" alt="NagaChaitanya Vellanki bio photo"></a>
+
+<h3>NagaChaitanya Vellanki</h3>
+<p></p>
+<a href="mailto:vellanki.nagachaitanya@protonmail.com" class="author-social" target="_blank"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i> Email</a>
+
+
+
+<a href="http://linkedin.com/in/nagachaitanya" class="author-social" target="_blank"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i> LinkedIn</a>
+
+
+<a href="http://github.com/chaitanyav" class="author-social" target="_blank"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i> Github</a>
+
+
+
+
+
+
+
+        </div>
+        <p class="byline"><strong>Getting started with OpenGL on Mac OSX mavericks</strong> was published on <time datetime="2014-07-13T00:00:00+00:00">July 13, 2014</time> by <a href="/about" title="About NagaChaitanya Vellanki">NagaChaitanya Vellanki</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+  
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      <li><a href="/2017/08/20/google-test-part2" title="Google Test - Part 2">Google Test - Part 2</a></li>
+    
+      <li><a href="/2017/07/24/google-test-part1" title="Google Test - Part 1">Google Test - Part 1</a></li>
+    
+      <li><a href="/2017/07/23/google-test" title="Google Test & Google Mock Installation">Google Test & Google Mock Installation</a></li>
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2017 NagaChaitanya Vellanki. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/minimal-mistakes/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript"
+    src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+  
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'codemusings'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+	        
+
+</body>
+</html>
