@@ -4,13 +4,82 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2017-07-23T10:07:19+00:00</updated>
+<updated>2017-07-23T21:27:18+00:00</updated>
 <id>/</id>
 <author>
   <name>NagaChaitanya Vellanki</name>
   <uri>/</uri>
   <email>me@chaitanyavellanki.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Google Test - Part 1]]></title>
+  <link rel="alternate" type="text/html" href="/2017/07/24/google-test-part1" />
+  <id>/2017/07/24/google-test-part1</id>
+  <published>2017-07-24T00:00:00+00:00</published>
+  <updated>2017-07-24T00:00:00+00:00</updated>
+  <author>
+    <name>NagaChaitanya Vellanki</name>
+    <uri></uri>
+    <email>me@chaitanyavellanki.com</email>
+  </author>
+  <content type="html">&lt;h3 id=&quot;dissecting-our-first-test-program-using-google-test-gtest&quot;&gt;Dissecting our first test program using Google Test (gtest)&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &quot;gtest/gtest.h&quot;
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;TEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LearnGoogleTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Test1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InitGoogleTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RUN_ALL_TESTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The test program starts by including the header file &lt;em&gt;“gtest/gtest.h”&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;The &lt;em&gt;::testing::InitGoogleTest(&amp;amp;argc, argrv)&lt;/em&gt; call parses the commandline gtest flags to 
+the test program and removes all unrecognised flags. It should be called before the call to
+macro &lt;em&gt;RUN_ALL_TESTS()&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;RUN_ALL_TESTS()&lt;/em&gt; macro call runs all the test in the given program.&lt;/li&gt;
+  &lt;li&gt;Each test is defined in the &lt;em&gt;TEST(test_case_name, test_name)&lt;/em&gt; macro block. For e.g.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;n&quot;&gt;TEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Factorial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;EXPECT_EQ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;EXPECT_EQ(val1, val2)&lt;/em&gt; is a assertion macro which tests for &lt;em&gt;val1 == val2&lt;/em&gt; &lt;/p&gt;
+
+&lt;h3 id=&quot;compiling-and-running-a-test-program&quot;&gt;Compiling and Running a test program&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &quot;gtest/gtest.h&quot;
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;TEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LearnGoogleTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Test1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;EXPECT_EQ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InitGoogleTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RUN_ALL_TESTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;~/Documents/projects/cpp_gtest ᐅ clang++ -o first_example first_example.cpp -I/usr/local/include --std&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c++14 -L/usr/local/lib -lgtest
+
+~/Documents/projects/cpp_gtest ᐅ ./first_example
+&lt;span class=&quot;o&quot;&gt;[==========]&lt;/span&gt; Running 1 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;from 1 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt;.
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;----------] Global &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;environment &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;-up.
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;----------] 1 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;from LearnGoogleTest
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; RUN      &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; LearnGoogleTest.Test1
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;       OK &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; LearnGoogleTest.Test1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0 ms&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;----------] 1 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;from LearnGoogleTest &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0 ms total&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;----------] Global &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;environment tear-down
+&lt;span class=&quot;o&quot;&gt;[==========]&lt;/span&gt; 1 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;from 1 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; ran. &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0 ms total&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;  PASSED  &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; 1 test.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/2017/07/24/google-test-part1&quot;&gt;Google Test - Part 1&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on July 24, 2017.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -3221,28 +3290,6 @@ on unix.stackexchange&lt;/p&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/5828321.js&quot;&gt;//4&lt;/script&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;/2013/06/20/working-with-time&quot;&gt;working with time&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on June 20, 2013.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[system and file limits]]></title>
-  <link rel="alternate" type="text/html" href="/2013/06/20/system-and-file-limits" />
-  <id>/2013/06/20/system-and-file-limits</id>
-  <published>2013-06-20T00:00:00+00:00</published>
-  <updated>2013-06-20T00:00:00+00:00</updated>
-  <author>
-    <name>NagaChaitanya Vellanki</name>
-    <uri></uri>
-    <email>me@chaitanyavellanki.com</email>
-  </author>
-  <content type="html">&lt;h3 id=&quot;system-limits-using-sysconf&quot;&gt;system limits using sysconf()&lt;/h3&gt;
-&lt;script src=&quot;https://gist.github.com/chaitanyav/5828394.js&quot;&gt;i//1&lt;/script&gt;
-
-&lt;h3 id=&quot;file-related-limits-using-fpathconf&quot;&gt;file related limits using fpathconf()&lt;/h3&gt;
-&lt;script src=&quot;https://gist.github.com/chaitanyav/5828408.js&quot;&gt;//2&lt;/script&gt;
-
-
-  &lt;p&gt;&lt;a href=&quot;/2013/06/20/system-and-file-limits&quot;&gt;system and file limits&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on June 20, 2013.&lt;/p&gt;</content>
 </entry>
 
 </feed>
