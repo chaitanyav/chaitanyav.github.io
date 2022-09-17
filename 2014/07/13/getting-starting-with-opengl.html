@@ -142,26 +142,26 @@ previously run programs on Windows using Visual Studio, so i knew that glut
 needs to be installed on the system. But a google search revealed that they
 are already installed on the Mac OSX. Here is the standard location for these frameworks.</p>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">/System/Library/Frameworks » ls GLUT.framework OpenGL.framework
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">/System/Library/Frameworks » ls GLUT.framework OpenGL.framework
 GLUT.framework:
 GLUT       Headers    Resources  Versions   module.map
 
 OpenGL.framework:
-<span class="err">Headers    Libraries  OpenGL     Resources  Versions   module.map</span></code></pre></figure>
+Headers    Libraries  OpenGL     Resources  Versions   module.map</code></pre></figure>
 
 <p>These can linked with your program using the –framework option</p>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="err">cc -o hello_gl hello_gl.c -framework,OpenGL,-framework,GLUT</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">cc -o hello_gl hello_gl.c -framework,OpenGL,-framework,GLUT</code></pre></figure>
 
 <p>You can also use the <a href="http://www.glfw.org/"><b>GLFW</b></a> library for creating windows, keyboard and mouse events with OpenGL.
 Download the GLFW zip files from <a href="http://www.glfw.org/"><b>here</b></a></p>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~/Downloads » ls glfw-3.0.4.zip
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Downloads » ls glfw-3.0.4.zip
 glfw-3.0.4.zip
 
 ~/Downloads » unzip glfw-3.0.4.zip
 
-~/Downloads » cd glfw-3.0.4
+~/Downloads » <span class="nb">cd </span>glfw-3.0.4
 
 ~/Downloads/glfw-3.0.4 » ls
 CMake                    COPYING.txt              cmake_uninstall.cmake.in docs                     include                  tests
@@ -169,82 +169,82 @@ CMakeLists.txt           README.md                deps                     examp
 
 ~/Downloads/glfw-3.0.4 » cmake .
 -- The C compiler identification is Clang 5.1.0
--- Check for working C compiler: /usr/bin/cc
--- Check for working C compiler: /usr/bin/cc -- works
+-- Check <span class="k">for </span>working C compiler: /usr/bin/cc
+-- Check <span class="k">for </span>working C compiler: /usr/bin/cc -- works
 -- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
+-- Detecting C compiler ABI info - <span class="k">done</span>
 -- Found OpenGL: /System/Library/Frameworks/OpenGL.framework
--- Looking for include file pthread.h
--- Looking for include file pthread.h - found
--- Looking for pthread_create
--- Looking for pthread_create - found
+-- Looking <span class="k">for </span>include file pthread.h
+-- Looking <span class="k">for </span>include file pthread.h - found
+-- Looking <span class="k">for </span>pthread_create
+-- Looking <span class="k">for </span>pthread_create - found
 -- Found Threads: TRUE
--- Could NOT find Doxygen (missing:  DOXYGEN_EXECUTABLE)
--- Using Cocoa for window creation
--- Using NSGL for context creation
--- Building GLFW only for the native architecture
--- Configuring done
--- Generating done
-<span class="err">-- Build files have been written to: /Users/nagachaitanyavellanki/Downloads/glfw-3.0.4</span></code></pre></figure>
+-- Could NOT find Doxygen <span class="o">(</span>missing:  DOXYGEN_EXECUTABLE<span class="o">)</span>
+-- Using Cocoa <span class="k">for </span>window creation
+-- Using NSGL <span class="k">for </span>context creation
+-- Building GLFW only <span class="k">for </span>the native architecture
+-- Configuring <span class="k">done</span>
+-- Generating <span class="k">done</span>
+-- Build files have been written to: /Users/nagachaitanyavellanki/Downloads/glfw-3.0.4</code></pre></figure>
 
 <p>The above cmake command will generate the required make file to build and install the library on the system.</p>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">    ~/Downloads/glfw-3.0.4 » ls
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    ~/Downloads/glfw-3.0.4 » ls
     CMake                    CMakeLists.txt           README.md                cmake_uninstall.cmake.in examples                 tests
     CMakeCache.txt           COPYING.txt              cmake_install.cmake      deps                     include
-<span class="err">    CMakeFiles               Makefile                 cmake_uninstall.cmake    docs                     src</span></code></pre></figure>
+    CMakeFiles               Makefile                 cmake_uninstall.cmake    docs                     src</code></pre></figure>
 
 <p>Run ‘<b>make</b>’ to build the library (Note: i have truncated the output of the make command)</p>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">    ~/Downloads/glfw-3.0.4 » make
-    [  2%] Building C object src/CMakeFiles/glfw.dir/clipboard.c.o
-    [  4%] Building C object src/CMakeFiles/glfw.dir/context.c.o
-    [  6%] Building C object src/CMakeFiles/glfw.dir/gamma.c.o
-    [  8%] Building C object src/CMakeFiles/glfw.dir/init.c.o
-    [ 10%] Building C object src/CMakeFiles/glfw.dir/input.c.o
-    [ 12%] Building C object src/CMakeFiles/glfw.dir/joystick.c.o
-    [ 14%] Building C object src/CMakeFiles/glfw.dir/monitor.c.o
-    [ 17%] Building C object src/CMakeFiles/glfw.dir/time.c.o
-    [ 19%] Building C object src/CMakeFiles/glfw.dir/window.c.o
-    [ 21%] Building C object src/CMakeFiles/glfw.dir/cocoa_clipboard.m.o
-    [ 23%] Building C object src/CMakeFiles/glfw.dir/cocoa_gamma.c.o
-    [ 25%] Building C object src/CMakeFiles/glfw.dir/cocoa_init.m.o
-    [ 27%] Building C object src/CMakeFiles/glfw.dir/cocoa_joystick.m.o
-    [ 29%] Building C object src/CMakeFiles/glfw.dir/cocoa_monitor.m.o
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">    ~/Downloads/glfw-3.0.4 » make
+    <span class="o">[</span>  2%] Building C object src/CMakeFiles/glfw.dir/clipboard.c.o
+    <span class="o">[</span>  4%] Building C object src/CMakeFiles/glfw.dir/context.c.o
+    <span class="o">[</span>  6%] Building C object src/CMakeFiles/glfw.dir/gamma.c.o
+    <span class="o">[</span>  8%] Building C object src/CMakeFiles/glfw.dir/init.c.o
+    <span class="o">[</span> 10%] Building C object src/CMakeFiles/glfw.dir/input.c.o
+    <span class="o">[</span> 12%] Building C object src/CMakeFiles/glfw.dir/joystick.c.o
+    <span class="o">[</span> 14%] Building C object src/CMakeFiles/glfw.dir/monitor.c.o
+    <span class="o">[</span> 17%] Building C object src/CMakeFiles/glfw.dir/time.c.o
+    <span class="o">[</span> 19%] Building C object src/CMakeFiles/glfw.dir/window.c.o
+    <span class="o">[</span> 21%] Building C object src/CMakeFiles/glfw.dir/cocoa_clipboard.m.o
+    <span class="o">[</span> 23%] Building C object src/CMakeFiles/glfw.dir/cocoa_gamma.c.o
+    <span class="o">[</span> 25%] Building C object src/CMakeFiles/glfw.dir/cocoa_init.m.o
+    <span class="o">[</span> 27%] Building C object src/CMakeFiles/glfw.dir/cocoa_joystick.m.o
+    <span class="o">[</span> 29%] Building C object src/CMakeFiles/glfw.dir/cocoa_monitor.m.o
     .......
     .......
     .......
-<span class="err">    [100%] Built target windows</span></code></pre></figure>
+    <span class="o">[</span>100%] Built target windows</code></pre></figure>
 
 <p>Run ‘<b>make install</b>’ to install the library to the standard system location</p>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~/Downloads/glfw-3.0.4 » sudo make install
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Downloads/glfw-3.0.4 » sudo make install
 Password:
-[ 36%] Built target glfw
-[ 38%] Built target Boing
-[ 40%] Built target Gears
-[ 42%] Built target Simple
-[ 44%] Built target Split View
-[ 46%] Built target Wave
-[ 48%] Built target accuracy
-[ 53%] Built target clipboard
-[ 55%] Built target defaults
-[ 59%] Built target events
-[ 63%] Built target fsaa
-[ 68%] Built target gamma
-[ 72%] Built target glfwinfo
-[ 76%] Built target iconify
-[ 78%] Built target joysticks
-[ 82%] Built target modes
-[ 85%] Built target peter
-[ 87%] Built target reopen
-[ 89%] Built target sharing
-[ 91%] Built target tearing
-[ 95%] Built target threads
-[ 97%] Built target title
-[100%] Built target windows
+<span class="o">[</span> 36%] Built target glfw
+<span class="o">[</span> 38%] Built target Boing
+<span class="o">[</span> 40%] Built target Gears
+<span class="o">[</span> 42%] Built target Simple
+<span class="o">[</span> 44%] Built target Split View
+<span class="o">[</span> 46%] Built target Wave
+<span class="o">[</span> 48%] Built target accuracy
+<span class="o">[</span> 53%] Built target clipboard
+<span class="o">[</span> 55%] Built target defaults
+<span class="o">[</span> 59%] Built target events
+<span class="o">[</span> 63%] Built target fsaa
+<span class="o">[</span> 68%] Built target gamma
+<span class="o">[</span> 72%] Built target glfwinfo
+<span class="o">[</span> 76%] Built target iconify
+<span class="o">[</span> 78%] Built target joysticks
+<span class="o">[</span> 82%] Built target modes
+<span class="o">[</span> 85%] Built target peter
+<span class="o">[</span> 87%] Built target reopen
+<span class="o">[</span> 89%] Built target sharing
+<span class="o">[</span> 91%] Built target tearing
+<span class="o">[</span> 95%] Built target threads
+<span class="o">[</span> 97%] Built target title
+<span class="o">[</span>100%] Built target windows
 Install the project...
--- Install configuration: ""
+-- Install configuration: <span class="s2">""</span>
 -- Installing: /usr/local/include/GLFW
 -- Installing: /usr/local/include/GLFW/glfw3.h
 -- Installing: /usr/local/include/GLFW/glfw3native.h
@@ -253,7 +253,7 @@ Install the project...
 -- Installing: /usr/local/lib/cmake/glfw/glfwTargets.cmake
 -- Installing: /usr/local/lib/cmake/glfw/glfwTargets-noconfig.cmake
 -- Installing: /usr/local/lib/pkgconfig/glfw3.pc
-<span class="err">-- Installing: /usr/local/lib/libglfw3.a</span></code></pre></figure>
+-- Installing: /usr/local/lib/libglfw3.a</code></pre></figure>
 
 <p>Here is a example OpenGL program from <a href="http://www.glfw.org/docs/latest/quick.html">here</a></p>
 
@@ -315,9 +315,9 @@ Install the project...
 
 <p>To compile, run the above program (assuming it is saved in a hello_gl.c)</p>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">~/Documents/projects/opengl(branch:master*) » cc -o hello_gl hello_gl.c /usr/local/lib/libglfw3.a -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Documents/projects/opengl<span class="o">(</span>branch:master<span class="k">*</span><span class="o">)</span> » cc -o hello_gl hello_gl.c /usr/local/lib/libglfw3.a -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
 
-<span class="err">~/Documents/projects/opengl(branch:master*) » ./hello_gl</span></code></pre></figure>
+~/Documents/projects/opengl<span class="o">(</span>branch:master<span class="k">*</span><span class="o">)</span> » ./hello_gl</code></pre></figure>
 
 <p>Here is a screenshot of the program window</p>
 <div>
@@ -327,11 +327,11 @@ Install the project...
 
 <p>Hey, in case you want to use OpenGL, GLUT with your CUDA program. Here is how you compile your cuda program</p>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="err">nvcc julia_gpu.cu -Xlinker -framework,OpenGL,-framework,GLUT</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">nvcc julia_gpu.cu -Xlinker -framework,OpenGL,-framework,GLUT</code></pre></figure>
 
 <p>Tip: To turn on dynlib use this option before running cmake</p>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="err">cmake -D BUILD_SHARED_LIBS=ON ./</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">cmake -D <span class="nv">BUILD_SHARED_LIBS</span><span class="o">=</span>ON ./</code></pre></figure>
 
 <p>Happy Hacking!!!!</p>
 
