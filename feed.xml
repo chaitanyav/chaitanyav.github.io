@@ -2,26 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">Code Musings</title>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
-<link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2014-05-30T21:52:50+00:00</updated>
-<id>http://localhost:4000/</id>
+<link rel="self" type="application/atom+xml" href="/feed.xml" />
+<link rel="alternate" type="text/html" href="" />
+<updated>2014-05-30T22:15:48+00:00</updated>
+<id>/</id>
 <author>
   <name>NagaChaitanya Vellanki</name>
-  <uri>http://localhost:4000/</uri>
+  <uri>/</uri>
   <email>me@chaitanyavellanki.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[SecureRandom ruby]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2014/05/29/securerandom-ruby" />
-  <id>http://localhost:4000/2014/05/29/securerandom-ruby</id>
+  <link rel="alternate" type="text/html" href="/2014/05/29/securerandom-ruby" />
+  <id>/2014/05/29/securerandom-ruby</id>
   <published>2014-05-29T00:00:00+00:00</published>
   <updated>2014-05-29T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;SecureRandom module in Ruby can be used to generate random data (bytes,
@@ -107,19 +107,19 @@ up of MAC address as per the docs&lt;/p&gt;
 =&amp;gt; &quot;bf172c47-003e-4bad-b86d-0baffad78d6c&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2014/05/29/securerandom-ruby&quot;&gt;SecureRandom ruby&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on May 29, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2014/05/29/securerandom-ruby&quot;&gt;SecureRandom ruby&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on May 29, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Ubuntu package management desmystified]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2014/03/24/ubuntu-package-management-demystified" />
-  <id>http://localhost:4000/2014/03/24/ubuntu-package-management-demystified</id>
+  <link rel="alternate" type="text/html" href="/2014/03/24/ubuntu-package-management-demystified" />
+  <id>/2014/03/24/ubuntu-package-management-demystified</id>
   <published>2014-03-24T00:00:00+00:00</published>
   <updated>2014-03-24T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;h4 id=&quot;stats-of-packages-available-in-apt-cache&quot;&gt;Stats of packages available in apt-cache&lt;/h4&gt;
@@ -661,91 +661,91 @@ apt 0.9.9.1~ubuntu1 for amd64 compiled on Sep 11 2013 17:45:29
 &lt;pre&gt;&lt;code&gt;~ » apt-cache pkgnames
 &lt;/code&gt;&lt;/pre&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2014/03/24/ubuntu-package-management-demystified&quot;&gt;Ubuntu package management desmystified&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on March 24, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2014/03/24/ubuntu-package-management-demystified&quot;&gt;Ubuntu package management desmystified&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on March 24, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Printing PID, Name, Parent PID and Command of all processes]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/08/24/printing-pid-process-name-parent-pid-and-command-of-all-processes" />
-  <id>http://localhost:4000/2013/08/24/printing-pid-process-name-parent-pid-and-command-of-all-processes</id>
+  <link rel="alternate" type="text/html" href="/2013/08/24/printing-pid-process-name-parent-pid-and-command-of-all-processes" />
+  <id>/2013/08/24/printing-pid-process-name-parent-pid-and-command-of-all-processes</id>
   <published>2013-08-24T00:00:00+00:00</published>
   <updated>2013-08-24T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/6328763.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/08/24/printing-pid-process-name-parent-pid-and-command-of-all-processes&quot;&gt;Printing PID, Name, Parent PID and Command of all processes&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on August 24, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/08/24/printing-pid-process-name-parent-pid-and-command-of-all-processes&quot;&gt;Printing PID, Name, Parent PID and Command of all processes&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on August 24, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Listing files open by running processes]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/08/24/listing-files-open-by-running-processes" />
-  <id>http://localhost:4000/2013/08/24/listing-files-open-by-running-processes</id>
+  <link rel="alternate" type="text/html" href="/2013/08/24/listing-files-open-by-running-processes" />
+  <id>/2013/08/24/listing-files-open-by-running-processes</id>
   <published>2013-08-24T00:00:00+00:00</published>
   <updated>2013-08-24T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/6328813.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/08/24/listing-files-open-by-running-processes&quot;&gt;Listing files open by running processes&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on August 24, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/08/24/listing-files-open-by-running-processes&quot;&gt;Listing files open by running processes&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on August 24, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hash tables]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/08/24/hash-tables" />
-  <id>http://localhost:4000/2013/08/24/hash-tables</id>
+  <link rel="alternate" type="text/html" href="/2013/08/24/hash-tables" />
+  <id>/2013/08/24/hash-tables</id>
   <published>2013-08-24T00:00:00+00:00</published>
   <updated>2013-08-24T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/6328707.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/08/24/hash-tables&quot;&gt;Hash tables&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on August 24, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/08/24/hash-tables&quot;&gt;Hash tables&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on August 24, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Getting system information using uname]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/08/24/getting-system-information-using-uname" />
-  <id>http://localhost:4000/2013/08/24/getting-system-information-using-uname</id>
+  <link rel="alternate" type="text/html" href="/2013/08/24/getting-system-information-using-uname" />
+  <id>/2013/08/24/getting-system-information-using-uname</id>
   <published>2013-08-24T00:00:00+00:00</published>
   <updated>2013-08-24T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/6328647.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/08/24/getting-system-information-using-uname&quot;&gt;Getting system information using uname&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on August 24, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/08/24/getting-system-information-using-uname&quot;&gt;Getting system information using uname&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on August 24, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Transformations using OpenGL]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/07/14/transformations-using-opengl" />
-  <id>http://localhost:4000/2013/07/14/transformations-using-opengl</id>
+  <link rel="alternate" type="text/html" href="/2013/07/14/transformations-using-opengl" />
+  <id>/2013/07/14/transformations-using-opengl</id>
   <published>2013-07-14T00:00:00+00:00</published>
   <updated>2013-07-14T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;&lt;a href=&quot;https://vimeo.com/70286524&quot;&gt;click here to watch this video on HD fullscreen&lt;/a&gt;&lt;/p&gt;
@@ -755,19 +755,19 @@ apt 0.9.9.1~ubuntu1 for amd64 compiled on Sep 11 2013 17:45:29
 &lt;p&gt;
  &lt;a href=&quot;http://vimeo.com/70286524&quot;&gt;Transformations using OpenGL&lt;/a&gt; from &lt;a href=&quot;http://vimeo.com/user19528801&quot;&gt;NagaChaitanya Vellanki&lt;/a&gt; on &lt;a href=&quot;https://vimeo.com&quot;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/07/14/transformations-using-opengl&quot;&gt;Transformations using OpenGL&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on July 14, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/07/14/transformations-using-opengl&quot;&gt;Transformations using OpenGL&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on July 14, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Spirograph using OpenGL]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/07/14/spirograph-using-opengl" />
-  <id>http://localhost:4000/2013/07/14/spirograph-using-opengl</id>
+  <link rel="alternate" type="text/html" href="/2013/07/14/spirograph-using-opengl" />
+  <id>/2013/07/14/spirograph-using-opengl</id>
   <published>2013-07-14T00:00:00+00:00</published>
   <updated>2013-07-14T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;&lt;a href=&quot;https://vimeo.com/70285723&quot;&gt;click here to watch this video on HD fullscreen&lt;/a&gt;&lt;/p&gt;
@@ -779,19 +779,19 @@ apt 0.9.9.1~ubuntu1 for amd64 compiled on Sep 11 2013 17:45:29
 Vellanki&lt;/a&gt; on &lt;a href=&quot;https://vimeo.com&quot;&gt;Vimeo&lt;/a&gt;.
 &lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/07/14/spirograph-using-opengl&quot;&gt;Spirograph using OpenGL&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on July 14, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/07/14/spirograph-using-opengl&quot;&gt;Spirograph using OpenGL&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on July 14, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Generating random passwords]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/07/08/generating-random-passwords" />
-  <id>http://localhost:4000/2013/07/08/generating-random-passwords</id>
+  <link rel="alternate" type="text/html" href="/2013/07/08/generating-random-passwords" />
+  <id>/2013/07/08/generating-random-passwords</id>
   <published>2013-07-08T00:00:00+00:00</published>
   <updated>2013-07-08T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;h4 id=&quot;using-apg-see-man-apg&quot;&gt;Using apg (see man apg)&lt;/h4&gt;
@@ -817,19 +817,19 @@ nR4UH1?@
 &lt;p&gt;For more info read this &lt;a href=&quot;http://unix.stackexchange.com/questions/462/how-to-create-strong-passwords-in-linux&quot;&gt;thread&lt;/a&gt;
 on unix.stackexchange&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/07/08/generating-random-passwords&quot;&gt;Generating random passwords&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on July 08, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/07/08/generating-random-passwords&quot;&gt;Generating random passwords&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on July 08, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[working with time]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/06/20/working-with-time" />
-  <id>http://localhost:4000/2013/06/20/working-with-time</id>
+  <link rel="alternate" type="text/html" href="/2013/06/20/working-with-time" />
+  <id>/2013/06/20/working-with-time</id>
   <published>2013-06-20T00:00:00+00:00</published>
   <updated>2013-06-20T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
@@ -842,19 +842,19 @@ on unix.stackexchange&lt;/p&gt;
 ### computing process cpu time
 &lt;script src=&quot;https://gist.github.com/chaitanyav/5828321.js&quot;&gt;//4&lt;/script&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/06/20/working-with-time&quot;&gt;working with time&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on June 20, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/06/20/working-with-time&quot;&gt;working with time&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on June 20, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[system and file limits]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/06/20/system-and-file-limits" />
-  <id>http://localhost:4000/2013/06/20/system-and-file-limits</id>
+  <link rel="alternate" type="text/html" href="/2013/06/20/system-and-file-limits" />
+  <id>/2013/06/20/system-and-file-limits</id>
   <published>2013-06-20T00:00:00+00:00</published>
   <updated>2013-06-20T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;h3 id=&quot;system-limits-using-sysconf&quot;&gt;system limits using sysconf()&lt;/h3&gt;
@@ -864,73 +864,73 @@ on unix.stackexchange&lt;/p&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/5828408.js&quot;&gt;//2&lt;/script&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/06/20/system-and-file-limits&quot;&gt;system and file limits&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on June 20, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/06/20/system-and-file-limits&quot;&gt;system and file limits&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on June 20, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Reading process info from /proc]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/06/20/reading-process-info-from-proc" />
-  <id>http://localhost:4000/2013/06/20/reading-process-info-from-proc</id>
+  <link rel="alternate" type="text/html" href="/2013/06/20/reading-process-info-from-proc" />
+  <id>/2013/06/20/reading-process-info-from-proc</id>
   <published>2013-06-20T00:00:00+00:00</published>
   <updated>2013-06-20T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;script src=&quot;https://gist.github.com/chaitanyav/5828625.js&quot;&gt;//1&lt;/script&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/06/20/reading-process-info-from-proc&quot;&gt;Reading process info from /proc&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on June 20, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/06/20/reading-process-info-from-proc&quot;&gt;Reading process info from /proc&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on June 20, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[creating temporary files]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/06/20/creating-temporary-files" />
-  <id>http://localhost:4000/2013/06/20/creating-temporary-files</id>
+  <link rel="alternate" type="text/html" href="/2013/06/20/creating-temporary-files" />
+  <id>/2013/06/20/creating-temporary-files</id>
   <published>2013-06-20T00:00:00+00:00</published>
   <updated>2013-06-20T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;script src=&quot;https://gist.github.com/chaitanyav/5828548.js&quot;&gt;//1&lt;/script&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/06/20/creating-temporary-files&quot;&gt;creating temporary files&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on June 20, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/06/20/creating-temporary-files&quot;&gt;creating temporary files&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on June 20, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[uptime command implementation]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/06/10/uptime-command-implementation" />
-  <id>http://localhost:4000/2013/06/10/uptime-command-implementation</id>
+  <link rel="alternate" type="text/html" href="/2013/06/10/uptime-command-implementation" />
+  <id>/2013/06/10/uptime-command-implementation</id>
   <published>2013-06-10T00:00:00+00:00</published>
   <updated>2013-06-10T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/5754292.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/06/10/uptime-command-implementation&quot;&gt;uptime command implementation&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on June 10, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/06/10/uptime-command-implementation&quot;&gt;uptime command implementation&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on June 10, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[/etc/passwd, /etc/group and /etc/shadow files]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files" />
-  <id>http://localhost:4000/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files</id>
+  <link rel="alternate" type="text/html" href="/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files" />
+  <id>/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files</id>
   <published>2013-06-09T00:00:00+00:00</published>
   <updated>2013-06-09T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;&lt;/p&gt;
@@ -951,92 +951,92 @@ on unix.stackexchange&lt;/p&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/5746382.js&quot;&gt;//5&lt;/script&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files&quot;&gt;/etc/passwd, /etc/group and /etc/shadow files&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on June 09, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/06/09/etcpasswd-etcgroup-and-etcshadow-files&quot;&gt;/etc/passwd, /etc/group and /etc/shadow files&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on June 09, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[mtrace and muntrace]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/05/24/mtrace-and-muntrace" />
-  <id>http://localhost:4000/2013/05/24/mtrace-and-muntrace</id>
+  <link rel="alternate" type="text/html" href="/2013/05/24/mtrace-and-muntrace" />
+  <id>/2013/05/24/mtrace-and-muntrace</id>
   <published>2013-05-24T00:00:00+00:00</published>
   <updated>2013-05-24T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/5647714.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/05/24/mtrace-and-muntrace&quot;&gt;mtrace and muntrace&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on May 24, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/05/24/mtrace-and-muntrace&quot;&gt;mtrace and muntrace&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on May 24, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[lfind implementation]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/05/24/lfind-implementation" />
-  <id>http://localhost:4000/2013/05/24/lfind-implementation</id>
+  <link rel="alternate" type="text/html" href="/2013/05/24/lfind-implementation" />
+  <id>/2013/05/24/lfind-implementation</id>
   <published>2013-05-24T00:00:00+00:00</published>
   <updated>2013-05-24T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/5647756.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/05/24/lfind-implementation&quot;&gt;lfind implementation&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on May 24, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/05/24/lfind-implementation&quot;&gt;lfind implementation&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on May 24, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[free and sbrk]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/05/24/free-and-sbrk" />
-  <id>http://localhost:4000/2013/05/24/free-and-sbrk</id>
+  <link rel="alternate" type="text/html" href="/2013/05/24/free-and-sbrk" />
+  <id>/2013/05/24/free-and-sbrk</id>
   <published>2013-05-24T00:00:00+00:00</published>
   <updated>2013-05-24T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/5647685.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/05/24/free-and-sbrk&quot;&gt;free and sbrk&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on May 24, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/05/24/free-and-sbrk&quot;&gt;free and sbrk&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on May 24, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[calloc and realloc]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/05/24/calloc-and-realloc" />
-  <id>http://localhost:4000/2013/05/24/calloc-and-realloc</id>
+  <link rel="alternate" type="text/html" href="/2013/05/24/calloc-and-realloc" />
+  <id>/2013/05/24/calloc-and-realloc</id>
   <published>2013-05-24T00:00:00+00:00</published>
   <updated>2013-05-24T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;Program part of this &lt;a href=&quot;https://github.com/chaitanyav/cprograms&quot;&gt;repo&lt;/a&gt;
 &lt;script src=&quot;https://gist.github.com/chaitanyav/5647746.js&quot;&gt;//1&lt;/script&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/05/24/calloc-and-realloc&quot;&gt;calloc and realloc&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on May 24, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/05/24/calloc-and-realloc&quot;&gt;calloc and realloc&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on May 24, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Exception handling with Try/Catch/Throw/Finally in C using setjmp, longjmp]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/2013/04/06/exception-handling-with-trycatchthrowfinally-in-c-using-setjmp-longjmp" />
-  <id>http://localhost:4000/2013/04/06/exception-handling-with-trycatchthrowfinally-in-c-using-setjmp-longjmp</id>
+  <link rel="alternate" type="text/html" href="/2013/04/06/exception-handling-with-trycatchthrowfinally-in-c-using-setjmp-longjmp" />
+  <id>/2013/04/06/exception-handling-with-trycatchthrowfinally-in-c-using-setjmp-longjmp</id>
   <published>2013-04-06T00:00:00+00:00</published>
   <updated>2013-04-06T00:00:00+00:00</updated>
   <author>
     <name>NagaChaitanya Vellanki</name>
-    <uri>http://localhost:4000</uri>
+    <uri></uri>
     <email>me@chaitanyavellanki.com</email>
   </author>
   <content type="html">&lt;p&gt;Link to a very good article on how to use setjmp, longjmp for exception
@@ -1061,7 +1061,7 @@ handling in C &lt;a href=&quot;http://www.di.unipi.it/~nids/docs/longjump_try_tr
 &lt;p&gt;Had to use the trick from
 &lt;a href=&quot;http://kjetilvalle.com/posts/gists-with-jekyll.html&quot;&gt;http://kjetilvalle.com/posts/gists-with-jekyll.html&lt;/a&gt; to embed multiple gists in jekyll&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/2013/04/06/exception-handling-with-trycatchthrowfinally-in-c-using-setjmp-longjmp&quot;&gt;Exception handling with Try/Catch/Throw/Finally in C using setjmp, longjmp&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;http://localhost:4000&quot;&gt;Code Musings&lt;/a&gt; on April 06, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/2013/04/06/exception-handling-with-trycatchthrowfinally-in-c-using-setjmp-longjmp&quot;&gt;Exception handling with Try/Catch/Throw/Finally in C using setjmp, longjmp&lt;/a&gt; was originally published by NagaChaitanya Vellanki at &lt;a href=&quot;&quot;&gt;Code Musings&lt;/a&gt; on April 06, 2013.&lt;/p&gt;</content>
 </entry>
 
 </feed>
