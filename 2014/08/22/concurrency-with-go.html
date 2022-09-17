@@ -324,7 +324,7 @@
 
 <h4 id="sample-output">Sample output</h4>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">.....
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">.....
 ..... (truncated some output)
 .....
 .....
@@ -391,7 +391,7 @@ Finished Parsing a feed at:  2014-08-22 18:05:56.276493035 -0700 PDT
 Time out!!, lets move on
 Finished Parsing a feed at:  2014-08-22 18:06:56.277632245 -0700 PDT
 Finished fetching all feeds
-<span class="err">./test_feed  0.72s user 0.27s system 1% cpu 1:30.02 total</span></code></pre></figure>
+./test_feed  0.72s user 0.27s system 1% cpu 1:30.02 total</code></pre></figure>
 
 <p>The above program concurrently fetches the posts from the RSS feeds. We have a map with key as the feedURL, the value is the category the feed belongs to.
 <br /></p>
@@ -401,15 +401,15 @@ Finished fetching all feeds
 
 <p>I am really excited to write code in Go.<strong> Happy hacking Gophers!!!</strong>.</p>
 
-<p>####Installing a go package ####
-Set the GOPATH environment variable and install the package using the ‘go get’</p>
+<h4 id="installing-a-go-package">Installing a go package</h4>
+<p>Set the GOPATH environment variable and install the package using the ‘go get’</p>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console">export GOPATH=~/Documents/projects/go
-<span class="err">go get github.com/iand/feedparser</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">export GOPATH=~/Documents/projects/go
+go get github.com/iand/feedparser</code></pre></figure>
 
 <p>The package will be installed to $GOPATH/pkg directory.</p>
 
-<p>####Go Resources###</p>
+<h4 id="go-resources">Go Resources</h4>
 <ul>
   <li><a href="https://gobyexample.com/">gobyexample.com</a></li>
   <li><a href="http://play.golang.org/">play.golang.org</a> web console to try out small go programs</li>

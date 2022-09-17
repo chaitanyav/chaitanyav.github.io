@@ -237,56 +237,56 @@ fatal, non-fatal assertions. All the assertions from the
 test <em>NonFatalAssert</em> were run but only one assertion
 from <em>FatalAssert</em> was run.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[==========]</span> Running 9 tests from 4 <span class="nb">test </span>cases.
-<span class="o">[</span>----------] Global <span class="nb">test </span>environment <span class="nb">set</span>-up.
-<span class="o">[</span>----------] 1 <span class="nb">test </span>from RollDice
-<span class="o">[</span> RUN      <span class="o">]</span> RollDice.TestOutcome
-<span class="o">[</span>       OK <span class="o">]</span> RollDice.TestOutcome <span class="o">(</span>0 ms<span class="o">)</span>
-<span class="o">[</span>----------] 1 <span class="nb">test </span>from RollDice <span class="o">(</span>0 ms total<span class="o">)</span>
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">[==========] Running 9 tests from 4 test cases.
+[----------] Global test environment set-up.
+[----------] 1 test from RollDice
+[ RUN      ] RollDice.TestOutcome
+[       OK ] RollDice.TestOutcome (0 ms)
+[----------] 1 test from RollDice (0 ms total)
 
-<span class="o">[</span>----------] 4 tests from Factorial
-<span class="o">[</span> RUN      <span class="o">]</span> Factorial.TestforInvalidArgument
-<span class="o">[</span>       OK <span class="o">]</span> Factorial.TestforInvalidArgument <span class="o">(</span>0 ms<span class="o">)</span>
-<span class="o">[</span> RUN      <span class="o">]</span> Factorial.TestForNoException
-<span class="o">[</span>       OK <span class="o">]</span> Factorial.TestForNoException <span class="o">(</span>0 ms<span class="o">)</span>
-<span class="o">[</span> RUN      <span class="o">]</span> Factorial.TestWithSimpleInputs
-<span class="o">[</span>       OK <span class="o">]</span> Factorial.TestWithSimpleInputs <span class="o">(</span>0 ms<span class="o">)</span>
-<span class="o">[</span> RUN      <span class="o">]</span> Factorial.TestWithOtherInputs
-<span class="o">[</span>       OK <span class="o">]</span> Factorial.TestWithOtherInputs <span class="o">(</span>0 ms<span class="o">)</span>
-<span class="o">[</span>----------] 4 tests from Factorial <span class="o">(</span>0 ms total<span class="o">)</span>
+[----------] 4 tests from Factorial
+[ RUN      ] Factorial.TestforInvalidArgument
+[       OK ] Factorial.TestforInvalidArgument (0 ms)
+[ RUN      ] Factorial.TestForNoException
+[       OK ] Factorial.TestForNoException (0 ms)
+[ RUN      ] Factorial.TestWithSimpleInputs
+[       OK ] Factorial.TestWithSimpleInputs (0 ms)
+[ RUN      ] Factorial.TestWithOtherInputs
+[       OK ] Factorial.TestWithOtherInputs (0 ms)
+[----------] 4 tests from Factorial (0 ms total)
 
-<span class="o">[</span>----------] 3 tests from IsEven
-<span class="o">[</span> RUN      <span class="o">]</span> IsEven.TestWithEvenInputs
-<span class="o">[</span>       OK <span class="o">]</span> IsEven.TestWithEvenInputs <span class="o">(</span>0 ms<span class="o">)</span>
-<span class="o">[</span> RUN      <span class="o">]</span> IsEven.FatalAssert
+[----------] 3 tests from IsEven
+[ RUN      ] IsEven.TestWithEvenInputs
+[       OK ] IsEven.TestWithEvenInputs (0 ms)
+[ RUN      ] IsEven.FatalAssert
 gtest_random.cpp:66: Failure
-Value of: isEven<span class="o">(</span>1<span class="o">)</span>
-  Actual: <span class="nb">false
-</span>Expected: <span class="nb">true</span>
-<span class="o">[</span>  FAILED  <span class="o">]</span> IsEven.FatalAssert <span class="o">(</span>0 ms<span class="o">)</span>
-<span class="o">[</span> RUN      <span class="o">]</span> IsEven.NonFatalAssert
+Value of: isEven(1)
+  Actual: false
+Expected: true
+[  FAILED  ] IsEven.FatalAssert (0 ms)
+[ RUN      ] IsEven.NonFatalAssert
 gtest_random.cpp:72: Failure
-Value of: isEven<span class="o">(</span>1<span class="o">)</span>
-  Actual: <span class="nb">false
-</span>Expected: <span class="nb">true
-</span>gtest_random.cpp:74: Failure
-Value of: isEven<span class="o">(</span>15<span class="o">)</span>
-  Actual: <span class="nb">false
-</span>Expected: <span class="nb">true</span>
-<span class="o">[</span>  FAILED  <span class="o">]</span> IsEven.NonFatalAssert <span class="o">(</span>0 ms<span class="o">)</span>
-<span class="o">[</span>----------] 3 tests from IsEven <span class="o">(</span>0 ms total<span class="o">)</span>
+Value of: isEven(1)
+  Actual: false
+Expected: true
+gtest_random.cpp:74: Failure
+Value of: isEven(15)
+  Actual: false
+Expected: true
+[  FAILED  ] IsEven.NonFatalAssert (0 ms)
+[----------] 3 tests from IsEven (0 ms total)
 
-<span class="o">[</span>----------] 1 <span class="nb">test </span>from isEven
-<span class="o">[</span> RUN      <span class="o">]</span> isEven.TestWithOddInputs
-<span class="o">[</span>       OK <span class="o">]</span> isEven.TestWithOddInputs <span class="o">(</span>0 ms<span class="o">)</span>
-<span class="o">[</span>----------] 1 <span class="nb">test </span>from isEven <span class="o">(</span>0 ms total<span class="o">)</span>
+[----------] 1 test from isEven
+[ RUN      ] isEven.TestWithOddInputs
+[       OK ] isEven.TestWithOddInputs (0 ms)
+[----------] 1 test from isEven (0 ms total)
 
-<span class="o">[</span>----------] Global <span class="nb">test </span>environment tear-down
-<span class="o">[==========]</span> 9 tests from 4 <span class="nb">test </span>cases ran. <span class="o">(</span>0 ms total<span class="o">)</span>
-<span class="o">[</span>  PASSED  <span class="o">]</span> 7 tests.
-<span class="o">[</span>  FAILED  <span class="o">]</span> 2 tests, listed below:
-<span class="o">[</span>  FAILED  <span class="o">]</span> IsEven.FatalAssert
-<span class="o">[</span>  FAILED  <span class="o">]</span> IsEven.NonFatalAssert
+[----------] Global test environment tear-down
+[==========] 9 tests from 4 test cases ran. (0 ms total)
+[  PASSED  ] 7 tests.
+[  FAILED  ] 2 tests, listed below:
+[  FAILED  ] IsEven.FatalAssert
+[  FAILED  ] IsEven.NonFatalAssert
 
  2 FAILED TESTS</code></pre></figure>
 

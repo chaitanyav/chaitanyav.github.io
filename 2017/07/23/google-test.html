@@ -140,14 +140,14 @@
       <p>Download the latest version of google test from <a href="https://github.com/google/googletest/releases">here</a>.
 Type the following commands in the terminal after cd into the directory where the tarball was downloaded to.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">tar -xvzf googletest-release-1.8.0.tar.gz
-<span class="nb">cd </span>googletest-release-1.8.0
-<span class="nb">cd </span>googletest
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">tar -xvzf googletest-release-1.8.0.tar.gz
+cd googletest-release-1.8.0
+cd googletest
 cmake .
 make
 sudo make install
-<span class="nb">cd</span> ..
-<span class="nb">cd </span>googlemock
+cd ..
+cd googlemock
 cmake .
 make
 sudo make install</code></pre></figure>
@@ -156,16 +156,16 @@ sudo make install</code></pre></figure>
 Make sure /usr/local/lib is added to your LD_LIBRARY_PATH environment variable before using the frameworks. 
 To set the LD_LIBRARY_PATH environment variable</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Downloads/googletest-release-1.8.0/googlemock ᐅ <span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/local/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~/Downloads/googletest-release-1.8.0/googlemock ᐅ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
-~/Downloads/googletest-release-1.8.0 ᐅ <span class="nb">echo</span> <span class="nv">$LD_LIBRARY_PATH</span>
+~/Downloads/googletest-release-1.8.0 ᐅ echo $LD_LIBRARY_PATH
 /usr/local/cuda/lib:/usr/local/lib:</code></pre></figure>
 
 <p><strong>You may want to append/add /usr/local/lib to the LD_LIBRARY_PATH environment variable in your .bashrc or .zshrc</strong></p>
 
 <h3 id="console-output-of-the-commands">Console output of the commands</h3>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Downloads ᐅ tar -xvzf googletest-release-1.8.0.tar.gz
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~/Downloads ᐅ tar -xvzf googletest-release-1.8.0.tar.gz
 x googletest-release-1.8.0/
 x googletest-release-1.8.0/.gitignore
 x googletest-release-1.8.0/.travis.yml
@@ -537,58 +537,58 @@ x googletest-release-1.8.0/googletest/xcode/gtest.xcodeproj/
 x googletest-release-1.8.0/googletest/xcode/gtest.xcodeproj/project.pbxproj
 x googletest-release-1.8.0/travis.sh</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Downloads ᐅ <span class="nb">cd </span>googletest-release-1.8.0
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~/Downloads ᐅ cd googletest-release-1.8.0
 
 ~/Downloads/googletest-release-1.8.0 ᐅ ls
 CMakeLists.txt README.md      appveyor.yml   googlemock     googletest     travis.sh</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Downloads/googletest-release-1.8.0 ᐅ <span class="nb">cd </span>googletest
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~/Downloads/googletest-release-1.8.0 ᐅ cd googletest
 
 ~/Downloads/googletest-release-1.8.0/googletest ᐅ ls
-CHANGES        CONTRIBUTORS   Makefile.am    build-aux      codegear       docs           m4             msvc           scripts        <span class="nb">test
-</span>CMakeLists.txt LICENSE        README.md      cmake          configure.ac   include        make           samples        src            xcode</code></pre></figure>
+CHANGES        CONTRIBUTORS   Makefile.am    build-aux      codegear       docs           m4             msvc           scripts        test
+CMakeLists.txt LICENSE        README.md      cmake          configure.ac   include        make           samples        src            xcode</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Downloads/googletest-release-1.8.0/googletest ᐅ cmake .
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~/Downloads/googletest-release-1.8.0/googletest ᐅ cmake .
 -- The CXX compiler identification is AppleClang 7.3.0.7030031
 -- The C compiler identification is AppleClang 7.3.0.7030031
--- Check <span class="k">for </span>working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
--- Check <span class="k">for </span>working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -- works
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -- works
 -- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - <span class="k">done</span>
+-- Detecting CXX compiler ABI info - done
 -- Detecting CXX compile features
--- Detecting CXX compile features - <span class="k">done</span>
--- Check <span class="k">for </span>working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
--- Check <span class="k">for </span>working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -- works
+-- Detecting CXX compile features - done
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -- works
 -- Detecting C compiler ABI info
--- Detecting C compiler ABI info - <span class="k">done</span>
+-- Detecting C compiler ABI info - done
 -- Detecting C compile features
--- Detecting C compile features - <span class="k">done</span>
--- Found PythonInterp: /usr/local/bin/python <span class="o">(</span>found version <span class="s2">"2.7.12"</span><span class="o">)</span>
--- Looking <span class="k">for </span>pthread.h
--- Looking <span class="k">for </span>pthread.h - found
--- Looking <span class="k">for </span>pthread_create
--- Looking <span class="k">for </span>pthread_create - found
+-- Detecting C compile features - done
+-- Found PythonInterp: /usr/local/bin/python (found version "2.7.12")
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - found
 -- Found Threads: TRUE
--- Configuring <span class="k">done</span>
--- Generating <span class="k">done</span>
+-- Configuring done
+-- Generating done
 -- Build files have been written to: /Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googletest</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Downloads/googletest-release-1.8.0/googletest ᐅ make
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~/Downloads/googletest-release-1.8.0/googletest ᐅ make
 Scanning dependencies of target gtest
-<span class="o">[</span> 25%] Building CXX object CMakeFiles/gtest.dir/src/gtest-all.cc.o
-<span class="o">[</span> 50%] Linking CXX static library libgtest.a
-<span class="o">[</span> 50%] Built target gtest
+[ 25%] Building CXX object CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[ 50%] Linking CXX static library libgtest.a
+[ 50%] Built target gtest
 Scanning dependencies of target gtest_main
-<span class="o">[</span> 75%] Building CXX object CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
-<span class="o">[</span>100%] Linking CXX static library libgtest_main.a
-<span class="o">[</span>100%] Built target gtest_main</code></pre></figure>
+[ 75%] Building CXX object CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[100%] Linking CXX static library libgtest_main.a
+[100%] Built target gtest_main</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Downloads/googletest-release-1.8.0/googletest ᐅ sudo make install
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~/Downloads/googletest-release-1.8.0/googletest ᐅ sudo make install
 Password:
-<span class="o">[</span> 50%] Built target gtest
-<span class="o">[</span>100%] Built target gtest_main
+[ 50%] Built target gtest
+[100%] Built target gtest_main
 Install the project...
--- Install configuration: <span class="s2">""</span>
+-- Install configuration: ""
 -- Installing: /usr/local/lib/libgtest.a
 -- Installing: /usr/local/lib/libgtest_main.a
 -- Up-to-date: /usr/local/include/gtest
@@ -623,63 +623,63 @@ Install the project...
 -- Up-to-date: /usr/local/include/gtest/internal/gtest-type-util.h
 -- Up-to-date: /usr/local/include/gtest/internal/gtest-type-util.h.pump</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Downloads/googletest-release-1.8.0/googletest ᐅ <span class="nb">cd</span> ..
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~/Downloads/googletest-release-1.8.0/googletest ᐅ cd ..
 
-~/Downloads/googletest-release-1.8.0 ᐅ <span class="nb">cd </span>googlemock</code></pre></figure>
+~/Downloads/googletest-release-1.8.0 ᐅ cd googlemock</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Downloads/googletest-release-1.8.0/googlemock ᐅ cmake .
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~/Downloads/googletest-release-1.8.0/googlemock ᐅ cmake .
 -- The CXX compiler identification is AppleClang 7.3.0.7030031
 -- The C compiler identification is AppleClang 7.3.0.7030031
--- Check <span class="k">for </span>working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
--- Check <span class="k">for </span>working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -- works
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -- works
 -- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - <span class="k">done</span>
+-- Detecting CXX compiler ABI info - done
 -- Detecting CXX compile features
--- Detecting CXX compile features - <span class="k">done</span>
--- Check <span class="k">for </span>working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
--- Check <span class="k">for </span>working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -- works
+-- Detecting CXX compile features - done
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -- works
 -- Detecting C compiler ABI info
--- Detecting C compiler ABI info - <span class="k">done</span>
+-- Detecting C compiler ABI info - done
 -- Detecting C compile features
--- Detecting C compile features - <span class="k">done</span>
--- Found PythonInterp: /usr/local/bin/python <span class="o">(</span>found version <span class="s2">"2.7.12"</span><span class="o">)</span>
--- Looking <span class="k">for </span>pthread.h
--- Looking <span class="k">for </span>pthread.h - found
--- Looking <span class="k">for </span>pthread_create
--- Looking <span class="k">for </span>pthread_create - found
+-- Detecting C compile features - done
+-- Found PythonInterp: /usr/local/bin/python (found version "2.7.12")
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - found
 -- Found Threads: TRUE
--- Configuring <span class="k">done</span>
--- Generating <span class="k">done</span>
+-- Configuring done
+-- Generating done
 -- Build files have been written to: /Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googlemock</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Downloads/googletest-release-1.8.0/googlemock ᐅ make
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~/Downloads/googletest-release-1.8.0/googlemock ᐅ make
 Scanning dependencies of target gmock
-<span class="o">[</span>  9%] Building CXX object CMakeFiles/gmock.dir/Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googletest/src/gtest-all.cc.o
-<span class="o">[</span> 18%] Building CXX object CMakeFiles/gmock.dir/src/gmock-all.cc.o
-<span class="o">[</span> 27%] Linking CXX static library libgmock.a
-<span class="o">[</span> 27%] Built target gmock
+[  9%] Building CXX object CMakeFiles/gmock.dir/Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googletest/src/gtest-all.cc.o
+[ 18%] Building CXX object CMakeFiles/gmock.dir/src/gmock-all.cc.o
+[ 27%] Linking CXX static library libgmock.a
+[ 27%] Built target gmock
 Scanning dependencies of target gmock_main
-<span class="o">[</span> 36%] Building CXX object CMakeFiles/gmock_main.dir/Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googletest/src/gtest-all.cc.o
-<span class="o">[</span> 45%] Building CXX object CMakeFiles/gmock_main.dir/src/gmock-all.cc.o
-<span class="o">[</span> 54%] Building CXX object CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
-<span class="o">[</span> 63%] Linking CXX static library libgmock_main.a
-<span class="o">[</span> 63%] Built target gmock_main
+[ 36%] Building CXX object CMakeFiles/gmock_main.dir/Users/nagachaitanyavellanki/Downloads/googletest-release-1.8.0/googletest/src/gtest-all.cc.o
+[ 45%] Building CXX object CMakeFiles/gmock_main.dir/src/gmock-all.cc.o
+[ 54%] Building CXX object CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+[ 63%] Linking CXX static library libgmock_main.a
+[ 63%] Built target gmock_main
 Scanning dependencies of target gtest
-<span class="o">[</span> 72%] Building CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
-<span class="o">[</span> 81%] Linking CXX static library libgtest.a
-<span class="o">[</span> 81%] Built target gtest
+[ 72%] Building CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[ 81%] Linking CXX static library libgtest.a
+[ 81%] Built target gtest
 Scanning dependencies of target gtest_main
-<span class="o">[</span> 90%] Building CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
-<span class="o">[</span>100%] Linking CXX static library libgtest_main.a
-<span class="o">[</span>100%] Built target gtest_main</code></pre></figure>
+[ 90%] Building CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[100%] Linking CXX static library libgtest_main.a
+[100%] Built target gtest_main</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Downloads/googletest-release-1.8.0/googlemock ᐅ sudo make install
-<span class="o">[</span> 27%] Built target gmock
-<span class="o">[</span> 63%] Built target gmock_main
-<span class="o">[</span> 81%] Built target gtest
-<span class="o">[</span>100%] Built target gtest_main
+<figure class="highlight"><pre><code class="language-shell-session" data-lang="shell-session">~/Downloads/googletest-release-1.8.0/googlemock ᐅ sudo make install
+[ 27%] Built target gmock
+[ 63%] Built target gmock_main
+[ 81%] Built target gtest
+[100%] Built target gtest_main
 Install the project...
--- Install configuration: <span class="s2">""</span>
+-- Install configuration: ""
 -- Installing: /usr/local/lib/libgmock.a
 -- Installing: /usr/local/lib/libgmock_main.a
 -- Up-to-date: /usr/local/include/gmock
