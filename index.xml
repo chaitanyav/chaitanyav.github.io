@@ -18,16 +18,6 @@ Updating the man page involved going through the FreeBSD source code src/lib and
     </item>
     
     <item>
-      <title>Books Read</title>
-      <link>https://chaitanyav.github.io/books/</link>
-      <pubDate>Wed, 26 Aug 2020 20:28:26 -0700</pubDate>
-      
-      <guid>https://chaitanyav.github.io/books/</guid>
-      <description>I read a lot, here is a list of some of the books i have read
-Mountaineering   Last Step: The American Ascent of K2     K2: Life and Death on the World’s Most Dangerous Mountain     Into Thin Air by Jon Krakauer     The Call of The Ice: Climbing 8000-Meter Peaks in Winter     Mountains in My Heart: A Passion for Climbing     No Way Down: Life and Death on K2     Challenge the Vertical (My Vertical World)   Biography/Memoir   Open: An Autobiography     Shoe Dog   Spiritual   Apprenticed to a Himalayan Master: A Yogi&#39;s Autobiography     Autobiography of a Yogi    Fiction    A Knight of the Seven Kingdoms: A Song of Ice and Fire     The White Tiger: A Novel     Jurassic Park: A Novel     The Lost World: A Novel(Jurassic Park)    India    Maximum City: Bombay Lost and Found     Behind the Beautiful Forevers: Life, Death, and Hope in a Mumbai Undercity   </description>
-    </item>
-    
-    <item>
       <title>Open Source</title>
       <link>https://chaitanyav.github.io/open_source/</link>
       <pubDate>Wed, 26 Aug 2020 20:28:26 -0700</pubDate>
@@ -35,6 +25,16 @@ Mountaineering   Last Step: The American Ascent of K2     K2: Life and Death on 
       <guid>https://chaitanyav.github.io/open_source/</guid>
       <description>I like to contribute to open source, here are links to some of my tiny contributions 🙏
  FreeBSD  Reduce duplication in sys/*/include files Improve test coverage for sbuf   Scala tools, compiler (2.13.x)  CodePrinter prints backquote names Add doc string to Array.from   ffmpeg: Add tests for functions in hash.c RubyGems  Fibonacci: a ruby c-extension to explore fibonacci series efficiently Partitions   RubyOnRails Contribution  </description>
+    </item>
+    
+    <item>
+      <title>Reading List</title>
+      <link>https://chaitanyav.github.io/books/</link>
+      <pubDate>Wed, 26 Aug 2020 20:28:26 -0700</pubDate>
+      
+      <guid>https://chaitanyav.github.io/books/</guid>
+      <description>I read a lot, here is a list of some of the 📚 i have read and want to read or am currently reading. (Read = ✔️, Want to Read/Currently Reading = 📖 )
+🗻 Mountaineering    🔗 Last Step: The American Ascent of K2 ✔️     🔗 K2: Life and Death on the World’s Most Dangerous Mountain ✔️     🔗 Into Thin Air by Jon Krakauer ✔️     🔗 The Call of The Ice: Climbing 8000-Meter Peaks in Winter ✔️     🔗 Mountains in My Heart: A Passion for Climbing ✔️     🔗 No Way Down: Life and Death on K2 ✔️     🔗 Challenge the Vertical (My Vertical World) ✔️     🔗 Beyond Possible: One Man, Fourteen Peaks, and the Mountaineering Achievement of a Lifetime ✔️   Biography/Memoir 🎾 👟 🏊‍♂️   🔗 Open: An Autobiography ✔️     🔗 Shoe Dog ✔️     🔗 Faster than Lightning: My Autobiography 📖     🔗 Beneath the Surface: My Story 📖     🔗 No Limits: The Will to Succeed 📖   📿 Spiritual   🔗 Apprenticed to a Himalayan Master: A Yogi&#39;s Autobiography ✔️     🔗 Autobiography of a Yogi ✔️    🦖 🐉  Fiction  🦕 ⚔️   🔗 A Knight of the Seven Kingdoms: A Song of Ice and Fire ✔️      🔗 The White Tiger: A Novel ✔️      🔗 Jurassic Park: A Novel ✔️     🔗 The Lost World: A Novel(Jurassic Park) ✔️   🇮🇳  India    🔗 Maximum City: Bombay Lost and Found ✔️     🔗 Behind the Beautiful Forevers: Life, Death, and Hope in a Mumbai Undercity ✔️     🔗 Veer Savarkar Father of Hindu Nationalism ✔️   💵 Business   🔗 American Icon: Alan Mulally and the Fight to Save Ford Motor Company ✔️     🔗 King of Capital: The Remarkable Rise, Fall, and Rise Again of Steve Schwarzman and Blackstone ✔️   🧑‍🚀 Space 🚀 🛰️ 🌌   🔗 How Apollo Flew to the Moon (Springer Praxis Books) 2nd ed.</description>
     </item>
     
     <item>
