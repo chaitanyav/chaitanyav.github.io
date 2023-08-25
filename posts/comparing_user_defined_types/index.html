@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>About</title>
-  <meta property="og:title" content="About" />
-  <meta name="twitter:title" content="About" />
+  <title>How to compare user defined types in Rust</title>
+  <meta property="og:title" content="How to compare user defined types in Rust" />
+  <meta name="twitter:title" content="How to compare user defined types in Rust" />
   
 
   
 
   <meta name="author" content=""/>
   <meta property="og:site_name" content="my blog" />
-  <meta property="og:url" content="https://chaitanyav.github.io/about/" />
+  <meta property="og:url" content="https://chaitanyav.github.io/posts/comparing_user_defined_types/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -50,12 +50,12 @@
 
 <article class="p-article">
   <header>
-    <h1>About</h1>
+    <h1>How to compare user defined types in Rust</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2020-05-08T10:52:09-07:00">
-          May 8, 2020
+        <time datetime="2023-08-25T00:00:00Z">
+          Aug 25, 2023
         </time>
       </div>
       
@@ -63,71 +63,85 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>I am a Software Engineer.</p>
-<h3 id="links-to-my-work">Links to my work:</h3>
-<ul>
-<li><del><a href="http://www.oneupfeeds.com/">OneUpFeeds</a> My personal RSS feed reader</del></li>
-<li><a href="http://cs229.stanford.edu/proj2012/Vellanki-SeparationOfSpeechFromNoiseChallenge.pdf">CS229 Project: Separation of Speech From Noise Challenge</a></li>
-<li><a href="https://www.dropbox.com/s/zz9j4j9zfhqpoic/535_441_project.pdf?dl=0">SVD and its applications in image processing</a></li>
-<li><a href="https://www.dropbox.com/s/lny2rk0kodoi3at/EN.535.441_project_1.pdf?dl=0">Balancing chemical equations using Gaussian Elimination</a></li>
-<li><a href="https://www.dropbox.com/s/chc9pfey42crueu/team8_discussion_activity_2.pdf?dl=0">Laplace Transform Application, Solving Differential Equations describing a projectile in motion</a></li>
-<li><a href="https://www.dropbox.com/s/edzek6as35i2vsu/spam_classification.pdf?dl=0">Spam Classification using Naive Bayes</a></li>
-</ul>
-<h3 id="used-to-be-a-foldinghome-contributor">Used to be a Folding@Home contributor</h3>
-<ul>
-<li><a href="https://stats.foldingathome.org/donor/239668">Folding@Home Contribution</a></li>
-</ul>
-<h3 id="pgp">pgp</h3>
-<ul>
-<li>Fingerprint</li>
-</ul>
-<pre tabindex="0"><code>pub  3072R/C4996E83 2020-07-23 NagaChaitanya Vellanki &lt;pnagato@protonmail.com&gt;
-	 Fingerprint=E9F4 75A4 0BB9 EAFA 2583  04ED FB25 E9FC C499 6E83
-</code></pre><ul>
-<li>Public key</li>
-</ul>
-<pre tabindex="0"><code>-----BEGIN PGP PUBLIC KEY BLOCK-----
+    <p><img src="https://www.rust-lang.org/logos/rust-logo-32x32-blk.png" alt="Rust logo"></p>
+<p>Let&rsquo;s just say we have a user-defined type Person defined as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">
+    <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Person</span> {
+      name: String,
+      age: <span style="color:#66d9ef">i32</span>
+    }
 
-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
-=vzMn
------END PGP PUBLIC KEY BLOCK-----
-</code></pre>
+</code></pre></div><p>We need to compare two Persons <code>mat</code>, <code>mac</code> defined as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">
+    <span style="color:#66d9ef">let</span> mat: <span style="color:#a6e22e">Person</span> <span style="color:#f92672">=</span> Person{name: String::from(<span style="color:#e6db74">&#34;Mat&#34;</span>), age: <span style="color:#ae81ff">30</span>};
+    <span style="color:#66d9ef">let</span> mac: <span style="color:#a6e22e">Person</span> <span style="color:#f92672">=</span> Person{name: String::from(<span style="color:#e6db74">&#34;Mac&#34;</span>), age: <span style="color:#ae81ff">35</span>};
+
+</code></pre></div><p>We cannot just do <code>mat == mac</code> or <code>mat != mac</code>. We have to define what equality means
+for the type Person. We can do this in two ways.</p>
+<ol>
+<li>Deriving the PartialEq trait for Person</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">
+    <span style="color:#75715e">#[derive(PartialEq)]</span>
+    <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Person</span> {
+      name: String,
+      age: <span style="color:#66d9ef">i32</span>
+    }
+
+</code></pre></div><p>By deriving the <code>PartialEq</code> trait, the compiler implements the equality operator on the Person type. When we do <code>mat == mac</code>, the compiler compares each field of <code>mat</code> with the corresponding field of <code>mat</code> i.e. <code>mat.age == mac.age</code> and <code>mat.name == mac.name</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">
+    println!(<span style="color:#e6db74">&#34;Is mat == mac ? {}&#34;</span>, mat <span style="color:#f92672">==</span> mac); 
+
+</code></pre></div><ol start="2">
+<li>Implementing the PartialEq trait for Person</li>
+</ol>
+<p>We can implement the <code>PartialEq</code> trait for Person ourselves. For that, we have to implement the required method <code>eq</code> of the trait <code>PartialEq</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">
+    <span style="color:#66d9ef">impl</span> PartialEq <span style="color:#66d9ef">for</span> Person {
+      <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">eq</span>(<span style="color:#f92672">&amp;</span>self, other: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Self</span>) -&gt; <span style="color:#66d9ef">bool</span> {
+        self.name <span style="color:#f92672">==</span> other.name <span style="color:#f92672">&amp;&amp;</span> self.age <span style="color:#f92672">==</span> other.age
+      }
+    }
+
+</code></pre></div><p>Now, lets say if we want to know if <code>mac</code> is older or younger than <code>mat</code> i.e. <code>mat &gt; mac</code> or <code>mat &lt; mac</code> or <code>mat &lt;= mac</code> or <code>mat &gt;= mac</code>. We would have to implement the <code>Ord</code>, <code>PartialOrd</code> and <code>Eq</code> traits for the Person type. These can be implemented as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">
+    <span style="color:#66d9ef">impl</span> PartialOrd <span style="color:#66d9ef">for</span> Person {
+      <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">partial_cmp</span>(<span style="color:#f92672">&amp;</span>self, other: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Self</span>) -&gt; Option<span style="color:#f92672">&lt;</span>Ordering<span style="color:#f92672">&gt;</span> {
+        Some(self.cmp(other))
+      }
+    }
+
+    <span style="color:#66d9ef">impl</span> Ord <span style="color:#66d9ef">for</span> Person {
+      <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">cmp</span>(<span style="color:#f92672">&amp;</span>self, other: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Self</span>) -&gt; <span style="color:#a6e22e">Ordering</span> {
+        self.age.cmp(<span style="color:#f92672">&amp;</span>other.age)
+      }
+    }
+
+    <span style="color:#66d9ef">impl</span> PartialEq <span style="color:#66d9ef">for</span> Person {
+      <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">eq</span>(<span style="color:#f92672">&amp;</span>self, other: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">Self</span>) -&gt; <span style="color:#66d9ef">bool</span> {
+        self.age <span style="color:#f92672">==</span> other.age
+      }
+    }
+
+    <span style="color:#66d9ef">impl</span> Eq <span style="color:#66d9ef">for</span> Person {}
+
+</code></pre></div><p>Note: The <code>Eq</code> trait inherits from the <code>PartialEq</code> trait.</p>
+<p>Now when we do</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">
+    println!(<span style="color:#e6db74">&#34;Is mac older than mat ? {}&#34;</span>, mac <span style="color:#f92672">&gt;</span> mat);
+
+</code></pre></div><p>we get</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">
+    Is mac older than mat <span style="color:#f92672">?</span> <span style="color:#66d9ef">true</span>
+
+</code></pre></div><h3 id="references">References</h3>
+<ol>
+<li><a href="https://doc.rust-lang.org/std/cmp/trait.PartialEq.html">https://doc.rust-lang.org/std/cmp/trait.PartialEq.html</a></li>
+<li><a href="https://doc.rust-lang.org/std/cmp/trait.Eq.html">https://doc.rust-lang.org/std/cmp/trait.Eq.html</a></li>
+<li><a href="https://doc.rust-lang.org/std/cmp/trait.Ord.html">https://doc.rust-lang.org/std/cmp/trait.Ord.html</a></li>
+<li><a href="https://doc.rust-lang.org/std/cmp/trait.PartialOrd.html">https://doc.rust-lang.org/std/cmp/trait.PartialOrd.html</a></li>
+</ol>
+
   </section>
   <footer>
     
@@ -135,12 +149,11 @@ jHNhA+GfQ0O3PIH1VEggbt4SeFA93Y+5KJzZwDirEjcO4GU6lxjk
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://chaitanyav.github.io/books/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://chaitanyav.github.io/diversions/">Older</a>
+          <a href="https://chaitanyav.github.io/posts/man_pages/">Older</a>
           
         </div>
       </div>

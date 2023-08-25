@@ -53,6 +53,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://chaitanyav.github.io/posts/comparing_user_defined_types/">How to compare user defined types in Rust</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2023-08-25T00:00:00Z">
+        Aug 25, 2023
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Let&rsquo;s just say we have a user-defined type Person defined as follows:
+pub struct Person { name: String, age: i32 } We need to compare two Persons mat, mac defined as follows:
+let mat: Person = Person{name: String::from(&#34;Mat&#34;), age: 30}; let mac: Person = Person{name: String::from(&#34;Mac&#34;), age: 35}; We cannot just do mat == mac or mat != mac. We have to define what equality means for the type Person. We can do this in two ways.
+  </div>
+  
+  <a href="https://chaitanyav.github.io/posts/comparing_user_defined_types/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://chaitanyav.github.io/posts/man_pages/">Writing Man Pages</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -204,7 +227,7 @@ Updating the man page involved going through the FreeBSD source code src/lib and
       
         
         &nbsp;&bull;&nbsp;
-        2020
+        2023
 
         
           &nbsp;&bull;&nbsp;

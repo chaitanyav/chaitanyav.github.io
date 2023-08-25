@@ -6,7 +6,18 @@
     <description>Recent content on my blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://chaitanyav.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://chaitanyav.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to compare user defined types in Rust</title>
+      <link>https://chaitanyav.github.io/posts/comparing_user_defined_types/</link>
+      <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://chaitanyav.github.io/posts/comparing_user_defined_types/</guid>
+      <description>Let&amp;rsquo;s just say we have a user-defined type Person defined as follows:
+pub struct Person { name: String, age: i32 } We need to compare two Persons mat, mac defined as follows:
+let mat: Person = Person{name: String::from(&amp;#34;Mat&amp;#34;), age: 30}; let mac: Person = Person{name: String::from(&amp;#34;Mac&amp;#34;), age: 35}; We cannot just do mat == mac or mat != mac. We have to define what equality means for the type Person. We can do this in two ways.</description>
+    </item>
+    
     <item>
       <title>Writing Man Pages</title>
       <link>https://chaitanyav.github.io/posts/man_pages/</link>
