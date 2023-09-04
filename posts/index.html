@@ -53,6 +53,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://chaitanyav.github.io/posts/iterators-1/">Iterators on user-defined types, Part-1</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2023-09-03T00:00:00Z">
+        Sep 3, 2023
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Let&rsquo;s say we have a user-defined type Dictionary which is defined as follows:
+struct Dictionary { words: Vec&lt;String&gt;, } impl Dictionary { fn new() -&gt; Self { Dictionary { words: Vec::new() } } fn insert(&amp;mut self, val: String) { self.words.push(val); } } We would like to implement an iterator on our Dictionary type so that we can loop over all the words in the dictionary like
+let mut dict = Dictionary::new(); dict.
+  </div>
+  
+  <a href="https://chaitanyav.github.io/posts/iterators-1/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://chaitanyav.github.io/posts/operator_overloading/">Operator overloading in Rust</a></h2>
     <p class="c-article__meta">
       Posted on
