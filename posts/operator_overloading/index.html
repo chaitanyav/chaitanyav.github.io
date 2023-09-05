@@ -74,7 +74,7 @@
 on <code>Rational</code>, we need to provide an implementation for the <code>add</code> method  from the <code>Add</code> trait.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">impl</span> Add <span style="color:#66d9ef">for</span> Rational {
     <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Output</span> <span style="color:#f92672">=</span> Self;
-    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">add</span>(self, other: <span style="color:#a6e22e">Self</span>) -&gt; <span style="color:#a6e22e">Self</span> {
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">add</span>(self, other: <span style="color:#a6e22e">Self</span>) -&gt; <span style="color:#a6e22e">Self</span>::Output {
         <span style="color:#66d9ef">let</span> temp_lcm: <span style="color:#66d9ef">i32</span> <span style="color:#f92672">=</span> lcm(self.den, other.den);
         <span style="color:#66d9ef">let</span> temp_num: <span style="color:#66d9ef">i32</span> <span style="color:#f92672">=</span> (temp_lcm <span style="color:#f92672">/</span> self.den) <span style="color:#f92672">*</span> self.num <span style="color:#f92672">+</span> (temp_lcm <span style="color:#f92672">/</span> other.den) <span style="color:#f92672">*</span> other.num;
 
@@ -88,7 +88,7 @@ on <code>Rational</code>, we need to provide an implementation for the <code>add
 Similarly, we can also implement the <code>Sub</code>, <code>Div</code>, <code>Mul</code> traits on <code>Rational</code> as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">impl</span> Sub <span style="color:#66d9ef">for</span> Rational {
     <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Output</span> <span style="color:#f92672">=</span> Self;
-    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">sub</span>(self, other: <span style="color:#a6e22e">Self</span>) -&gt; <span style="color:#a6e22e">Self</span> {
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">sub</span>(self, other: <span style="color:#a6e22e">Self</span>) -&gt; <span style="color:#a6e22e">Self</span>::Output {
         <span style="color:#66d9ef">let</span> temp_lcm: <span style="color:#66d9ef">i32</span> <span style="color:#f92672">=</span> lcm(self.den, other.den);
         <span style="color:#66d9ef">let</span> temp_num: <span style="color:#66d9ef">i32</span> <span style="color:#f92672">=</span> (temp_lcm <span style="color:#f92672">/</span> self.den) <span style="color:#f92672">*</span> self.num <span style="color:#f92672">-</span> (temp_lcm <span style="color:#f92672">/</span> other.den) <span style="color:#f92672">*</span> other.num;
         Rational {
@@ -100,7 +100,7 @@ Similarly, we can also implement the <code>Sub</code>, <code>Div</code>, <code>M
 
 <span style="color:#66d9ef">impl</span> Mul <span style="color:#66d9ef">for</span> Rational {
     <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Output</span> <span style="color:#f92672">=</span> Self;
-    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">mul</span>(self, other: <span style="color:#a6e22e">Self</span>) -&gt; <span style="color:#a6e22e">Self</span> {
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">mul</span>(self, other: <span style="color:#a6e22e">Self</span>) -&gt; <span style="color:#a6e22e">Self</span>::Output {
         Rational {
             num: <span style="color:#a6e22e">self</span>.num <span style="color:#f92672">*</span> other.num,
             den: <span style="color:#a6e22e">self</span>.den <span style="color:#f92672">*</span> other.den,
@@ -110,14 +110,14 @@ Similarly, we can also implement the <code>Sub</code>, <code>Div</code>, <code>M
 
 <span style="color:#66d9ef">impl</span> Div <span style="color:#66d9ef">for</span> Rational {
     <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Output</span> <span style="color:#f92672">=</span> Self;
-    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">div</span>(self, other: <span style="color:#a6e22e">Self</span>) -&gt; <span style="color:#a6e22e">Self</span> {
+    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">div</span>(self, other: <span style="color:#a6e22e">Self</span>) -&gt; <span style="color:#a6e22e">Self</span>::Output {
         Rational {
             num: <span style="color:#a6e22e">self</span>.num <span style="color:#f92672">*</span> other.den,
             den: <span style="color:#a6e22e">other</span>.num <span style="color:#f92672">*</span> self.den,
         }
     }
 }
-</code></pre></div><p>Code demonstrating the arithmetic operators on <code>Rational</code> objects (Link to the complete program at <a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2021&amp;gist=aca714dd47077b232af31a3bfcac4be4">Rust Playground</a>)</p>
+</code></pre></div><p>Code demonstrating the arithmetic operators on <code>Rational</code> objects (Link to the complete program at <a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2021&amp;gist=97c46ec0f98f70d3b5298f526b5db179">Rust Playground</a>)</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
     <span style="color:#66d9ef">let</span> a: <span style="color:#a6e22e">Rational</span> <span style="color:#f92672">=</span> Rational { num: <span style="color:#ae81ff">1</span>, den: <span style="color:#ae81ff">8</span> };
     <span style="color:#66d9ef">let</span> b: <span style="color:#a6e22e">Rational</span> <span style="color:#f92672">=</span> Rational { num: <span style="color:#ae81ff">1</span>, den: <span style="color:#ae81ff">3</span> };
