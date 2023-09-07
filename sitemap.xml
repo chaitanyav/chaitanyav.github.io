@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://chaitanyav.github.io/posts/iterators-1/</loc>
-    <lastmod>2023-09-03T00:00:00+00:00</lastmod>
+    <loc>https://chaitanyav.github.io/posts/from_into/</loc>
+    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chaitanyav.github.io/</loc>
-    <lastmod>2023-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chaitanyav.github.io/posts/</loc>
+    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chaitanyav.github.io/posts/iterators-1/</loc>
     <lastmod>2023-09-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://chaitanyav.github.io/posts/operator_overloading/</loc>

@@ -6,7 +6,19 @@
     <description>Recent content on NagaChaitanya Vellanki&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://chaitanyav.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://chaitanyav.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From, Into traits</title>
+      <link>https://chaitanyav.github.io/posts/from_into/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://chaitanyav.github.io/posts/from_into/</guid>
+      <description>Let&amp;rsquo;s say we have a user-defined type Point defined as follows
+struct Point { x: i32, y: i32, } and we want a String or &amp;amp;str of the form &amp;quot;(1,2)&amp;quot; to be converted into Point type. We need to implement the From trait on the Point type so that we can do something like
+let p: Point = Point::from(String::from(&amp;#34;(1,2)&amp;#34;)); or
+let p: Point = Point::from(&amp;#34;(1,2)&amp;#34;); The rust std library documentation says only to implement From since From&amp;lt;T&amp;gt; for U implies Into&amp;lt;U&amp;gt; for T which means by implementing the From trait on the Point type, we can make use of the standard library implementation of the Into trait.</description>
+    </item>
+    
     <item>
       <title>Iterators on user-defined types, Part-1</title>
       <link>https://chaitanyav.github.io/posts/iterators-1/</link>

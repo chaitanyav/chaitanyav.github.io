@@ -53,6 +53,30 @@
   
   <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://chaitanyav.github.io/posts/from_into/">From, Into traits</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2023-09-07T00:00:00Z">
+        Sep 7, 2023
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Let&rsquo;s say we have a user-defined type Point defined as follows
+struct Point { x: i32, y: i32, } and we want a String or &amp;str of the form &quot;(1,2)&quot; to be converted into Point type. We need to implement the From trait on the Point type so that we can do something like
+let p: Point = Point::from(String::from(&#34;(1,2)&#34;)); or
+let p: Point = Point::from(&#34;(1,2)&#34;); The rust std library documentation says only to implement From since From&lt;T&gt; for U implies Into&lt;U&gt; for T which means by implementing the From trait on the Point type, we can make use of the standard library implementation of the Into trait.
+  </div>
+  
+  <a href="https://chaitanyav.github.io/posts/from_into/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://chaitanyav.github.io/posts/iterators-1/">Iterators on user-defined types, Part-1</a></h2>
     <p class="c-article__meta">
       Posted on
