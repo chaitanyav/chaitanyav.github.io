@@ -68,7 +68,7 @@ Updating the man page involved going through the FreeBSD source code src/lib and
       
       <guid>https://chaitanyav.github.io/open_source/</guid>
       <description>I like to contribute to open source, here are links to some of my tiny contributions 🙏
- FreeBSD  Reduce duplication in sys/*/include files Improve test coverage for sbuf   Scala tools, compiler (2.13.x)  CodePrinter prints backquote names Add doc string to Array.from   ffmpeg RubyGems  Fibonacci: a ruby c-extension to explore fibonacci series efficiently Partitions   RubyOnRails Contribution  </description>
+ LLVM  https://github.com/search?q=repo%3Allvm%2Fllvm-project+author%3Achaitanyav&amp;amp;type=commits   Rust  https://github.com/search?q=org%3Arust-lang+chaitanyav&amp;amp;type=commits   FreeBSD  Reduce duplication in sys/*/include files Improve test coverage for sbuf   Scala tools, compiler (2.13.x)  CodePrinter prints backquote names Add doc string to Array.from   ffmpeg RubyGems  Fibonacci: a ruby c-extension to explore fibonacci series efficiently Partitions   RubyOnRails Contribution  </description>
     </item>
     
     <item>
