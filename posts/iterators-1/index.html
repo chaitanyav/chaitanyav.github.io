@@ -4,7 +4,7 @@
     <title>Iterators on user-defined types, Part-1 // NagaChaitanya Vellanki&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.144.2">
+    <meta name="generator" content="Hugo 0.145.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="NagaChaitanya Vellanki" />
     <meta name="description" content="" />
@@ -16,13 +16,15 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Iterators on user-defined types, Part-1">
   <meta name="twitter:description" content="Let’s say we have a user-defined type Dictionary which is defined as follows:
-struct Dictionary { words: Vec&lt;String&gt;, } impl Dictionary { fn new() -&gt; Self { Dictionary { words: Vec::new() } } fn insert(&amp;mut self, val: String) { self.words.push(val); } } We would like to implement an iterator on our Dictionary type so that we can loop over all the words in the dictionary like">
+struct Dictionary { words: Vec&lt;String&gt;, } impl Dictionary { fn new() -&gt; Self { Dictionary { words: Vec::new() } } fn insert(&amp;mut self, val: String) { self.words.push(val); } } We would like to implement an iterator on our Dictionary type so that we can loop over all the words in the dictionary like
+let mut dict = Dictionary::new(); dict.insert(String::from(&#34;abashed&#34;)); dict.insert(String::from(&#34;abashings&#34;)); dict.insert(String::from(&#34;abashment&#34;)); dict.insert(String::from(&#34;abate&#34;)); for word in dict { println!(&#34;{}&#34;, word); } Rust provides us with the Iterator trait which can be used to implement iterator on user-defined types. But the loop in the above code snippet, actually converts the dict into an iterator. The two for loops in the code snippet below are equivalent">
 
     <meta property="og:url" content="http://localhost:1313/posts/iterators-1/">
   <meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
   <meta property="og:title" content="Iterators on user-defined types, Part-1">
   <meta property="og:description" content="Let’s say we have a user-defined type Dictionary which is defined as follows:
-struct Dictionary { words: Vec&lt;String&gt;, } impl Dictionary { fn new() -&gt; Self { Dictionary { words: Vec::new() } } fn insert(&amp;mut self, val: String) { self.words.push(val); } } We would like to implement an iterator on our Dictionary type so that we can loop over all the words in the dictionary like">
+struct Dictionary { words: Vec&lt;String&gt;, } impl Dictionary { fn new() -&gt; Self { Dictionary { words: Vec::new() } } fn insert(&amp;mut self, val: String) { self.words.push(val); } } We would like to implement an iterator on our Dictionary type so that we can loop over all the words in the dictionary like
+let mut dict = Dictionary::new(); dict.insert(String::from(&#34;abashed&#34;)); dict.insert(String::from(&#34;abashings&#34;)); dict.insert(String::from(&#34;abashment&#34;)); dict.insert(String::from(&#34;abate&#34;)); for word in dict { println!(&#34;{}&#34;, word); } Rust provides us with the Iterator trait which can be used to implement iterator on user-defined types. But the loop in the above code snippet, actually converts the dict into an iterator. The two for loops in the code snippet below are equivalent">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -69,8 +71,7 @@ struct Dictionary { words: Vec&lt;String&gt;, } impl Dictionary { fn new() -&gt;
       </div>
     </header>
     <div class="post-content">
-      <p><img src="https://www.rust-lang.org/logos/rust-logo-32x32-blk.png" alt="Rust logo"></p>
-<p>Let&rsquo;s say we have a user-defined type <code>Dictionary</code> which is defined as follows:</p>
+      <p>Let&rsquo;s say we have a user-defined type <code>Dictionary</code> which is defined as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Dictionary</span> {
 </span></span><span style="display:flex;"><span>    words: Vec<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span>,
 </span></span><span style="display:flex;"><span>}
