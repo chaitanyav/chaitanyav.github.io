@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en-us">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <title>Iterators on user-defined types, Part-1 // NagaChaitanya Vellanki&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.145.0">
+    <meta name="generator" content="Hugo 0.148.2">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="NagaChaitanya Vellanki" />
     <meta name="description" content="" />
@@ -19,7 +19,7 @@
 struct Dictionary { words: Vec&lt;String&gt;, } impl Dictionary { fn new() -&gt; Self { Dictionary { words: Vec::new() } } fn insert(&amp;mut self, val: String) { self.words.push(val); } } We would like to implement an iterator on our Dictionary type so that we can loop over all the words in the dictionary like
 let mut dict = Dictionary::new(); dict.insert(String::from(&#34;abashed&#34;)); dict.insert(String::from(&#34;abashings&#34;)); dict.insert(String::from(&#34;abashment&#34;)); dict.insert(String::from(&#34;abate&#34;)); for word in dict { println!(&#34;{}&#34;, word); } Rust provides us with the Iterator trait which can be used to implement iterator on user-defined types. But the loop in the above code snippet, actually converts the dict into an iterator. The two for loops in the code snippet below are equivalent">
 
-    <meta property="og:url" content="http://localhost:1313/posts/iterators-1/">
+    <meta property="og:url" content="https://chaitanyav.github.io/posts/iterators-1/">
   <meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
   <meta property="og:title" content="Iterators on user-defined types, Part-1">
   <meta property="og:description" content="Let’s say we have a user-defined type Dictionary which is defined as follows:
@@ -93,15 +93,15 @@ let mut dict = Dictionary::new(); dict.insert(String::from(&#34;abashed&#34;)); 
 </span></span><span style="display:flex;"><span>dict.insert(String::from(<span style="color:#e6db74">&#34;abate&#34;</span>));
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> word <span style="color:#66d9ef">in</span> dict {
-</span></span><span style="display:flex;"><span>  println!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, word);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, word);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Rust provides us with the <code>Iterator</code> trait which can be used to implement iterator on user-defined types. But the loop in the above code snippet, actually converts the <code>dict</code> into an iterator. The two for loops in the code snippet below are equivalent</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> word <span style="color:#66d9ef">in</span> dict.into_iter() {
-</span></span><span style="display:flex;"><span>  println!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, word);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, word);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> word <span style="color:#66d9ef">in</span> dict {
-</span></span><span style="display:flex;"><span>  println!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, word);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, word);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>So we need to implement the <code>IntoIterator</code> trait on our <code>Dictionary</code> type, which can be implemented as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> IntoIterator <span style="color:#66d9ef">for</span> Dictionary {
@@ -115,11 +115,11 @@ let mut dict = Dictionary::new(); dict.insert(String::from(&#34;abashed&#34;)); 
 </span></span></code></pre></div><p>where <code>Item</code> is the type of the item the iterator is going to return and <code>IntoIter</code> is the kind of iterator we want our <code>Dictionary</code> type to be converted into. Here we want it to be converted into an iterator of <code>Vec&lt;String&gt;</code> (which already implements the <code>IntoIterator</code> trait). Rust playground link for the above <a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2021&amp;gist=f2ceb5478f77adcc9ba65f112e51bf15">program</a>.</p>
 <p><em><strong>NOTE</strong></em>: The <code>into_iter()</code> consumes(moves) the <code>Vec&lt;String&gt;</code>, notice the <code>self</code> as the argument for the <code>into_iter</code> function. Any subsequent use of the iterator is not allowed by the compiler like</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> word <span style="color:#66d9ef">in</span> dict.into_iter() {
-</span></span><span style="display:flex;"><span>  println!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, word);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, word);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> word <span style="color:#66d9ef">in</span> dict {
-</span></span><span style="display:flex;"><span>  println!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, word);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, word);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>is not allowed by the compiler.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#f92672">..</span>.

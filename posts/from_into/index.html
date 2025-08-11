@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en-us">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <title>From, Into traits // NagaChaitanya Vellanki&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.145.0">
+    <meta name="generator" content="Hugo 0.148.2">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="NagaChaitanya Vellanki" />
     <meta name="description" content="" />
@@ -20,7 +20,7 @@ struct Point { x: i32, y: i32, } and we want a String or &amp;str of the form &#
 let p: Point = Point::from(String::from(&#34;(1,2)&#34;)); or
 let p: Point = Point::from(&#34;(1,2)&#34;); The rust std library documentation says only to implement From since From&lt;T&gt; for U implies Into&lt;U&gt; for T which means by implementing the From trait on the Point type, we can make use of the standard library implementation of the Into trait. We can now also do">
 
-    <meta property="og:url" content="http://localhost:1313/posts/from_into/">
+    <meta property="og:url" content="https://chaitanyav.github.io/posts/from_into/">
   <meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
   <meta property="og:title" content="From, Into traits">
   <meta property="og:description" content="Let’s say we have a user-defined type Point defined as follows

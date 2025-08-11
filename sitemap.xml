@@ -2,41 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/from_into/</loc>
+    <loc>https://chaitanyav.github.io/posts/deep_learning_paper_reading_1/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chaitanyav.github.io/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chaitanyav.github.io/posts/</loc>
+    <lastmod>2025-08-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://chaitanyav.github.io/posts/from_into/</loc>
     <lastmod>2023-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2023-09-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/iterators-1/</loc>
+    <loc>https://chaitanyav.github.io/posts/iterators-1/</loc>
     <lastmod>2023-09-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/operator_overloading/</loc>
+    <loc>https://chaitanyav.github.io/posts/operator_overloading/</loc>
     <lastmod>2023-09-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/comparing_user_defined_types/</loc>
+    <loc>https://chaitanyav.github.io/posts/comparing_user_defined_types/</loc>
     <lastmod>2023-08-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/man_pages/</loc>
+    <loc>https://chaitanyav.github.io/posts/man_pages/</loc>
     <lastmod>2020-09-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/open_source/</loc>
+    <loc>https://chaitanyav.github.io/open_source/</loc>
     <lastmod>2020-08-26T20:28:26-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/books/</loc>
+    <loc>https://chaitanyav.github.io/books/</loc>
     <lastmod>2020-08-26T20:28:26-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://chaitanyav.github.io/about/</loc>
     <lastmod>2020-05-08T10:52:09-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/diversions/</loc>
+    <loc>https://chaitanyav.github.io/diversions/</loc>
     <lastmod>2020-05-08T10:43:33-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://chaitanyav.github.io/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://chaitanyav.github.io/tags/</loc>
   </url>
 </urlset>
