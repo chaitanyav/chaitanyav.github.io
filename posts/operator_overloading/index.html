@@ -4,7 +4,7 @@
     <title>Operator overloading in Rust // NagaChaitanya Vellanki&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.151.0">
+    <meta name="generator" content="Hugo 0.157.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="NagaChaitanya Vellanki" />
     <meta name="description" content="" />
@@ -67,14 +67,14 @@
     </header>
     <div class="post-content">
       <p>Let&rsquo;s say we have a user-defined type <code>Rational</code> defined as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">#[derive(Debug)]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">#[derive(Debug)]</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Rational</span> {
 </span></span><span style="display:flex;"><span>    num: <span style="color:#66d9ef">i32</span>,
 </span></span><span style="display:flex;"><span>    den: <span style="color:#66d9ef">i32</span>,
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>In order to support arithmetic operators  like (<code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>) on <code>Rational</code>, we would have to implement the <code>Add</code>, <code>Sub</code>, <code>Div</code>, <code>Mul</code> traits on <code>Rational</code> from the Rust standard library. To implement the <code>Add</code> trait
 on <code>Rational</code>, we need to provide an implementation for the <code>add</code> method  from the <code>Add</code> trait.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Add <span style="color:#66d9ef">for</span> Rational {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Add <span style="color:#66d9ef">for</span> Rational {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Output</span> <span style="color:#f92672">=</span> Self;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">add</span>(self, other: <span style="color:#a6e22e">Self</span>) -&gt; <span style="color:#a6e22e">Self</span>::Output {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> temp_lcm: <span style="color:#66d9ef">i32</span> <span style="color:#f92672">=</span> lcm(self.den, other.den);
@@ -88,7 +88,7 @@ on <code>Rational</code>, we need to provide an implementation for the <code>add
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p><em><strong>NOTE</strong></em>: The above code for addition does not simplify the rational number completely. Also making use of the fact that <code>lcm(a, b) = (a * b) / gcd(a, b)</code> to simplify the result of the addition, subtraction a bit.
 Similarly, we can also implement the <code>Sub</code>, <code>Div</code>, <code>Mul</code> traits on <code>Rational</code> as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Sub <span style="color:#66d9ef">for</span> Rational {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Sub <span style="color:#66d9ef">for</span> Rational {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Output</span> <span style="color:#f92672">=</span> Self;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">sub</span>(self, other: <span style="color:#a6e22e">Self</span>) -&gt; <span style="color:#a6e22e">Self</span>::Output {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> temp_lcm: <span style="color:#66d9ef">i32</span> <span style="color:#f92672">=</span> lcm(self.den, other.den);
@@ -120,7 +120,7 @@ Similarly, we can also implement the <code>Sub</code>, <code>Div</code>, <code>M
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Code demonstrating the arithmetic operators on <code>Rational</code> objects (Link to the complete program at <a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2021&amp;gist=97c46ec0f98f70d3b5298f526b5db179">Rust Playground</a>)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> a: <span style="color:#a6e22e">Rational</span> <span style="color:#f92672">=</span> Rational { num: <span style="color:#ae81ff">1</span>, den: <span style="color:#ae81ff">8</span> };
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> b: <span style="color:#a6e22e">Rational</span> <span style="color:#f92672">=</span> Rational { num: <span style="color:#ae81ff">1</span>, den: <span style="color:#ae81ff">3</span> };
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> c <span style="color:#f92672">=</span> a <span style="color:#f92672">+</span> b;
@@ -135,7 +135,7 @@ Similarly, we can also implement the <code>Sub</code>, <code>Div</code>, <code>M
 <pre tabindex="0"><code>11 / 24
 -5 / 24
 </code></pre><p><em><strong>NOTE</strong></em>: The <code>Display</code> trait was also implemented on <code>Rational</code> so that it can be displayed on stdout as <code>num / den</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Display <span style="color:#66d9ef">for</span> Rational {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Display <span style="color:#66d9ef">for</span> Rational {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">fmt</span>(<span style="color:#f92672">&amp;</span>self, f: <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">mut</span> Formatter<span style="color:#f92672">&lt;</span>&#39;_<span style="color:#f92672">&gt;</span>) -&gt; Result<span style="color:#f92672">&lt;</span>(), Error<span style="color:#f92672">&gt;</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">write!</span>(f, <span style="color:#e6db74">&#34;{} / {}&#34;</span>, self.num, self.den)
 </span></span><span style="display:flex;"><span>    }
