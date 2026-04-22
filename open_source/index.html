@@ -88,6 +88,33 @@ __builtin_stdc_leading_zeros() / __builtin_stdc_leading_ones() __builtin_stdc_tr
 <li>✅ Integration with Clang&rsquo;s constant expression evaluator</li>
 </ul>
 <p><strong>🎯 Impact:</strong> Enables C23-compliant portable bit manipulation without vendor-specific intrinsics.</p>
+<h3 id="-typed-variants-for-c23-stdbith-builtins-april-2026">🟢 Typed Variants for C23 stdbit.h Builtins (April 2026)</h3>
+<p>PR #192718 | <a href="https://github.com/llvm/llvm-project/pull/192718">Merged April 21, 2026</a> | C23 Language Feature
+Added typed variants of the C23 bit manipulation builtins following the stdbit.h specification:
+Typed functions for specific unsigned integer types:</p>
+<ul>
+<li>stdc_leading_zeros_{uc,us,ui,ul,ull} - Leading zeros for unsigned char, unsigned short, unsigned int, unsigned long, unsigned long long</li>
+<li>stdc_leading_ones_{uc,us,ui,ul,ull} - Leading ones</li>
+<li>stdc_trailing_zeros_{uc,us,ui,ul,ull} - Trailing zeros</li>
+<li>stdc_trailing_ones_{uc,us,ui,ul,ull} - Trailing ones</li>
+<li>stdc_first_leading_zero_{uc,us,ui,ul,ull} - First leading zero position</li>
+<li>stdc_first_leading_one_{uc,us,ui,ul,ull} - First leading one position</li>
+<li>stdc_first_trailing_zero_{uc,us,ui,ul,ull} - First trailing zero position</li>
+<li>stdc_first_trailing_one_{uc,us,ui,ul,ull} - First trailing one position</li>
+<li>stdc_count_zeros_{uc,us,ui,ul,ull} - Count of zero bits</li>
+<li>stdc_count_ones_{uc,us,ui,ul,ull} - Count of one bits</li>
+<li>stdc_has_single_bit_{uc,us,ui,ul,ull} - Check if power of two</li>
+<li>stdc_bit_width_{uc,us,ui,ul,ull} - Bit width</li>
+<li>stdc_bit_floor_{uc,us,ui,ul,ull} - Largest power of 2 ≤ value</li>
+<li>stdc_bit_ceil_{uc,us,ui,ul,ull} - Smallest power of 2 ≥ value</li>
+</ul>
+<p>💡 Technical Approach:</p>
+<ul>
+<li>✅ Complements the type-generic _<em>builtin_stdc</em>* implementations from PR #185978</li>
+<li>✅ Provides C23-compliant typed interface matching the standard library specification</li>
+<li>✅ Maps to the same underlying intrinsics (ctlz, cttz, ctpop) with type-specific wrappers</li>
+</ul>
+<p>🎯 Impact: Completes C23 &lt;stdbit.h&gt; implementation, allowing both type-generic and type-specific bit manipulation functions.</p>
 <h3 id="-rotate-builtins-january-2026">🟢 Rotate Builtins (January 2026)</h3>
 <p><strong>PR #160259</strong> | <a href="https://github.com/llvm/llvm-project/pull/160259">Merged January 21, 2026</a> | <code>C23</code> <code>Language Feature</code></p>
 <p>Implemented <code>__builtin_stdc_rotate_left()</code> and <code>__builtin_stdc_rotate_right()</code>:</p>
