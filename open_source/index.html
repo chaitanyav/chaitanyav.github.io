@@ -224,7 +224,19 @@ Extended scalar operations including new FP16 intrinsics:</p>
 <li>✅ Handled special cases: saturation boundaries, broadcast patterns, cross-lane operations</li>
 </ul>
 <hr>
-<h3 id="3-early-work-tooling--api-improvements-2023">3️⃣ Early Work: Tooling &amp; API Improvements (2023)</h3>
+<h3 id="3-selectiondag-optimizations">3️⃣ SelectionDAG Optimizations</h3>
+<p>🟢 computeKnownFPClass SELECT/VSELECT Handling (April 2026)
+<a href="https://github.com/llvm/llvm-project/pull/194009">PR #194009</a> | <a href="https://github.com/llvm/llvm-project/issues/193500">Fixes #193500</a> | Merged April 30, 2026 | SelectionDAG Optimization
+Extended SelectionDAG::computeKnownFPClass to handle ISD::SELECT and ISD::VSELECT nodes, propagating floating-point class information (e.g. nofpclass(nan), nofpclass(inf), nofpclass(zero)) through select operations.</p>
+<p>💡 Technical Approach:</p>
+<ul>
+<li>✅ Computes KnownFPClass for both true and false arms of a select, then intersects the results</li>
+<li>✅ Bails out early if the false arm is fully unknown, avoiding unnecessary work</li>
+<li>✅ Covers scalar SELECT, fixed-vector VSELECT, and scalable-vector VSELECT</li>
+<li>✅ Comprehensive RISC-V test coverage for symmetric, asymmetric, and unknown-arm cases</li>
+</ul>
+<p>🎯 Impact: Enables the backend to eliminate redundant is.fpclass checks on select results when both arms share a known FP class constraint, reducing generated code size and improving optimization quality.</p>
+<h3 id="4-early-work-tooling--api-improvements-2023">4️⃣ Early Work: Tooling &amp; API Improvements (2023)</h3>
 <h4 id="clang-extractapi-enhancements">Clang ExtractAPI Enhancements</h4>
 <p>A series of fixes to Clang&rsquo;s API documentation extraction:</p>
 <p><strong>Objective-C Lightweight Generics</strong> (March-May 2023)<br>
