@@ -4,7 +4,7 @@
     <title>Open Source // NagaChaitanya Vellanki&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.160.1">
+    <meta name="generator" content="Hugo 0.161.1">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="NagaChaitanya Vellanki" />
     <meta name="description" content="" />
@@ -15,22 +15,22 @@
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Open Source">
-  <meta name="twitter:description" content="I like to contribute to open source, here are links to some of my contributions 🙏
+  <meta name="twitter:description" content="Open Source I like to contribute to open source, here are links to some of my contributions 🙏
 LLVM Repository: llvm/llvm-project
-GitHub: @chaitanyav Period: March 2023 - April 2026
-1️⃣ C23 Standard Library Builtins 🟢 __builtin_stdc_* Bit Manipulation Builtins (April 2026) PR #185978 | Merged April 16, 2026 | C23 Language Feature
-Implemented the C23 bit manipulation builtins following the ISO C23 standard specification:
-__builtin_stdc_leading_zeros() / __builtin_stdc_leading_ones() __builtin_stdc_trailing_zeros() / __builtin_stdc_trailing_ones() __builtin_stdc_first_leading_zero() / __builtin_stdc_first_leading_one() __builtin_stdc_first_trailing_zero() / __builtin_stdc_first_trailing_one() __builtin_stdc_count_zeros() / __builtin_stdc_count_ones() __builtin_stdc_has_single_bit() __builtin_stdc_bit_width() / __builtin_stdc_bit_floor() / __builtin_stdc_bit_ceil() 💡 Technical Approach:">
+GitHub: @chaitanyav
+Period: March 2023 – May 2026
+1️⃣ C23/C2y Standard Library Builtins 🟢 Typed Variants for C2y stdbit.h Rotate Builtins (May 2026) PR #195299 | Merged May 12, 2026 | C2y Language Feature
+Extended the rotate builtin work from PR #160259 by adding typed variants for __builtin_stdc_rotate_left and __builtin_stdc_rotate_right following the C2y stdbit.h specification:">
 
     <meta property="og:url" content="https://chaitanyav.github.io/open_source/">
   <meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
   <meta property="og:title" content="Open Source">
-  <meta property="og:description" content="I like to contribute to open source, here are links to some of my contributions 🙏
+  <meta property="og:description" content="Open Source I like to contribute to open source, here are links to some of my contributions 🙏
 LLVM Repository: llvm/llvm-project
-GitHub: @chaitanyav Period: March 2023 - April 2026
-1️⃣ C23 Standard Library Builtins 🟢 __builtin_stdc_* Bit Manipulation Builtins (April 2026) PR #185978 | Merged April 16, 2026 | C23 Language Feature
-Implemented the C23 bit manipulation builtins following the ISO C23 standard specification:
-__builtin_stdc_leading_zeros() / __builtin_stdc_leading_ones() __builtin_stdc_trailing_zeros() / __builtin_stdc_trailing_ones() __builtin_stdc_first_leading_zero() / __builtin_stdc_first_leading_one() __builtin_stdc_first_trailing_zero() / __builtin_stdc_first_trailing_one() __builtin_stdc_count_zeros() / __builtin_stdc_count_ones() __builtin_stdc_has_single_bit() __builtin_stdc_bit_width() / __builtin_stdc_bit_floor() / __builtin_stdc_bit_ceil() 💡 Technical Approach:">
+GitHub: @chaitanyav
+Period: March 2023 – May 2026
+1️⃣ C23/C2y Standard Library Builtins 🟢 Typed Variants for C2y stdbit.h Rotate Builtins (May 2026) PR #195299 | Merged May 12, 2026 | C2y Language Feature
+Extended the rotate builtin work from PR #160259 by adding typed variants for __builtin_stdc_rotate_left and __builtin_stdc_rotate_right following the C2y stdbit.h specification:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2020-08-26T20:28:26-07:00">
@@ -63,14 +63,64 @@ __builtin_stdc_leading_zeros() / __builtin_stdc_leading_ones() __builtin_stdc_tr
       <h1 class ="post-title">Open Source</h1>
     </header>
     <div class="post-content">
-      <p>I like to contribute to open source, here are links to some of my contributions &#x1f64f;</p>
-<h1 id="llvm">LLVM</h1>
-<p><strong>Repository:</strong> <a href="https://github.com/llvm/llvm-project">llvm/llvm-project</a><br>
-<strong>GitHub:</strong> <a href="https://github.com/chaitanyav">@chaitanyav</a>
-<strong>Period:</strong> March 2023 - April 2026</p>
-<h2 id="1-c23-standard-library-builtins">1️⃣ C23 Standard Library Builtins</h2>
-<h3 id="-__builtin_stdc_-bit-manipulation-builtins-april-2026">🟢 <code>__builtin_stdc_*</code> Bit Manipulation Builtins (April 2026)</h3>
-<p><strong>PR #185978</strong> | <a href="https://github.com/llvm/llvm-project/pull/185978">Merged April 16, 2026</a> | <code>C23</code> <code>Language Feature</code></p>
+      <h1 id="open-source">Open Source</h1>
+<p>I like to contribute to open source, here are links to some of my contributions 🙏</p>
+<hr>
+<h2 id="llvm">LLVM</h2>
+<p><strong>Repository:</strong> llvm/llvm-project<br>
+<strong>GitHub:</strong> @chaitanyav<br>
+<strong>Period:</strong> March 2023 – May 2026</p>
+<hr>
+<h3 id="1-c23c2y-standard-library-builtins">1️⃣ C23/C2y Standard Library Builtins</h3>
+<h4 id="-typed-variants-for-c2y-stdbith-rotate-builtins-may-2026">🟢 Typed Variants for C2y stdbit.h Rotate Builtins (May 2026)</h4>
+<p><a href="https://github.com/llvm/llvm-project/pull/195299">PR #195299</a> | Merged May 12, 2026 | C2y Language Feature</p>
+<p>Extended the rotate builtin work from <a href="https://github.com/llvm/llvm-project/pull/160259">PR #160259</a> by adding typed variants for <code>__builtin_stdc_rotate_left</code> and <code>__builtin_stdc_rotate_right</code> following the C2y <code>stdbit.h</code> specification:</p>
+<ul>
+<li><code>stdc_rotate_left_{uc,us,ui,ul,ull}</code> — typed left rotate for each unsigned integer type</li>
+<li><code>stdc_rotate_right_{uc,us,ui,ul,ull}</code> — typed right rotate for each unsigned integer type</li>
+</ul>
+<p><strong>Technical Approach:</strong></p>
+<ul>
+<li>✅ Complements the type-generic rotate builtins from <a href="https://github.com/llvm/llvm-project/pull/160259">PR #160259</a></li>
+<li>✅ Follows the same pattern as the C23 typed stdbit.h variants (<a href="https://github.com/llvm/llvm-project/pull/192718">PR #192718</a>)</li>
+<li>✅ Maps to efficient rotate instructions on target architectures</li>
+</ul>
+<p><strong>Impact:</strong> Advances C2y <code>&lt;stdbit.h&gt;</code> support, providing both type-generic and type-specific rotate interfaces.</p>
+<hr>
+<h4 id="-remove-non-builtin-generic-stdbith-bit-functions-may-2026">🟢 Remove non-builtin generic stdbit.h bit functions (May 2026)</h4>
+<p><a href="https://github.com/llvm/llvm-project/pull/197069">PR #197069</a> | Merged May 11, 2026 | NFC / Cleanup</p>
+<p>Removed the non-builtin generic <code>&lt;stdbit.h&gt;</code> bit functions, consolidating the implementation to use only the builtin variants introduced in earlier PRs.</p>
+<p><strong>Impact:</strong> Simplifies the <code>&lt;stdbit.h&gt;</code> implementation by eliminating redundant non-builtin paths, reducing maintenance surface.</p>
+<hr>
+<h4 id="-typed-variants-for-c23-stdbith-builtins-april-2026">🟢 Typed Variants for C23 stdbit.h Builtins (April 2026)</h4>
+<p><a href="https://github.com/llvm/llvm-project/pull/192718">PR #192718</a> | Merged April 21, 2026 | C23 Language Feature</p>
+<p>Added typed variants of the C23 bit manipulation builtins following the <code>stdbit.h</code> specification. Typed functions for specific unsigned integer types:</p>
+<ul>
+<li><code>stdc_leading_zeros_{uc,us,ui,ul,ull}</code> – Leading zeros for unsigned char, unsigned short, unsigned int, unsigned long, unsigned long long</li>
+<li><code>stdc_leading_ones_{uc,us,ui,ul,ull}</code> – Leading ones</li>
+<li><code>stdc_trailing_zeros_{uc,us,ui,ul,ull}</code> – Trailing zeros</li>
+<li><code>stdc_trailing_ones_{uc,us,ui,ul,ull}</code> – Trailing ones</li>
+<li><code>stdc_first_leading_zero_{uc,us,ui,ul,ull}</code> – First leading zero position</li>
+<li><code>stdc_first_leading_one_{uc,us,ui,ul,ull}</code> – First leading one position</li>
+<li><code>stdc_first_trailing_zero_{uc,us,ui,ul,ull}</code> – First trailing zero position</li>
+<li><code>stdc_first_trailing_one_{uc,us,ui,ul,ull}</code> – First trailing one position</li>
+<li><code>stdc_count_zeros_{uc,us,ui,ul,ull}</code> – Count of zero bits</li>
+<li><code>stdc_count_ones_{uc,us,ui,ul,ull}</code> – Count of one bits</li>
+<li><code>stdc_has_single_bit_{uc,us,ui,ul,ull}</code> – Check if power of two</li>
+<li><code>stdc_bit_width_{uc,us,ui,ul,ull}</code> – Bit width</li>
+<li><code>stdc_bit_floor_{uc,us,ui,ul,ull}</code> – Largest power of 2 ≤ value</li>
+<li><code>stdc_bit_ceil_{uc,us,ui,ul,ull}</code> – Smallest power of 2 ≥ value</li>
+</ul>
+<p><strong>Technical Approach:</strong></p>
+<ul>
+<li>✅ Complements the type-generic <code>_builtin_stdc*</code> implementations from <a href="https://github.com/llvm/llvm-project/pull/185978">PR #185978</a></li>
+<li>✅ Provides C23-compliant typed interface matching the standard library specification</li>
+<li>✅ Maps to the same underlying intrinsics (ctlz, cttz, ctpop) with type-specific wrappers</li>
+</ul>
+<p><strong>Impact:</strong> Completes C23 <code>&lt;stdbit.h&gt;</code> implementation, allowing both type-generic and type-specific bit manipulation functions.</p>
+<hr>
+<h4 id="-_builtin_-bit-manipulation-builtins-april-2026">🟢 _<em>builtin_stdc</em>* Bit Manipulation Builtins (April 2026)</h4>
+<p><a href="https://github.com/llvm/llvm-project/pull/185978">PR #185978</a> | Merged April 16, 2026 | C23 Language Feature</p>
 <p>Implemented the C23 bit manipulation builtins following the ISO C23 standard specification:</p>
 <ul>
 <li><code>__builtin_stdc_leading_zeros()</code> / <code>__builtin_stdc_leading_ones()</code></li>
@@ -81,143 +131,127 @@ __builtin_stdc_leading_zeros() / __builtin_stdc_leading_ones() __builtin_stdc_tr
 <li><code>__builtin_stdc_has_single_bit()</code></li>
 <li><code>__builtin_stdc_bit_width()</code> / <code>__builtin_stdc_bit_floor()</code> / <code>__builtin_stdc_bit_ceil()</code></li>
 </ul>
-<p><strong>💡 Technical Approach:</strong></p>
+<p><strong>Technical Approach:</strong></p>
 <ul>
-<li>✅ Designed for GCC compatibility while leveraging LLVM&rsquo;s existing intrinsics (<code>ctlz</code>, <code>cttz</code>, <code>ctpop</code>)</li>
+<li>✅ Designed for GCC compatibility while leveraging LLVM&rsquo;s existing intrinsics (ctlz, cttz, ctpop)</li>
 <li>✅ Type-generic implementation supporting all unsigned integer types</li>
 <li>✅ Integration with Clang&rsquo;s constant expression evaluator</li>
 </ul>
-<p><strong>🎯 Impact:</strong> Enables C23-compliant portable bit manipulation without vendor-specific intrinsics.</p>
-<h3 id="-typed-variants-for-c23-stdbith-builtins-april-2026">🟢 Typed Variants for C23 stdbit.h Builtins (April 2026)</h3>
-<p>PR #192718 | <a href="https://github.com/llvm/llvm-project/pull/192718">Merged April 21, 2026</a> | C23 Language Feature
-Added typed variants of the C23 bit manipulation builtins following the stdbit.h specification:
-Typed functions for specific unsigned integer types:</p>
-<ul>
-<li>stdc_leading_zeros_{uc,us,ui,ul,ull} - Leading zeros for unsigned char, unsigned short, unsigned int, unsigned long, unsigned long long</li>
-<li>stdc_leading_ones_{uc,us,ui,ul,ull} - Leading ones</li>
-<li>stdc_trailing_zeros_{uc,us,ui,ul,ull} - Trailing zeros</li>
-<li>stdc_trailing_ones_{uc,us,ui,ul,ull} - Trailing ones</li>
-<li>stdc_first_leading_zero_{uc,us,ui,ul,ull} - First leading zero position</li>
-<li>stdc_first_leading_one_{uc,us,ui,ul,ull} - First leading one position</li>
-<li>stdc_first_trailing_zero_{uc,us,ui,ul,ull} - First trailing zero position</li>
-<li>stdc_first_trailing_one_{uc,us,ui,ul,ull} - First trailing one position</li>
-<li>stdc_count_zeros_{uc,us,ui,ul,ull} - Count of zero bits</li>
-<li>stdc_count_ones_{uc,us,ui,ul,ull} - Count of one bits</li>
-<li>stdc_has_single_bit_{uc,us,ui,ul,ull} - Check if power of two</li>
-<li>stdc_bit_width_{uc,us,ui,ul,ull} - Bit width</li>
-<li>stdc_bit_floor_{uc,us,ui,ul,ull} - Largest power of 2 ≤ value</li>
-<li>stdc_bit_ceil_{uc,us,ui,ul,ull} - Smallest power of 2 ≥ value</li>
-</ul>
-<p>💡 Technical Approach:</p>
-<ul>
-<li>✅ Complements the type-generic _<em>builtin_stdc</em>* implementations from PR #185978</li>
-<li>✅ Provides C23-compliant typed interface matching the standard library specification</li>
-<li>✅ Maps to the same underlying intrinsics (ctlz, cttz, ctpop) with type-specific wrappers</li>
-</ul>
-<p>🎯 Impact: Completes C23 &lt;stdbit.h&gt; implementation, allowing both type-generic and type-specific bit manipulation functions.</p>
-<h3 id="-rotate-builtins-january-2026">🟢 Rotate Builtins (January 2026)</h3>
-<p><strong>PR #160259</strong> | <a href="https://github.com/llvm/llvm-project/pull/160259">Merged January 21, 2026</a> | <code>C23</code> <code>Language Feature</code></p>
+<p><strong>Impact:</strong> Enables C23-compliant portable bit manipulation without vendor-specific intrinsics.</p>
+<hr>
+<h4 id="-rotate-builtins-january-2026">🟢 Rotate Builtins (January 2026)</h4>
+<p><a href="https://github.com/llvm/llvm-project/pull/160259">PR #160259</a> | Merged January 21, 2026 | C23 Language Feature</p>
 <p>Implemented <code>__builtin_stdc_rotate_left()</code> and <code>__builtin_stdc_rotate_right()</code>:</p>
 <ul>
 <li>Type-generic support for all unsigned integer types including <code>_BitInt(N)</code></li>
 <li>Compile-time evaluation in constexpr contexts</li>
 <li>Maps to efficient rotate instructions on target architectures</li>
-<li>Handling ARM32 compatibility issues with <code>__int128</code> types required careful test design and fallback to <code>_BitInt(128)</code>.</li>
 </ul>
+<p>Handling ARM32 compatibility issues with <code>__int128</code> types required careful test design and fallback to <code>_BitInt(128)</code>.</p>
 <hr>
-<h2 id="2-constexpr-simd-intrinsics">2️⃣ Constexpr SIMD Intrinsics:</h2>
-<p>Between October 2025 and February 2026, I systematically enabled compile-time evaluation for X86 SIMD intrinsics across multiple instruction set extensions. This work allows these intrinsics to be used in <code>constexpr</code> contexts, enabling better compile-time optimization and static analysis.</p>
-<h3 id="-avx-512-advanced-intrinsics">🔵 AVX-512 Advanced Intrinsics</h3>
-<p><strong>🔵 AVX-512 VPMULTISHIFTQB</strong> (November 2025)<br>
-<strong>PR #168995</strong> | Resolves #167477 | <code>AVX-512</code> <code>Constexpr</code><br>
-Multi-byte shift operations with compile-time evaluation support.</p>
+<h3 id="2-constexpr-simd-intrinsics">2️⃣ Constexpr SIMD Intrinsics</h3>
+<p>Between October 2025 and February 2026, I systematically enabled compile-time evaluation for X86 SIMD intrinsics across multiple instruction set extensions. This work allows these intrinsics to be used in constexpr contexts, enabling better compile-time optimization and static analysis.</p>
+<h4 id="-avx-512-advanced-intrinsics">🔵 AVX-512 Advanced Intrinsics</h4>
+<p><strong>AVX-512 VPMULTISHIFTQB (November 2025)</strong><br>
+<a href="https://github.com/llvm/llvm-project/pull/168995">PR #168995</a> | Resolves <a href="https://github.com/llvm/llvm-project/issues/167477">#167477</a> | AVX-512 Constexpr</p>
+<p>Multi-byte shift operations with compile-time evaluation support.</p>
 <ul>
 <li><code>_mm512_multishift_epi64_epi8</code>, <code>_mm512_mask_multishift_epi64_epi8</code>, <code>_mm512_maskz_multishift_epi64_epi8</code></li>
 <li><code>_mm256_multishift_epi64_epi8</code>, <code>_mm256_mask_multishift_epi64_epi8</code>, <code>_mm256_maskz_multishift_epi64_epi8</code></li>
 <li><code>_mm_multishift_epi64_epi8</code>, <code>_mm_mask_multishift_epi64_epi8</code>, <code>_mm_maskz_multishift_epi64_epi8</code></li>
 </ul>
-<p><strong>🔵 AVX-512 VPSHUFBITQMB</strong> (November 2025)<br>
-<strong>PR #168100</strong> | Resolves #161337 | <code>AVX-512</code> <code>Constexpr</code> <code>Cryptographic</code><br>
-Bit shuffle operations for cryptographic and data manipulation workloads.</p>
+<hr>
+<p><strong>AVX-512 VPSHUFBITQMB (November 2025)</strong><br>
+<a href="https://github.com/llvm/llvm-project/pull/168100">PR #168100</a> | Resolves <a href="https://github.com/llvm/llvm-project/issues/161337">#161337</a> | AVX-512 Constexpr</p>
+<p>Bit shuffle operations for cryptographic and data manipulation workloads.</p>
 <ul>
 <li><code>_mm512_bitshuffle_epi64_mask</code>, <code>_mm512_mask_bitshuffle_epi64_mask</code></li>
 <li><code>_mm256_bitshuffle_epi64_mask</code>, <code>_mm256_mask_bitshuffle_epi64_mask</code></li>
 <li><code>_mm_bitshuffle_epi64_mask</code>, <code>_mm_mask_bitshuffle_epi64_mask</code></li>
 </ul>
-<p><strong>🔵 AVX-512 Conflict Detection</strong> (October 2025)<br>
-<strong>PR #163293</strong> | Resolves #160524 | <code>AVX-512</code> <code>Constexpr</code><br>
-Enables conflict detection intrinsics in constexpr contexts for identifying duplicate elements.</p>
+<hr>
+<p><strong>AVX-512 Conflict Detection (October 2025)</strong><br>
+<a href="https://github.com/llvm/llvm-project/pull/163293">PR #163293</a> | Resolves <a href="https://github.com/llvm/llvm-project/issues/160524">#160524</a> | AVX-512 Constexpr</p>
+<p>Enables conflict detection intrinsics in constexpr contexts for identifying duplicate elements.</p>
 <ul>
 <li><code>_mm512_conflict_epi32</code>, <code>_mm512_mask_conflict_epi32</code>, <code>_mm512_maskz_conflict_epi32</code></li>
 <li><code>_mm512_conflict_epi64</code>, <code>_mm512_mask_conflict_epi64</code>, <code>_mm512_maskz_conflict_epi64</code></li>
 </ul>
-<p><strong>🔵 AVX-512 IFMA</strong> (October 2025)<br>
-<strong>PR #161056</strong> | Resolves #160498 | <code>AVX-512</code> <code>AVX-IFMA</code> <code>Constexpr</code><br>
-Integer fused multiply-add (madd52) support for large integer arithmetic.</p>
+<hr>
+<p><strong>AVX-512 IFMA (October 2025)</strong><br>
+<a href="https://github.com/llvm/llvm-project/pull/161056">PR #161056</a> | Resolves <a href="https://github.com/llvm/llvm-project/issues/160498">#160498</a> | AVX-512 AVX-IFMA Constexpr</p>
+<p>Integer fused multiply-add (madd52) support for large integer arithmetic.</p>
 <ul>
 <li>AVX-512: <code>_mm512_madd52hi_epu64</code>, <code>_mm512_madd52lo_epu64</code> (and mask/maskz variants)</li>
 <li>AVX-IFMA: <code>_mm256_madd52hi_epu64</code>, <code>_mm256_madd52lo_epu64</code>, <code>_mm_madd52hi_epu64</code>, <code>_mm_madd52lo_epu64</code> (and mask/maskz variants)</li>
 </ul>
-<h3 id="-avx-512-permutation--shuffle-operations">🟣 AVX-512 Permutation &amp; Shuffle Operations</h3>
-<p><strong>🟣 Permutexvar Intrinsics</strong> (November 2025)<br>
-<strong>PR #167802</strong> | Resolves #167476 | <code>AVX-512</code> <code>Permutation</code> <code>Constexpr</code><br>
-Variable permutation operations across vector lanes.</p>
+<hr>
+<h4 id="-avx-512-permutation--shuffle-operations">🟣 AVX-512 Permutation &amp; Shuffle Operations</h4>
+<p><strong>Permutexvar Intrinsics (November 2025)</strong><br>
+<a href="https://github.com/llvm/llvm-project/pull/167802">PR #167802</a> | Resolves <a href="https://github.com/llvm/llvm-project/issues/167476">#167476</a> | AVX-512 Permutation Constexpr</p>
+<p>Variable permutation operations across vector lanes.</p>
 <ul>
 <li><code>_mm512_permutexvar_epi8/epi16/epi32/epi64/ps/pd</code> (and mask/maskz variants)</li>
 <li><code>_mm256_permutexvar_epi8/epi16/epi32/epi64/ps/pd</code> (and mask/maskz variants)</li>
 </ul>
-<p><strong>🟣 Permutex2var Intrinsics</strong> (November 2025)<br>
-<strong>PR #165085</strong> | <code>AVX-512</code> <code>Permutation</code> <code>Constexpr</code><br>
-Two-source permutation with extended shuffle generic support.</p>
+<hr>
+<p><strong>Permutex2var Intrinsics (November 2025)</strong><br>
+<a href="https://github.com/llvm/llvm-project/pull/165085">PR #165085</a> | AVX-512 Permutation Constexpr</p>
+<p>Two-source permutation with extended shuffle generic support.</p>
 <ul>
 <li><code>_mm512_permutex2var_epi8/epi16/epi32/epi64/ps/pd</code> (and mask/maskz variants)</li>
 <li><code>_mm256_permutex2var_epi8/epi16/epi32/epi64/ps/pd</code> (and mask/maskz variants)</li>
 <li><code>_mm_permutex2var_epi8/epi16/epi32/epi64/ps/pd</code> (and mask/maskz variants)</li>
 </ul>
-<h3 id="-sseavx-fundamental-operations">🟢 SSE/AVX Fundamental Operations</h3>
-<p><strong>🟢 Shuffle Operations</strong> (October 2025)<br>
-<strong>PR #164078</strong> | Resolves #161208 | <code>SSE</code> <code>AVX</code> <code>AVX-512</code> <code>Constexpr</code><br>
-Fundamental shuffle operations used in nearly all vectorized code.</p>
+<hr>
+<h4 id="-sseavx-fundamental-operations">🟢 SSE/AVX Fundamental Operations</h4>
+<p><strong>Shuffle Operations (October 2025)</strong><br>
+<a href="https://github.com/llvm/llvm-project/pull/164078">PR #164078</a> | Resolves <a href="https://github.com/llvm/llvm-project/issues/161208">#161208</a> | SSE AVX AVX-512 Constexpr</p>
+<p>Fundamental shuffle operations used in nearly all vectorized code.</p>
 <ul>
 <li>SSE: <code>_mm_shuffle_ps</code></li>
 <li>SSE2: <code>_mm_shuffle_pd</code></li>
 <li>AVX: <code>_mm256_shuffle_ps</code>, <code>_mm256_shuffle_pd</code></li>
 <li>AVX-512: All corresponding mask/maskz variants for 512-bit vectors</li>
 </ul>
-<p><strong>🟢 GFNI Intrinsics</strong> (December 2025)<br>
-<strong>PR #169619</strong> | Resolves #169295 | <code>GFNI</code> <code>Cryptographic</code> <code>Constexpr</code><br>
-Galois Field New Instructions for cryptographic applications.</p>
+<hr>
+<p><strong>GFNI Intrinsics (December 2025)</strong><br>
+<a href="https://github.com/llvm/llvm-project/pull/169619">PR #169619</a> | Resolves <a href="https://github.com/llvm/llvm-project/issues/169295">#169295</a> | GFNI Cryptographic Constexpr</p>
+<p>Galois Field New Instructions for cryptographic applications.</p>
 <ul>
 <li><code>_mm512_gf2p8affineinv_epi64_epi8</code>, <code>_mm512_gf2p8affine_epi64_epi8</code>, <code>_mm512_gf2p8mul_epi8</code> (and mask/maskz variants)</li>
 <li><code>_mm256_gf2p8affineinv_epi64_epi8</code>, <code>_mm256_gf2p8affine_epi64_epi8</code>, <code>_mm256_gf2p8mul_epi8</code> (and mask/maskz variants)</li>
 <li><code>_mm_gf2p8affineinv_epi64_epi8</code>, <code>_mm_gf2p8affine_epi64_epi8</code>, <code>_mm_gf2p8mul_epi8</code> (and mask/maskz variants)</li>
 </ul>
-<p><strong>🟢 Variable Shift Operations</strong> (November 2025)<br>
-<strong>PR #169276</strong> | Resolves #169176 | <code>SSE</code> <code>AVX</code> <code>AVX-512</code> <code>Constexpr</code><br>
-Variable shift intrinsics (shift amount per element).</p>
+<hr>
+<p><strong>Variable Shift Operations (November 2025)</strong><br>
+<a href="https://github.com/llvm/llvm-project/pull/169276">PR #169276</a> | Resolves <a href="https://github.com/llvm/llvm-project/issues/169176">#169176</a> | SSE AVX AVX-512 Constexpr</p>
+<p>Variable shift intrinsics (shift amount per element).</p>
 <ul>
 <li>Logical left: <code>_mm512_sllv_epi16/epi32/epi64</code>, <code>_mm256_sllv_epi16/epi32/epi64</code>, <code>_mm_sllv_epi16/epi32/epi64</code> (and mask/maskz variants)</li>
 <li>Arithmetic right: <code>_mm512_srav_epi16/epi32/epi64</code>, <code>_mm256_srav_epi16/epi32/epi64</code>, <code>_mm_srav_epi16/epi32/epi64</code> (and mask/maskz variants)</li>
 <li>Logical right: <code>_mm512_srlv_epi16/epi32/epi64</code>, <code>_mm256_srlv_epi16/epi32/epi64</code>, <code>_mm_srlv_epi16/epi32/epi64</code> (and mask/maskz variants)</li>
 </ul>
-<p><strong>🟢 Floating-Point Min/Max</strong> (January 2026)<br>
-<strong>PR #171966</strong> | <code>SSE</code> <code>AVX</code> <code>AVX-512</code> <code>FP16</code> <code>Constexpr</code><br>
-Vector FP maximum/minimum operations across SSE/AVX families.</p>
+<hr>
+<p><strong>Floating-Point Min/Max (January 2026)</strong><br>
+<a href="https://github.com/llvm/llvm-project/pull/171966">PR #171966</a> | SSE AVX AVX-512 FP16 Constexpr</p>
+<p>Vector FP maximum/minimum operations across SSE/AVX families.</p>
 <ul>
 <li>SSE: <code>_mm_min_ps</code>, <code>_mm_max_ps</code>, <code>_mm_min_pd</code>, <code>_mm_max_pd</code></li>
 <li>AVX: <code>_mm256_min_ps</code>, <code>_mm256_max_ps</code>, <code>_mm256_min_pd</code>, <code>_mm256_max_pd</code></li>
 <li>AVX-512: <code>_mm512_min_ps</code>, <code>_mm512_max_ps</code>, <code>_mm512_min_pd</code>, <code>_mm512_max_pd</code> (and mask/maskz variants)</li>
 <li>AVX-512 FP16: <code>_mm512_min_ph</code>, <code>_mm512_max_ph</code>, <code>_mm256_min_ph</code>, <code>_mm256_max_ph</code>, <code>_mm_min_ph</code>, <code>_mm_max_ph</code> (and mask/maskz variants)</li>
 </ul>
-<p><strong>🟢 Scalar Min/Max with AVX-512 FP16</strong> (February 2026)<br>
-<strong>PR #178029</strong> | <code>SSE</code> <code>SSE2</code> <code>AVX-512 FP16</code> <code>Constexpr</code><br>
-Extended scalar operations including new FP16 intrinsics:</p>
+<hr>
+<p><strong>Scalar Min/Max with AVX-512 FP16 (February 2026)</strong><br>
+<a href="https://github.com/llvm/llvm-project/pull/178029">PR #178029</a> | SSE SSE2 AVX-512 FP16 Constexpr</p>
+<p>Extended scalar operations including new FP16 intrinsics:</p>
 <ul>
 <li>SSE scalar single-precision: <code>_mm_min_ss</code>, <code>_mm_max_ss</code></li>
 <li>SSE2 scalar double-precision: <code>_mm_min_sd</code>, <code>_mm_max_sd</code></li>
 <li>AVX-512 FP16 scalar: <code>_mm_min_sh</code>, <code>_mm_max_sh</code> (and mask/maskz variants)</li>
 </ul>
-<p><strong>🔧 Implementation Approach:</strong></p>
+<p><strong>Implementation Approach:</strong></p>
 <ul>
 <li>✅ Extended <code>VectorExprEvaluator::VisitCallExpr</code> and <code>InterpretBuiltin</code> evaluation paths</li>
 <li>✅ Added comprehensive test coverage for NaN, denormal, infinity, and rounding mode edge cases</li>
@@ -225,24 +259,25 @@ Extended scalar operations including new FP16 intrinsics:</p>
 </ul>
 <hr>
 <h3 id="3-selectiondag-optimizations">3️⃣ SelectionDAG Optimizations</h3>
-<p>🟢 computeKnownFPClass SELECT/VSELECT Handling (April 2026)
-<a href="https://github.com/llvm/llvm-project/pull/194009">PR #194009</a> | <a href="https://github.com/llvm/llvm-project/issues/193500">Fixes #193500</a> | Merged April 30, 2026 | SelectionDAG Optimization
-Extended SelectionDAG::computeKnownFPClass to handle ISD::SELECT and ISD::VSELECT nodes, propagating floating-point class information (e.g. nofpclass(nan), nofpclass(inf), nofpclass(zero)) through select operations.</p>
-<p>💡 Technical Approach:</p>
+<h4 id="-computeknownfpclass-selectvselect-handling-april-2026">🟢 computeKnownFPClass SELECT/VSELECT Handling (April 2026)</h4>
+<p><a href="https://github.com/llvm/llvm-project/pull/194009">PR #194009</a> | Fixes <a href="https://github.com/llvm/llvm-project/issues/193500">#193500</a> | Merged April 30, 2026 | SelectionDAG Optimization</p>
+<p>Extended <code>SelectionDAG::computeKnownFPClass</code> to handle <code>ISD::SELECT</code> and <code>ISD::VSELECT</code> nodes, propagating floating-point class information (e.g. <code>nofpclass(nan)</code>, <code>nofpclass(inf)</code>, <code>nofpclass(zero)</code>) through select operations.</p>
+<p><strong>Technical Approach:</strong></p>
 <ul>
-<li>✅ Computes KnownFPClass for both true and false arms of a select, then intersects the results</li>
+<li>✅ Computes <code>KnownFPClass</code> for both true and false arms of a select, then intersects the results</li>
 <li>✅ Bails out early if the false arm is fully unknown, avoiding unnecessary work</li>
 <li>✅ Covers scalar SELECT, fixed-vector VSELECT, and scalable-vector VSELECT</li>
 <li>✅ Comprehensive RISC-V test coverage for symmetric, asymmetric, and unknown-arm cases</li>
 </ul>
-<p>🎯 Impact: Enables the backend to eliminate redundant is.fpclass checks on select results when both arms share a known FP class constraint, reducing generated code size and improving optimization quality.</p>
+<p><strong>Impact:</strong> Enables the backend to eliminate redundant <code>is.fpclass</code> checks on select results when both arms share a known FP class constraint, reducing generated code size and improving optimization quality.</p>
+<hr>
 <h3 id="4-early-work-tooling--api-improvements-2023">4️⃣ Early Work: Tooling &amp; API Improvements (2023)</h3>
 <h4 id="clang-extractapi-enhancements">Clang ExtractAPI Enhancements</h4>
 <p>A series of fixes to Clang&rsquo;s API documentation extraction:</p>
-<p><strong>Objective-C Lightweight Generics</strong> (March-May 2023)<br>
-<strong>PRs:</strong> Declaration fragments, pointer indirection, instancetype handling<br>
+<p><strong>Objective-C Lightweight Generics (March–May 2023)</strong><br>
+PRs: Declaration fragments, pointer indirection, instancetype handling<br>
 Fixed ExtractAPI&rsquo;s handling of Objective-C generics for accurate API documentation generation.</p>
-<p><strong>Declaration Fragment Completeness</strong> (March 2023)<br>
+<p><strong>Declaration Fragment Completeness (March 2023)</strong><br>
 Added missing semicolons to function, enum, typedef, and struct declaration fragments for syntactically complete generated documentation.</p>
 <h4 id="clang-tidy-improvements-may-2023">Clang-Tidy Improvements (May 2023)</h4>
 <p>Extended error code checking to all functions with error-like return types:</p>
@@ -253,44 +288,46 @@ Added missing semicolons to function, enum, typedef, and struct declaration frag
 </ul>
 <p>Helps catch ignored error conditions across multiple libraries.</p>
 <h4 id="libc-enhancements-october-2025">libc++ Enhancements (October 2025)</h4>
-<p><strong>PR #162030</strong><br>
-Added compile-time assertion to <code>std::string::resize_and_overwrite()</code> verifying the operation returns an integer-like type, improving template error messages and preventing misuse.</p>
+<p><a href="https://github.com/llvm/llvm-project/pull/162030">PR #162030</a></p>
+<p>Added compile-time assertion to <code>std::string::resize_and_overwrite()</code> verifying the operation returns an integer-like type, improving template error messages and preventing misuse.</p>
 <hr>
-<h2 id="-resources">🔗 Resources</h2>
+<h3 id="-resources">🔗 Resources</h3>
+<p><a href="https://github.com/llvm/llvm-project/commits?author=chaitanyav">All Commits on GitHub</a></p>
+<hr>
+<h2 id="rust">Rust</h2>
+<p><a href="https://github.com/search?q=org%3Arust-lang+chaitanyav&amp;type=commits">Commits</a></p>
+<hr>
+<h2 id="freebsd">FreeBSD</h2>
 <ul>
-<li><strong>All Commits:</strong> <a href="https://github.com/search?q=repo%3Allvm%2Fllvm-project+author%3Achaitanyav&amp;type=commits&amp;s=committer-date&amp;o=desc">GitHub Search</a></li>
+<li>Reduce duplication in sys/*/include files</li>
+<li>Improve test coverage for sbuf</li>
 </ul>
 <hr>
-<h2 id="-connect">📬 Connect</h2>
-<p>I&rsquo;m actively contributing to LLVM and exploring compiler engineering opportunities. If you&rsquo;re working on interesting compiler problems—especially in optimization, code generation, or language implementation—I&rsquo;d love to connect.</p>
-<p><strong>GitHub:</strong> <a href="https://github.com/chaitanyav">@chaitanyav</a><br>
-<strong>Contact:</strong> <span class="reverse">&#x2709;&#xfe0f; moc.liamnotorp@otaganp &#x2709;&#xfe0f;</span></p>
+<h2 id="scala-tools-compiler-213x">Scala tools, compiler (2.13.x)</h2>
+<ul>
+<li>CodePrinter prints backquote names</li>
+<li>Add doc string to Array.from</li>
+</ul>
 <hr>
-<h1 id="rust">Rust</h1>
-<ul>
-<li><a href="https://github.com/search?q=org%3Arust-lang+chaitanyav&amp;type=commits">https://github.com/search?q=org%3Arust-lang+chaitanyav&amp;type=commits</a></li>
-</ul>
-<h1 id="freebsd">FreeBSD</h1>
-<ul>
-<li><a href="https://reviews.freebsd.org/D26292">Reduce duplication in sys/*/include files</a></li>
-<li><a href="https://reviews.freebsd.org/D26220">Improve test coverage for sbuf</a></li>
-</ul>
-<h1 id="scala-tools-compiler-213x">Scala tools, compiler (2.13.x)</h1>
-<ul>
-<li><a href="https://github.com/scala/scala/commit/7dbf0ad7035bb34899d09c2b83e96ff982289e66">CodePrinter prints backquote names</a></li>
-<li><a href="https://github.com/scala/scala/commit/baab2798ce05dc477e1a4c07e864145b2773f696">Add doc string to Array.from</a></li>
-</ul>
-<h1 id="ffmpeg">FFmpeg</h1>
+<h2 id="ffmpeg">FFmpeg</h2>
 <ul>
 <li><a href="https://ffmpeg.org/pipermail/ffmpeg-cvslog/2016-March/098676.html">https://ffmpeg.org/pipermail/ffmpeg-cvslog/2016-March/098676.html</a></li>
 <li><a href="https://ffmpeg.org/pipermail/ffmpeg-devel/2016-March/190934.html">https://ffmpeg.org/pipermail/ffmpeg-devel/2016-March/190934.html</a></li>
 </ul>
-<h1 id="rubygems"><a href="https://rubygems.org/profiles/chaitanyav">RubyGems</a></h1>
+<hr>
+<h2 id="rubygems">RubyGems</h2>
 <ul>
-<li><a href="https://rubygems.org/gems/fibonacci">Fibonacci: a ruby c-extension to explore fibonacci series efficiently</a></li>
-<li><a href="https://rubygems.org/gems/partitions">Partitions</a></li>
+<li>Fibonacci: a ruby c-extension to explore fibonacci series efficiently</li>
+<li>Partitions</li>
 </ul>
-<h1 id="rubyonrails-contribution"><a href="http://contributors.rubyonrails.org/contributors/chaitanya-vellanki/commits">RubyOnRails Contribution</a></h1>
+<hr>
+<h2 id="rubyonrails">RubyOnRails</h2>
+<p>Contribution</p>
+<hr>
+<h2 id="-connect">📬 Connect</h2>
+<p>I&rsquo;m actively contributing to LLVM and exploring compiler engineering opportunities. If you&rsquo;re working on interesting compiler problems — especially in optimization, code generation, or language implementation — I&rsquo;d love to connect.</p>
+<p><strong>Contact:</strong> <span class="reverse">&#x2709;&#xfe0f; moc.liamnotorp@otaganp &#x2709;&#xfe0f;</span></p>
+<p><strong>GitHub:</strong> <a href="https://github.com/chaitanyav">@chaitanyav</a></p>
 
     </div>
     <div class="post-footer">
