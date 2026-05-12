@@ -147,7 +147,7 @@ Extended the rotate builtin work from PR #160259 by adding typed variants for __
 <li>Compile-time evaluation in constexpr contexts</li>
 <li>Maps to efficient rotate instructions on target architectures</li>
 </ul>
-<p>Handling ARM32 compatibility issues with <code>__int128</code> types required careful test design and fallback to <code>_BitInt(128)</code>.</p>
+<p>Handling ARM32 compatibility issues with <code>__int128</code> types required careful test design and fallback to <code>_BitInt(128)</code> (<a href="https://github.com/llvm/llvm-project/pull/177290">PR #177290</a>, <a href="https://github.com/llvm/llvm-project/pull/177732">PR #177732</a>).</p>
 <hr>
 <h3 id="2-constexpr-simd-intrinsics">2️⃣ Constexpr SIMD Intrinsics</h3>
 <p>Between October 2025 and February 2026, I systematically enabled compile-time evaluation for X86 SIMD intrinsics across multiple instruction set extensions. This work allows these intrinsics to be used in constexpr contexts, enabling better compile-time optimization and static analysis.</p>
@@ -254,7 +254,7 @@ Extended the rotate builtin work from PR #160259 by adding typed variants for __
 <p><strong>Implementation Approach:</strong></p>
 <ul>
 <li>✅ Extended <code>VectorExprEvaluator::VisitCallExpr</code> and <code>InterpretBuiltin</code> evaluation paths</li>
-<li>✅ Added comprehensive test coverage for NaN, denormal, infinity, and rounding mode edge cases</li>
+<li>✅ Added comprehensive test coverage for NaN, denormal, infinity, and rounding mode edge cases (<a href="https://github.com/llvm/llvm-project/pull/180013">PR #180013</a>)</li>
 <li>✅ Handled special cases: saturation boundaries, broadcast patterns, cross-lane operations</li>
 </ul>
 <hr>
@@ -299,14 +299,14 @@ Added missing semicolons to function, enum, typedef, and struct declaration frag
 <hr>
 <h2 id="freebsd">FreeBSD</h2>
 <ul>
-<li>Reduce duplication in sys/*/include files</li>
-<li>Improve test coverage for sbuf</li>
+<li><a href="https://reviews.freebsd.org/D26292">Reduce duplication in sys/*/include files</a></li>
+<li><a href="https://reviews.freebsd.org/D26220">Improve test coverage for sbuf</a></li>
 </ul>
 <hr>
 <h2 id="scala-tools-compiler-213x">Scala tools, compiler (2.13.x)</h2>
 <ul>
-<li>CodePrinter prints backquote names</li>
-<li>Add doc string to Array.from</li>
+<li><a href="https://github.com/scala/scala/commit/7dbf0ad7035bb34899d09c2b83e96ff982289e66">CodePrinter prints backquote names</a></li>
+<li><a href="https://github.com/scala/scala/commit/baab2798ce05dc477e1a4c07e864145b2773f696">Add doc string to Array.from</a></li>
 </ul>
 <hr>
 <h2 id="ffmpeg">FFmpeg</h2>
@@ -315,14 +315,13 @@ Added missing semicolons to function, enum, typedef, and struct declaration frag
 <li><a href="https://ffmpeg.org/pipermail/ffmpeg-devel/2016-March/190934.html">https://ffmpeg.org/pipermail/ffmpeg-devel/2016-March/190934.html</a></li>
 </ul>
 <hr>
-<h2 id="rubygems">RubyGems</h2>
+<h2 id="rubygems"><a href="https://rubygems.org/profiles/chaitanyav">RubyGems</a></h2>
 <ul>
-<li>Fibonacci: a ruby c-extension to explore fibonacci series efficiently</li>
-<li>Partitions</li>
+<li><a href="https://rubygems.org/gems/fibonacci">Fibonacci: a ruby c-extension to explore fibonacci series efficiently</a></li>
+<li><a href="https://rubygems.org/gems/partitions">Partitions</a></li>
 </ul>
 <hr>
-<h2 id="rubyonrails">RubyOnRails</h2>
-<p>Contribution</p>
+<h2 id="rubyonrails-contribution"><a href="http://contributors.rubyonrails.org/contributors/chaitanya-vellanki/commits">RubyOnRails Contribution</a></h2>
 <hr>
 <h2 id="-connect">📬 Connect</h2>
 <p>I&rsquo;m actively contributing to LLVM and exploring compiler engineering opportunities. If you&rsquo;re working on interesting compiler problems — especially in optimization, code generation, or language implementation — I&rsquo;d love to connect.</p>
