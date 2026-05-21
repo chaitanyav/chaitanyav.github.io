@@ -1,32 +1,48 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>My learnings from &#34;A guide to convolution arithmetic for deep learning&#34; // NagaChaitanya Vellanki&#39;s blog</title>
+    <title>My notes on &#34;A guide to convolution arithmetic for deep learning&#34; // NagaChaitanya Vellanki&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.161.1">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="NagaChaitanya Vellanki" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="/css/main.min.9bdfe1c2f6543695e39d847c7398486c52020c9451a343097dd5dbd4ded74a7b.css" />
+    <link rel="stylesheet" href="/css/main.min.17d3472a11521b147019e59362db4fcb9c40b8c0c23e4ac2fd824276526cbf85.css" />
     
 
     
     
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="My learnings from &#34;A guide to convolution arithmetic for deep learning&#34;">
-  <meta name="twitter:description" content="Vincent Dumoulin and Francesco Visin. “A Guide to Convolution Arithmetic for Deep Learning.” arXiv preprint arXiv:1603.07285, 2016. https://arxiv.org/abs/1603.07285">
+  <meta name="twitter:title" content="My notes on &#34;A guide to convolution arithmetic for deep learning&#34;">
+  <meta name="twitter:description" content="Vincent Dumoulin and Francesco Visin. “A Guide to Convolution Arithmetic for Deep Learning.” arXiv preprint arXiv:1603.07285, 2016. https://arxiv.org/abs/1603.07285
+Diagrams drawn with Excalidraw.
+Setup: Input and Kernel We start with a $5 \times 5$ input image and a $2 \times 2$ kernel.
+Convolution with Stride $s = 1$ The $2 \times 2$ kernel slides across the $5 \times 5$ input with stride $s = 1$, visiting all 16 positions ($4 \times 4$ grid) from top-left to bottom-right.">
 
     <meta property="og:url" content="https://chaitanyav.github.io/posts/deep_learning_paper_reading_1/">
   <meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
-  <meta property="og:title" content="My learnings from &#34;A guide to convolution arithmetic for deep learning&#34;">
-  <meta property="og:description" content="Vincent Dumoulin and Francesco Visin. “A Guide to Convolution Arithmetic for Deep Learning.” arXiv preprint arXiv:1603.07285, 2016. https://arxiv.org/abs/1603.07285">
+  <meta property="og:title" content="My notes on &#34;A guide to convolution arithmetic for deep learning&#34;">
+  <meta property="og:description" content="Vincent Dumoulin and Francesco Visin. “A Guide to Convolution Arithmetic for Deep Learning.” arXiv preprint arXiv:1603.07285, 2016. https://arxiv.org/abs/1603.07285
+Diagrams drawn with Excalidraw.
+Setup: Input and Kernel We start with a $5 \times 5$ input image and a $2 \times 2$ kernel.
+Convolution with Stride $s = 1$ The $2 \times 2$ kernel slides across the $5 \times 5$ input with stride $s = 1$, visiting all 16 positions ($4 \times 4$ grid) from top-left to bottom-right.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-08-11T00:00:00+00:00">
     <meta property="article:modified_time" content="2025-08-11T00:00:00+00:00">
 
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+      onload="renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false}
+        ]
+      });"></script>
 
   </head>
   <body>
@@ -51,7 +67,7 @@
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">My learnings from &#34;A guide to convolution arithmetic for deep learning&#34;</h1>
+      <h1 class ="post-title">My notes on &#34;A guide to convolution arithmetic for deep learning&#34;</h1>
       <div class="post-meta">
         <div>
           <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -59,29 +75,188 @@
         </div>
         <div>
           <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          1 min read
+          8 min read
         </div>
       </div>
     </header>
     <div class="post-content">
-      <p>Vincent Dumoulin and Francesco Visin. &ldquo;A Guide to Convolution Arithmetic for Deep Learning.&rdquo; arXiv preprint arXiv:1603.07285, 2016. <a href="https://arxiv.org/abs/1603.07285">https://arxiv.org/abs/1603.07285</a></p>
-<p><img src="agtcafdl-9.png" alt="alt text"></p>
-<p><img src="agtcafdl-3.png" alt="alt text"></p>
-<p><img src="agtcafdl-5.png" alt="alt text"></p>
-<p><img src="agtcafdl-4.png" alt="alt text"></p>
-<p><img src="agtcafdl-6.png" alt="alt text"></p>
-<p><img src="agtcafdl-8.png" alt="alt text"></p>
-<p><img src="agtcafdl-10.png" alt="alt text"></p>
-<p><img src="agtcafdl-11.png" alt="alt text"></p>
-<p><img src="agtcafdl-15.png" alt="alt text"></p>
-<p><img src="agtcafdl-19.png" alt="alt text"></p>
-<p><img src="agtcafdl-22.png" alt="alt text"></p>
-<p><img src="agtcafdl-20.png" alt="alt text"></p>
-<p><img src="agtcafdl-21.png" alt="alt text"></p>
-<p><img src="agtcafdl-23.png" alt="alt text"></p>
-<p><img src="agtcafdl-24.png" alt="alt text"></p>
-<p><img src="agtcafdl-25.png" alt="alt text"></p>
-<p><img src="agtcafdl-26.png" alt="alt text"></p>
+      <p>Vincent Dumoulin and Francesco Visin. &ldquo;A Guide to Convolution Arithmetic for Deep Learning.&rdquo; <em>arXiv preprint arXiv:1603.07285</em>, 2016. <a href="https://arxiv.org/abs/1603.07285">https://arxiv.org/abs/1603.07285</a></p>
+<p><em>Diagrams drawn with <a href="https://excalidraw.com">Excalidraw</a>.</em></p>
+<hr>
+<h2 id="setup-input-and-kernel">Setup: Input and Kernel</h2>
+<p>We start with a $5 \times 5$ input image and a $2 \times 2$ kernel.</p>
+<p><img src="agtcafdl-9.png" alt="5×5 input image and 2×2 kernel"></p>
+<hr>
+<h2 id="convolution-with-stride">Convolution with Stride $s = 1$</h2>
+<p>The $2 \times 2$ kernel slides across the $5 \times 5$ input with stride $s = 1$,
+visiting all 16 positions ($4 \times 4$ grid) from top-left to bottom-right.</p>
+<p><img src="agtcafdl-3.png" alt="2×2 kernel sliding across 5×5 input at all 16 positions with stride 1"></p>
+<p><strong>Computing one output value.</strong> Let</p>
+$$K = \begin{pmatrix} k_{11} & k_{12} \\ k_{21} & k_{22} \end{pmatrix}, \qquad I = \begin{pmatrix} i_{11} & i_{12} \\ i_{21} & i_{22} \end{pmatrix}$$<p>where $I$ contains the entries of the top-left $2 \times 2$ patch of the image.
+Applying $K$ to $I$ gives:</p>
+$$O_{11} = k_{11}\,i_{11} + k_{12}\,i_{12} + k_{21}\,i_{21} + k_{22}\,i_{22}$$<p>The convolution results in a <strong>feature map of size $4 \times 4$</strong>.</p>
+<p><img src="agtcafdl-5.png" alt="Kernel K applied to image patch I to compute output value O₁₁"></p>
+<hr>
+<h2 id="convolution-with-stride-1">Convolution with Stride $s = 2$</h2>
+<p>With stride $s = 2$, the kernel jumps two pixels at a time.
+The convolution results in a feature map of size $2 \times 2$.</p>
+<blockquote>
+<p><strong>Note:</strong> the kernel is not applied to the last row and the last column of the input image.</p>
+</blockquote>
+<p><img src="agtcafdl-4.png" alt="2×2 kernel sliding across 5×5 input with stride 2, last row and column not covered"></p>
+<hr>
+<h2 id="zero-padding">Zero Padding</h2>
+<p>Zero padding is used so that we don&rsquo;t lose the information at the edges of the image.</p>
+<p>With padding $p = 1$, the $5 \times 5$ input becomes $7 \times 7$ after padding.
+In general, with padding $p$, the image grows to $(i + 2p) \times (i + 2p)$.</p>
+<p><img src="agtcafdl-6.png" alt="5×5 input zero-padded with p=1"></p>
+<p>Applying the $2 \times 2$ kernel with stride $s = 2$ to the zero-padded image:</p>
+<p><img src="agtcafdl-8.png" alt="2×2 kernel with stride 2 applied to the zero-padded image"></p>
+<hr>
+<h2 id="feature-map-size-formula-no-padding-">Feature Map Size Formula (no padding, $s = 1$)</h2>
+<p>For an $i \times i$ input, $k \times k$ kernel, stride $s = 1$, and padding $p = 0$:</p>
+<ul>
+<li>$i - k$ is the last index where the kernel can be applied.</li>
+<li>The number of times the kernel slides horizontally is $i - k + 1$ (indices $0, 1, \ldots, i-k$).</li>
+<li>The same holds vertically.</li>
+</ul>
+$$\boxed{o = (i - k + 1) \times (i - k + 1)}$$<p><strong>Example:</strong> $5 \times 5$ input, $2 \times 2$ kernel $\Rightarrow o = (5 - 2 + 1)^2 = 4 \times 4$.</p>
+<p><img src="agtcafdl-10.png" alt="Derivation of feature map size formula for no padding and stride 1"></p>
+<hr>
+<h2 id="feature-map-size-formula-with-padding-">Feature Map Size Formula (with padding, $s = 1$)</h2>
+<p>With stride $s = 1$ and non-zero padding $p$, the padded image has size $i + 2p$,
+so the kernel slides $(i + 2p) - k + 1$ times in each direction:</p>
+$$\boxed{o = (i + 2p - k + 1) \times (i + 2p - k + 1)}$$<p><img src="agtcafdl-11.png" alt="Derivation of feature map size formula with non-zero padding and stride 1"></p>
+<hr>
+<h2 id="special-padding-cases-">Special Padding Cases ($s = 1$)</h2>
+<h3 id="half-padding">Half Padding</h3>
+<p>The feature map has the <em>same</em> dimensions as the input: $o = i$.</p>
+<p>Substituting $o = i$ into $o = i + 2p - k + 1$:</p>
+$$i = i + 2p - k + 1 \implies 2p = k - 1 \implies p = \frac{k-1}{2}$$<p>When $k$ is odd this is an integer; in general $p = \lfloor (k-1)/2 \rfloor$.</p>
+<h3 id="full-padding">Full Padding</h3>
+<p>Every pixel of the input is visited as the first element of some patch. Without padding
+the last kernel position is $i - k$, so the first $k - 1$ pixels of the input are never
+a patch&rsquo;s starting element. Setting $p = k - 1$ lets the kernel start at $-(k-1)$,
+fixing that:</p>
+$$o = i + 2(k-1) - k + 1 = i + k - 1$$<p>This produces a <strong>larger</strong> feature map than the $p = 0$ case.</p>
+<p><strong>Examples:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>$p$</th>
+          <th>Input</th>
+          <th>Kernel</th>
+          <th>$o$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>$5 \times 5$</td>
+          <td>$3 \times 3$</td>
+          <td>$5 + 2 - 3 + 1 = 5$</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>$5 \times 5$</td>
+          <td>$2 \times 2$</td>
+          <td>$5 + 0 - 2 + 1 = 4$</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>$5 \times 5$</td>
+          <td>$2 \times 2$</td>
+          <td>$5 + 2 - 2 + 1 = 6$</td>
+      </tr>
+  </tbody>
+</table>
+<p><img src="agtcafdl-15.png" alt="Half padding and full padding cases with computed output size examples"></p>
+<hr>
+<h2 id="feature-map-size-formula-stride-">Feature Map Size Formula (stride $s > 1$)</h2>
+<p>The last index covered is $i - k$. With stride $s > 1$ and no padding:</p>
+$$o = \left\lfloor \frac{i - k}{s} \right\rfloor + 1$$<p>With non-zero padding:</p>
+$$\boxed{o = \left\lfloor \frac{i + 2p - k}{s} \right\rfloor + 1}$$<p><img src="agtcafdl-19.png" alt="Derivation of feature map size formula for stride greater than 1"></p>
+<hr>
+<h2 id="multi-channel-rgb-convolution">Multi-Channel (RGB) Convolution</h2>
+<p>For an RGB image, the same kernel is applied to each channel independently,
+producing feature maps $C_1$, $C_2$, $C_3$. The combined output is:</p>
+$$C = C_1 + C_2 + C_3$$<p><img src="agtcafdl-22.png" alt="RGB image convolved channel-independently producing feature maps C1, C2, C3"></p>
+<hr>
+<h2 id="pooling">Pooling</h2>
+<p>Pooling achieves <strong>translation invariance</strong>. Two common types:</p>
+<ul>
+<li><strong>Max pooling</strong> (stride $s = 2$): takes the maximum pixel value from each $k \times k$ region.</li>
+<li><strong>Average pooling</strong> (stride $s = 2$): takes the average of all pixels in each $k \times k$ region.</li>
+</ul>
+<p>The output size formula is the same as convolution with $p = 0$:</p>
+$$o = \left\lfloor \frac{i - k}{s} \right\rfloor + 1$$<p><strong>Example</strong> ($4 \times 4$ input, $2 \times 2$ pool, $s = 2$):</p>
+$$\text{Max pooling} = \begin{pmatrix} 6 & 8 \\ 14 & 16 \end{pmatrix} \qquad \text{Average pooling} = \begin{pmatrix} 3.5 & 5.5 \\ 11.5 & 13.5 \end{pmatrix}$$<p><img src="agtcafdl-20.png" alt="Max pooling and average pooling on a 4×4 input with 2×2 pool and stride 2"></p>
+<hr>
+<h2 id="convolution-as-matrix-multiplication">Convolution as Matrix Multiplication</h2>
+<p>Consider a $4 \times 4$ input $A$, $2 \times 2$ kernel $W$, and stride $s = 2$:</p>
+$$A = \begin{pmatrix} a_{11} & a_{12} & a_{13} & a_{14} \\ a_{21} & a_{22} & a_{23} & a_{24} \\ a_{31} & a_{32} & a_{33} & a_{34} \\ a_{41} & a_{42} & a_{43} & a_{44} \end{pmatrix}, \qquad W = \begin{pmatrix} w_{11} & w_{12} \\ w_{21} & w_{22} \end{pmatrix}$$<p>Flatten each $2 \times 2$ patch (left-to-right, top-to-bottom) into a row, and flatten
+the kernel into a column vector $\mathbf{w} = (w_{11}, w_{12}, w_{21}, w_{22})^\top$:</p>
+$$\begin{pmatrix} a_{11} & a_{12} & a_{21} & a_{22} \\ a_{13} & a_{14} & a_{23} & a_{24} \\ a_{31} & a_{32} & a_{41} & a_{42} \\ a_{33} & a_{34} & a_{43} & a_{44} \end{pmatrix} \begin{pmatrix} w_{11} \\ w_{12} \\ w_{21} \\ w_{22} \end{pmatrix} = \begin{pmatrix} a_{11}w_{11} + a_{12}w_{12} + a_{21}w_{21} + a_{22}w_{22} \\ a_{13}w_{11} + a_{14}w_{12} + a_{23}w_{21} + a_{24}w_{22} \\ a_{31}w_{11} + a_{32}w_{12} + a_{41}w_{21} + a_{42}w_{22} \\ a_{33}w_{11} + a_{34}w_{12} + a_{43}w_{21} + a_{44}w_{22} \end{pmatrix}$$<p>Reshaping this $4 \times 1$ result as $2 \times 2$ gives the feature map:</p>
+$$\text{feature map} = \begin{pmatrix} a_{11}w_{11}+a_{12}w_{12}+a_{21}w_{21}+a_{22}w_{22} & a_{13}w_{11}+a_{14}w_{12}+a_{23}w_{21}+a_{24}w_{22} \\ a_{31}w_{11}+a_{32}w_{12}+a_{41}w_{21}+a_{42}w_{22} & a_{33}w_{11}+a_{34}w_{12}+a_{43}w_{21}+a_{44}w_{22} \end{pmatrix}$$<p><img src="agtcafdl-21.png" alt="Convolution expressed as matrix multiplication using im2col patch flattening"></p>
+<hr>
+<h2 id="the-sparse-matrix">The Sparse Matrix $C$</h2>
+<p><strong>Setup:</strong> $4 \times 4$ input, $2 \times 2$ kernel, stride $s = 2$.</p>
+$$o = \left\lfloor \frac{4-2}{2} \right\rfloor + 1 = 2 \quad \Rightarrow \quad \text{feature map is } 2 \times 2$$<ul>
+<li>Total pixels in feature map $= 2 \times 2 = 4$ → number of <strong>rows</strong> in $C$</li>
+<li>Total pixels in input $= 4 \times 4 = 16$ → number of <strong>columns</strong> in $C$</li>
+</ul>
+<p>So $C$ is a $4 \times 16$ sparse matrix:</p>
+$$C = \begin{pmatrix} w_1 & w_2 & 0 & 0 & w_3 & w_4 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & w_1 & w_2 & 0 & 0 & w_3 & w_4 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & w_1 & w_2 & 0 & 0 & w_3 & w_4 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & w_1 & w_2 & 0 & 0 & w_3 & w_4 \end{pmatrix}$$<p>$C \cdot I$ (where $I$ is the input flattened in row-major order) has dimensions $4 \times 1$,
+which reshapes to the output $O$ ($2 \times 2$).</p>
+<ul>
+<li>$C$ is used in the <strong>forward pass</strong></li>
+<li>$C^\top$ is used in the <strong>backward pass</strong></li>
+</ul>
+<p><img src="agtcafdl-23.png" alt="Sparse matrix C constructed from kernel weights, mapping 4×4 input to 2×2 output"></p>
+<hr>
+<h2 id="transposed-convolution">Transposed Convolution</h2>
+<ul>
+<li><strong>Convolution:</strong> downsampling</li>
+<li><strong>Transposed convolution:</strong> upscaling</li>
+</ul>
+<p>Using the same $4 \times 4$ input, $2 \times 2$ kernel, stride $s = 2$, the feature
+map $O$ is $2 \times 2$, flattened as $O = (a,\, b,\, c,\, d)^\top$.</p>
+<p>The transpose $C^\top$ has dimensions $16 \times 4$. The upscaled feature map is:</p>
+$$C^\top \cdot O = \begin{pmatrix} w_1 a \\ w_2 a \\ w_1 b \\ w_2 b \\ w_3 a \\ w_4 a \\ w_3 b \\ w_4 b \\ w_1 c \\ w_2 c \\ w_1 d \\ w_2 d \\ w_3 c \\ w_4 c \\ w_3 d \\ w_4 d \end{pmatrix}$$<p>Reshaped as $4 \times 4$:</p>
+$$\begin{pmatrix} w_1 a & w_2 a & w_1 b & w_2 b \\ w_3 a & w_4 a & w_3 b & w_4 b \\ w_1 c & w_2 c & w_1 d & w_2 d \\ w_3 c & w_4 c & w_3 d & w_4 d \end{pmatrix}$$<p><img src="agtcafdl-24.png" alt="Transposed convolution via C-transpose multiplied by flattened feature map, reshaped to 4×4"></p>
+<h3 id="transposed-convolution-output-size">Transposed Convolution Output Size</h3>
+<p>Let $[a\ b\ c]$ be the input. Each element is expanded by applying the kernel,
+and results are accumulated with overlaps determined by the stride.</p>
+<ol>
+<li>
+<p>$k=3$, $s=1$, $p=0$: Since $s < k$, there is a $k - s = 2$ overlap between blocks.</p>
+$$a_1\ (a_2+b_1)\ (a_3+b_2+c_1)\ (b_3+c_2)\ c_3 \qquad \text{output size} = 5$$</li>
+<li>
+<p>$k=3$, $s=3$, $p=0$: Since $s = k$, there is no overlap.</p>
+$$a_1\ a_2\ a_3\ b_1\ b_2\ b_3\ c_1\ c_2\ c_3 \qquad \text{output size} = 9$$</li>
+<li>
+<p>$k=3$, $s=4$, $p=0$: Since $s > k$, zeros are inserted between blocks.</p>
+$$a_1\ a_2\ a_3\ 0\ b_1\ b_2\ b_3\ 0\ c_1\ c_2\ c_3 \qquad \text{output size} = 11$$</li>
+<li>
+<p>$k=3$, $s=3$, $p=2$: Expand to $a_1\,a_2\,a_3\,b_1\,b_2\,b_3\,c_1\,c_2\,c_3$,
+then remove the first and last $p=2$ elements (which interacted with padded zeros):
+$a_3\ b_1\ b_2\ b_3\ c_1$, output size $= 5$.</p>
+</li>
+</ol>
+<p>In general:</p>
+$$\boxed{o' = s(i - 1) + k - 2p}$$<p><img src="agtcafdl-25.png" alt="Transposed convolution output size examples for different strides and padding values"></p>
+<hr>
+<h2 id="dilated-convolution">Dilated Convolution</h2>
+<p>Dilation increases the effective kernel size. For a dilation rate $d$,
+$(d-1)$ zeros are inserted between each pair of kernel elements.</p>
+<p><strong>Example:</strong> let $k = [a\ b\ c]$ and $d = 3$.
+The dilated kernel becomes $[a\ d_1\ d_2\ b\ d_3\ d_4\ c]$,
+effectively increasing the size by $(k-1)(d-1)$.</p>
+<p>New kernel size:</p>
+$$k' = k + (k-1)(d-1)$$<p>For input $i$, stride $s$, dilation rate $d$, padding $p$, kernel $k$:</p>
+$$\boxed{o = \left\lfloor \frac{i + 2p - k - (k-1)(d-1)}{s} \right\rfloor + 1}$$<p><strong>Example:</strong> a $3 \times 3$ kernel with dilation $d = 3$ becomes a $7 \times 7$
+dilated kernel (with zeros at non-kernel positions).</p>
+<p><img src="agtcafdl-26.png" alt="3×3 kernel with dilation rate 3 expanded to an effective 7×7 kernel"></p>
 
     </div>
     <div class="post-footer">
