@@ -90,18 +90,10 @@ Extended the rotate builtin work from PR #160259 by adding typed variants for __
 <li><code>stdc_rotate_left_{uc,us,ui,ul,ull}</code> — typed left rotate for each unsigned integer type</li>
 <li><code>stdc_rotate_right_{uc,us,ui,ul,ull}</code> — typed right rotate for each unsigned integer type</li>
 </ul>
-<p><strong>Technical Approach:</strong></p>
-<ul>
-<li>✅ Complements the type-generic rotate builtins from <a href="https://github.com/llvm/llvm-project/pull/160259">PR #160259</a></li>
-<li>✅ Follows the same pattern as the C23 typed stdbit.h variants (<a href="https://github.com/llvm/llvm-project/pull/192718">PR #192718</a>)</li>
-<li>✅ Maps to efficient rotate instructions on target architectures</li>
-</ul>
-<p><strong>Impact:</strong> Advances C2y <code>&lt;stdbit.h&gt;</code> support, providing both type-generic and type-specific rotate interfaces.</p>
 <hr>
 <h4 id="-remove-non-builtin-generic-stdbith-bit-functions-may-2026">🟢 Remove non-builtin generic stdbit.h bit functions (May 2026)</h4>
 <p><a href="https://github.com/llvm/llvm-project/pull/197069">PR #197069</a> | Merged May 11, 2026 | NFC / Cleanup</p>
 <p>Removed the non-builtin generic <code>&lt;stdbit.h&gt;</code> bit functions, consolidating the implementation to use only the builtin variants introduced in earlier PRs.</p>
-<p><strong>Impact:</strong> Simplifies the <code>&lt;stdbit.h&gt;</code> implementation by eliminating redundant non-builtin paths, reducing maintenance surface.</p>
 <hr>
 <h4 id="-typed-variants-for-c23-stdbith-builtins-april-2026">🟢 Typed Variants for C23 stdbit.h Builtins (April 2026)</h4>
 <p><a href="https://github.com/llvm/llvm-project/pull/192718">PR #192718</a> | Merged April 21, 2026 | C23 Language Feature</p>
@@ -122,13 +114,6 @@ Extended the rotate builtin work from PR #160259 by adding typed variants for __
 <li><code>stdc_bit_floor_{uc,us,ui,ul,ull}</code> – Largest power of 2 ≤ value</li>
 <li><code>stdc_bit_ceil_{uc,us,ui,ul,ull}</code> – Smallest power of 2 ≥ value</li>
 </ul>
-<p><strong>Technical Approach:</strong></p>
-<ul>
-<li>✅ Complements the type-generic <code>_builtin_stdc*</code> implementations from <a href="https://github.com/llvm/llvm-project/pull/185978">PR #185978</a></li>
-<li>✅ Provides C23-compliant typed interface matching the standard library specification</li>
-<li>✅ Maps to the same underlying intrinsics (ctlz, cttz, ctpop) with type-specific wrappers</li>
-</ul>
-<p><strong>Impact:</strong> Completes C23 <code>&lt;stdbit.h&gt;</code> implementation, allowing both type-generic and type-specific bit manipulation functions.</p>
 <hr>
 <h4 id="-_builtin_-bit-manipulation-builtins-april-2026">🟢 _<em>builtin_stdc</em>* Bit Manipulation Builtins (April 2026)</h4>
 <p><a href="https://github.com/llvm/llvm-project/pull/185978">PR #185978</a> | Merged April 16, 2026 | C23 Language Feature</p>
@@ -142,13 +127,6 @@ Extended the rotate builtin work from PR #160259 by adding typed variants for __
 <li><code>__builtin_stdc_has_single_bit()</code></li>
 <li><code>__builtin_stdc_bit_width()</code> / <code>__builtin_stdc_bit_floor()</code> / <code>__builtin_stdc_bit_ceil()</code></li>
 </ul>
-<p><strong>Technical Approach:</strong></p>
-<ul>
-<li>✅ Designed for GCC compatibility while leveraging LLVM&rsquo;s existing intrinsics (ctlz, cttz, ctpop)</li>
-<li>✅ Type-generic implementation supporting all unsigned integer types</li>
-<li>✅ Integration with Clang&rsquo;s constant expression evaluator</li>
-</ul>
-<p><strong>Impact:</strong> Enables C23-compliant portable bit manipulation without vendor-specific intrinsics.</p>
 <hr>
 <h4 id="-rotate-builtins-january-2026">🟢 Rotate Builtins (January 2026)</h4>
 <p><a href="https://github.com/llvm/llvm-project/pull/160259">PR #160259</a> | Merged January 21, 2026 | C23 Language Feature</p>
@@ -262,25 +240,11 @@ Extended the rotate builtin work from PR #160259 by adding typed variants for __
 <li>SSE2 scalar double-precision: <code>_mm_min_sd</code>, <code>_mm_max_sd</code></li>
 <li>AVX-512 FP16 scalar: <code>_mm_min_sh</code>, <code>_mm_max_sh</code> (and mask/maskz variants)</li>
 </ul>
-<p><strong>Implementation Approach:</strong></p>
-<ul>
-<li>✅ Extended <code>VectorExprEvaluator::VisitCallExpr</code> and <code>InterpretBuiltin</code> evaluation paths</li>
-<li>✅ Added comprehensive test coverage for NaN, denormal, infinity, and rounding mode edge cases (<a href="https://github.com/llvm/llvm-project/pull/180013">PR #180013</a>)</li>
-<li>✅ Handled special cases: saturation boundaries, broadcast patterns, cross-lane operations</li>
-</ul>
 <hr>
 <h3 id="3-selectiondag-optimizations">3️⃣ SelectionDAG Optimizations</h3>
 <h4 id="-computeknownfpclass-selectvselect-handling-april-2026">🟢 computeKnownFPClass SELECT/VSELECT Handling (April 2026)</h4>
 <p><a href="https://github.com/llvm/llvm-project/pull/194009">PR #194009</a> | Fixes <a href="https://github.com/llvm/llvm-project/issues/193500">#193500</a> | Merged April 30, 2026 | SelectionDAG Optimization</p>
 <p>Extended <code>SelectionDAG::computeKnownFPClass</code> to handle <code>ISD::SELECT</code> and <code>ISD::VSELECT</code> nodes, propagating floating-point class information (e.g. <code>nofpclass(nan)</code>, <code>nofpclass(inf)</code>, <code>nofpclass(zero)</code>) through select operations.</p>
-<p><strong>Technical Approach:</strong></p>
-<ul>
-<li>✅ Computes <code>KnownFPClass</code> for both true and false arms of a select, then intersects the results</li>
-<li>✅ Bails out early if the false arm is fully unknown, avoiding unnecessary work</li>
-<li>✅ Covers scalar SELECT, fixed-vector VSELECT, and scalable-vector VSELECT</li>
-<li>✅ Comprehensive RISC-V test coverage for symmetric, asymmetric, and unknown-arm cases</li>
-</ul>
-<p><strong>Impact:</strong> Enables the backend to eliminate redundant <code>is.fpclass</code> checks on select results when both arms share a known FP class constraint, reducing generated code size and improving optimization quality.</p>
 <hr>
 <h3 id="4-early-work-tooling--api-improvements-2023">4️⃣ Early Work: Tooling &amp; API Improvements (2023)</h3>
 <h4 id="clang-extractapi-enhancements">Clang ExtractAPI Enhancements</h4>
