@@ -18,13 +18,17 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="About">
   <meta name="twitter:description" content="I am a Software Engineer.
-Links to my work: OneUpFeeds My personal RSS feed reader CS229 Project: Separation of Speech From Noise Challenge SVD and its applications in image processing Balancing chemical equations using Gaussian Elimination Laplace Transform Application, Solving Differential Equations describing a projectile in motion Spam Classification using Naive Bayes Used to be a Folding@Home contributor Folding@Home Contribution">
+Links to my work: OneUpFeeds My personal RSS feed reader — A personal RSS aggregator for following blogs and news feeds in one place.
+CS229 Project: Separation of Speech From Noise Challenge
+Implemented the spectrographic mask estimation approach from the PASCAL CHiME Speech Separation and Recognition Challenge. The dataset consisted of 3,600 stereo WAV recordings of 34 speakers giving simple commands against real domestic noise (TV, children, kitchen sounds) at six SNR levels from −6 dB to &#43;9 dB. Speech and noise were represented as log-mel spectrograms, and each time-frequency cell was labeled reliable or unreliable using an oracle mask built by comparing clean speech energy to noise energy. An SVM classifier (RBF kernel, hyperparameters chosen by grid search and 5-fold cross-validation) was trained independently for each of the 26 mel-frequency bands and each of the 34 speakers — 884 models in total — using features including subband energy ratios, flatness, kurtosis, and a spectral-subtraction SNR estimate. Adding the SNR estimate as a feature improved per-band classification accuracy from ~70% to ~99%, confirming results from prior work.">
 
     <meta property="og:url" content="https://chaitanyav.github.io/about/">
   <meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
   <meta property="og:title" content="About">
   <meta property="og:description" content="I am a Software Engineer.
-Links to my work: OneUpFeeds My personal RSS feed reader CS229 Project: Separation of Speech From Noise Challenge SVD and its applications in image processing Balancing chemical equations using Gaussian Elimination Laplace Transform Application, Solving Differential Equations describing a projectile in motion Spam Classification using Naive Bayes Used to be a Folding@Home contributor Folding@Home Contribution">
+Links to my work: OneUpFeeds My personal RSS feed reader — A personal RSS aggregator for following blogs and news feeds in one place.
+CS229 Project: Separation of Speech From Noise Challenge
+Implemented the spectrographic mask estimation approach from the PASCAL CHiME Speech Separation and Recognition Challenge. The dataset consisted of 3,600 stereo WAV recordings of 34 speakers giving simple commands against real domestic noise (TV, children, kitchen sounds) at six SNR levels from −6 dB to &#43;9 dB. Speech and noise were represented as log-mel spectrograms, and each time-frequency cell was labeled reliable or unreliable using an oracle mask built by comparing clean speech energy to noise energy. An SVM classifier (RBF kernel, hyperparameters chosen by grid search and 5-fold cross-validation) was trained independently for each of the 26 mel-frequency bands and each of the 34 speakers — 884 models in total — using features including subband energy ratios, flatness, kurtosis, and a spectral-subtraction SNR estimate. Adding the SNR estimate as a feature improved per-band classification accuracy from ~70% to ~99%, confirming results from prior work.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:published_time" content="2020-05-08T10:52:09-07:00">
@@ -70,12 +74,29 @@ Links to my work: OneUpFeeds My personal RSS feed reader CS229 Project: Separati
       <p>I am a Software Engineer.</p>
 <h3 id="links-to-my-work">Links to my work:</h3>
 <ul>
-<li><del><a href="http://www.oneupfeeds.com/">OneUpFeeds</a> My personal RSS feed reader</del></li>
-<li><a href="http://cs229.stanford.edu/proj2012/Vellanki-SeparationOfSpeechFromNoiseChallenge.pdf">CS229 Project: Separation of Speech From Noise Challenge</a></li>
-<li><a href="singular_value_decomposition.pdf">SVD and its applications in image processing</a></li>
-<li><a href="balancing_chemical_equations.pdf">Balancing chemical equations using Gaussian Elimination</a></li>
-<li><a href="laplace_transform_applications.pdf">Laplace Transform Application, Solving Differential Equations describing a projectile in motion</a></li>
-<li><a href="spam_classification.pdf">Spam Classification using Naive Bayes</a></li>
+<li>
+<p><del><a href="http://www.oneupfeeds.com/">OneUpFeeds</a> My personal RSS feed reader</del> — A personal RSS aggregator for following blogs and news feeds in one place.</p>
+</li>
+<li>
+<p><a href="http://cs229.stanford.edu/proj2012/Vellanki-SeparationOfSpeechFromNoiseChallenge.pdf">CS229 Project: Separation of Speech From Noise Challenge</a></p>
+<p>Implemented the spectrographic mask estimation approach from the PASCAL CHiME Speech Separation and Recognition Challenge. The dataset consisted of 3,600 stereo WAV recordings of 34 speakers giving simple commands against real domestic noise (TV, children, kitchen sounds) at six SNR levels from −6 dB to +9 dB. Speech and noise were represented as log-mel spectrograms, and each time-frequency cell was labeled reliable or unreliable using an oracle mask built by comparing clean speech energy to noise energy. An SVM classifier (RBF kernel, hyperparameters chosen by grid search and 5-fold cross-validation) was trained independently for each of the 26 mel-frequency bands and each of the 34 speakers — 884 models in total — using features including subband energy ratios, flatness, kurtosis, and a spectral-subtraction SNR estimate. Adding the SNR estimate as a feature improved per-band classification accuracy from ~70% to ~99%, confirming results from prior work.</p>
+</li>
+<li>
+<p><a href="singular_value_decomposition.pdf">SVD and its applications in image processing</a></p>
+<p>Derives singular value decomposition from first principles, starting from the eigendecomposition of A<sup>T</sup>A and AA<sup>T</sup>. The paper proves that the columns of V are eigenvectors of A<sup>T</sup>A, the columns of U are eigenvectors of AA<sup>T</sup>, and the singular values σ<sub>i</sub> satisfy ‖Av<sub>i</sub>‖ = σ<sub>i</sub>. A full worked example computes U, Σ, V for a 2×2 matrix by hand and verifies A = UΣV<sup>T</sup>. The rank-k approximation A<sub>k</sub> = U<sub>k</sub>Σ<sub>k</sub>V<sub>k</sub><sup>T</sup> is then applied to image compression: each RGB channel of the 512×512 Lenna test image is decomposed independently and reconstructed at ranks 8 through 512. At rank 32 (12.5% of original storage) the image is visually recognizable; at rank 128 it is nearly indistinguishable from the original.</p>
+</li>
+<li>
+<p><a href="balancing_chemical_equations.pdf">Balancing chemical equations using Gaussian Elimination</a></p>
+<p>Applies the law of conservation of matter to reframe chemical equation balancing as solving a homogeneous linear system. For each element, a linear equation equates the number of atoms on the reactant and product sides; the unknowns are the stoichiometric coefficients. The augmented matrix is reduced to row echelon form via Gaussian elimination and back-substitution yields the balanced coefficients. Two reactions are worked through in full: photosynthesis (xCO₂ + yH₂O → zO₂ + wC₆H₁₂O₆, solved to 6:6:6:1) and the oxidation of NADH in cellular respiration (xNADH + yH + zO₂ → pNAD + qH₂O, solved to 2:2:1:2:2). Both systems have infinitely many solutions; a free variable is fixed to the smallest integer giving whole-number coefficients.</p>
+</li>
+<li>
+<p><a href="laplace_transform_applications.pdf">Laplace Transform Application, Solving Differential Equations describing a projectile in motion</a></p>
+<p>Models projectile motion as a pair of independent second-order ODEs in the horizontal (x) and vertical (y) directions, incorporating air resistance (proportional to velocity) and a propulsion force modeled as a step function active for time t<sub>p</sub>. Applying the Laplace transform converts each ODE into an algebraic equation in s; the resulting expressions are simplified using partial fraction decomposition and the second shifting theorem (for the delayed step function) before applying the inverse transform. The closed-form solutions x(t) and y(t) each contain exponential decay terms from air resistance and unit-step terms that switch off the propulsion contribution after t<sub>p</sub>. Special cases are verified: setting t<sub>p</sub> = 0 or p = 0 recovers free fall, and setting k = 0 (no air resistance) recovers the classical parabolic trajectory y(t) = −gt²/2.</p>
+</li>
+<li>
+<p><a href="spam_classification.pdf">Spam Classification using Naive Bayes</a></p>
+<p>Implements and benchmarks five Naive Bayes variants on 18,828 newsgroup messages. Multivariate Naive Bayes (MVB) treats each word as a binary feature (present/absent) and achieves 84.98% accuracy; Multinomial Naive Bayes (MNB) uses term frequencies instead and reaches 95.03%. Chi-Square feature selection is used to rank words per newsgroup and retrain models on the top-k vocabulary — MVB improves with fewer features (less noise) while MNB initially drops then recovers as k grows. Three improvements to MNB are then implemented following Rennie et al.: Complement Naive Bayes (CNB, 96.28%) corrects for class-size skew by training on the complement of each class; Weight-normalized CNB (WCNB, 96.09%) normalizes weights to reduce inter-word dependencies; Transformed WCNB with TF, IDF, and length normalization (TWCNB, 97.57%) further reduces bias from document length and common words. Disabling stemming and lowercasing — counterintuitively — pushes TWCNB to 98.65%, suggesting the preprocessing was discarding discriminative signal.</p>
+</li>
 </ul>
 <h3 id="used-to-be-a-foldinghome-contributor">Used to be a Folding@Home contributor</h3>
 <ul>
