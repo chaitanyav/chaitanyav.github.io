@@ -4,7 +4,7 @@
     <title>Open Source // NagaChaitanya Vellanki&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.161.1">
+    <meta name="generator" content="Hugo 0.162.1">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="NagaChaitanya Vellanki" />
     <meta name="description" content="" />
@@ -15,28 +15,30 @@
 
     
     
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Open Source">
-  <meta name="twitter:description" content="I like to contribute to open source, here are links to some of my contributions 🙏
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Open Source">
+	<meta name="twitter:description" content="I like to contribute to open source, here are links to some of my contributions 🙏
 LLVM Repository: llvm/llvm-project
 GitHub: @chaitanyav
-Period: March 2023 – May 2026
-1️⃣ C23/C2y Standard Library Builtins 🟢 Typed Variants for C2y stdbit.h Rotate Builtins (May 2026) PR #195299 | Merged May 12, 2026 | C2y Language Feature
-Extended the rotate builtin work from PR #160259 by adding typed variants for __builtin_stdc_rotate_left and __builtin_stdc_rotate_right following the C2y stdbit.h specification:">
+Period: March 2023 – June 2026
+1️⃣ C23/C2y Standard Library Builtins 🟢 C2y stdc_memreverse8 Builtins (June 2026) PR #197358 | Merged June 8, 2026 | C2y Language Feature
+Implemented the C2y &lt;stdbit.h&gt; memory byte-reversal builtins:
+stdc_memreverse8 — in-place byte array reversal (untyped variant) stdc_memreverse8u8, stdc_memreverse8u16, stdc_memreverse8u32, stdc_memreverse8u64 — typed variants that lower to llvm.bswap intrinsics and support constant expression evaluation The untyped variant optimizes sizes 2, 4, and 8 bytes using byte-swap operations; other sizes fall back to the standard library. Requires CHAR_BIT == 8 target support.">
 
     <meta property="og:url" content="https://chaitanyav.github.io/open_source/">
-  <meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
-  <meta property="og:title" content="Open Source">
-  <meta property="og:description" content="I like to contribute to open source, here are links to some of my contributions 🙏
+	<meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
+	<meta property="og:title" content="Open Source">
+	<meta property="og:description" content="I like to contribute to open source, here are links to some of my contributions 🙏
 LLVM Repository: llvm/llvm-project
 GitHub: @chaitanyav
-Period: March 2023 – May 2026
-1️⃣ C23/C2y Standard Library Builtins 🟢 Typed Variants for C2y stdbit.h Rotate Builtins (May 2026) PR #195299 | Merged May 12, 2026 | C2y Language Feature
-Extended the rotate builtin work from PR #160259 by adding typed variants for __builtin_stdc_rotate_left and __builtin_stdc_rotate_right following the C2y stdbit.h specification:">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2020-08-26T20:28:26-07:00">
-    <meta property="article:modified_time" content="2026-06-01T13:08:30-07:00">
+Period: March 2023 – June 2026
+1️⃣ C23/C2y Standard Library Builtins 🟢 C2y stdc_memreverse8 Builtins (June 2026) PR #197358 | Merged June 8, 2026 | C2y Language Feature
+Implemented the C2y &lt;stdbit.h&gt; memory byte-reversal builtins:
+stdc_memreverse8 — in-place byte array reversal (untyped variant) stdc_memreverse8u8, stdc_memreverse8u16, stdc_memreverse8u32, stdc_memreverse8u64 — typed variants that lower to llvm.bswap intrinsics and support constant expression evaluation The untyped variant optimizes sizes 2, 4, and 8 bytes using byte-swap operations; other sizes fall back to the standard library. Requires CHAR_BIT == 8 target support.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:published_time" content="2020-08-26T20:28:26-07:00">
+		<meta property="article:modified_time" content="2026-06-08T08:16:09-07:00">
 
 
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -80,9 +82,18 @@ Extended the rotate builtin work from PR #160259 by adding typed variants for __
 <h2 id="llvm">LLVM</h2>
 <p><strong>Repository:</strong> llvm/llvm-project<br>
 <strong>GitHub:</strong> @chaitanyav<br>
-<strong>Period:</strong> March 2023 – May 2026</p>
+<strong>Period:</strong> March 2023 – June 2026</p>
 <hr>
 <h3 id="1-c23c2y-standard-library-builtins">1️⃣ C23/C2y Standard Library Builtins</h3>
+<h4 id="-c2y-stdc_memreverse8-builtins-june-2026">🟢 C2y stdc_memreverse8 Builtins (June 2026)</h4>
+<p><a href="https://github.com/llvm/llvm-project/pull/197358">PR #197358</a> | Merged June 8, 2026 | C2y Language Feature</p>
+<p>Implemented the C2y <code>&lt;stdbit.h&gt;</code> memory byte-reversal builtins:</p>
+<ul>
+<li><code>stdc_memreverse8</code> — in-place byte array reversal (untyped variant)</li>
+<li><code>stdc_memreverse8u8</code>, <code>stdc_memreverse8u16</code>, <code>stdc_memreverse8u32</code>, <code>stdc_memreverse8u64</code> — typed variants that lower to <code>llvm.bswap</code> intrinsics and support constant expression evaluation</li>
+</ul>
+<p>The untyped variant optimizes sizes 2, 4, and 8 bytes using byte-swap operations; other sizes fall back to the standard library. Requires <code>CHAR_BIT == 8</code> target support.</p>
+<hr>
 <h4 id="-typed-variants-for-c2y-stdbith-rotate-builtins-may-2026">🟢 Typed Variants for C2y stdbit.h Rotate Builtins (May 2026)</h4>
 <p><a href="https://github.com/llvm/llvm-project/pull/195299">PR #195299</a> | Merged May 12, 2026 | C2y Language Feature</p>
 <p>Extended the rotate builtin work from <a href="https://github.com/llvm/llvm-project/pull/160259">PR #160259</a> by adding typed variants for <code>__builtin_stdc_rotate_left</code> and <code>__builtin_stdc_rotate_right</code> following the C2y <code>stdbit.h</code> specification:</p>

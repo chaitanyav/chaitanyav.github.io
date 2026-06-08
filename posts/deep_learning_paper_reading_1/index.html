@@ -4,7 +4,7 @@
     <title>My notes on &#34;A guide to convolution arithmetic for deep learning&#34; // NagaChaitanya Vellanki&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.161.1">
+    <meta name="generator" content="Hugo 0.162.1">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="NagaChaitanya Vellanki" />
     <meta name="description" content="" />
@@ -15,25 +15,25 @@
 
     
     
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="My notes on &#34;A guide to convolution arithmetic for deep learning&#34;">
-  <meta name="twitter:description" content="Vincent Dumoulin and Francesco Visin. “A Guide to Convolution Arithmetic for Deep Learning.” arXiv preprint arXiv:1603.07285, 2016. https://arxiv.org/abs/1603.07285
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="My notes on &#34;A guide to convolution arithmetic for deep learning&#34;">
+	<meta name="twitter:description" content="Vincent Dumoulin and Francesco Visin. “A Guide to Convolution Arithmetic for Deep Learning.” arXiv preprint arXiv:1603.07285, 2016. https://arxiv.org/abs/1603.07285
 Diagrams drawn with Excalidraw.
 Setup: Input and Kernel We start with a $5 \times 5$ input image and a $2 \times 2$ kernel.
 Convolution with Stride $s = 1$ The $2 \times 2$ kernel slides across the $5 \times 5$ input with stride $s = 1$, visiting all 16 positions ($4 \times 4$ grid) from top-left to bottom-right.">
 
     <meta property="og:url" content="https://chaitanyav.github.io/posts/deep_learning_paper_reading_1/">
-  <meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
-  <meta property="og:title" content="My notes on &#34;A guide to convolution arithmetic for deep learning&#34;">
-  <meta property="og:description" content="Vincent Dumoulin and Francesco Visin. “A Guide to Convolution Arithmetic for Deep Learning.” arXiv preprint arXiv:1603.07285, 2016. https://arxiv.org/abs/1603.07285
+	<meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
+	<meta property="og:title" content="My notes on &#34;A guide to convolution arithmetic for deep learning&#34;">
+	<meta property="og:description" content="Vincent Dumoulin and Francesco Visin. “A Guide to Convolution Arithmetic for Deep Learning.” arXiv preprint arXiv:1603.07285, 2016. https://arxiv.org/abs/1603.07285
 Diagrams drawn with Excalidraw.
 Setup: Input and Kernel We start with a $5 \times 5$ input image and a $2 \times 2$ kernel.
 Convolution with Stride $s = 1$ The $2 \times 2$ kernel slides across the $5 \times 5$ input with stride $s = 1$, visiting all 16 positions ($4 \times 4$ grid) from top-left to bottom-right.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-08-11T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-05-21T10:01:39-07:00">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2025-08-11T00:00:00+00:00">
+		<meta property="article:modified_time" content="2026-05-21T10:01:39-07:00">
 
 
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -143,34 +143,34 @@ fixing that:</p>
 $$o = i + 2(k-1) - k + 1 = i + k - 1$$<p>This produces a <strong>larger</strong> feature map than the $p = 0$ case.</p>
 <p><strong>Examples:</strong></p>
 <table>
-  <thead>
-      <tr>
-          <th>$p$</th>
-          <th>Input</th>
-          <th>Kernel</th>
-          <th>$o$</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1</td>
-          <td>$5 \times 5$</td>
-          <td>$3 \times 3$</td>
-          <td>$5 + 2 - 3 + 1 = 5$</td>
-      </tr>
-      <tr>
-          <td>0</td>
-          <td>$5 \times 5$</td>
-          <td>$2 \times 2$</td>
-          <td>$5 + 0 - 2 + 1 = 4$</td>
-      </tr>
-      <tr>
-          <td>1</td>
-          <td>$5 \times 5$</td>
-          <td>$2 \times 2$</td>
-          <td>$5 + 2 - 2 + 1 = 6$</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>$p$</th>
+					<th>Input</th>
+					<th>Kernel</th>
+					<th>$o$</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1</td>
+					<td>$5 \times 5$</td>
+					<td>$3 \times 3$</td>
+					<td>$5 + 2 - 3 + 1 = 5$</td>
+			</tr>
+			<tr>
+					<td>0</td>
+					<td>$5 \times 5$</td>
+					<td>$2 \times 2$</td>
+					<td>$5 + 0 - 2 + 1 = 4$</td>
+			</tr>
+			<tr>
+					<td>1</td>
+					<td>$5 \times 5$</td>
+					<td>$2 \times 2$</td>
+					<td>$5 + 2 - 2 + 1 = 6$</td>
+			</tr>
+	</tbody>
 </table>
 <p><img src="agtcafdl-15.png" alt="Half padding and full padding cases with computed output size examples"></p>
 <hr>

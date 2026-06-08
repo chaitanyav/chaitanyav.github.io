@@ -4,7 +4,7 @@
     <title>Iterators on user-defined types, Part-1 // NagaChaitanya Vellanki&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.161.1">
+    <meta name="generator" content="Hugo 0.162.1">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="NagaChaitanya Vellanki" />
     <meta name="description" content="" />
@@ -15,23 +15,23 @@
 
     
     
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Iterators on user-defined types, Part-1">
-  <meta name="twitter:description" content="Let’s say we have a user-defined type Dictionary which is defined as follows:
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Iterators on user-defined types, Part-1">
+	<meta name="twitter:description" content="Let’s say we have a user-defined type Dictionary which is defined as follows:
 struct Dictionary { words: Vec&lt;String&gt;, } impl Dictionary { fn new() -&gt; Self { Dictionary { words: Vec::new() } } fn insert(&amp;mut self, val: String) { self.words.push(val); } } We would like to implement an iterator on our Dictionary type so that we can loop over all the words in the dictionary like
 let mut dict = Dictionary::new(); dict.insert(String::from(&#34;abashed&#34;)); dict.insert(String::from(&#34;abashings&#34;)); dict.insert(String::from(&#34;abashment&#34;)); dict.insert(String::from(&#34;abate&#34;)); for word in dict { println!(&#34;{}&#34;, word); } Rust provides us with the Iterator trait which can be used to implement iterator on user-defined types. But the loop in the above code snippet, actually converts the dict into an iterator. The two for loops in the code snippet below are equivalent">
 
     <meta property="og:url" content="https://chaitanyav.github.io/posts/iterators-1/">
-  <meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
-  <meta property="og:title" content="Iterators on user-defined types, Part-1">
-  <meta property="og:description" content="Let’s say we have a user-defined type Dictionary which is defined as follows:
+	<meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
+	<meta property="og:title" content="Iterators on user-defined types, Part-1">
+	<meta property="og:description" content="Let’s say we have a user-defined type Dictionary which is defined as follows:
 struct Dictionary { words: Vec&lt;String&gt;, } impl Dictionary { fn new() -&gt; Self { Dictionary { words: Vec::new() } } fn insert(&amp;mut self, val: String) { self.words.push(val); } } We would like to implement an iterator on our Dictionary type so that we can loop over all the words in the dictionary like
 let mut dict = Dictionary::new(); dict.insert(String::from(&#34;abashed&#34;)); dict.insert(String::from(&#34;abashings&#34;)); dict.insert(String::from(&#34;abashment&#34;)); dict.insert(String::from(&#34;abate&#34;)); for word in dict { println!(&#34;{}&#34;, word); } Rust provides us with the Iterator trait which can be used to implement iterator on user-defined types. But the loop in the above code snippet, actually converts the dict into an iterator. The two for loops in the code snippet below are equivalent">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2023-09-03T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-08-11T12:46:00-07:00">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2023-09-03T00:00:00+00:00">
+		<meta property="article:modified_time" content="2025-08-11T12:46:00-07:00">
 
 
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>

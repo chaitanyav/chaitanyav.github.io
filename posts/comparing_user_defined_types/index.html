@@ -4,7 +4,7 @@
     <title>How to compare user defined types in Rust // NagaChaitanya Vellanki&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.161.1">
+    <meta name="generator" content="Hugo 0.162.1">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="NagaChaitanya Vellanki" />
     <meta name="description" content="" />
@@ -15,23 +15,23 @@
 
     
     
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="How to compare user defined types in Rust">
-  <meta name="twitter:description" content="Let’s just say we have a user-defined type Person defined as follows:
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="How to compare user defined types in Rust">
+	<meta name="twitter:description" content="Let’s just say we have a user-defined type Person defined as follows:
 pub struct Person { name: String, age: i32 } We need to compare two Persons mat, mac defined as follows:
 let mat: Person = Person{name: String::from(&#34;Mat&#34;), age: 30}; let mac: Person = Person{name: String::from(&#34;Mac&#34;), age: 35}; We cannot just do mat == mac or mat != mac. We have to define what equality means for the type Person. We can do this in two ways.">
 
     <meta property="og:url" content="https://chaitanyav.github.io/posts/comparing_user_defined_types/">
-  <meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
-  <meta property="og:title" content="How to compare user defined types in Rust">
-  <meta property="og:description" content="Let’s just say we have a user-defined type Person defined as follows:
+	<meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
+	<meta property="og:title" content="How to compare user defined types in Rust">
+	<meta property="og:description" content="Let’s just say we have a user-defined type Person defined as follows:
 pub struct Person { name: String, age: i32 } We need to compare two Persons mat, mac defined as follows:
 let mat: Person = Person{name: String::from(&#34;Mat&#34;), age: 30}; let mac: Person = Person{name: String::from(&#34;Mac&#34;), age: 35}; We cannot just do mat == mac or mat != mac. We have to define what equality means for the type Person. We can do this in two ways.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2023-08-25T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-08-11T12:46:00-07:00">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2023-08-25T00:00:00+00:00">
+		<meta property="article:modified_time" content="2025-08-11T12:46:00-07:00">
 
 
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
