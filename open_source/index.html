@@ -4,7 +4,7 @@
     <title>Open Source // NagaChaitanya Vellanki&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.162.1">
+    <meta name="generator" content="Hugo 0.165.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="NagaChaitanya Vellanki" />
     <meta name="description" content="" />
@@ -20,10 +20,9 @@
 	<meta name="twitter:description" content="I like to contribute to open source, here are links to some of my contributions 🙏
 LLVM Repository: llvm/llvm-project
 GitHub: @chaitanyav
-Period: March 2023 – June 2026
-1️⃣ C23/C2y Standard Library Builtins 🟢 C2y stdc_memreverse8 Builtins (June 2026) PR #197358 | Merged June 8, 2026 | C2y Language Feature
-Implemented the C2y &lt;stdbit.h&gt; memory byte-reversal builtins:
-stdc_memreverse8 — in-place byte array reversal (untyped variant) stdc_memreverse8u8, stdc_memreverse8u16, stdc_memreverse8u32, stdc_memreverse8u64 — typed variants that lower to llvm.bswap intrinsics and support constant expression evaluation The untyped variant optimizes sizes 2, 4, and 8 bytes using byte-swap operations; other sizes fall back to the standard library. Requires CHAR_BIT == 8 target support.">
+Period: March 2023 – August 2026
+1️⃣ C23/C2y Standard Library Builtins 🟢 Fix crash in __builtin_stdc_bit_ceil for 1-bit _BitInt (August 2026) PR #214822 | Merged August 10, 2026 | Bug Fix
+Fixed a crash in __builtin_stdc_bit_ceil when called on a 1-bit unsigned _BitInt. The literal 2 used as an APInt constant required at least 2 bits, triggering an assertion failure in APInt’s constructor (and silently computing a corrupted result in NDEBUG builds). Replaced it with a shift of the always-valid constant 1, so the computation no longer depends on the argument type’s bit width.">
 
     <meta property="og:url" content="https://chaitanyav.github.io/open_source/">
 	<meta property="og:site_name" content="NagaChaitanya Vellanki&#39;s blog">
@@ -31,10 +30,9 @@ stdc_memreverse8 — in-place byte array reversal (untyped variant) stdc_memreve
 	<meta property="og:description" content="I like to contribute to open source, here are links to some of my contributions 🙏
 LLVM Repository: llvm/llvm-project
 GitHub: @chaitanyav
-Period: March 2023 – June 2026
-1️⃣ C23/C2y Standard Library Builtins 🟢 C2y stdc_memreverse8 Builtins (June 2026) PR #197358 | Merged June 8, 2026 | C2y Language Feature
-Implemented the C2y &lt;stdbit.h&gt; memory byte-reversal builtins:
-stdc_memreverse8 — in-place byte array reversal (untyped variant) stdc_memreverse8u8, stdc_memreverse8u16, stdc_memreverse8u32, stdc_memreverse8u64 — typed variants that lower to llvm.bswap intrinsics and support constant expression evaluation The untyped variant optimizes sizes 2, 4, and 8 bytes using byte-swap operations; other sizes fall back to the standard library. Requires CHAR_BIT == 8 target support.">
+Period: March 2023 – August 2026
+1️⃣ C23/C2y Standard Library Builtins 🟢 Fix crash in __builtin_stdc_bit_ceil for 1-bit _BitInt (August 2026) PR #214822 | Merged August 10, 2026 | Bug Fix
+Fixed a crash in __builtin_stdc_bit_ceil when called on a 1-bit unsigned _BitInt. The literal 2 used as an APInt constant required at least 2 bits, triggering an assertion failure in APInt’s constructor (and silently computing a corrupted result in NDEBUG builds). Replaced it with a shift of the always-valid constant 1, so the computation no longer depends on the argument type’s bit width.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:published_time" content="2020-08-26T20:28:26-07:00">
@@ -82,9 +80,14 @@ stdc_memreverse8 — in-place byte array reversal (untyped variant) stdc_memreve
 <h2 id="llvm">LLVM</h2>
 <p><strong>Repository:</strong> llvm/llvm-project<br>
 <strong>GitHub:</strong> @chaitanyav<br>
-<strong>Period:</strong> March 2023 – June 2026</p>
+<strong>Period:</strong> March 2023 – August 2026</p>
 <hr>
 <h3 id="1-c23c2y-standard-library-builtins">1️⃣ C23/C2y Standard Library Builtins</h3>
+<h4 id="-fix-crash-in-__builtin_stdc_bit_ceil-for-1-bit-_bitint-august-2026">🟢 Fix crash in __builtin_stdc_bit_ceil for 1-bit _BitInt (August 2026)</h4>
+<p><a href="https://github.com/llvm/llvm-project/pull/214822">PR #214822</a> | Merged August 10, 2026 | Bug Fix</p>
+<p>Fixed a crash in <code>__builtin_stdc_bit_ceil</code> when called on a 1-bit unsigned <code>_BitInt</code>. The literal <code>2</code> used as an <code>APInt</code> constant required at least 2 bits, triggering an assertion failure in APInt&rsquo;s constructor (and silently computing a corrupted result in <code>NDEBUG</code> builds). Replaced it with a shift of the always-valid constant <code>1</code>, so the computation no longer depends on the argument type&rsquo;s bit width.</p>
+<p>Fixes <a href="https://github.com/llvm/llvm-project/issues/214478">#214478</a>.</p>
+<hr>
 <h4 id="-c2y-stdc_memreverse8-builtins-june-2026">🟢 C2y stdc_memreverse8 Builtins (June 2026)</h4>
 <p><a href="https://github.com/llvm/llvm-project/pull/197358">PR #197358</a> | Merged June 8, 2026 | C2y Language Feature</p>
 <p>Implemented the C2y <code>&lt;stdbit.h&gt;</code> memory byte-reversal builtins:</p>
@@ -251,6 +254,10 @@ stdc_memreverse8 — in-place byte array reversal (untyped variant) stdc_memreve
 <li>SSE2 scalar double-precision: <code>_mm_min_sd</code>, <code>_mm_max_sd</code></li>
 <li>AVX-512 FP16 scalar: <code>_mm_min_sh</code>, <code>_mm_max_sh</code> (and mask/maskz variants)</li>
 </ul>
+<hr>
+<p><strong>NaN/Denormal/Inf/Rounding Mode Test Coverage (February 2026)</strong><br>
+<a href="https://github.com/llvm/llvm-project/pull/180013">PR #180013</a> | NFC | Test Coverage</p>
+<p>Added test coverage for NaN, denormal, infinity, and rounding-mode edge cases in the constexpr FP min/max intrinsics, following up on <a href="https://github.com/llvm/llvm-project/pull/171966">PR #171966</a>.</p>
 <hr>
 <h3 id="3-selectiondag-optimizations">3️⃣ SelectionDAG Optimizations</h3>
 <h4 id="-computeknownfpclass-selectvselect-handling-april-2026">🟢 computeKnownFPClass SELECT/VSELECT Handling (April 2026)</h4>
