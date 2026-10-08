@@ -4,7 +4,7 @@
     <title>Open Source // NagaChaitanya Vellanki&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.165.0">
+    <meta name="generator" content="Hugo 0.167.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="NagaChaitanya Vellanki" />
     <meta name="description" content="" />
@@ -56,9 +56,13 @@
 <h2 id="llvm">LLVM</h2>
 <p><strong>Repository:</strong> llvm/llvm-project<br>
 <strong>GitHub:</strong> @chaitanyav<br>
-<strong>Period:</strong> March 2023 – August 2026</p>
+<strong>Period:</strong> March 2023 – October 2026</p>
 <hr>
 <h3 id="1-c23c2y-standard-library-builtins">1️⃣ C23/C2y Standard Library Builtins</h3>
+<h4 id="-constexpr-support-for-stdc_memreverse8-october-2026">🟢 Constexpr Support for stdc_memreverse8 (October 2026)</h4>
+<p><a href="https://github.com/llvm/llvm-project/pull/202402">PR #202402</a> | Merged October 2, 2026 | C2y Language Feature</p>
+<p>Follow-up to <a href="https://github.com/llvm/llvm-project/pull/197358">PR #197358</a> adding constant expression evaluation for <code>stdc_memreverse8</code>, implemented in both Clang&rsquo;s AST interpreter and bytecode interpreter. Also adds constexpr test coverage for the typed variants <code>stdc_memreverse8u{8,16,32,64}</code>.</p>
+<hr>
 <h4 id="-fix-crash-in-__builtin_stdc_bit_ceil-for-1-bit-_bitint-august-2026">🟢 Fix crash in __builtin_stdc_bit_ceil for 1-bit _BitInt (August 2026)</h4>
 <p><a href="https://github.com/llvm/llvm-project/pull/214822">PR #214822</a> | Merged August 10, 2026 | Bug Fix</p>
 <p>Fixed a crash in <code>__builtin_stdc_bit_ceil</code> when called on a 1-bit unsigned <code>_BitInt</code>. The literal <code>2</code> used as an <code>APInt</code> constant required at least 2 bits, triggering an assertion failure in APInt&rsquo;s constructor (and silently computing a corrupted result in <code>NDEBUG</code> builds). Replaced it with a shift of the always-valid constant <code>1</code>, so the computation no longer depends on the argument type&rsquo;s bit width.</p>
