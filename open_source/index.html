@@ -4,7 +4,7 @@
     <title>Open Source // NagaChaitanya Vellanki&#39;s blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.167.0">
+    <meta name="generator" content="Hugo 0.168.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="NagaChaitanya Vellanki" />
     <meta name="description" content="" />
@@ -59,6 +59,10 @@
 <strong>Period:</strong> March 2023 – October 2026</p>
 <hr>
 <h3 id="1-c23c2y-standard-library-builtins">1️⃣ C23/C2y Standard Library Builtins</h3>
+<h4 id="-c2y-stdc_load8_-endian-aware-load-functions-october-2026">🟢 C2y stdc_load8_* Endian-Aware Load Functions (October 2026)</h4>
+<p><a href="https://github.com/llvm/llvm-project/pull/203666">PR #203666</a> | Merged October 20, 2026 | C2y Language Feature</p>
+<p>Implemented all 32 <code>stdc_load8_*</code> functions from C2y, covering little- and big-endian, signed and unsigned, and aligned and unaligned variants at 8, 16, 32, and 64 bits. Each function reads N bytes from a <code>const unsigned char *</code> and assembles them into an integer in the requested byte order. Constant evaluation works in both the AST and bytecode interpreters; code generation emits an integer load plus an <code>llvm.bswap</code> when the requested byte order differs from the target&rsquo;s, so the 8-bit variants never need a swap.</p>
+<hr>
 <h4 id="-constexpr-support-for-stdc_memreverse8-october-2026">🟢 Constexpr Support for stdc_memreverse8 (October 2026)</h4>
 <p><a href="https://github.com/llvm/llvm-project/pull/202402">PR #202402</a> | Merged October 2, 2026 | C2y Language Feature</p>
 <p>Follow-up to <a href="https://github.com/llvm/llvm-project/pull/197358">PR #197358</a> adding constant expression evaluation for <code>stdc_memreverse8</code>, implemented in both Clang&rsquo;s AST interpreter and bytecode interpreter. Also adds constexpr test coverage for the typed variants <code>stdc_memreverse8u{8,16,32,64}</code>.</p>

@@ -10,7 +10,7 @@
 		
 		
 		
-			<lastBuildDate>Fri, 28 Aug 2026 11:33:50 -0700</lastBuildDate>
+			<lastBuildDate>Wed, 07 Oct 2026 18:54:48 -0700</lastBuildDate>
 		
 			<atom:link href="https://chaitanyav.github.io/index.xml" rel="self" type="application/rss+xml" />
 			<item>
@@ -60,7 +60,7 @@
 				<link>https://chaitanyav.github.io/open_source/</link>
 				<pubDate>Wed, 26 Aug 2020 20:28:26 -0700</pubDate>
 				<guid>https://chaitanyav.github.io/open_source/</guid>
-				<description>&lt;p&gt;I like to contribute to open source, here are links to some of my contributions 🙏&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;llvm&#34;&gt;LLVM&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Repository:&lt;/strong&gt; llvm/llvm-project&lt;br&gt;&#xA;&lt;strong&gt;GitHub:&lt;/strong&gt; @chaitanyav&lt;br&gt;&#xA;&lt;strong&gt;Period:&lt;/strong&gt; March 2023 – October 2026&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;1-c23c2y-standard-library-builtins&#34;&gt;1️⃣ C23/C2y Standard Library Builtins&lt;/h3&gt;&#xA;&lt;h4 id=&#34;-constexpr-support-for-stdc_memreverse8-october-2026&#34;&gt;🟢 Constexpr Support for stdc_memreverse8 (October 2026)&lt;/h4&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/llvm/llvm-project/pull/202402&#34;&gt;PR #202402&lt;/a&gt; | Merged October 2, 2026 | C2y Language Feature&lt;/p&gt;&#xA;&lt;p&gt;Follow-up to &lt;a href=&#34;https://github.com/llvm/llvm-project/pull/197358&#34;&gt;PR #197358&lt;/a&gt; adding constant expression evaluation for &lt;code&gt;stdc_memreverse8&lt;/code&gt;, implemented in both Clang&amp;rsquo;s AST interpreter and bytecode interpreter. Also adds constexpr test coverage for the typed variants &lt;code&gt;stdc_memreverse8u{8,16,32,64}&lt;/code&gt;.&lt;/p&gt;</description>
+				<description>&lt;p&gt;I like to contribute to open source, here are links to some of my contributions 🙏&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;llvm&#34;&gt;LLVM&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Repository:&lt;/strong&gt; llvm/llvm-project&lt;br&gt;&#xA;&lt;strong&gt;GitHub:&lt;/strong&gt; @chaitanyav&lt;br&gt;&#xA;&lt;strong&gt;Period:&lt;/strong&gt; March 2023 – October 2026&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;1-c23c2y-standard-library-builtins&#34;&gt;1️⃣ C23/C2y Standard Library Builtins&lt;/h3&gt;&#xA;&lt;h4 id=&#34;-c2y-stdc_load8_-endian-aware-load-functions-october-2026&#34;&gt;🟢 C2y stdc_load8_* Endian-Aware Load Functions (October 2026)&lt;/h4&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/llvm/llvm-project/pull/203666&#34;&gt;PR #203666&lt;/a&gt; | Merged October 20, 2026 | C2y Language Feature&lt;/p&gt;&#xA;&lt;p&gt;Implemented all 32 &lt;code&gt;stdc_load8_*&lt;/code&gt; functions from C2y, covering little- and big-endian, signed and unsigned, and aligned and unaligned variants at 8, 16, 32, and 64 bits. Each function reads N bytes from a &lt;code&gt;const unsigned char *&lt;/code&gt; and assembles them into an integer in the requested byte order. Constant evaluation works in both the AST and bytecode interpreters; code generation emits an integer load plus an &lt;code&gt;llvm.bswap&lt;/code&gt; when the requested byte order differs from the target&amp;rsquo;s, so the 8-bit variants never need a swap.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Reading List</title>
